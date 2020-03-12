@@ -1,0 +1,70 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+
+render_html <- function(x, options, ...) {
+  to <- if (is.null(options$to)) tempfile(fileext = '.png') else options$to
+  flextable::save_as_image(x, to, webshot = 'webshot2')
+  knit_print(include_graphics(to))
+}
+
+dir.create('inst/image', showWarnings = FALSE, recursive = TRUE)
+```
+
+# ftExtra
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The ftExtra package provides helper functions for the flextable package: 
+
+* `colformat_md` parses markdown texts in columns
+* `span_header` makes multi-level headers
+
+## Installation
+
+``` r
+remotes::install_github("atusy/ftExtra")
+```
+
+## Example
+
+```{r example, results='hide'}
+library(flextable)
+library(ftExtra)
+```
+
+### Parse markdown texts
+
+```{r, render = render_html, to = 'inst/image/ft_colformat_md.png'}
+data.frame(
+  x = c("**bold**", "*italic*"),
+  y = c("^superscript^", "~subscript~"),
+  z = c("***~ft~^Extra^** is*", "*Cool*"),
+  stringsAsFactors = FALSE
+) %>%
+  flextable::flextable() %>%
+  ftExtra::colformat_md()
+```
+
+
+### Span headers
+
+```{r, render = render_html, to = 'inst/image/ft_span_headers.png'}
+iris %>%
+  head %>%
+  flextable::flextable() %>%
+  ftExtra::span_header()
+```
+
