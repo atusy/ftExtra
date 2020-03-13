@@ -15,11 +15,13 @@ knitr::opts_chunk$set(
 
 render_html <- function(x, options, ...) {
   to <- if (is.null(options$to)) tempfile(fileext = '.png') else options$to
-  flextable::save_as_image(x, to, webshot = 'webshot2')
-  knit_print(include_graphics(to))
+  knit_print(structure(
+    flextable::save_as_image(x, to, webshot = 'webshot2'),
+    class = 'webshot'
+  ))
 }
 
-dir.create('inst/image', showWarnings = FALSE, recursive = TRUE)
+dir.create('man/figures', showWarnings = FALSE, recursive = TRUE)
 ```
 
 # ftExtra
@@ -41,30 +43,38 @@ remotes::install_github("atusy/ftExtra")
 ## Example
 
 ```{r example, results='hide'}
-library(flextable)
 library(ftExtra)
 ```
 
 ### Parse markdown texts
 
-```{r, render = render_html, to = 'inst/image/ft_colformat_md.png'}
+```{r, render = render_html, to = 'man/figures/ft_colformat_md.png'}
 data.frame(
   x = c("**bold**", "*italic*"),
   y = c("^superscript^", "~subscript~"),
   z = c("***~ft~^Extra^** is*", "*Cool*"),
   stringsAsFactors = FALSE
 ) %>%
-  flextable::flextable() %>%
-  ftExtra::colformat_md()
+  as_flextable() %>%
+  colformat_md()
 ```
 
 
 ### Span headers
 
-```{r, render = render_html, to = 'inst/image/ft_span_headers.png'}
+```{r, render = render_html, to = 'man/figures/ft_span_headers.png'}
 iris %>%
   head %>%
-  flextable::flextable() %>%
-  ftExtra::span_header()
+  as_flextable() %>%
+  span_header()
 ```
 
+### Group rows
+
+```{r, render = render_html, to = 'man/figures/ft_group_column.png'}
+library(dplyr, warn.conflicts = FALSE)
+iris %>%
+  group_by(Species) %>%
+  slice(1:2) %>%
+  as_flextable()
+```

@@ -14,8 +14,8 @@ vertical_align <- function(sup, sub) {
   )
 }
 
-parse_md_ <- function(x) {
-  y <- x %>% md2ast %>% ast2df %>% as.list
+parse_md_ <- function(x, .from = 'markdown') {
+  y <- x %>% md2ast(.from = .from) %>% ast2df %>% as.list
 
   dplyr::bind_rows(
     header,
@@ -28,4 +28,6 @@ parse_md_ <- function(x) {
   )
 }
 
-parse_md <- function(x) structure(lapply(x, parse_md_), class = 'paragraph')
+parse_md <- function(x, .from = 'markdown') {
+  structure(lapply(x, parse_md_, .from = .from), class = 'paragraph')
+}

@@ -22,6 +22,8 @@ Imports:
     stringr,
     tidyselect
 Suggests: 
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    knitr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
+VignetteBuilder: knitr

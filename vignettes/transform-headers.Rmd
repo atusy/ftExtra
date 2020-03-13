@@ -1,0 +1,54 @@
+---
+title: "Create multi level headers"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{transform-headers}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignette introduces how to create multi level headers.
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ftExtra)
+```
+
+# Prepare flextable
+
+```{r}
+ft <- iris[1:2, ] %>% as_flextable
+ft
+```
+
+# Separate headers
+
+The `separate_header()` function generates multi-level headers by separating original headers (row names) by delimiters.
+
+```{r}
+ft %>% separate_header()
+```
+
+The `sep` argument defines delimiters by regular expression.
+The default delimiters are `.` and `_`.
+Let's see what happens when `seop = "e"`
+
+```{r}
+ft %>% separate_header(sep = "e")
+```
+
+# Span headers
+
+The `span_header()` function also generates multi-level headers.
+Unlike the `separate_header()` function, the `span_header()` function merges adjacent headers if they have same values.
+
+```{r}
+ft %>% span_header()
+```
+

@@ -21,7 +21,6 @@ remotes::install_github("atusy/ftExtra")
 ## Example
 
 ``` r
-library(flextable)
 library(ftExtra)
 ```
 
@@ -34,19 +33,31 @@ data.frame(
   z = c("***~ft~^Extra^** is*", "*Cool*"),
   stringsAsFactors = FALSE
 ) %>%
-  flextable::flextable() %>%
-  ftExtra::colformat_md()
+  as_flextable() %>%
+  colformat_md()
 ```
 
-<img src="inst/image/ft_colformat_md.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ### Span headers
 
 ``` r
 iris %>%
   head %>%
-  flextable::flextable() %>%
-  ftExtra::span_header()
+  as_flextable() %>%
+  span_header()
 ```
 
-<img src="inst/image/ft_span_headers.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+### Group rows
+
+``` r
+library(dplyr, warn.conflicts = FALSE)
+iris %>%
+  group_by(Species) %>%
+  slice(1:2) %>%
+  as_flextable()
+```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />

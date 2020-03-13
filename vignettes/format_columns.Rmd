@@ -1,0 +1,39 @@
+---
+title: "Format columns"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{format_columns}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignette introduces how to format columns in flextable.
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ftExtra)
+```
+
+# Treat character columns as markdown columns
+
+The example below shows that `colformat_md()` function parses markdown texts in flextable.
+
+```{r}
+data.frame(
+  x = c("**bold**", "*italic*"),
+  y = c("^superscript^", "~subscript~"),
+  z = c("***~ft~^Extra^** is*", "*Cool*"),
+  stringsAsFactors = FALSE
+) %>%
+  as_flextable() %>%
+  colformat_md()
+```
+
+Currently, **bold**, *italic*, ^superscript^, and ~subscript~ are supported.
+Note that other syntax may result in unexpected behaviors.

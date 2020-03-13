@@ -1,0 +1,86 @@
+---
+title: "Group rows"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{group-rows}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignette introduces nice and easy way to display grouped data frame created by `dplyr::group_by`.
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=FALSE}
+library(ftExtra)
+library(dplyr)
+```
+
+```{r setup2, ref.label='setup', eval=FALSE}
+
+```
+
+
+```{r}
+grouped_iris <- iris %>%
+  group_by(Species) %>%
+  slice(1, 2)
+
+grouped_mtcars <- mtcars %>%
+  mutate(model = rownames(mtcars)) %>%
+  head %>%
+  select(model, cyl, mpg, disp, am) %>%
+  group_by(am, cyl)
+```
+
+# Groups as labels
+
+## Single grouping columns
+
+```{r}
+grouped_iris %>% as_flextable()
+```
+
+## Multiple grouping columns
+
+```{r}
+grouped_mtcars %>% as_flextable()
+```
+
+# Groups as merged columns
+
+By specifying `as_flextable(groups_to = 'merged')`,
+grouping variables are merged vertically.
+In this case, the default theme is changed to `flextable::theme_vanilla`
+because the booktab theme is not intuitive.
+
+## Single grouping variable
+
+```{r}
+grouped_iris %>%
+  as_flextable(groups_to = 'merged')
+```
+
+## Multiple grouping variables
+
+```{r}
+grouped_mtcars %>%
+  as_flextable(groups_to = 'merged') %>%
+  flextable::theme_vanilla()
+```
+
+## Position of grouping variables
+
+Grouping variables are moved to left by default.
+If you want to keep their positions, specify `group_pos = 'asis'`.
+
+```{r}
+grouped_mtcars %>%
+  as_flextable(groups_to = 'merged', groups_pos = 'asis') %>%
+  flextable::theme_vanilla()
+```
