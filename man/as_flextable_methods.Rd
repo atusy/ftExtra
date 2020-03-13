@@ -9,7 +9,7 @@
 \method{as_flextable}{grouped_df}(
   x,
   groups_to = c("labels", "merged", "asis"),
-  groups_pos = c("left", "right", "asis"),
+  groups_pos = c("left", "asis"),
   ...
 )
 

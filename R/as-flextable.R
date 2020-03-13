@@ -25,7 +25,7 @@ flextable::as_flextable
 as_flextable.grouped_df <- function(
   x,
   groups_to = c('labels', 'merged', 'asis'),
-  groups_pos = c('left', 'right', 'asis'),
+  groups_pos = c('left', 'asis'),
   ...
 ) {
   groups_to <- match.arg(groups_to)
