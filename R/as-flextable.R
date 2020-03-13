@@ -5,7 +5,7 @@ flextable::as_flextable
 #' @export
 as_flextable.grouped_df <- function(x, ...) {
   x %>%
-    dplyr::ungroup %>%
+    dplyr::ungroup()%>%
     flextable::as_grouped_data(
       setdiff(names(attr(x, 'groups', exact = TRUE)), '.rows')
     ) %>%

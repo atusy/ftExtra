@@ -4,9 +4,21 @@
 \alias{separate_header}
 \title{Separate the header based on delimiters}
 \usage{
-separate_header(x, sep = "[_\\\\.]", fill = FALSE, ...)
+separate_header(
+  x,
+  sep = "[_\\\\.]",
+  fill = FALSE,
+  theme_fun = flextable::theme_booktabs,
+  ...
+)
 
-separate_header(x, sep = "[_\\\\.]", fill = FALSE, ...)
+separate_header(
+  x,
+  sep = "[_\\\\.]",
+  fill = FALSE,
+  theme_fun = flextable::theme_booktabs,
+  ...
+)
 }
 \arguments{
 \item{x}{A \code{flextable} object`}
@@ -29,6 +41,9 @@ happens when there are not enough pieces. There are three valid options:
 \item "right": fill with missing values on the right
 \item "left": fill with missing values on the left
 }}
+
+\item{theme_fun}{a function theme to apply before returning the flextable.
+set to NULL for none.}
 
 \item{...}{Passed to \code{theme_fun}}
 }

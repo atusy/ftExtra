@@ -7,7 +7,7 @@
 #'
 #' @export
 separate_header <- function(
-  x, sep = '[_\\.]', fill = FALSE, ...
+  x, sep = '[_\\.]', fill = FALSE, theme_fun = flextable::theme_booktabs, ...
 ) {
   header <- names(x$header$dataset)
 

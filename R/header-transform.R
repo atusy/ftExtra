@@ -62,6 +62,8 @@ separate_header <- function(
 #' Span the header based on delimiters
 #'
 #' @inherit separate_header
+#' @inheritParams tidyr::separate
+#' @inheritParams flextable::flextable
 #' @export
 span_header <- function(
   x, sep = '[_\\.]', theme_fun = flextable::theme_booktabs, ...
