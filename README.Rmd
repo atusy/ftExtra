@@ -14,14 +14,16 @@ knitr::opts_chunk$set(
 )
 
 render_html <- function(x, options, ...) {
-  to <- if (is.null(options$to)) tempfile(fileext = '.png') else options$to
+  to <- tempfile(fileext = '.png')
   knit_print(structure(
     flextable::save_as_image(x, to, webshot = 'webshot2'),
     class = 'webshot'
   ))
 }
 
-dir.create('man/figures', showWarnings = FALSE, recursive = TRUE)
+knitr::opts_chunk$set(
+  fig.path = "man/figures/"
+)
 ```
 
 # ftExtra
@@ -48,7 +50,7 @@ library(ftExtra)
 
 ### Parse markdown texts
 
-```{r, render = render_html, to = 'man/figures/ft_colformat_md.png'}
+```{r colformat_md, render = render_html}
 data.frame(
   x = c("**bold**", "*italic*"),
   y = c("^superscript^", "~subscript~"),
@@ -62,7 +64,7 @@ data.frame(
 
 ### Span headers
 
-```{r, render = render_html, to = 'man/figures/ft_span_headers.png'}
+```{r span-header, render = render_html}
 iris %>%
   head %>%
   as_flextable() %>%
@@ -71,7 +73,7 @@ iris %>%
 
 ### Group rows
 
-```{r, render = render_html, to = 'man/figures/ft_group_column.png'}
+```{r group-rows, render = render_html}
 library(dplyr, warn.conflicts = FALSE)
 iris %>%
   group_by(Species) %>%

@@ -37,7 +37,7 @@ data.frame(
   colformat_md()
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/colformat_md-1.png" width="100%" />
 
 ### Span headers
 
@@ -48,7 +48,7 @@ iris %>%
   span_header()
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/span-header-1.png" width="100%" />
 
 ### Group rows
 
@@ -60,4 +60,4 @@ iris %>%
   as_flextable()
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/group-rows-1.png" width="100%" />
