@@ -23,7 +23,7 @@ flatten_ast <- function(x) {
 
 branch2list <- function(x) {
   c(
-    txt = if (is.null(x$c)) ' ' else x$c,
+    txt = if ('Space' %in% x$t) ' ' else x$c,
     as.list(stats::setNames(rep(TRUE, length(x$t)), x$t))
   )
 }
