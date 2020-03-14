@@ -14,7 +14,7 @@ fill_header <- function(x, fill = TRUE) {
     )
 }
 
-merge_header <- function(x, merge) {
+merge_header <- function(x, merge = TRUE) {
   if (!merge) return(x)
   x %>%
     flextable::merge_h(part = 'header') %>%
