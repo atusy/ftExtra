@@ -5,7 +5,9 @@ vertical_align <- function(sup, sub) {
   sup <- sup %||% .f
   sub <- sub %||% .f
   dplyr::if_else(
-    sub, 'subscript', dplyr::if_else(sup, 'superscript', NA_character_)
+    is.na(sub) | !sub,
+    dplyr::if_else(sup, 'superscript', NA_character_),
+    'subscript'
   )
 }
 
