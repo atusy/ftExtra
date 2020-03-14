@@ -1,10 +1,5 @@
 header <- flextable::as_paragraph('')[[1L]][-1L, ]
 
-`%||%` <- function(e1, e2) {
-  if (is.null(e1)) return(e2)
-  e1
-}
-
 vertical_align <- function(sup, sub) {
   .f <- rep(FALSE, max(1, length(sup), length(sub)))
   sup <- sup %||% .f

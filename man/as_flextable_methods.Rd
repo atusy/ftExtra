@@ -13,7 +13,7 @@
   ...
 )
 
-\method{as_flextable}{data.frame}(x, ...)
+\method{as_flextable}{data.frame}(x, col_keys = names(x), ...)
 }
 \arguments{
 \item{x}{object to be transformed as flextable}
@@ -24,6 +24,9 @@
 \code{group_pos}. Choices are \code{left} (default) or \code{asis}.}
 
 \item{...}{arguments for custom methods}
+
+\item{col_keys}{columns names/keys to display. If some column names are not in
+the dataset, they will be added as blank columns by default.}
 }
 \description{
 This is a convenient function

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • ftExtra</title>
+<title>Specify blank columns easily via <code>col_keys</code> — with_blank • ftExtra</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,9 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Specify blank columns easily via <code>col_keys</code> — with_blank" />
+<meta property="og:description" content="Specify blank columns easily via col_keys" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -54,7 +56,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -119,66 +121,42 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Specify blank columns easily via <code>col_keys</code></h1>
+    <small class="dont-index">Source: <a href='https://github.com/atusy/ftExtra/blob/master/R/col-keys.R'><code>R/col-keys.R</code></a></small>
+    <div class="hidden name"><code>with_blank.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Specify blank columns easily via <code>col_keys</code></p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>with_blank</span>(<span class='kw'>after</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>before</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="as_flextable_methods.html">as_flextable(<i>&lt;grouped_df&gt;</i>)</a></code> <code><a href="as_flextable_methods.html">as_flextable(<i>&lt;data.frame&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>method to convert object to flextable</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="colformat_md.html">colformat_md()</a></code> </p>
-        </td>
-        <td><p>Format character columns as markdown text</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="separate_header.html">separate_header()</a></code> </p>
-        </td>
-        <td><p>Separate the header based on delimiters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="span_header.html">span_header()</a></code> </p>
-        </td>
-        <td><p>Span the header based on delimiters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="with_blank.html">with_blank()</a></code> </p>
-        </td>
-        <td><p>Specify blank columns easily via <code>col_keys</code></p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>after, before</th>
+      <td><p>Blank columns are added after/before the selected columns.
+Selections can be done by the semantics of <code><a href='https://dplyr.tidyverse.org/reference/select.html'>dplyr::select</a></code>.</p></td>
+    </tr>
     </table>
-  </div>
 
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>iris</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/flextable/man/as_flextable.html'>as_flextable</a></span>(<span class='kw'>col_keys</span> <span class='kw'>=</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>ends_with</a></span>(<span class='st'>'Width'</span>))</div><div class='output co'>#&gt; <span class='error'>Error: `ends_with()` must be used within a *selecting* function.</span>
+#&gt; <span class='error'><span style='color: #0000BB;'>ℹ</span><span> See &lt;https://tidyselect.r-lib.org/reference/faq-selection-context.html&gt;.</span></div><div class='input'>
+</div></span></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
 

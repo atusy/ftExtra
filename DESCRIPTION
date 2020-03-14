@@ -25,6 +25,7 @@ Imports:
     purrr,
     magrittr,
     rmarkdown,
+    rlang,
     stringr,
     tidyselect
 Suggests: 

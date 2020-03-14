@@ -58,11 +58,15 @@ as_flextable.grouped_df <- function(
 }
 
 #' @rdname as_flextable_methods
+#'
+#' @inheritParams flextable::flextable
+#'
 #' @examples
 #' # For data.frame
 #' iris %>% head %>% as_flextable()
 #'
 #' @export
-as_flextable.data.frame <- function(x, ...) {
-  flextable::flextable(x, ...)
+as_flextable.data.frame <- function(x, col_keys = names(x), ...) {
+  if (is.function(col_keys)) col_keys = col_keys(x)
+  flextable::flextable(x, col_keys = col_keys, ...)
 }

@@ -145,7 +145,7 @@ from any objects.</p>
 )
 
 <span class='co'># S3 method for data.frame</span>
-<span class='fu'><a href='https://rdrr.io/pkg/flextable/man/as_flextable.html'>as_flextable</a></span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/pkg/flextable/man/as_flextable.html'>as_flextable</a></span>(<span class='no'>x</span>, <span class='kw'>col_keys</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>x</span>), <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,6 +166,11 @@ from any objects.</p>
     <tr>
       <th>...</th>
       <td><p>arguments for custom methods</p></td>
+    </tr>
+    <tr>
+      <th>col_keys</th>
+      <td><p>columns names/keys to display. If some column names are not in
+the dataset, they will be added as blank columns by default.</p></td>
     </tr>
     </table>
 
