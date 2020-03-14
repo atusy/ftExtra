@@ -1,1 +1,5 @@
 dedestination: docs
+home:
+  links:
+  - text: Sponsor atusy!
+    href: https://github.com/sponsors/atusy

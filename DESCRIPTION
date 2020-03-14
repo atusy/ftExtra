@@ -1,13 +1,19 @@
 Package: ftExtra
 Title: Helper Functions For Flextable
 Version: 0.0.0.9000
+Author: Atsushi Yasumoto [aut, cph, cre] (<https://orcid.org/0000-0002-8335-495X>)
 Authors@R: 
     person(given = "Atsushi",
            family = "Yasumoto",
            role = c("aut", "cre"),
            email = "atusy.rpkg@google.com",
            comment = c(ORCID = "0000-0002-8335-495X"))
-Description: What the package does (one paragraph).
+Maintainer: Atsushi Yasumoto <atusy.rpkg@gmail.com>
+URL: https://github.com/atusy/ftExtra
+BugReports: https://github.com/atusy/ftExtra/issues
+Description:
+    This package provides shortcuts to generate display tables based on the flextable package.
+    Features include spanning headers, grouping rows, parsing markdown texts and so on.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -27,3 +33,4 @@ Suggests:
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
 VignetteBuilder: knitr
+Language: en-US
