@@ -8,7 +8,7 @@
 \usage{
 \method{as_flextable}{grouped_df}(
   x,
-  groups_to = c("labels", "merged", "asis"),
+  groups_to = c("titles", "merged", "asis"),
   groups_pos = c("left", "asis"),
   ...
 )
@@ -18,7 +18,7 @@
 \arguments{
 \item{x}{object to be transformed as flextable}
 
-\item{groups_to}{One of \code{labels}, \code{merged}, or \code{asis}. See examples for the result.}
+\item{groups_to}{One of \code{titles}, \code{merged}, or \code{asis}. See examples for the result.}
 
 \item{groups_pos}{When \code{groups_to = "merged"}, grouping columns are reordered according to
 \code{group_pos}. Choices are \code{left} (default) or \code{asis}.}
@@ -38,8 +38,8 @@ from any objects.
 # For grouped_df
 grouped_df <- iris \%>\% dplyr::group_by(Species) \%>\% dplyr::slice(1, 2)
 
-as_flextable(grouped_df, groups_to = 'labels')
-as_flextable(grouped_df, groups_to = 'labels', hide_grouplabel = TRUE)
+as_flextable(grouped_df, groups_to = 'titles')
+as_flextable(grouped_df, groups_to = 'titles', hide_grouplabel = TRUE)
 as_flextable(grouped_df, groups_to = 'merged')
 as_flextable(grouped_df, groups_to = 'asis')
 

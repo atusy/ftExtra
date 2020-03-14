@@ -6,7 +6,7 @@ flextable::as_flextable
 #' @name as_flextable_methods
 #' @inherit flextable::as_flextable
 #' @param groups_to
-#'   One of `labels`, `merged`, or `asis`. See examples for the result.
+#'   One of `titles`, `merged`, or `asis`. See examples for the result.
 #' @param groups_pos
 #'   When `groups_to = "merged"`, grouping columns are reordered according to
 #'   `group_pos`. Choices are `left` (default) or `asis`.
@@ -16,15 +16,15 @@ flextable::as_flextable
 #' # For grouped_df
 #' grouped_df <- iris %>% dplyr::group_by(Species) %>% dplyr::slice(1, 2)
 #'
-#' as_flextable(grouped_df, groups_to = 'labels')
-#' as_flextable(grouped_df, groups_to = 'labels', hide_grouplabel = TRUE)
+#' as_flextable(grouped_df, groups_to = 'titles')
+#' as_flextable(grouped_df, groups_to = 'titles', hide_grouplabel = TRUE)
 #' as_flextable(grouped_df, groups_to = 'merged')
 #' as_flextable(grouped_df, groups_to = 'asis')
 #'
 #' @export
 as_flextable.grouped_df <- function(
   x,
-  groups_to = c('labels', 'merged', 'asis'),
+  groups_to = c('titles', 'merged', 'asis'),
   groups_pos = c('left', 'asis'),
   ...
 ) {
@@ -37,7 +37,7 @@ as_flextable.grouped_df <- function(
 
   g <- group_of(x)
 
-  if (groups_to == 'labels') {
+  if (groups_to == 'titles') {
     return(
       x %>%
         dplyr::ungroup() %>%

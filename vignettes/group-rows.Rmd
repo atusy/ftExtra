@@ -38,12 +38,17 @@ grouped_mtcars <- mtcars %>%
   group_by(am, cyl)
 ```
 
-# Groups as labels
+# Groups as titles
 
 ## Single grouping columns
 
 ```{r}
 grouped_iris %>% as_flextable()
+```
+
+
+```{r}
+grouped_iris %>% as_flextable(hide_grouplabel = TRUE)
 ```
 
 ## Multiple grouping columns
