@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![R build
+status](https://github.com/atusy/ftExtra/workflows/R-CMD-check/badge.svg)](https://github.com/atusy/ftExtra/actions)
 <!-- badges: end -->
 
 The ftExtra package provides helper functions for the flextable package:
