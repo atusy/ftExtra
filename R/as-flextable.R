@@ -31,7 +31,9 @@ as_flextable.grouped_df <- function(
   groups_to <- match.arg(groups_to)
   groups_pos <- match.arg(groups_pos)
 
-  if (groups_to == 'asis') as_flextable.data.frame(dplyr::ungroup(x), ...)
+  if (groups_to == 'asis') {
+    return(as_flextable.data.frame(dplyr::ungroup(x), ...))
+  }
 
   g <- group_of(x)
 
