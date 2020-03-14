@@ -4,8 +4,8 @@ insert_blank <- function(after = NULL, before = NULL, data) {
 
   c(
     names(data),
-    paste0('..after', seq(length(.after))),
-    paste0('..before', seq(length(.before)))
+    sprintf('..after%s', seq_along(.after)),
+    sprintf('..before%s', seq_along(.before))
   )[order(c(seq(length(data)), .after, .before))]
 }
 
