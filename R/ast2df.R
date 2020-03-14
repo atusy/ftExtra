@@ -5,9 +5,7 @@ add_type <- function(x, t) {
 
 resolve_type <- function(x) {
   if (is.atomic(x$c)) return(x)
-  if (identical(names(x$c), c('t', 'c'))) {
-    return(add_type(x$c, x$t))
-  }
+  if (identical(names(x$c), c('t', 'c'))) return(add_type(x$c, x$t))
   return(lapply(x$c, add_type, x$t))
 }
 
@@ -18,7 +16,7 @@ flatten_branch <- function(x) {
     unlist(recursive = FALSE)
 }
 
-flatten_ast <- function(x, n = -1) {
+flatten_ast <- function(x) {
   n <- purrr::vec_depth(x) / 2 - 1.5 # (vec_depth(x) - 1) / 2 - 1
   purrr::compose(!!!rep(list(flatten_branch), n))(x)
 }
