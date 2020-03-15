@@ -1,4 +1,4 @@
-insert_blank <- function(after = NULL, before = NULL, data) {
+insert_blanks <- function(after = NULL, before = NULL, data) {
   .after <- tidyselect::eval_select(after, data) + 0.1
   .before <- tidyselect::eval_select(before, data) - 0.1
 
@@ -20,8 +20,8 @@ insert_blank <- function(after = NULL, before = NULL, data) {
 #'   as_flextable(col_keys = with_blank(dplyr::ends_with('Width')))
 #'
 #' @export
-with_blank <- function(after = NULL, before = NULL) {
+with_blanks <- function(after = NULL, before = NULL) {
   after = rlang::enquo(after)
   before = rlang::enquo(before)
-  function(data) insert_blank(after = after, before = before, data = data)
+  function(data) insert_blanks(after = after, before = before, data = data)
 }

@@ -48,22 +48,27 @@ transform_header <- function(
 #' @inheritParams tidyr::separate
 #' @inheritParams flextable::flextable
 #' @param ... Passed to `theme_fun`
+#'
+#' @examples
+#' iris %>% as_flextable %>% separate_header
+#'
 #' @export
 separate_header <- function(
   x, sep = '[_\\.]', theme_fun = flextable::theme_booktabs, ...
 ) {
   transform_header(
-    x, sep = sep, theme_fun = theme_fun,
-    .fill = FALSE, .merge = FALSE,
-    ...
+    x, sep = sep, theme_fun = theme_fun, .fill = FALSE, .merge = FALSE, ...
   )
 }
-
 #' Span the header based on delimiters
 #'
 #' @inherit separate_header
 #' @inheritParams tidyr::separate
 #' @inheritParams flextable::flextable
+#'
+#' @examples
+#' iris %>% as_flextable %>% span_header
+#'
 #' @export
 span_header <- function(
   x, sep = '[_\\.]', theme_fun = flextable::theme_booktabs, ...
