@@ -17,7 +17,7 @@ insert_blanks <- function(after = NULL, before = NULL, data) {
 #'
 #' @examples
 #' iris %>%
-#'   as_flextable(col_keys = with_blank(dplyr::ends_with('Width')))
+#'   as_flextable(col_keys = with_blanks(dplyr::ends_with('Width')))
 #'
 #' @export
 with_blanks <- function(after = NULL, before = NULL) {
