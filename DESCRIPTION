@@ -1,18 +1,18 @@
 Package: ftExtra
 Title: Extensions for Flextable
-Version: 0.0.0.9000
+Version: 0.0.1
 Author: Atsushi Yasumoto [aut, cph, cre] (<https://orcid.org/0000-0002-8335-495X>)
 Authors@R: 
     person(given = "Atsushi",
            family = "Yasumoto",
-           role = c("aut", "cre"),
-           email = "atusy.rpkg@google.com",
+           role = c("aut", "cph", "cre"),
+           email = "atusy.rpkg@gmail.com",
            comment = c(ORCID = "0000-0002-8335-495X"))
 Maintainer: Atsushi Yasumoto <atusy.rpkg@gmail.com>
 URL: https://github.com/atusy/ftExtra
 BugReports: https://github.com/atusy/ftExtra/issues
 Description:
-    This package provides extensions of the flextable package to generate display tables easily.
+    Build display tables easily by extending the functionality of the flextable package.
     Features include spanning headers, grouping rows, parsing markdown texts and so on.
 License: MIT + file LICENSE
 Encoding: UTF-8
