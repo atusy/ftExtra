@@ -50,7 +50,7 @@ as_flextable.grouped_df <- function(
     return(
       x %>%
         dplyr::ungroup() %>%
-        dplyr::select(if (groups_pos == 'left') g, dplyr::everything()) %>%
+        dplyr::select(if (groups_pos == 'left') g, tidyselect::everything()) %>%
         as_flextable.data.frame(...) %>%
         flextable::merge_v(g[1L], g) %>%
         flextable::theme_vanilla() %>%

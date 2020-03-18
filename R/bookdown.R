@@ -2,10 +2,10 @@
 #'
 #' @noRd
 unpreserve_caption <- function(x) {
-  stringr::str_replace_all(
-    x,
+  gsub(
     '(<!--html_preserve-->.*)(<caption>.*</caption>)(.*<!--/html_preserve-->)',
-    '\\1<!--/html_preserve-->\\2<!--html_preserve-->\\3'
+    '\\1<!--/html_preserve-->\\2<!--html_preserve-->\\3',
+    x
   )
 }
 
