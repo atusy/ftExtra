@@ -20,7 +20,8 @@ parse_md_ <- function(x, .from = 'markdown') {
       txt = y$txt,
       italic = y$Emph %||% NA,
       bold = y$Strong %||% NA,
-      vertical.align = vertical_align(y$Superscript, y$Subscript)
+      vertical.align = vertical_align(y$Superscript, y$Subscript),
+      stringsAsFactors = FALSE
     )
   )
 }
