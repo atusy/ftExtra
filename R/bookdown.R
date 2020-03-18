@@ -38,7 +38,7 @@ loves_bookdown <- function() {
   fmt <- knitr::opts_knit$get("rmarkdown.pandoc.to")
   current_hook <- knitr::knit_hooks$get('document')
 
-  if (!fmt %in% love) {
+  if (!fmt %in% names(love)) {
     warning("ftExtra's love has not reached to ", fmt, '.')
   }
 
