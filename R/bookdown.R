@@ -40,6 +40,7 @@ loves_bookdown <- function() {
 
   if (!fmt %in% names(love)) {
     warning("ftExtra's love has not reached to ", fmt, '.')
+    return(invisible())
   }
 
   new_hook <- love[[fmt]]
