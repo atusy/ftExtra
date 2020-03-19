@@ -31,7 +31,9 @@ love <- list(
   docx = as_caption
 )
 
-#' Enable an output hook
+#' Enable cross referencing with bookdown
+#'
+#' \lifecycle{experimental}
 #'
 #' @export
 loves_bookdown <- function() {

@@ -1,22 +1,21 @@
 Package: ftExtra
 Title: Extensions for Flextable
 Version: 0.0.1
-Author: Atsushi Yasumoto [aut, cph, cre] (<https://orcid.org/0000-0002-8335-495X>)
 Authors@R: 
     person(given = "Atsushi",
            family = "Yasumoto",
            role = c("aut", "cph", "cre"),
            email = "atusy.rpkg@gmail.com",
            comment = c(ORCID = "0000-0002-8335-495X"))
+Author: Atsushi Yasumoto [aut, cph, cre]
+    (<https://orcid.org/0000-0002-8335-495X>)
 Maintainer: Atsushi Yasumoto <atusy.rpkg@gmail.com>
+Description: Build display tables easily by extending the
+    functionality of the flextable package.  Features include spanning
+    headers, grouping rows, parsing markdown texts and so on.
+License: MIT + file LICENSE
 URL: https://github.com/atusy/ftExtra
 BugReports: https://github.com/atusy/ftExtra/issues
-Description:
-    Build display tables easily by extending the functionality of the flextable package.
-    Features include spanning headers, grouping rows, parsing markdown texts and so on.
-License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
 Imports:
     dplyr,
     jsonlite,
@@ -27,13 +26,19 @@ Imports:
     rmarkdown,
     rlang,
     stringr,
-    tidyselect
+    tidyselect,
+    lifecycle
 Suggests: 
     testthat (>= 2.1.0),
     tibble,
     knitr
+VignetteBuilder: 
+    knitr
+RdMacros: 
+    lifecycle
+Encoding: UTF-8
+Language: en-US
+LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
-VignetteBuilder: knitr
-Language: en-US
 SystemRequirements: pandoc (>= 1.12.3) - http://pandoc.org
