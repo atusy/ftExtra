@@ -36,13 +36,13 @@ love <- list(
 #' @export
 loves_bookdown <- function() {
   fmt <- knitr::opts_knit$get("rmarkdown.pandoc.to")
-  current_hook <- knitr::knit_hooks$get('document')
-
+  if (is.null(fmt)) return(invisible())
   if (!fmt %in% names(love)) {
     warning("ftExtra's love has not reached to ", fmt, '.')
     return(invisible())
   }
 
+  current_hook <- knitr::knit_hooks$get('document')
   new_hook <- love[[fmt]]
   knitr::knit_hooks$set(
     document = function(x) new_hook(current_hook(x))
