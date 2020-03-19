@@ -2,10 +2,10 @@
 % Please edit documentation in R/bookdown.R
 \name{loves_bookdown}
 \alias{loves_bookdown}
-\title{Enable an output hook}
+\title{Enable cross referencing with bookdown}
 \usage{
 loves_bookdown()
 }
 \description{
-Enable an output hook
+\lifecycle{experimental}
 }
