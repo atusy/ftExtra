@@ -1,3 +1,7 @@
+# ftExtra 0.0.1.1
+
+* Fix `colformat_md()` failing under Windows environment (Issue #6, PR #7)
+
 # ftExtra 0.0.1
 
 * Add `colformat_md()` which parses markdown text in the body of the flextable object.
