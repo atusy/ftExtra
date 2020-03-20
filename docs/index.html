@@ -100,46 +100,56 @@
 <code>colformat_md</code> parses markdown texts in columns</li>
 <li>
 <code>span_header</code> makes multi-level headers</li>
+<li>and more!</li>
 </ul>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"atusy/ftExtra"</span>)</span></code></pre></div>
+<div id="from-cran" class="section level3">
+<h3 class="hasAnchor">
+<a href="#from-cran" class="anchor"></a>from CRAN</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"ftExtra"</span>)</span></code></pre></div>
+</div>
+<div id="from-github" class="section level3">
+<h3 class="hasAnchor">
+<a href="#from-github" class="anchor"></a>from GitHub</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"atusy/ftExtra"</span>)</span></code></pre></div>
+</div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ftExtra)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ftExtra)</span></code></pre></div>
 <div id="parse-markdown-texts" class="section level3">
 <h3 class="hasAnchor">
 <a href="#parse-markdown-texts" class="anchor"></a>Parse markdown texts</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(</span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"**bold**"</span>, <span class="st">"*italic*"</span>),</span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="dt">y =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"^superscript^"</span>, <span class="st">"~subscript~"</span>),</span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="dt">z =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"***~ft~^Extra^** is*"</span>, <span class="st">"*Cool*"</span>),</span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>) <span class="op">%&gt;%</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/flextable/man/as_flextable.html">as_flextable</a></span>() <span class="op">%&gt;%</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="st">  </span><span class="kw"><a href="reference/colformat_md.html">colformat_md</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"**bold**"</span>, <span class="st">"*italic*"</span>),</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="dt">y =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"^superscript^"</span>, <span class="st">"~subscript~"</span>),</span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="dt">z =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"***~ft~^Extra^** is*"</span>, <span class="st">"*Cool*"</span>),</span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>) <span class="op">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/flextable/man/as_flextable.html">as_flextable</a></span>() <span class="op">%&gt;%</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="st">  </span><span class="kw"><a href="reference/colformat_md.html">colformat_md</a></span>()</span></code></pre></div>
 <p><img src="reference/figures/colformat_md-1.png" width="100%"></p>
 </div>
 <div id="span-headers" class="section level3">
 <h3 class="hasAnchor">
 <a href="#span-headers" class="anchor"></a>Span headers</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>iris <span class="op">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="st">  </span>head <span class="op">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/flextable/man/as_flextable.html">as_flextable</a></span>() <span class="op">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="st">  </span><span class="kw"><a href="reference/span_header.html">span_header</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>iris <span class="op">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="st">  </span>head <span class="op">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/flextable/man/as_flextable.html">as_flextable</a></span>() <span class="op">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="st">  </span><span class="kw"><a href="reference/span_header.html">span_header</a></span>()</span></code></pre></div>
 <p><img src="reference/figures/span-header-1.png" width="100%"></p>
 </div>
 <div id="group-rows" class="section level3">
 <h3 class="hasAnchor">
 <a href="#group-rows" class="anchor"></a>Group rows</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr, <span class="dt">warn.conflicts =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>iris <span class="op">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(Species) <span class="op">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>) <span class="op">%&gt;%</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/flextable/man/as_flextable.html">as_flextable</a></span>()</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr, <span class="dt">warn.conflicts =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>iris <span class="op">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(Species) <span class="op">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>) <span class="op">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/flextable/man/as_flextable.html">as_flextable</a></span>()</span></code></pre></div>
 <p><img src="reference/figures/group-rows-1.png" width="100%"></p>
 </div>
 </div>
@@ -176,6 +186,7 @@
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/atusy/ftExtra/actions"><img src="https://github.com/atusy/ftExtra/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://CRAN.R-project.org/package=ftExtra"><img src="https://www.r-pkg.org/badges/version/ftExtra" alt="CRAN status"></a></li>
 </ul>
 </div>
 </div>
