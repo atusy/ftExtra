@@ -1,3 +1,14 @@
+## Resubmission
+
+This is a resubmission. In this version I have 2 changes,
+the former requested by CRAN and the latter by myself:
+
+* Write package name in single quotes (e.g. 'flextable') in Title and Description.
+* Following minor refactorings to improve robustness of codes
+    * Use `tidyselect::everything` instead of `dplyr::everything`
+    * Specify `stringAsFactors = FALSE` when calling `data.frame`
+    * `shQuote`d Pandoc's path 
+
 ## Test environments
 * local
   * Debian GNU/Linux 10 (buster), R 3.6.2
