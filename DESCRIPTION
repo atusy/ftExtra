@@ -1,5 +1,5 @@
 Package: ftExtra
-Title: Extensions for Flextable
+Title: Extensions for 'Flextable'
 Version: 0.0.1
 Authors@R: 
     person(given = "Atsushi",
@@ -11,7 +11,7 @@ Author: Atsushi Yasumoto [aut, cph, cre]
     (<https://orcid.org/0000-0002-8335-495X>)
 Maintainer: Atsushi Yasumoto <atusy.rpkg@gmail.com>
 Description: Build display tables easily by extending the
-    functionality of the flextable package.  Features include spanning
+    functionality of the 'flextable' package. Features include spanning
     headers, grouping rows, parsing markdown texts and so on.
 License: MIT + file LICENSE
 URL: https://github.com/atusy/ftExtra
@@ -26,16 +26,13 @@ Imports:
     rmarkdown,
     rlang,
     stringr,
-    tidyselect,
-    lifecycle
+    tidyselect
 Suggests: 
     testthat (>= 2.1.0),
     tibble,
     knitr
 VignetteBuilder: 
     knitr
-RdMacros: 
-    lifecycle
 Encoding: UTF-8
 Language: en-US
 LazyData: true
