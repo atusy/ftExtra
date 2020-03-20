@@ -8,7 +8,7 @@ md2ast = function(x, .from = 'markdown') {
   jsonlite::fromJSON(
     system(
       paste(
-        rmarkdown::pandoc_exec(),
+        shQuote(rmarkdown::pandoc_exec()),
         tf,
         '--from', .from,
         '--to json'
