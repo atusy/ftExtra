@@ -28,12 +28,12 @@ The example below shows that `colformat_md()` function parses markdown texts in 
 data.frame(
   x = c("**bold**", "*italic*"),
   y = c("^superscript^", "~subscript~"),
-  z = c("***~ft~^Extra^** is*", "*Cool*"),
+  z = c("*[**~ft~^Extra^**](https://ftextra.atusy.net/) is*", "*Cool*"),
   stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
   colformat_md()
 ```
 
-Currently, **bold**, *italic*, ^superscript^, and ~subscript~ are supported.
+Currently, **bold**, *italic*, ^superscript^, ~subscript~, and link are supported.
 Note that other syntax may result in unexpected behaviors.
