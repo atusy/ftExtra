@@ -1,5 +1,15 @@
 add_type <- function(x, t) {
-  x$t <- c(x$t, t)
+  has_link = x$t %in% c('Image', 'Link')
+
+  x$t <- c(
+    structure(list(if (has_link) x$c[[3]][[1]] else TRUE), .Names = x$t),
+    if (is.list(t)) t else structure(list(TRUE), .Names = t)
+  )
+
+  if (has_link) {
+    x$c <- x$c[[2]]
+  }
+
   x
 }
 
@@ -22,10 +32,7 @@ flatten_ast <- function(x) {
 }
 
 branch2list <- function(x) {
-  c(
-    txt = if ('Space' %in% x$t) ' ' else x$c,
-    as.list(stats::setNames(rep(TRUE, length(x$t)), x$t))
-  )
+  c(txt = if ('Space' %in% names(x$t)) ' ' else x$c, x$t)
 }
 
 ast2df <- function(x) {
