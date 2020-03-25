@@ -4,10 +4,12 @@
 \alias{colformat_md}
 \title{Format character columns as markdown text}
 \usage{
-colformat_md(x)
+colformat_md(x, auto_color_link = "blue")
 }
 \arguments{
 \item{x}{A \code{flextable} object}
+
+\item{auto_color_link}{A color of the link texts.}
 }
 \description{
 Format character columns as markdown text
