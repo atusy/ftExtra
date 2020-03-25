@@ -8,7 +8,7 @@ branch <- list(
   )
 )
 
-res_branch <- list(t = c('Str', 'Emph'), c = 'text')
+res_branch <- list(t = list(Str = TRUE, Emph = TRUE), c = 'text')
 
 tree <- list(list(
   t = 'Para',
@@ -16,8 +16,8 @@ tree <- list(list(
 ))
 
 res_tree <- list(
-  list(t = c('Str', 'Emph', 'Para'), c = 'text'),
-  list(t = c('Str', 'Emph', 'Para'), c = 'text')
+  list(t = list(Str = TRUE, Emph = TRUE, Para = TRUE), c = 'text'),
+  list(t = list(Str = TRUE, Emph = TRUE, Para = TRUE), c = 'text')
 )
 
 test_that('add_type', {
@@ -43,7 +43,7 @@ test_that('branch2list', {
     list(txt = 'text', Str = TRUE, Emph = TRUE)
   )
   expect_identical(
-    branch2list(list(t = 'Space')), list(txt = ' ', Space = TRUE)
+    branch2list(list(t = list('Space' = TRUE))), list(txt = ' ', Space = TRUE)
   )
 })
 
