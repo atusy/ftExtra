@@ -1,3 +1,7 @@
+# ftExtra 0.0.2
+
+* Support link syntax with `colformat_md()`. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
+
 # ftExtra 0.0.1
 
 * Add `colformat_md()` which parses markdown text in the body of the flextable object.
