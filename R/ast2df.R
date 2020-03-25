@@ -1,3 +1,11 @@
+# Implemented but not used yet
+flatten_attr <- function(a) {
+  c(
+    list(id = a[[1]], class = unlist(a[[2]])),
+    stats::setNames(map_chr(a[[3]], 2), map_chr(a[[3]], 1))
+  )
+}
+
 add_type <- function(x, t) {
   has_link = x$t %in% c('Image', 'Link')
 
