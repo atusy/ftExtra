@@ -1,6 +1,6 @@
 # ftExtra 0.0.2
 
-* Support link syntax with `colformat_md()`. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
+* Support link and image syntax with `colformat_md()`. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
 
 # ftExtra 0.0.1
 
