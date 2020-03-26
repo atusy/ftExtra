@@ -1,6 +1,7 @@
 # ftExtra 0.0.2
 
 * Support link and image syntax with `colformat_md()`. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
+* Add `.from` option to `colformat_md()` so to specify Pandoc's `--from` argument (e.g., `'markdown+emoji'`, `'html'`, and so on).
 
 # ftExtra 0.0.1
 

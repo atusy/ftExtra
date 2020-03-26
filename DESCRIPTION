@@ -1,6 +1,6 @@
 Package: ftExtra
 Title: Extensions for 'Flextable'
-Version: 0.0.1.2
+Version: 0.0.1.3
 Authors@R: 
     person(given = "Atsushi",
            family = "Yasumoto",
