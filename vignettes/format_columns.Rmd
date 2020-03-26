@@ -54,4 +54,4 @@ data.frame(
   colformat_md()
 ```
 
-The R logo is distributed by The R Foundation with the [C-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
+The R logo is distributed by The R Foundation with the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
