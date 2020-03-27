@@ -1,7 +1,9 @@
 # ftExtra 0.0.2
 
-* Support link and image syntax with `colformat_md()`. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
-* Add `.from` option to `colformat_md()` so to specify Pandoc's `--from` argument (e.g., `'markdown+emoji'`, `'html'`, and so on).
+* `colformat_md()`
+  * Supports link and image syntax. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
+  * gains `.from` argument to specify Pandoc's `--from` argument.
+  * gains `j` argument so that users can choose which columns to be treated as markdown based on `dplyr::select()`'s semantics.
 
 # ftExtra 0.0.1
 
