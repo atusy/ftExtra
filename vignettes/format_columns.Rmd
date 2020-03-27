@@ -62,7 +62,6 @@ Pandoc's markdown provides an extention `'emoji'`.
 To use it with `colformat_md()`, specify `markdown+emoji`.
 
 ```{r}
-devtools::load_all()
 data.frame(emoji = c(':+1:'), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
   colformat_md(.from = 'markdown+emoji')
