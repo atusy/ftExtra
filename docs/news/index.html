@@ -67,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ftExtra</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.4</span>
       </span>
     </div>
 
@@ -133,7 +133,14 @@
 <a href="#ftextra-002" class="anchor"></a>ftExtra 0.0.2<small> Unreleased </small>
 </h1>
 <ul>
-<li>Support link and image syntax with <code><a href="../reference/colformat_md.html">colformat_md()</a></code>. Color of the links can be controled by for example <code><a href="../reference/colformat_md.html">colformat_md(auto_color_link = 'red')</a></code>.</li>
+<li>
+<code><a href="../reference/colformat_md.html">colformat_md()</a></code>
+<ul>
+<li>Supports link and image syntax. Color of the links can be controled by for example <code><a href="../reference/colformat_md.html">colformat_md(auto_color_link = 'red')</a></code>.</li>
+<li>gains <code>.from</code> argument to specify Pandoc’s <code>--from</code> argument.</li>
+<li>gains <code>j</code> argument so that users can choose which columns to be treated as markdown based on <code><a href="https://dplyr.tidyverse.org/reference/select.html">dplyr::select()</a></code>’s semantics.</li>
+</ul>
+</li>
 </ul>
 </div>
     <div id="ftextra-001" class="section level1">

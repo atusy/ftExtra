@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ftExtra</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.4</span>
       </span>
     </div>
 
@@ -135,7 +135,12 @@
     <p>Format character columns as markdown text</p>
     </div>
 
-    <pre class="usage"><span class='fu'>colformat_md</span>(<span class='no'>x</span>, <span class='kw'>auto_color_link</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)</pre>
+    <pre class="usage"><span class='fu'>colformat_md</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>j</span> <span class='kw'>=</span> <span class='no'>is.character</span>,
+  <span class='kw'>auto_color_link</span> <span class='kw'>=</span> <span class='st'>"blue"</span>,
+  <span class='kw'>.from</span> <span class='kw'>=</span> <span class='st'>"markdown+autolink_bare_uris+emoji"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,8 +150,17 @@
       <td><p>A <code>flextable</code> object</p></td>
     </tr>
     <tr>
+      <th>j</th>
+      <td><p>Columns to be treated as markdown texts.
+Selection can be done by the semantics of <code><a href='https://dplyr.tidyverse.org/reference/select.html'>dplyr::select()</a></code>.</p></td>
+    </tr>
+    <tr>
       <th>auto_color_link</th>
       <td><p>A color of the link texts.</p></td>
+    </tr>
+    <tr>
+      <th>.from</th>
+      <td><p>Pandoc's <code>--from</code> argument (default: <code>'markdown+autolink_bare_uris+emoji'</code>).</p></td>
     </tr>
     </table>
 

@@ -38,7 +38,7 @@ data.frame(
 Currently, **bold**, *italic*, ^superscript^, ~subscript~, and link are well supported.
 Note that other syntax may result in unexpected behaviors.
 
-## Inserting image
+## Image
 
 You can also insert images.
 As markdown is parsed by pandoc, width and/or height attributes can be specified.
@@ -55,3 +55,15 @@ data.frame(
 ```
 
 The R logo is distributed by The R Foundation with the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
+
+## Emoji
+
+Pandoc's markdown provides an extention `'emoji'`.
+To use it with `colformat_md()`, specify `markdown+emoji`.
+
+```{r}
+devtools::load_all()
+data.frame(emoji = c(':+1:'), stringsAsFactors = FALSE) %>%
+  as_flextable() %>%
+  colformat_md(.from = 'markdown+emoji')
+```
