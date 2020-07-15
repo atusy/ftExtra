@@ -2,7 +2,7 @@
 title: "Create multi level headers"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{transform-headers}
+  %\VignetteIndexEntry{Create multi level headers}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

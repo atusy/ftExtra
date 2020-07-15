@@ -2,7 +2,7 @@
 title: "Format columns"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{format_columns}
+  %\VignetteIndexEntry{Format columns}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
