@@ -73,5 +73,6 @@ ast2df <- function(x) {
     flatten_ast() %>%
     lapply(branch2list) %>%
     dplyr::bind_rows() %>%
+    tibble::as_tibble() %>%
     dplyr::mutate_if(is.logical, dplyr::coalesce, FALSE)
 }
