@@ -12,8 +12,6 @@ Authors@R:
            role = "ctb",
            comment = c(ORCID = "0000-0002-2444-4226"))
   )
-Author: Atsushi Yasumoto [aut, cph, cre]
-    (<https://orcid.org/0000-0002-8335-495X>)
 Maintainer: Atsushi Yasumoto <atusy.rpkg@gmail.com>
 Description: Build display tables easily by extending the functionality of the
     'flextable' package. Features include spanning header, grouping rows,
