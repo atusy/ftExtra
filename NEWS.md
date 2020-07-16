@@ -3,7 +3,7 @@
 ## New features
 
 * `colformat_md()`
-  * Supports link and image syntax. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
+  * supports link and image syntax. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
   * gains `.from` argument to specify Pandoc's `--from` argument.
   * gains `j` argument so that users can choose which columns to be treated as markdown based on `dplyr::select()`'s semantics.
 
