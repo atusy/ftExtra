@@ -1,3 +1,16 @@
+# ftExtra 0.0.2
+
+## New features
+
+* `colformat_md()`
+  * Supports link and image syntax. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
+  * gains `.from` argument to specify Pandoc's `--from` argument.
+  * gains `j` argument so that users can choose which columns to be treated as markdown based on `dplyr::select()`'s semantics.
+
+## Internal changes
+
+* `ftExtra:::ast2df()` calls `tibble::as_tibble()` to support dplyr 1.0.1 (thanks romainfrancois, #11)
+
 # ftExtra 0.0.1
 
 * Add `colformat_md()` which parses markdown text in the body of the flextable object.

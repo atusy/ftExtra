@@ -4,10 +4,22 @@
 \alias{colformat_md}
 \title{Format character columns as markdown text}
 \usage{
-colformat_md(x)
+colformat_md(
+  x,
+  j = is.character,
+  auto_color_link = "blue",
+  .from = "markdown+autolink_bare_uris+emoji"
+)
 }
 \arguments{
 \item{x}{A \code{flextable} object}
+
+\item{j}{Columns to be treated as markdown texts.
+Selection can be done by the semantics of \code{dplyr::select()}.}
+
+\item{auto_color_link}{A color of the link texts.}
+
+\item{.from}{Pandoc's \code{--from} argument (default: \code{'markdown+autolink_bare_uris+emoji'}).}
 }
 \description{
 Format character columns as markdown text

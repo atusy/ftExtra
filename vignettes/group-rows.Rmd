@@ -2,7 +2,7 @@
 title: "Group rows"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{group-rows}
+  %\VignetteIndexEntry{Group rows}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

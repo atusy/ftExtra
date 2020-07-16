@@ -7,14 +7,26 @@
 
 [![R build
 status](https://github.com/atusy/ftExtra/workflows/R-CMD-check/badge.svg)](https://github.com/atusy/ftExtra/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/ftExtra)](https://CRAN.R-project.org/package=ftExtra)
+![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/ftExtra)
 <!-- badges: end -->
 
 The ftExtra package provides helper functions for the flextable package:
 
   - `colformat_md` parses markdown texts in columns
   - `span_header` makes multi-level headers
+  - and more\!
 
 ## Installation
+
+### from CRAN
+
+``` r
+install.packages("ftExtra")
+```
+
+### from GitHub
 
 ``` r
 remotes::install_github("atusy/ftExtra")

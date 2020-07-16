@@ -1,10 +1,53 @@
+#' Flattens attribute
+#'
+#' Implemented but not used yet
+#'
+#' @param a A set of ttributes. Typically `x$c[[1]]`
+#'
+#' @noRd
+flatten_attr <- function(a) {
+  c(
+    list(id = a[[1]], class = unlist(a[[2]])),
+    stats::setNames(purrr::map_chr(a[[3]], 2), purrr::map_chr(a[[3]], 1))
+  )
+}
+
+is_branch <- function(x) {
+  nm = names(x)
+  identical(nm, c('t', 'c')) || identical(nm, 't')
+}
+
+has_attr <- function(x) {
+  !(is.atomic(x) || is_branch(x) || all(vapply(x, is_branch, NA)))
+}
+
 add_type <- function(x, t) {
-  x$t <- c(x$t, t)
+  parents <- if (is.list(t)) t else stats::setNames(list(TRUE), t)
+  child <- stats::setNames(
+    list(structure(
+      if (isTRUE(x$t %in% c('Image', 'Link'))) x$c[[3]][[1]] else TRUE,
+      pandoc_attr = if (has_attr(x$c)) {
+        flatten_attr(x$c[[1]])
+      } else {
+        NULL
+      }
+    )),
+    x$t
+  )
+
+  x$t <- c(child, parents)
+
+  if (has_attr(x$c)) x$c <- x$c[[2]]
+
   x
 }
 
 resolve_type <- function(x) {
   if (is.atomic(x$c)) return(x)
+  if (identical(x$c, list())) {
+    x$c <- ''
+    return(x)
+  }
   if (identical(names(x$c), c('t', 'c'))) return(add_type(x$c, x$t))
   return(lapply(x$c, add_type, x$t))
 }
@@ -22,10 +65,7 @@ flatten_ast <- function(x) {
 }
 
 branch2list <- function(x) {
-  c(
-    txt = if ('Space' %in% x$t) ' ' else x$c,
-    as.list(stats::setNames(rep(TRUE, length(x$t)), x$t))
-  )
+  c(txt = if ('Space' %in% names(x$t)) ' ' else x$c, x$t)
 }
 
 ast2df <- function(x) {
@@ -33,5 +73,6 @@ ast2df <- function(x) {
     flatten_ast() %>%
     lapply(branch2list) %>%
     dplyr::bind_rows() %>%
+    tibble::as_tibble() %>%
     dplyr::mutate_if(is.logical, dplyr::coalesce, FALSE)
 }
