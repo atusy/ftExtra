@@ -43,7 +43,21 @@ parse_md_ <- function(x, .from = 'markdown', auto_color_link = 'blue') {
     )
 }
 
-parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
+#' Parse markdown cells
+#'
+#' Parse markdown cells and returns the "paragraph" object.
+#'
+#' @param x A character vector.
+#' @inheritParams colformat_md
+#'
+#' @examples
+#' library(flextable)
+#' ft <- flextable(data.frame(x = c('**foo**', '**bar**')))
+#' ft <- compose(ft, j = "x", i = 2, value = ftExtra:::parse_md(x))
+#' autofit(ft)
+#'
+#' @export
+parse_md <- function(x, auto_color_link = 'blue', .from = 'markdown') {
   structure(
     lapply(x, parse_md_, .from = .from, auto_color_link = auto_color_link),
     class = 'paragraph'

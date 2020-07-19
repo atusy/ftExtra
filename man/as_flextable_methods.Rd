@@ -47,3 +47,11 @@ as_flextable(grouped_df, groups_to = 'asis')
 iris \%>\% head \%>\% as_flextable()
 
 }
+\seealso{
+Other as_flextable methods: 
+\code{\link[flextable]{as_flextable.glm}()},
+\code{\link[flextable]{as_flextable.grouped_data}()},
+\code{\link[flextable]{as_flextable.htest}()},
+\code{\link[flextable]{as_flextable.lm}()},
+\code{\link[flextable]{as_flextable.xtable}()}
+}

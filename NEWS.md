@@ -6,6 +6,7 @@
   * Supports link and image syntax. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
   * gains `.from` argument to specify Pandoc's `--from` argument.
   * gains `j` argument so that users can choose which columns to be treated as markdown based on `dplyr::select()`'s semantics.
+* Export `parse_md` so that users can parse markdown texts on selected cells rather than selected columns. Use this function within `flextable::compose`.
 
 ## Internal changes
 

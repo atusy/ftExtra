@@ -32,8 +32,9 @@ colformat_md <- function(
     i = seq(nrow(body)),
     j = col,
     value = parse_md(
-      unlist(body[col], use.names = FALSE), .from = .from,
-      auto_color_link = auto_color_link
+      unlist(body[col], use.names = FALSE),
+      auto_color_link = auto_color_link,
+      .from = .from
     ),
     part = 'body'
   )
