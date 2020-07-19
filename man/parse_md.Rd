@@ -19,7 +19,7 @@ Parse markdown cells and returns the "paragraph" object.
 \examples{
 library(flextable)
 ft <- flextable(data.frame(x = c('**foo**', '**bar**')))
-ft <- compose(ft, j = "x", i = 2, value = ftExtra:::parse_md(x))
+ft <- compose(ft, j = "x", i = 2, value = parse_md(x))
 autofit(ft)
 
 }
