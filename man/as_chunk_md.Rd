@@ -18,7 +18,10 @@ Parse markdown cells and returns the "chunk" object.
 }
 \examples{
 library(flextable)
-ft <- flextable(data.frame(x = c('**foo**', '**bar**')))
+ft <- flextable(data.frame(
+  x = c('**foo**', '**bar**'),
+  stringsAsFactors = FALSE
+))
 ft <- compose(ft, j = "x", i = 2, value = as_paragraph(as_chunk_md(x)))
 autofit(ft)
 
