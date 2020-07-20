@@ -43,9 +43,16 @@ parse_md_ <- function(x, .from = 'markdown', auto_color_link = 'blue') {
     )
 }
 
-#' Parse markdown cells
+parse_md <- function(x, auto_color_link = 'blue', .from = 'markdown') {
+  structure(
+    lapply(x, parse_md_, .from = .from, auto_color_link = auto_color_link),
+    class = 'paragraph'
+  )
+}
+
+#' Markdown chunk
 #'
-#' Parse markdown cells and returns the "paragraph" object.
+#' Parse markdown cells and returns the "chunk" object.
 #'
 #' @param x A character vector.
 #' @inheritParams colformat_md
@@ -53,13 +60,12 @@ parse_md_ <- function(x, .from = 'markdown', auto_color_link = 'blue') {
 #' @examples
 #' library(flextable)
 #' ft <- flextable(data.frame(x = c('**foo**', '**bar**')))
-#' ft <- compose(ft, j = "x", i = 2, value = parse_md(x))
+#' ft <- compose(ft, j = "x", i = 2, value = as_paragraph(as_chunk_md(x)))
 #' autofit(ft)
 #'
 #' @export
-parse_md <- function(x, auto_color_link = 'blue', .from = 'markdown') {
-  structure(
-    lapply(x, parse_md_, .from = .from, auto_color_link = auto_color_link),
-    class = 'paragraph'
-  )
+as_chunk_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
+  parsed = parse_md_(x, .from = .from, auto_color_link = auto_color_link)
+  class(parsed) <- c('chunk',  class(parsed))
+  return(parsed)
 }
