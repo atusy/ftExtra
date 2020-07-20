@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • ftExtra</title>
+<title>Markdown chunk — as_chunk_md • ftExtra</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Markdown chunk — as_chunk_md" />
+<meta property="og:description" content="Parse markdown cells and returns the &quot;chunk&quot; object." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -126,72 +127,52 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Markdown chunk</h1>
+    <small class="dont-index">Source: <a href='https://github.com/atusy/ftExtra/blob/master/R/parse-md.R'><code>R/parse-md.R</code></a></small>
+    <div class="hidden name"><code>as_chunk_md.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Parse markdown cells and returns the "chunk" object.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>as_chunk_md</span>(<span class='no'>x</span>, <span class='kw'>.from</span> <span class='kw'>=</span> <span class='st'>"markdown"</span>, <span class='kw'>auto_color_link</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="as_chunk_md.html">as_chunk_md()</a></code> </p>
-        </td>
-        <td><p>Markdown chunk</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="as_flextable_methods.html">as_flextable(<i>&lt;grouped_df&gt;</i>)</a></code> <code><a href="as_flextable_methods.html">as_flextable(<i>&lt;data.frame&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>method to convert object to flextable</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="colformat_md.html">colformat_md()</a></code> </p>
-        </td>
-        <td><p>Format character columns as markdown text</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="separate_header.html">separate_header()</a></code> </p>
-        </td>
-        <td><p>Separate the header based on delimiters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="span_header.html">span_header()</a></code> </p>
-        </td>
-        <td><p>Span the header based on delimiters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="with_blanks.html">with_blanks()</a></code> </p>
-        </td>
-        <td><p>Specify blank columns easily via <code>col_keys</code></p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A character vector.</p></td>
+    </tr>
+    <tr>
+      <th>.from</th>
+      <td><p>Pandoc's <code>--from</code> argument (default: <code>'markdown+autolink_bare_uris+emoji'</code>).</p></td>
+    </tr>
+    <tr>
+      <th>auto_color_link</th>
+      <td><p>A color of the link texts.</p></td>
+    </tr>
     </table>
-  </div>
 
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>flextable</span>)
+<span class='no'>ft</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/flextable/man/flextable.html'>flextable</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(
+  <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'**foo**'</span>, <span class='st'>'**bar**'</span>),
+  <span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+))
+<span class='no'>ft</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/flextable/man/compose.html'>compose</a></span>(<span class='no'>ft</span>, <span class='kw'>j</span> <span class='kw'>=</span> <span class='st'>"x"</span>, <span class='kw'>i</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>value</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/flextable/man/as_paragraph.html'>as_paragraph</a></span>(<span class='fu'>as_chunk_md</span>(<span class='no'>x</span>)))
+<span class='fu'><a href='https://rdrr.io/pkg/flextable/man/autofit.html'>autofit</a></span>(<span class='no'>ft</span>)</div><div class='output co'>#&gt; a flextable object.
+#&gt; col_keys: `x` 
+#&gt; header has 1 row(s) 
+#&gt; body has 2 row(s) 
+#&gt; original dataset sample: 
+#&gt; [1] "**foo**" "**bar**"</div><div class='input'>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
