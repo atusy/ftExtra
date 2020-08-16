@@ -31,7 +31,7 @@ colformat_md <- function(
     x,
     i = seq(nrow(body)),
     j = col,
-    value = parse_md(
+    value = as_paragraph_md(
       unlist(body[col], use.names = FALSE),
       auto_color_link = auto_color_link,
       .from = .from

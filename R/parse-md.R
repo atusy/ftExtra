@@ -17,7 +17,7 @@ pandoc_attr <- function(x, y) {
   a[[y]]
 }
 
-parse_md_ <- function(x, .from = 'markdown', auto_color_link = 'blue') {
+parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1) {
     stop('`auto_color_link` must be a string')
   }
@@ -43,7 +43,7 @@ parse_md_ <- function(x, .from = 'markdown', auto_color_link = 'blue') {
     )
 }
 
-#' Parse markdown cells
+#' Convert a character vector into markdown paragraph(s)
 #'
 #' Parse markdown cells and returns the "paragraph" object.
 #'
@@ -52,14 +52,14 @@ parse_md_ <- function(x, .from = 'markdown', auto_color_link = 'blue') {
 #'
 #' @examples
 #' library(flextable)
-#' ft <- flextable(data.frame(x = c('**foo**', '**bar**')))
-#' ft <- compose(ft, j = "x", i = 2, value = parse_md(x))
+#' ft <- flextable(data.frame(x = c('**foo** bar', '***baz***', '*qux*')))
+#' ft <- compose(ft, j = "x", i = 1:2, value = as_paragraph_md(x))
 #' autofit(ft)
 #'
 #' @export
-parse_md <- function(x, auto_color_link = 'blue', .from = 'markdown') {
+as_paragraph_md <- function(x, auto_color_link = 'blue', .from = 'markdown') {
   structure(
-    lapply(x, parse_md_, .from = .from, auto_color_link = auto_color_link),
+    lapply(x, parse_md, .from = .from, auto_color_link = auto_color_link),
     class = 'paragraph'
   )
 }
