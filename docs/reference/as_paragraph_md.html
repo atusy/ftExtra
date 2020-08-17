@@ -138,7 +138,11 @@
     <p>Parse markdown cells and returns the "paragraph" object.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>as_paragraph_md</span>(<span class='no'>x</span>, <span class='kw'>auto_color_link</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>.from</span> <span class='kw'>=</span> <span class='st'>"markdown"</span>)</pre>
+    <pre class="usage"><span class='fu'>as_paragraph_md</span>(
+  <span class='no'>x</span>,
+  <span class='kw'>auto_color_link</span> <span class='kw'>=</span> <span class='st'>"blue"</span>,
+  <span class='kw'>.from</span> <span class='kw'>=</span> <span class='st'>"markdown+autolink_bare_uris"</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,7 +157,7 @@
     </tr>
     <tr>
       <th>.from</th>
-      <td><p>Pandoc's <code>--from</code> argument (default: <code>'markdown+autolink_bare_uris+emoji'</code>).</p></td>
+      <td><p>Pandoc's <code>--from</code> argument (default: <code>'markdown+autolink_bare_uris'</code>).</p></td>
     </tr>
     </table>
 

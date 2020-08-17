@@ -6,9 +6,9 @@
 \usage{
 colformat_md(
   x,
-  j = is.character,
+  j = where(is.character),
   auto_color_link = "blue",
-  .from = "markdown+autolink_bare_uris+emoji"
+  .from = "markdown+autolink_bare_uris"
 )
 }
 \arguments{
@@ -19,18 +19,19 @@ Selection can be done by the semantics of \code{dplyr::select()}.}
 
 \item{auto_color_link}{A color of the link texts.}
 
-\item{.from}{Pandoc's \code{--from} argument (default: \code{'markdown+autolink_bare_uris+emoji'}).}
+\item{.from}{Pandoc's \code{--from} argument (default: \code{'markdown+autolink_bare_uris'}).}
 }
 \description{
 Format character columns as markdown text
 }
 \examples{
 if (rmarkdown::pandoc_available()) {
-  data.frame(
+  d = data.frame(
     x = c("**bold**", "*italic*" ),
     y = c("^superscript^", "~subscript~"),
     z = c("***^ft^~Extra~** is*", "*Cool*")
   )
+  colformat_md(flextable::flextable(d))
 }
 
 }

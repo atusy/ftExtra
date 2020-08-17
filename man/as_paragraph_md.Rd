@@ -4,14 +4,18 @@
 \alias{as_paragraph_md}
 \title{Convert a character vector into markdown paragraph(s)}
 \usage{
-as_paragraph_md(x, auto_color_link = "blue", .from = "markdown")
+as_paragraph_md(
+  x,
+  auto_color_link = "blue",
+  .from = "markdown+autolink_bare_uris"
+)
 }
 \arguments{
 \item{x}{A character vector.}
 
 \item{auto_color_link}{A color of the link texts.}
 
-\item{.from}{Pandoc's \code{--from} argument (default: \code{'markdown+autolink_bare_uris+emoji'}).}
+\item{.from}{Pandoc's \code{--from} argument (default: \code{'markdown+autolink_bare_uris'}).}
 }
 \description{
 Parse markdown cells and returns the "paragraph" object.
