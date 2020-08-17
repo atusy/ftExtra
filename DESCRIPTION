@@ -30,7 +30,7 @@ Imports:
     rlang,
     stringr,
     tibble,
-    tidyselect
+    tidyselect (>= 1.1.0)
 Suggests: 
     testthat (>= 2.1.0),
     knitr
