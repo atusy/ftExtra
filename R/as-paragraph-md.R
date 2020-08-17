@@ -57,6 +57,10 @@ parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
 #' Parse markdown cells and returns the "paragraph" object.
 #'
 #' @param x A character vector.
+#' @param auto_color_link A color of the link texts.
+#' @param .from
+#'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).
+#'
 #' @inheritParams colformat_md
 #'
 #' @examples
@@ -71,7 +75,9 @@ parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
 #' autofit(ft)
 #'
 #' @export
-as_paragraph_md <- function(x, auto_color_link = 'blue', .from = 'markdown') {
+as_paragraph_md <- function(x,
+                            auto_color_link = 'blue',
+                            .from = 'markdown+autolink_bare_uris') {
   structure(
     lapply(x, parse_md, .from = .from, auto_color_link = auto_color_link),
     class = 'paragraph'

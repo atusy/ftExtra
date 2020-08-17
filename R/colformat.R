@@ -3,9 +3,7 @@
 #' @param x A `flextable` object
 #' @param j Columns to be treated as markdown texts.
 #'   Selection can be done by the semantics of `dplyr::select()`.
-#' @param auto_color_link A color of the link texts.
-#' @param .from
-#'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris+emoji'`).
+#' @inheritParams as_paragraph_md
 #'
 #' @examples
 #' if (rmarkdown::pandoc_available()) {
