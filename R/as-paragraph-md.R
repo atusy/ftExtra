@@ -61,8 +61,6 @@ parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
 #' @param .from
 #'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).
 #'
-#' @inheritParams colformat_md
-#'
 #' @examples
 #' library(flextable)
 #' ft <- flextable(
