@@ -7,17 +7,18 @@
 #'
 #' @examples
 #' if (rmarkdown::pandoc_available()) {
-#'   data.frame(
+#'   d = data.frame(
 #'     x = c("**bold**", "*italic*" ),
 #'     y = c("^superscript^", "~subscript~"),
 #'     z = c("***^ft^~Extra~** is*", "*Cool*")
 #'   )
+#'   colformat_md(flextable::flextable(d))
 #' }
 #'
 #' @export
 colformat_md <- function(
-  x, j = is.character,
-  auto_color_link = 'blue', .from = 'markdown+autolink_bare_uris+emoji'
+  x, j = where(is.character),
+  auto_color_link = 'blue', .from = 'markdown+autolink_bare_uris'
 ) {
   body <- x$body$dataset
   .j <- rlang::enexpr(j)
@@ -36,4 +37,8 @@ colformat_md <- function(
     ),
     part = 'body'
   )
+}
+
+where <- function(...) {
+  tidyselect::vars_select_helpers$where(...)
 }
