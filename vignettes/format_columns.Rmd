@@ -43,15 +43,15 @@ Note that other syntax may result in unexpected behaviors.
 You can also insert images.
 As markdown is parsed by pandoc, width and/or height attributes can be specified.
 Specifying one of them changes the other while keeping the aspect ratio.
-However, it cannot be mixed with other strings.
 
 ```{r}
 data.frame(
-  R = "![](https://www.r-project.org/logo/Rlogo.png){width=.5}",
+  R = c("![](https://www.r-project.org/logo/Rlogo.png){width=.5} is the great language"),
   stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
-  colformat_md()
+  colformat_md() %>%
+  flextable::autofit()
 ```
 
 The R logo is distributed by The R Foundation with the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.

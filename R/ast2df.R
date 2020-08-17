@@ -2,7 +2,7 @@
 #'
 #' Implemented but not used yet
 #'
-#' @param a A set of ttributes. Typically `x$c[[1]]`
+#' @param a A set of attributes. Typically `x$c[[1]]`
 #'
 #' @noRd
 flatten_attr <- function(a) {
@@ -72,6 +72,7 @@ ast2df <- function(x) {
   x$blocks %>%
     flatten_ast() %>%
     lapply(branch2list) %>%
+    lapply(purrr::map_at, 'Image', list) %>%
     dplyr::bind_rows() %>%
     tibble::as_tibble() %>%
     dplyr::mutate_if(is.logical, dplyr::coalesce, FALSE)

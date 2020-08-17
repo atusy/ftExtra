@@ -13,8 +13,17 @@ vertical_align <- function(sup, sub) {
 
 pandoc_attr <- function(x, y) {
   a = attr(x, 'pandoc_attr', exact = TRUE)
-  if (is.null(a)) return(NULL)
+  if (is.null(a) || is.null(a[[y]])) return(NA)
   a[[y]]
+}
+
+pandoc_attrs <- function(x, y) {
+  lapply(x, pandoc_attr, y)
+}
+
+image_size <- function(x, y = 'width') {
+  if (is.null(x)) return(NA_real_)
+  as.numeric(pandoc_attrs(x, y))
 }
 
 parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
@@ -31,15 +40,15 @@ parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
       italic = y$Emph %||% NA,
       bold = y$Strong %||% NA,
       url = y$Link %||% NA_character_,
-      width = as.numeric(pandoc_attr(y$Image, 'width') %||% NA_real_),
-      height = as.numeric(pandoc_attr(y$Image, 'height') %||% NA_real_),
+      width = image_size(y$Image, 'width'),
+      height = image_size(y$Image, 'height'),
       vertical.align = vertical_align(y$Superscript, y$Subscript),
       stringsAsFactors = FALSE
     )
   ) %>%
     dplyr::mutate(
       color = dplyr::if_else(is.na(url), NA_character_, auto_color_link),
-      img_data = y$Image %||% list(list())
+      img_data = y$Image %||% list(NULL)
     )
 }
 
