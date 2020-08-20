@@ -2,10 +2,12 @@
 
 ## New features
 
-* More supports on markdown syntax
-  * Links
-  * Inline images
-  * Hard linebreaks (e.g., `colformat_md(as_flextable(data.frame('a\\\nb', stringsAsFactors = FALSE)))`).
+* Markdown parser
+    * supports more syntax
+        * Links
+        * Inline images
+        * Hard line breaks (e.g., `colformat_md(as_flextable(data.frame('a\\\nb', stringsAsFactors = FALSE)))`).
+    * stops with error if there are multiple paragraphs or block elements other than the paragraph.
 * `colformat_md()`
   * controls colors of links for example by `colformat_md(auto_color_link = 'red')`.
   * gains `.from` argument to specify Pandoc's `--from` argument.
