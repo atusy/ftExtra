@@ -31,7 +31,13 @@ parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
     stop('`auto_color_link` must be a string')
   }
 
-  y <- x %>% md2ast(.from = .from) %>% ast2df %>% as.list
+  ast <- md2ast(x)
+
+  if ((ast$blocks[[1]]$t != 'Para') || (length(ast$blocks) > 1)) {
+    stop('Markdown text must be a single paragraph')
+  }
+
+  y <- ast %>% ast2df %>% as.list
 
   dplyr::bind_rows(
     header,
