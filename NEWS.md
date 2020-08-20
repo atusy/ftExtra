@@ -2,15 +2,15 @@
 
 ## New features
 
+* More supports on markdown syntax
+  * Links
+  * Inline images
+  * Hard linebreaks (e.g., `colformat_md(as_flextable(data.frame('a\\\nb', stringsAsFactors = FALSE)))`).
 * `colformat_md()`
-  * Supports link and image syntax. Color of the links can be controled by for example `colformat_md(auto_color_link = 'red')`.
+  * controls colors of links for example by `colformat_md(auto_color_link = 'red')`.
   * gains `.from` argument to specify Pandoc's `--from` argument.
   * gains `j` argument so that users can choose which columns to be treated as markdown based on `dplyr::select()`'s semantics.
-* Export `parse_md` so that users can parse markdown texts on selected cells rather than selected columns. Use this function within `flextable::compose`.
-
-## Internal changes
-
-* `ftExtra:::ast2df()` calls `tibble::as_tibble()` to support dplyr 1.0.1 (thanks romainfrancois, #11)
+* Add `as_paragraph_md` which parses markdown texts on selected cells rather than selected columns. Use this function within `flextable::compose`.
 
 # ftExtra 0.0.1
 

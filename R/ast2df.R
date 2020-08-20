@@ -65,7 +65,17 @@ flatten_ast <- function(x) {
 }
 
 branch2list <- function(x) {
-  c(txt = if ('Space' %in% names(x$t)) ' ' else x$c, x$t)
+  tags <- names(x$t)
+  c(
+    txt = if ('Space' %in% tags) {
+      ' '
+    } else if ('LineBreak' %in% tags) {
+      '\n'
+    } else {
+      x$c
+    },
+    x$t
+  )
 }
 
 ast2df <- function(x) {
