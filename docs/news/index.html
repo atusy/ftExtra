@@ -140,23 +140,28 @@
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New features</h2>
 <ul>
+<li>Markdown parser
+<ul>
+<li>supports more syntax
+<ul>
+<li>Links</li>
+<li>Inline images</li>
+<li>Soft line breaks</li>
+<li>Hard line breaks (e.g., <code><a href="../reference/colformat_md.html">colformat_md(as_flextable(data.frame('a\\\nb', stringsAsFactors = FALSE)))</a></code>).</li>
+</ul>
+</li>
+<li>stops with error if there are multiple paragraphs or block elements other than the paragraph.</li>
+</ul>
+</li>
 <li>
 <code><a href="../reference/colformat_md.html">colformat_md()</a></code>
 <ul>
-<li>Supports link and image syntax. Color of the links can be controled by for example <code><a href="../reference/colformat_md.html">colformat_md(auto_color_link = 'red')</a></code>.</li>
+<li>controls colors of links for example by <code><a href="../reference/colformat_md.html">colformat_md(auto_color_link = 'red')</a></code>.</li>
 <li>gains <code>.from</code> argument to specify Pandoc’s <code>--from</code> argument.</li>
 <li>gains <code>j</code> argument so that users can choose which columns to be treated as markdown based on <code><a href="https://dplyr.tidyverse.org/reference/select.html">dplyr::select()</a></code>’s semantics.</li>
 </ul>
 </li>
-<li>Export <code>parse_md</code> so that users can parse markdown texts on selected cells rather than selected columns. Use this function within <code><a href="https://rdrr.io/pkg/flextable/man/compose.html">flextable::compose</a></code>.</li>
-</ul>
-</div>
-<div id="internal-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#internal-changes" class="anchor"></a>Internal changes</h2>
-<ul>
-<li>
-<code>ftExtra:::ast2df()</code> calls <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html">tibble::as_tibble()</a></code> to support dplyr 1.0.1 (thanks romainfrancois, <a href='https://github.com/atusy/ftExtra/issues/11'>#11</a>)</li>
+<li>Add <code>as_paragraph_md</code> which parses markdown texts on selected cells rather than selected columns. Use this function within <code><a href="https://rdrr.io/pkg/flextable/man/compose.html">flextable::compose</a></code>.</li>
 </ul>
 </div>
 </div>
