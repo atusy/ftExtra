@@ -71,6 +71,8 @@ branch2list <- function(x) {
       ' '
     } else if ('LineBreak' %in% tags) {
       '\n'
+    } else if ('SoftBreak' %in% tags) {
+      ' '
     } else {
       x$c
     },
