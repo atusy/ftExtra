@@ -37,6 +37,7 @@ data.frame(
 
 Currently, **bold**, *italic*, ^superscript^, ~subscript~, and link are well supported.
 Note that other syntax may result in unexpected behaviors.
+The ftExtra package does not support multiple paragraphs or block elements other than the paragraph.
 
 ## Image
 
@@ -55,6 +56,32 @@ data.frame(
 ```
 
 The R logo is distributed by The R Foundation with the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
+
+## Line breaks
+
+By default, soft line breaks becomes spaces.
+
+```{r}
+data.frame(linebreak = c('a\nb')) %>%
+  as_flextable() %>%
+  colformat_md()
+```
+
+Pandoc's markdown supports hard line breaks by adding a backslash or double spaces at the end of a line.
+
+```{r}
+data.frame(linebreak = c('a\\\nb')) %>%
+  as_flextable() %>%
+  colformat_md()
+```
+
+It is also possible to make `\n` as a hard line break by extending Pandoc's Markdown.
+
+```{r}
+data.frame(linebreak = c('a\nb')) %>%
+  as_flextable() %>%
+  colformat_md(.from = 'markdown+hard_line_breaks')
+```
 
 ## Emoji
 
