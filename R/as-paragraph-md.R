@@ -75,15 +75,17 @@ parse_md <- function(x, .from = "markdown", auto_color_link = "blue") {
 #'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).
 #'
 #' @examples
-#' library(flextable)
-#' ft <- flextable(
-#'   data.frame(
-#'     x = c("**foo** bar", "***baz***", "*qux*"),
-#'     stringsAsFactors = FALSE
+#' if (rmarkdown::pandoc_available()) {
+#'   library(flextable)
+#'   ft <- flextable(
+#'     data.frame(
+#'       x = c("**foo** bar", "***baz***", "*qux*"),
+#'       stringsAsFactors = FALSE
+#'     )
 #'   )
-#' )
-#' ft <- compose(ft, j = "x", i = 1:2, value = as_paragraph_md(x))
-#' autofit(ft)
+#'   ft <- compose(ft, j = "x", i = 1:2, value = as_paragraph_md(x))
+#'   autofit(ft)
+#' }
 #' @export
 as_paragraph_md <- function(x,
                             auto_color_link = "blue",
