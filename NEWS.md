@@ -1,3 +1,7 @@
+# ftExtra 0.0.3
+
+* Patched to pass "CRAN Package Check Results for Package" where `r-patched-solaris-x86` fails because of missing pandoc.
+
 # ftExtra 0.0.2
 
 ## New features
