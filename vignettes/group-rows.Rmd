@@ -12,7 +12,8 @@ This vignette introduces nice and easy way to display grouped data frame created
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  eval = "dplyr" %in% rownames(installed.packages())
 )
 ```
 

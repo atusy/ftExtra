@@ -12,7 +12,8 @@ This vignette introduces how to create multi level headers.
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  eval = "dplyr" %in% rownames(installed.packages())
 )
 ```
 
