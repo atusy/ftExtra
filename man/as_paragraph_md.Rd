@@ -24,11 +24,10 @@ Parse markdown cells and returns the "paragraph" object.
 library(flextable)
 ft <- flextable(
   data.frame(
-    x = c('**foo** bar', '***baz***', '*qux*'),
+    x = c("**foo** bar", "***baz***", "*qux*"),
     stringsAsFactors = FALSE
   )
 )
 ft <- compose(ft, j = "x", i = 1:2, value = as_paragraph_md(x))
 autofit(ft)
-
 }

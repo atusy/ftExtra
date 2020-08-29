@@ -1,4 +1,4 @@
-header <- flextable::as_paragraph('')[[1L]][-1L, ]
+header <- flextable::as_paragraph("")[[1L]][-1L, ]
 
 vertical_align <- function(sup, sub) {
   .f <- rep(FALSE, max(1, length(sup), length(sub)))
@@ -6,14 +6,16 @@ vertical_align <- function(sup, sub) {
   sub <- sub %||% .f
   dplyr::if_else(
     is.na(sub) | !sub,
-    dplyr::if_else(sup, 'superscript', NA_character_),
-    'subscript'
+    dplyr::if_else(sup, "superscript", NA_character_),
+    "subscript"
   )
 }
 
 pandoc_attr <- function(x, y) {
-  a = attr(x, 'pandoc_attr', exact = TRUE)
-  if (is.null(a) || is.null(a[[y]])) return(NA)
+  a <- attr(x, "pandoc_attr", exact = TRUE)
+  if (is.null(a) || is.null(a[[y]])) {
+    return(NA)
+  }
   a[[y]]
 }
 
@@ -21,23 +23,27 @@ pandoc_attrs <- function(x, y) {
   lapply(x, pandoc_attr, y)
 }
 
-image_size <- function(x, y = 'width') {
-  if (is.null(x)) return(NA_real_)
+image_size <- function(x, y = "width") {
+  if (is.null(x)) {
+    return(NA_real_)
+  }
   as.numeric(pandoc_attrs(x, y))
 }
 
-parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
+parse_md <- function(x, .from = "markdown", auto_color_link = "blue") {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1) {
-    stop('`auto_color_link` must be a string')
+    stop("`auto_color_link` must be a string")
   }
 
   ast <- md2ast(x, .from = .from)
 
-  if ((ast$blocks[[1]]$t != 'Para') || (length(ast$blocks) > 1)) {
-    stop('Markdown text must be a single paragraph')
+  if ((ast$blocks[[1]]$t != "Para") || (length(ast$blocks) > 1)) {
+    stop("Markdown text must be a single paragraph")
   }
 
-  y <- ast %>% ast2df %>% as.list
+  y <- ast %>%
+    ast2df() %>%
+    as.list()
 
 
   dplyr::bind_rows(
@@ -47,8 +53,8 @@ parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
       italic = y$Emph %||% NA,
       bold = y$Strong %||% NA,
       url = y$Link %||% NA_character_,
-      width = image_size(y$Image, 'width'),
-      height = image_size(y$Image, 'height'),
+      width = image_size(y$Image, "width"),
+      height = image_size(y$Image, "height"),
       vertical.align = vertical_align(y$Superscript, y$Subscript),
       stringsAsFactors = FALSE
     )
@@ -72,19 +78,18 @@ parse_md <- function(x, .from = 'markdown', auto_color_link = 'blue') {
 #' library(flextable)
 #' ft <- flextable(
 #'   data.frame(
-#'     x = c('**foo** bar', '***baz***', '*qux*'),
+#'     x = c("**foo** bar", "***baz***", "*qux*"),
 #'     stringsAsFactors = FALSE
 #'   )
 #' )
 #' ft <- compose(ft, j = "x", i = 1:2, value = as_paragraph_md(x))
 #' autofit(ft)
-#'
 #' @export
 as_paragraph_md <- function(x,
-                            auto_color_link = 'blue',
-                            .from = 'markdown+autolink_bare_uris') {
+                            auto_color_link = "blue",
+                            .from = "markdown+autolink_bare_uris") {
   structure(
     lapply(x, parse_md, .from = .from, auto_color_link = auto_color_link),
-    class = 'paragraph'
+    class = "paragraph"
   )
 }

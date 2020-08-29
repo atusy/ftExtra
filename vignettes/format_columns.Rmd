@@ -62,7 +62,7 @@ The R logo is distributed by The R Foundation with the [CC-BY-SA 4.0](https://cr
 By default, soft line breaks becomes spaces.
 
 ```{r}
-data.frame(linebreak = c('a\nb')) %>%
+data.frame(linebreak = c("a\nb"), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
   colformat_md()
 ```
@@ -70,7 +70,7 @@ data.frame(linebreak = c('a\nb')) %>%
 Pandoc's markdown supports hard line breaks by adding a backslash or double spaces at the end of a line.
 
 ```{r}
-data.frame(linebreak = c('a\\\nb')) %>%
+data.frame(linebreak = c("a\\\nb"), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
   colformat_md()
 ```
@@ -78,9 +78,9 @@ data.frame(linebreak = c('a\\\nb')) %>%
 It is also possible to make `\n` as a hard line break by extending Pandoc's Markdown.
 
 ```{r}
-data.frame(linebreak = c('a\nb')) %>%
+data.frame(linebreak = c("a\nb"), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
-  colformat_md(.from = 'markdown+hard_line_breaks')
+  colformat_md(.from = "markdown+hard_line_breaks")
 ```
 
 ## Emoji
@@ -89,7 +89,7 @@ Pandoc's markdown provides an extention `'emoji'`.
 To use it with `colformat_md()`, specify `markdown+emoji`.
 
 ```{r}
-data.frame(emoji = c(':+1:'), stringsAsFactors = FALSE) %>%
+data.frame(emoji = c(":+1:"), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
-  colformat_md(.from = 'markdown+emoji')
+  colformat_md(.from = "markdown+emoji")
 ```

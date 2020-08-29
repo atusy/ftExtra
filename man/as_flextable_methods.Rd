@@ -36,16 +36,18 @@ from any objects.
 \examples{
 
 # For grouped_df
-grouped_df <- iris \%>\% dplyr::group_by(Species) \%>\% dplyr::slice(1, 2)
+grouped_df <- iris \%>\%
+  dplyr::group_by(Species) \%>\%
+  dplyr::slice(1, 2)
 
-as_flextable(grouped_df, groups_to = 'titles')
-as_flextable(grouped_df, groups_to = 'titles', hide_grouplabel = TRUE)
-as_flextable(grouped_df, groups_to = 'merged')
-as_flextable(grouped_df, groups_to = 'asis')
-
+as_flextable(grouped_df, groups_to = "titles")
+as_flextable(grouped_df, groups_to = "titles", hide_grouplabel = TRUE)
+as_flextable(grouped_df, groups_to = "merged")
+as_flextable(grouped_df, groups_to = "asis")
 # For data.frame
-iris \%>\% head \%>\% as_flextable()
-
+iris \%>\%
+  head() \%>\%
+  as_flextable()
 }
 \seealso{
 Other as_flextable methods: 

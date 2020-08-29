@@ -15,6 +15,5 @@ Specify blank columns easily via \code{col_keys}
 }
 \examples{
 iris \%>\%
-  as_flextable(col_keys = with_blanks(dplyr::ends_with('Width')))
-
+  as_flextable(col_keys = with_blanks(dplyr::ends_with("Width")))
 }

@@ -29,6 +29,7 @@ set to NULL for none.}
 Span the header based on delimiters
 }
 \examples{
-iris \%>\% as_flextable \%>\% span_header
-
+iris \%>\%
+  as_flextable() \%>\%
+  span_header()
 }

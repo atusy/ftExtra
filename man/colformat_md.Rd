@@ -26,12 +26,11 @@ Format character columns as markdown text
 }
 \examples{
 if (rmarkdown::pandoc_available()) {
-  d = data.frame(
-    x = c("**bold**", "*italic*" ),
+  d <- data.frame(
+    x = c("**bold**", "*italic*"),
     y = c("^superscript^", "~subscript~"),
     z = c("***^ft^~Extra~** is*", "*Cool*")
   )
   colformat_md(flextable::flextable(d))
 }
-
 }

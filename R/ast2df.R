@@ -13,8 +13,8 @@ flatten_attr <- function(a) {
 }
 
 is_branch <- function(x) {
-  nm = names(x)
-  identical(nm, c('t', 'c')) || identical(nm, 't')
+  nm <- names(x)
+  identical(nm, c("t", "c")) || identical(nm, "t")
 }
 
 has_attr <- function(x) {
@@ -25,7 +25,7 @@ add_type <- function(x, t) {
   parents <- if (is.list(t)) t else stats::setNames(list(TRUE), t)
   child <- stats::setNames(
     list(structure(
-      if (isTRUE(x$t %in% c('Image', 'Link'))) x$c[[3]][[1]] else TRUE,
+      if (isTRUE(x$t %in% c("Image", "Link"))) x$c[[3]][[1]] else TRUE,
       pandoc_attr = if (has_attr(x$c)) {
         flatten_attr(x$c[[1]])
       } else {
@@ -43,12 +43,16 @@ add_type <- function(x, t) {
 }
 
 resolve_type <- function(x) {
-  if (is.atomic(x$c)) return(x)
-  if (identical(x$c, list())) {
-    x$c <- ''
+  if (is.atomic(x$c)) {
     return(x)
   }
-  if (identical(names(x$c), c('t', 'c'))) return(add_type(x$c, x$t))
+  if (identical(x$c, list())) {
+    x$c <- ""
+    return(x)
+  }
+  if (identical(names(x$c), c("t", "c"))) {
+    return(add_type(x$c, x$t))
+  }
   return(lapply(x$c, add_type, x$t))
 }
 
@@ -67,12 +71,12 @@ flatten_ast <- function(x) {
 branch2list <- function(x) {
   tags <- names(x$t)
   c(
-    txt = if ('Space' %in% tags) {
-      ' '
-    } else if ('LineBreak' %in% tags) {
-      '\n'
-    } else if ('SoftBreak' %in% tags) {
-      ' '
+    txt = if ("Space" %in% tags) {
+      " "
+    } else if ("LineBreak" %in% tags) {
+      "\n"
+    } else if ("SoftBreak" %in% tags) {
+      " "
     } else {
       x$c
     },
@@ -84,7 +88,7 @@ ast2df <- function(x) {
   x$blocks %>%
     flatten_ast() %>%
     lapply(branch2list) %>%
-    lapply(purrr::map_at, 'Image', list) %>%
+    lapply(purrr::map_at, "Image", list) %>%
     dplyr::bind_rows() %>%
     tibble::as_tibble() %>%
     dplyr::mutate_if(is.logical, dplyr::coalesce, FALSE)

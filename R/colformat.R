@@ -7,24 +7,24 @@
 #'
 #' @examples
 #' if (rmarkdown::pandoc_available()) {
-#'   d = data.frame(
-#'     x = c("**bold**", "*italic*" ),
+#'   d <- data.frame(
+#'     x = c("**bold**", "*italic*"),
 #'     y = c("^superscript^", "~subscript~"),
 #'     z = c("***^ft^~Extra~** is*", "*Cool*")
 #'   )
 #'   colformat_md(flextable::flextable(d))
 #' }
-#'
 #' @export
 colformat_md <- function(
-  x, j = where(is.character),
-  auto_color_link = 'blue', .from = 'markdown+autolink_bare_uris'
-) {
+                         x, j = where(is.character),
+                         auto_color_link = "blue", .from = "markdown+autolink_bare_uris") {
   body <- x$body$dataset
   .j <- rlang::enexpr(j)
   col <- names(tidyselect::eval_select(rlang::expr(c(!!.j)), body))
 
-  if (length(col) == 0) return(x)
+  if (length(col) == 0) {
+    return(x)
+  }
 
   flextable::compose(
     x,
@@ -35,7 +35,7 @@ colformat_md <- function(
       auto_color_link = auto_color_link,
       .from = .from
     ),
-    part = 'body'
+    part = "body"
   )
 }
 

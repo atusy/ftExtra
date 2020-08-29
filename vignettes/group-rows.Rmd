@@ -68,14 +68,14 @@ because the booktab theme is not intuitive.
 
 ```{r}
 grouped_iris %>%
-  as_flextable(groups_to = 'merged')
+  as_flextable(groups_to = "merged")
 ```
 
 ## Multiple grouping variables
 
 ```{r}
 grouped_mtcars %>%
-  as_flextable(groups_to = 'merged') %>%
+  as_flextable(groups_to = "merged") %>%
   flextable::theme_vanilla()
 ```
 
@@ -86,6 +86,6 @@ If you want to keep their positions, specify `group_pos = 'asis'`.
 
 ```{r}
 grouped_mtcars %>%
-  as_flextable(groups_to = 'merged', groups_pos = 'asis') %>%
+  as_flextable(groups_to = "merged", groups_pos = "asis") %>%
   flextable::theme_vanilla()
 ```

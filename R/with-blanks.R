@@ -4,8 +4,8 @@ insert_blanks <- function(after = NULL, before = NULL, data) {
 
   c(
     names(data),
-    sprintf('..after%s', seq_along(.after)),
-    sprintf('..before%s', seq_along(.before))
+    sprintf("..after%s", seq_along(.after)),
+    sprintf("..before%s", seq_along(.before))
   )[order(c(seq(length(data)), .after, .before))]
 }
 
@@ -17,11 +17,10 @@ insert_blanks <- function(after = NULL, before = NULL, data) {
 #'
 #' @examples
 #' iris %>%
-#'   as_flextable(col_keys = with_blanks(dplyr::ends_with('Width')))
-#'
+#'   as_flextable(col_keys = with_blanks(dplyr::ends_with("Width")))
 #' @export
 with_blanks <- function(after = NULL, before = NULL) {
-  after = rlang::enquo(after)
-  before = rlang::enquo(before)
+  after <- rlang::enquo(after)
+  before <- rlang::enquo(before)
   function(data) insert_blanks(after = after, before = before, data = data)
 }

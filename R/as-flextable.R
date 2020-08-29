@@ -14,30 +14,30 @@ flextable::as_flextable
 #' @examples
 #'
 #' # For grouped_df
-#' grouped_df <- iris %>% dplyr::group_by(Species) %>% dplyr::slice(1, 2)
+#' grouped_df <- iris %>%
+#'   dplyr::group_by(Species) %>%
+#'   dplyr::slice(1, 2)
 #'
-#' as_flextable(grouped_df, groups_to = 'titles')
-#' as_flextable(grouped_df, groups_to = 'titles', hide_grouplabel = TRUE)
-#' as_flextable(grouped_df, groups_to = 'merged')
-#' as_flextable(grouped_df, groups_to = 'asis')
-#'
+#' as_flextable(grouped_df, groups_to = "titles")
+#' as_flextable(grouped_df, groups_to = "titles", hide_grouplabel = TRUE)
+#' as_flextable(grouped_df, groups_to = "merged")
+#' as_flextable(grouped_df, groups_to = "asis")
 #' @export
 as_flextable.grouped_df <- function(
-  x,
-  groups_to = c('titles', 'merged', 'asis'),
-  groups_pos = c('left', 'asis'),
-  ...
-) {
+                                    x,
+                                    groups_to = c("titles", "merged", "asis"),
+                                    groups_pos = c("left", "asis"),
+                                    ...) {
   groups_to <- match.arg(groups_to)
   groups_pos <- match.arg(groups_pos)
 
-  if (groups_to == 'asis') {
+  if (groups_to == "asis") {
     return(as_flextable.data.frame(dplyr::ungroup(x), ...))
   }
 
   g <- group_of(x)
 
-  if (groups_to == 'titles') {
+  if (groups_to == "titles") {
     return(
       x %>%
         dplyr::ungroup() %>%
@@ -46,11 +46,11 @@ as_flextable.grouped_df <- function(
     )
   }
 
-  if (groups_to == 'merged') {
+  if (groups_to == "merged") {
     return(
       x %>%
         dplyr::ungroup() %>%
-        dplyr::select(if (groups_pos == 'left') g, tidyselect::everything()) %>%
+        dplyr::select(if (groups_pos == "left") g, tidyselect::everything()) %>%
         as_flextable.data.frame(...) %>%
         flextable::merge_v(g[1L], g) %>%
         flextable::theme_vanilla() %>%
@@ -65,10 +65,11 @@ as_flextable.grouped_df <- function(
 #'
 #' @examples
 #' # For data.frame
-#' iris %>% head %>% as_flextable()
-#'
+#' iris %>%
+#'   head() %>%
+#'   as_flextable()
 #' @export
 as_flextable.data.frame <- function(x, col_keys = names(x), ...) {
-  if (is.function(col_keys)) col_keys = col_keys(x)
+  if (is.function(col_keys)) col_keys <- col_keys(x)
   flextable::flextable(x, col_keys = col_keys, ...)
 }

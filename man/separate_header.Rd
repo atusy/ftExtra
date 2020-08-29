@@ -34,6 +34,7 @@ set to NULL for none.}
 Separate the header based on delimiters
 }
 \examples{
-iris \%>\% as_flextable \%>\% separate_header
-
+iris \%>\%
+  as_flextable() \%>\%
+  separate_header()
 }
