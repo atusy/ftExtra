@@ -14,6 +14,6 @@ below to see their documentation.
 \describe{
   \item{flextable}{\code{\link[flextable]{as_flextable}}}
 
-  \item{magrittr}{\code{\link[magrittr]{\%>\%}}}
+  \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
 }}
 
