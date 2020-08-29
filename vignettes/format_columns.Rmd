@@ -85,7 +85,7 @@ data.frame(linebreak = c("a\nb"), stringsAsFactors = FALSE) %>%
 
 ## Emoji
 
-Pandoc's markdown provides an extention `'emoji'`.
+Pandoc's markdown provides an extension, `'emoji'`.
 To use it with `colformat_md()`, specify `markdown+emoji`.
 
 ```{r}
