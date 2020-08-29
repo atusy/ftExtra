@@ -10,6 +10,7 @@ status](https://github.com/atusy/ftExtra/workflows/R-CMD-check/badge.svg)](https
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ftExtra)](https://CRAN.R-project.org/package=ftExtra)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/ftExtra)
+![Monthly downloads](https://cranlogs.r-pkg.org/badges/ftExtra)
 <!-- badges: end -->
 
 The ftExtra package provides helper functions for the flextable package:
