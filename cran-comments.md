@@ -1,3 +1,5 @@
+
+
 ## Test environments
 
 * Local
@@ -11,6 +13,13 @@
   * ubuntu-16.04 (R-3.5)
   * ubuntu-16.04 (R-3.4)
   * ubuntu-16.04 (R-3.3)
+* rhub
+  * fedora-clang-devel
+  * macos-highsierra-release-cran
+  * solaris-x86-patched
+  * ubuntu-gcc-release
+  * windows-x86_64-release
+  * windows-x86_64-devel
 
 ## R CMD check results
 
