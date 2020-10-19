@@ -73,12 +73,3 @@ colformat_md <- function(x,
 where <- function(...) {
   tidyselect::vars_select_helpers$where(...)
 }
-
-gen_footnote_keys <- list(
-  `1` = function(n) as.character(seq(n)),
-  a = function(n) letters[1:n],
-  A = function(n) LETTERS[1:n],
-  i = function(n) tolower(as.roman(seq(n))),
-  I = function(n) as.roman(seq(n)),
-  `*` = function(n) vapply(seq(n), function(x) rep("*", n), NA_character_)
-)
