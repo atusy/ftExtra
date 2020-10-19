@@ -21,7 +21,6 @@ colformat_md <- function(x,
                          .from = "markdown+autolink_bare_uris",
                          footnote_key = c("1", "a", "A", "i", "I", "*"),
                          footnote_max = 26,
-                         ref_symbols = NULL,
                          inline = FALSE,
                          sep = "; "
                          ) {
@@ -40,10 +39,9 @@ colformat_md <- function(x,
     stop('If `footnote_key` is "a" or "A", `footnote_max` must be <= 26')
   }
   footnotes <- new.env()
+  footnotes$key <- footnote_key_generators[[footnote_key]](footnote_max)
   footnotes$value <- list()
-  footnotes$progress <- 0L
-  footnotes$pos <- expand.grid(i = .i, j = col, stringsAsFactors = FALSE)
-  footnotes$available <- numeric()
+  footnotes$n <- 0L
 
   ft <- flextable::compose(
     x,
@@ -57,14 +55,14 @@ colformat_md <- function(x,
     part = "body"
   )
 
-  if (length(footnotes$value) == 0) {
+  if (footnotes$n == 0L) {
     return(ft)
   }
 
-  pos <- footnotes$pos[footnotes$available, ]
-  flextable::footnote(ft, i = pos$i, j = pos$j,
+  pos <- rep(1L, footnotes$n)
+  flextable::footnote(ft, i = pos, j = pos,
                       value = structure(footnotes$value, class = "paragraph"),
-                      ref_symbols = ref_symbols,
+                      ref_symbols = rep("", footnotes$n),
                       part = "body",
                       inline = inline,
                       sep = sep)
@@ -73,3 +71,15 @@ colformat_md <- function(x,
 where <- function(...) {
   tidyselect::vars_select_helpers$where(...)
 }
+
+footnote_key_generators <- list(
+  `1` = function(n) as.character(seq(n)),
+  a = function(n) letters[seq(n)],
+  A = function(n) LETTERS[seq(n)],
+  i = function(n) tolower(as.roman(seq(n))),
+  I = function(n) as.roman(seq(n)),
+  `*` = function(n) vapply(seq(n),
+                           function(i) paste(rep("*", i), collapse = ""),
+                           NA_character_)
+
+)

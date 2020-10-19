@@ -49,16 +49,20 @@ parse_md <- function(x,
   if (is.null(.env_footnotes)) {
     y <- ast_df
   } else if (all(names(ast_df) != "Note")) {
-    .env_footnotes$progress <- .env_footnotes$progress + 1L
     y <- ast_df
   } else {
-    .env_footnotes$progress <- .env_footnotes$progress + 1L
+    .env_footnotes$n <- .env_footnotes$n + 1L
+    ref <- data.frame(txt = .env_footnotes$key[[.env_footnotes$n]],
+                      Superscript = TRUE,
+                      stringsAsFactors = FALSE)
     .env_footnotes$value <- c(
       .env_footnotes$value,
-      list(construct_chunk(as.list(ast_df[ast_df$Note, ], auto_color_link))))
-    .env_footnotes$available <- c(.env_footnotes$available,
-                                  .env_footnotes$progress)
-    y <- ast_df[!ast_df$Note, ]
+      list(construct_chunk(
+        as.list(dplyr::bind_rows(ref, ast_df[ast_df$Note, ])),
+        auto_color_link)
+      )
+    )
+    y <- dplyr::bind_rows(ast_df[!ast_df$Note, ], ref)
   }
 
   construct_chunk(as.list(y), auto_color_link)
