@@ -30,7 +30,10 @@ image_size <- function(x, y = "width") {
   as.numeric(pandoc_attrs(x, y))
 }
 
-parse_md <- function(x, .from = "markdown", auto_color_link = "blue") {
+parse_md <- function(x,
+                     .from = "markdown",
+                     auto_color_link = "blue",
+                     .env_footnotes = NULL) {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1) {
     stop("`auto_color_link` must be a string")
   }
@@ -41,27 +44,44 @@ parse_md <- function(x, .from = "markdown", auto_color_link = "blue") {
     stop("Markdown text must be a single paragraph")
   }
 
-  y <- ast %>%
-    ast2df() %>%
-    as.list()
+  ast_df <- ast2df(ast)
 
+  if (is.null(.env_footnotes)) {
+    y <- ast_df
+  } else if (all(names(ast_df) != "Note")) {
+    .env_footnotes$progress <- .env_footnotes$progress + 1L
+    y <- ast_df
+  } else {
+    .env_footnotes$progress <- .env_footnotes$progress + 1L
+    .env_footnotes$value <- c(
+      .env_footnotes$value,
+      list(construct_chunk(as.list(ast_df[ast_df$Note, ], auto_color_link))))
+    .env_footnotes$available <- c(.env_footnotes$available,
+                                  .env_footnotes$progress)
+    y <- ast_df[!ast_df$Note, ]
+  }
 
+  construct_chunk(as.list(y), auto_color_link)
+}
+
+construct_chunk <- function(x, auto_color_link = "blue") {
   dplyr::bind_rows(
     header,
     data.frame(
-      txt = y$txt,
-      italic = y$Emph %||% NA,
-      bold = y$Strong %||% NA,
-      url = y$Link %||% NA_character_,
-      width = image_size(y$Image, "width"),
-      height = image_size(y$Image, "height"),
-      vertical.align = vertical_align(y$Superscript, y$Subscript),
+      txt = x$txt,
+      italic = x$Emph %||% NA,
+      bold = x$Strong %||% NA,
+      url = x$Link %||% NA_character_,
+      width = image_size(x$Image, "width"),
+      height = image_size(x$Image, "height"),
+      vertical.align = vertical_align(x$Superscript, x$Subscript),
       stringsAsFactors = FALSE
     )
   ) %>%
     dplyr::mutate(
       color = dplyr::if_else(is.na(url), NA_character_, auto_color_link),
-      img_data = y$Image %||% list(NULL)
+      img_data = x$Image %||% list(NULL),
+      seq_index = dplyr::row_number()
     )
 }
 
@@ -89,9 +109,13 @@ parse_md <- function(x, .from = "markdown", auto_color_link = "blue") {
 #' @export
 as_paragraph_md <- function(x,
                             auto_color_link = "blue",
-                            .from = "markdown+autolink_bare_uris") {
+                            .from = "markdown+autolink_bare_uris",
+                            .env_footnotes = NULL) {
   structure(
-    lapply(x, parse_md, .from = .from, auto_color_link = auto_color_link),
+    lapply(x, parse_md,
+           .from = .from,
+           auto_color_link = auto_color_link,
+           .env_footnotes = .env_footnotes),
     class = "paragraph"
   )
 }

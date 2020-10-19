@@ -15,10 +15,18 @@
 #'   colformat_md(flextable::flextable(d))
 #' }
 #' @export
-colformat_md <- function(
-                         x, j = where(is.character),
-                         auto_color_link = "blue", .from = "markdown+autolink_bare_uris") {
+colformat_md <- function(x,
+                         j = where(is.character),
+                         auto_color_link = "blue",
+                         .from = "markdown+autolink_bare_uris",
+                         footnote_key = c("1", "a", "A", "i", "I", "*"),
+                         footnote_max = 26,
+                         ref_symbols = NULL,
+                         inline = FALSE,
+                         sep = "; "
+                         ) {
   body <- x$body$dataset
+  .i <- seq(nrow(body))
   .j <- rlang::enexpr(j)
   col <- names(tidyselect::eval_select(rlang::expr(c(!!.j)), body))
 
@@ -26,19 +34,51 @@ colformat_md <- function(
     return(x)
   }
 
-  flextable::compose(
+  footnote_key = match.arg(as.character(footnote_key),
+                           c("1", "a", "A", "i", "I", "*"))
+  if ((footnote_key %in% c("a", "A")) && (footnote_max > 26)) {
+    stop('If `footnote_key` is "a" or "A", `footnote_max` must be <= 26')
+  }
+  footnotes <- new.env()
+  footnotes$value <- list()
+  footnotes$progress <- 0L
+  footnotes$pos <- expand.grid(i = .i, j = col, stringsAsFactors = FALSE)
+  footnotes$available <- numeric()
+
+  ft <- flextable::compose(
     x,
-    i = seq(nrow(body)),
+    i = .i,
     j = col,
     value = as_paragraph_md(
       unlist(body[col], use.names = FALSE),
       auto_color_link = auto_color_link,
-      .from = .from
+      .from = .from, .env_footnotes = footnotes
     ),
     part = "body"
   )
+
+  if (length(footnotes$value) == 0) {
+    return(ft)
+  }
+
+  pos <- footnotes$pos[footnotes$available, ]
+  flextable::footnote(ft, i = pos$i, j = pos$j,
+                      value = structure(footnotes$value, class = "paragraph"),
+                      ref_symbols = ref_symbols,
+                      part = "body",
+                      inline = inline,
+                      sep = sep)
 }
 
 where <- function(...) {
   tidyselect::vars_select_helpers$where(...)
 }
+
+gen_footnote_keys <- list(
+  `1` = function(n) as.character(seq(n)),
+  a = function(n) letters[1:n],
+  A = function(n) LETTERS[1:n],
+  i = function(n) tolower(as.roman(seq(n))),
+  I = function(n) as.roman(seq(n)),
+  `*` = function(n) vapply(seq(n), function(x) rep("*", n), NA_character_)
+)
