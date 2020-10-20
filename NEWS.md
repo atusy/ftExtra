@@ -2,6 +2,7 @@
 
 * Support markdown footnote with `colformat_md`. Currently, one footnote per a cell is allowed, and it must be located at the end of the cell content (#22).
 * Add `footnote_options()` to configure options for footnotes (#23).
+* Support formatting markdown texts on header with `colformat_md(part = "header")` (#23).
 * Support single- and double-quotes by a lua filter (dfc82e0).
 
 # ftExtra 0.0.3
