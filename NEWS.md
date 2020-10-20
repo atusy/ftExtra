@@ -1,6 +1,7 @@
 # ftExtra 0.0.3.1
 
 * Support markdown footnote with `colformat_md`. Currently, one footnote per a cell is allowed, and it must be located at the end of the cell content (#22).
+* Support single- and double-quotes by a lua filter.
 
 # ftExtra 0.0.3
 

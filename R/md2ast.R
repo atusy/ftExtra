@@ -11,7 +11,8 @@ md2ast <- function(x, .from = "markdown") {
         shQuote(rmarkdown::pandoc_exec()),
         tf,
         "--from", .from,
-        "--to json"
+        "--to json",
+        "--lua-filter", system.file("lua/smart.lua", package = "ftExtra")
       ),
       intern = TRUE
     ),
