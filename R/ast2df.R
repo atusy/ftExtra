@@ -115,3 +115,15 @@ ast2df <- function(x) {
     tibble::as_tibble() %>%
     dplyr::mutate_if(is.logical, dplyr::coalesce, FALSE)
 }
+
+#' Convert Pandoc's Markdown to data frame
+#' @noRd
+md2df <- function(x, .from) {
+  ast <- md2ast(x, .from = .from)
+
+  if ((ast$blocks[[1]]$t != "Para") || (length(ast$blocks) > 1)) {
+    stop("Markdown text must be a single paragraph")
+  }
+
+  ast2df(ast)
+}
