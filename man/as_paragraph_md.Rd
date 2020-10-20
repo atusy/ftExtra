@@ -8,7 +8,7 @@ as_paragraph_md(
   x,
   auto_color_link = "blue",
   .from = "markdown+autolink_bare_uris",
-  .env_footnotes = NULL
+  .footnote_options = NULL
 )
 }
 \arguments{
@@ -18,7 +18,7 @@ as_paragraph_md(
 
 \item{.from}{Pandoc's \code{--from} argument (default: \code{'markdown+autolink_bare_uris'}).}
 
-\item{.env_footnotes}{Internally used by \code{colformat_md}.}
+\item{.footnote_options}{Spec options for footnotes via \code{colformat_md}.}
 }
 \description{
 Parse markdown cells and returns the "paragraph" object.

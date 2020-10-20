@@ -1,7 +1,7 @@
 header <- flextable::as_paragraph("")[[1L]][-1L, ]
 
 vertical_align <- function(sup, sub) {
-  .f <- rep(FALSE, max(1, length(sup), length(sub)))
+  .f <- rep(FALSE, max(1L, length(sup), length(sub)))
   sup <- sup %||% .f
   sub <- sub %||% .f
   dplyr::if_else(
@@ -33,22 +33,22 @@ image_size <- function(x, y = "width") {
 parse_md <- function(x,
                      .from = "markdown",
                      auto_color_link = "blue",
-                     .env_footnotes = NULL) {
-  if (!is.character(auto_color_link) || length(auto_color_link) != 1) {
+                     .footnote_options = NULL) {
+  if (!is.character(auto_color_link) || length(auto_color_link) != 1L) {
     stop("`auto_color_link` must be a string")
   }
 
   md_df <- md2df(x, .from = .from)
 
-  if (is.null(.env_footnotes) || (all(names(md_df) != "Note"))) {
+  if (is.null(.footnote_options) || (all(names(md_df) != "Note"))) {
     y <- md_df
   } else {
-    .env_footnotes$n <- .env_footnotes$n + 1L
-    ref <- data.frame(txt = .env_footnotes$ref[[.env_footnotes$n]],
+    .footnote_options$n <- .footnote_options$n + 1L
+    ref <- data.frame(txt = .footnote_options$ref[[.footnote_options$n]],
                       Superscript = TRUE,
                       stringsAsFactors = FALSE)
-    .env_footnotes$value <- c(
-      .env_footnotes$value,
+    .footnote_options$value <- c(
+      .footnote_options$value,
       list(construct_chunk(as.list(dplyr::bind_rows(ref, md_df[md_df$Note, ])),
                            auto_color_link))
     )
@@ -56,16 +56,6 @@ parse_md <- function(x,
   }
 
   construct_chunk(as.list(y), auto_color_link)
-}
-
-md2df <- function(x, .from) {
-  ast <- md2ast(x, .from = .from)
-
-  if ((ast$blocks[[1]]$t != "Para") || (length(ast$blocks) > 1)) {
-    stop("Markdown text must be a single paragraph")
-  }
-
-  ast2df(ast)
 }
 
 construct_chunk <- function(x, auto_color_link = "blue") {
@@ -97,8 +87,7 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #' @param auto_color_link A color of the link texts.
 #' @param .from
 #'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).
-#' @param .env_footnotes
-#'   Internally used by `colformat_md`.
+#' @param .footnote_options Spec options for footnotes via `colformat_md`.
 #'
 #' @examples
 #' if (rmarkdown::pandoc_available()) {
@@ -116,12 +105,10 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 as_paragraph_md <- function(x,
                             auto_color_link = "blue",
                             .from = "markdown+autolink_bare_uris",
-                            .env_footnotes = NULL) {
-  structure(
-    lapply(x, parse_md,
-           .from = .from,
-           auto_color_link = auto_color_link,
-           .env_footnotes = .env_footnotes),
-    class = "paragraph"
-  )
+                            .footnote_options = NULL) {
+  structure(lapply(x, parse_md,
+                   .from = .from,
+                   auto_color_link = auto_color_link,
+                   .footnote_options = .footnote_options),
+            class = "paragraph")
 }
