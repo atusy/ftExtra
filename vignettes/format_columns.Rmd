@@ -23,7 +23,7 @@ library(ftExtra)
 
 # Treat character columns as markdown columns
 
-The example below shows that `colformat_md()` function parses markdown texts in flextable.
+The example below shows that `colformat_md()` function parses markdown texts in the flextable object.
 
 ```{r}
 data.frame(
@@ -36,14 +36,65 @@ data.frame(
   colformat_md()
 ```
 
-Currently, **bold**, *italic*, ^superscript^, ~subscript~, and link are well supported.
+The table header can also be formatted by specifying `part = "header"` or `"all"` to `colformat_md()`
+
+Supported syntax are
+
+- **bold**
+- *italic*
+- ^superscript^
+- ~subscript~
+- link
+- footnote
+- image
+- line break
+
 Note that other syntax may result in unexpected behaviors.
-The ftExtra package does not support multiple paragraphs or block elements other than the paragraph.
+The **ftExtra** package does not support multiple paragraphs or block elements other than the paragraph.
 
-## Image
+## Footnotes
 
-You can also insert images.
-As markdown is parsed by pandoc, width and/or height attributes can be specified.
+Currently footnotes have some limitations.
+
+- A cell allows up to one footnote.
+- A footnote needs be added at the end of the cell.
+
+For example,
+
+```{r}
+data.frame(
+  package = "ftExtra",
+  description = "Extensions for 'Flextable'^[Supports of footnotes]"
+) %>%
+  as_flextable() %>%
+  colformat_md() %>%
+  flextable::autofit(add_w = 0.5)
+```
+
+Reference symboles can be configured by `footnote_options()`.
+Of course, markdown can be used inside footnotes as well.
+
+```{r}
+data.frame(
+  package = "ftExtra^[Short of *flextable extra*]",
+  description = "Extensions for 'Flextable'^[Supports of footnotes]"
+) %>%
+  as_flextable() %>%
+  colformat_md(
+    .footnote_options = footnote_options(ref = "i",
+                                         prefix = '[',
+                                         suffix = ']',
+                                         start = 2,
+                                         inline = TRUE,
+                                         sep = "; ")
+  ) %>%
+  flextable::autofit(add_w = 0.5)
+```
+
+
+## Images
+
+Images can be inserted optionally with width and/or height attributes.
 Specifying one of them changes the other while keeping the aspect ratio.
 
 ```{r}
