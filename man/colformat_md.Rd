@@ -8,6 +8,10 @@ colformat_md(
   x,
   j = where(is.character),
   auto_color_link = "blue",
+  footnote_ref = c("1", "a", "A", "i", "I", "*"),
+  footnote_max = 26,
+  footnote_inline = FALSE,
+  footnote_sep = "; ",
   .from = "markdown+autolink_bare_uris"
 )
 }
@@ -18,6 +22,15 @@ colformat_md(
 Selection can be done by the semantics of \code{dplyr::select()}.}
 
 \item{auto_color_link}{A color of the link texts.}
+
+\item{footnote_ref}{One of "1", "a", "A", "i", "I", or "*" to as a choice for a symbol to
+cross-reference footnotes.}
+
+\item{footnote_max}{A max number of footnotes.}
+
+\item{footnote_inline}{Whether to append footnotes on the same line (default: \code{FALSE}).}
+
+\item{footnote_sep}{A separator of footnotes when \code{footnote_inline = TRUE} (default: \code{"; "}).}
 
 \item{.from}{Pandoc's \code{--from} argument (default: \code{'markdown+autolink_bare_uris'}).}
 }

@@ -1,3 +1,7 @@
+# ftExtra 0.0.3.1
+
+* Support markdown footnote with `colformat_md`. Currently, one footnote per a cell is allowed, and it must be located at the end of the cell content (#22).
+
 # ftExtra 0.0.3
 
 * Patched to pass "CRAN Package Check Results for Package" where `r-patched-solaris-x86` fails because of missing pandoc.

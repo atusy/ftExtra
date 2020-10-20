@@ -30,38 +30,62 @@ image_size <- function(x, y = "width") {
   as.numeric(pandoc_attrs(x, y))
 }
 
-parse_md <- function(x, .from = "markdown", auto_color_link = "blue") {
+parse_md <- function(x,
+                     .from = "markdown",
+                     auto_color_link = "blue",
+                     .env_footnotes = NULL) {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1) {
     stop("`auto_color_link` must be a string")
   }
 
+  md_df <- md2df(x, .from = .from)
+
+  if (is.null(.env_footnotes) || (all(names(md_df) != "Note"))) {
+    y <- md_df
+  } else {
+    .env_footnotes$n <- .env_footnotes$n + 1L
+    ref <- data.frame(txt = .env_footnotes$ref[[.env_footnotes$n]],
+                      Superscript = TRUE,
+                      stringsAsFactors = FALSE)
+    .env_footnotes$value <- c(
+      .env_footnotes$value,
+      list(construct_chunk(as.list(dplyr::bind_rows(ref, md_df[md_df$Note, ])),
+                           auto_color_link))
+    )
+    y <- dplyr::bind_rows(md_df[!md_df$Note, ], ref)
+  }
+
+  construct_chunk(as.list(y), auto_color_link)
+}
+
+md2df <- function(x, .from) {
   ast <- md2ast(x, .from = .from)
 
   if ((ast$blocks[[1]]$t != "Para") || (length(ast$blocks) > 1)) {
     stop("Markdown text must be a single paragraph")
   }
 
-  y <- ast %>%
-    ast2df() %>%
-    as.list()
+  ast2df(ast)
+}
 
-
+construct_chunk <- function(x, auto_color_link = "blue") {
   dplyr::bind_rows(
     header,
     data.frame(
-      txt = y$txt,
-      italic = y$Emph %||% NA,
-      bold = y$Strong %||% NA,
-      url = y$Link %||% NA_character_,
-      width = image_size(y$Image, "width"),
-      height = image_size(y$Image, "height"),
-      vertical.align = vertical_align(y$Superscript, y$Subscript),
+      txt = x$txt,
+      italic = x$Emph %||% NA,
+      bold = x$Strong %||% NA,
+      url = x$Link %||% NA_character_,
+      width = image_size(x$Image, "width"),
+      height = image_size(x$Image, "height"),
+      vertical.align = vertical_align(x$Superscript, x$Subscript),
       stringsAsFactors = FALSE
     )
   ) %>%
     dplyr::mutate(
       color = dplyr::if_else(is.na(url), NA_character_, auto_color_link),
-      img_data = y$Image %||% list(NULL)
+      img_data = x$Image %||% list(NULL),
+      seq_index = dplyr::row_number()
     )
 }
 
@@ -73,6 +97,8 @@ parse_md <- function(x, .from = "markdown", auto_color_link = "blue") {
 #' @param auto_color_link A color of the link texts.
 #' @param .from
 #'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).
+#' @param .env_footnotes
+#'   Internally used by `colformat_md`.
 #'
 #' @examples
 #' if (rmarkdown::pandoc_available()) {
@@ -89,9 +115,13 @@ parse_md <- function(x, .from = "markdown", auto_color_link = "blue") {
 #' @export
 as_paragraph_md <- function(x,
                             auto_color_link = "blue",
-                            .from = "markdown+autolink_bare_uris") {
+                            .from = "markdown+autolink_bare_uris",
+                            .env_footnotes = NULL) {
   structure(
-    lapply(x, parse_md, .from = .from, auto_color_link = auto_color_link),
+    lapply(x, parse_md,
+           .from = .from,
+           auto_color_link = auto_color_link,
+           .env_footnotes = .env_footnotes),
     class = "paragraph"
   )
 }
