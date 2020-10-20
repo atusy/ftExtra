@@ -5,6 +5,8 @@
 #' @param ref
 #'   One of "1", "a", "A", "i", "I", or "*" to as a choice for a symbol to
 #'   cross-reference footnotes.
+#' @param prefix,suffix
+#'   Pre- and suf-fixes for `ref` (default: `""`).
 #' @param start
 #'   A starting number of footnotes.
 #' @param max

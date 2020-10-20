@@ -18,6 +18,8 @@ footnote_options(
 \item{ref}{One of "1", "a", "A", "i", "I", or "*" to as a choice for a symbol to
 cross-reference footnotes.}
 
+\item{prefix, suffix}{Pre- and suf-fixes for \code{ref} (default: \code{""}).}
+
 \item{start}{A starting number of footnotes.}
 
 \item{max}{A max number of footnotes.}
