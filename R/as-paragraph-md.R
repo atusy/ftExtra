@@ -38,34 +38,34 @@ parse_md <- function(x,
     stop("`auto_color_link` must be a string")
   }
 
+  md_df <- md2df(x, .from = .from)
+
+  if (is.null(.env_footnotes) || (all(names(md_df) != "Note"))) {
+    y <- md_df
+  } else {
+    .env_footnotes$n <- .env_footnotes$n + 1L
+    ref <- data.frame(txt = .env_footnotes$ref[[.env_footnotes$n]],
+                      Superscript = TRUE,
+                      stringsAsFactors = FALSE)
+    .env_footnotes$value <- c(
+      .env_footnotes$value,
+      list(construct_chunk(as.list(dplyr::bind_rows(ref, md_df[md_df$Note, ])),
+                           auto_color_link))
+    )
+    y <- dplyr::bind_rows(md_df[!md_df$Note, ], ref)
+  }
+
+  construct_chunk(as.list(y), auto_color_link)
+}
+
+md2df <- function(x, .from) {
   ast <- md2ast(x, .from = .from)
 
   if ((ast$blocks[[1]]$t != "Para") || (length(ast$blocks) > 1)) {
     stop("Markdown text must be a single paragraph")
   }
 
-  ast_df <- ast2df(ast)
-
-  if (is.null(.env_footnotes)) {
-    y <- ast_df
-  } else if (all(names(ast_df) != "Note")) {
-    y <- ast_df
-  } else {
-    .env_footnotes$n <- .env_footnotes$n + 1L
-    ref <- data.frame(txt = .env_footnotes$key[[.env_footnotes$n]],
-                      Superscript = TRUE,
-                      stringsAsFactors = FALSE)
-    .env_footnotes$value <- c(
-      .env_footnotes$value,
-      list(construct_chunk(
-        as.list(dplyr::bind_rows(ref, ast_df[ast_df$Note, ])),
-        auto_color_link)
-      )
-    )
-    y <- dplyr::bind_rows(ast_df[!ast_df$Note, ], ref)
-  }
-
-  construct_chunk(as.list(y), auto_color_link)
+  ast2df(ast)
 }
 
 construct_chunk <- function(x, auto_color_link = "blue") {
@@ -97,6 +97,8 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #' @param auto_color_link A color of the link texts.
 #' @param .from
 #'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).
+#' @param .env_footnotes
+#'   Internally used by `colformat_md`.
 #'
 #' @examples
 #' if (rmarkdown::pandoc_available()) {

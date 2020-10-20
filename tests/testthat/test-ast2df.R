@@ -53,8 +53,7 @@ test_that("ast2df", {
     tibble::tibble(
       txt = c("text", "text"),
       Str = c(TRUE, TRUE),
-      Emph = c(TRUE, TRUE),
-      Para = c(TRUE, TRUE)
+      Emph = c(TRUE, TRUE)
     )
   )
 })

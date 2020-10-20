@@ -68,6 +68,8 @@ flatten_ast <- function(x) {
   purrr::compose(!!!rep(list(flatten_branch), n))(x)
 }
 
+#' Convert a branch of Pandoc's AST to list
+#' @noRd
 branch2list <- function(x) {
   tags <- names(x$t)
   c(
@@ -84,11 +86,31 @@ branch2list <- function(x) {
   )
 }
 
+#' Drop Para from AST to avoid `.name_repair`
+#'
+#' @param x A named list
+#'
+#' @examples
+#' x <- lapply(flatten_ast(md2ast('foo^[bar]')$blocks), branch2list)
+#' dplyr::bind_rows(x)
+#' dplyr::bind_rows(lapply(x, drop_Para))
+#'
+#' @noRd
+drop_Para <- function(x) {
+  x[names(x) != "Para"]
+}
+
+#' Convert Pandoc's AST to data frame
+#'
+#' @param x A value returned by `md2ast`
+#'
+#' @noRd
 ast2df <- function(x) {
   x$blocks %>%
     flatten_ast() %>%
     lapply(branch2list) %>%
     lapply(purrr::map_at, "Image", list) %>%
+    lapply(drop_Para) %>%
     dplyr::bind_rows() %>%
     tibble::as_tibble() %>%
     dplyr::mutate_if(is.logical, dplyr::coalesce, FALSE)
