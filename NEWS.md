@@ -1,10 +1,11 @@
-# ftExtra 0.0.3.3
+# ftExtra 0.0.3.6
 
 * Support markdown footnote with `colformat_md`. Currently, one footnote per a cell is allowed, and it must be located at the end of the cell content (#22).
 * Add `footnote_options()` to configure options for footnotes (#23).
 * Support formatting markdown texts on header with `colformat_md(part = "header")` (#23).
 * Support single- and double-quotes by a lua filter (dfc82e0).
-* Support Link and Span attributes. Useful attributes include the `.underline` class and the `color`, `shading.color`, and `font.family` attributes (#24).
+* Support attributes with Span, Link, and Code. Useful attributes include the `.underline` class and the `color`, `shading.color`, and `font.family` attributes (#24).
+* Support inline code (#25).
 
 # ftExtra 0.0.3
 

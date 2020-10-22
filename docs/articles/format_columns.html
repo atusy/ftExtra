@@ -110,7 +110,7 @@
   <span class="kw">x</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"**bold**"</span>, <span class="st">"*italic*"</span>),
   <span class="kw">y</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"^superscript^"</span>, <span class="st">"~subscript~"</span>),
   <span class="kw">z</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"*[**~ft~^Extra^**](https://ftextra.atusy.net/) is*"</span>,
-        <span class="st">"[*Cool*]{.underline shading.color='skyblue'}"</span>),
+        <span class="st">"[Cool]{.underline shading.color='skyblue'}"</span>),
   <span class="kw">stringsAsFactors</span> <span class="kw">=</span> <span class="fl">FALSE</span>
 ) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/pkg/flextable/man/as_flextable.html">as_flextable</a></span>() <span class="kw">%&gt;%</span>
@@ -130,7 +130,7 @@
 <tr style="overflow-wrap:break-word;">
 <td style="width:54px;background-color:transparent;vertical-align: middle;border-bottom: 2.00px solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;"><p style="margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:2px;padding-top:2px;padding-left:5px;padding-right:5px;background-color:transparent;"><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;">italic</span></p></td>
 <td style="width:54px;background-color:transparent;vertical-align: middle;border-bottom: 2.00px solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;"><p style="margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:2px;padding-top:2px;padding-left:5px;padding-right:5px;background-color:transparent;"><span style="font-family:'Roboto';font-size:7px;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;position: relative;top:3px;">subscript</span></p></td>
-<td style="width:54px;background-color:transparent;vertical-align: middle;border-bottom: 2.00px solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;"><p style="margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:2px;padding-top:2px;padding-left:5px;padding-right:5px;background-color:transparent;"><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:italic;text-decoration:underline;color:rgba(17, 17, 17, 1.00);background-color:rgba(135, 206, 235, 1.00);">Cool</span></p></td>
+<td style="width:54px;background-color:transparent;vertical-align: middle;border-bottom: 2.00px solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;"><p style="margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:2px;padding-top:2px;padding-left:5px;padding-right:5px;background-color:transparent;"><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:normal;text-decoration:underline;color:rgba(17, 17, 17, 1.00);background-color:rgba(135, 206, 235, 1.00);">Cool</span></p></td>
 </tr>
 </tbody>
 </table></div>
@@ -139,13 +139,14 @@
 <ul>
 <li><strong>bold</strong></li>
 <li><em>italic</em></li>
+<li><code>code</code></li>
 <li><sup>superscript</sup></li>
 <li><sub>subscript</sub></li>
 <li>link</li>
 <li>footnote</li>
 <li>image</li>
 <li>line break</li>
-<li>attributes
+<li>attributes with Span, Link, Code, and so on
 <ul>
 <li>to underline: <code>[foo]{.underline})</code>
 </li>
