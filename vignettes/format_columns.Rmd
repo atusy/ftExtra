@@ -27,10 +27,11 @@ The example below shows that `colformat_md()` function parses markdown texts in 
 
 ```{r}
 data.frame(
-  x = c("**bold**", "*italic*"),
-  y = c("^superscript^", "~subscript~"),
-  z = c("*[**~ft~^Extra^**](https://ftextra.atusy.net/) is*",
-        "[*Cool*]{.underline shading.color='skyblue'}"),
+  a = c("**bold**", "*italic*"),
+  b = c("^superscript^", "~subscript~"),
+  c = c("`code`", "[underline]{.underline}"),
+  d = c("*[**~ft~^Extra^**](https://ftextra.atusy.net/) is*",
+        "[Cool]{.underline shading.color='skyblue'}"),
   stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
@@ -43,13 +44,14 @@ Supported syntax are
 
 - **bold**
 - *italic*
+- `code`
 - ^superscript^
 - ~subscript~
 - link
 - footnote
 - image
 - line break
-- attributes
+- attributes with Span, Link, Code, and so on
     - to underline: `[foo]{.underline})`
     - to color: `[foo]{color=red}`
     - to highlight: `[foo]{shading.color=gray}`
