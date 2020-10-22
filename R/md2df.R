@@ -26,10 +26,10 @@ add_type <- function(x, t) {
   child <- stats::setNames(
     list(structure(
       if (isTRUE(x$t %in% c("Image", "Link"))) x$c[[3]][[1]] else TRUE,
-      pandoc_attr = if (has_attr(x$c)) {
-        flatten_attr(x$c[[1]])
-      } else {
+      pandoc_attr = if ("Cite" %in% x$t || !has_attr(x$c)) {
         NULL
+      } else {
+        flatten_attr(x$c[[1]])
       }
     )),
     x$t
@@ -151,6 +151,12 @@ ast2df <- function(x) {
 #' @noRd
 md2df <- function(x, .from = "markdown", .pandoc_args = NULL) {
   ast <- md2ast(x, .from = .from, .pandoc_args = .pandoc_args)
+
+  ast$blocks <- ast$blocks[
+    !vapply(ast$blocks,
+            function(x) identical(c(x$t, x$c[[1]][[1]]), c("Div", "refs")),
+            NA)
+  ]
 
   if ((ast$blocks[[1]]$t != "Para") || (length(ast$blocks) > 1)) {
     stop("Markdown text must be a single paragraph")

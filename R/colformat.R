@@ -59,6 +59,7 @@ colformat_md <- function(x,
                              auto_color_link = auto_color_link,
                              .from = .from,
                              .extensions = .extensions,
+                             .pandoc_args = .pandoc_args,
                              .footnote_options = .footnote_options
                            ))
 
