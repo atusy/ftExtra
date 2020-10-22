@@ -4,6 +4,7 @@
 * Add `footnote_options()` to configure options for footnotes (#23).
 * Support formatting markdown texts on header with `colformat_md(part = "header")` (#23).
 * Support single- and double-quotes by a lua filter (dfc82e0).
+* Support Link and Span attributes. Useful attributes include the `.underline` class and the `color`, `shading.color`, and `font.family` attributes
 
 # ftExtra 0.0.3
 

@@ -100,6 +100,36 @@ drop_Para <- function(x) {
   x[names(x) != "Para"]
 }
 
+drop_null <- function(x) {
+  x[!vapply(x, is.null, NA)]
+}
+
+drop_na <- function(x) {
+  x[!is.na(x)]
+}
+
+last <- function(x) {
+  x[[length(x)]]
+}
+
+format_by_attr <- function(x) {
+  a <- x %>%
+    lapply(attr, 'pandoc_attr') %>%
+    drop_null() %>%
+    lapply(drop_null) %>%
+    dplyr::bind_rows() %>%
+    lapply(drop_na)
+
+  if(length(a) == 0L) return(x)
+
+  x$underlined = any(a$class == "underline")
+  x$color = last(a$color) %||% NA_character_
+  x$shading.color = last(a$shading.color) %||% NA_character_
+  x$font.family = last(a$font.family) %||% NA_character_
+
+  x
+}
+
 #' Convert Pandoc's AST to data frame
 #'
 #' @param x A value returned by `md2ast`
@@ -110,6 +140,7 @@ ast2df <- function(x) {
     flatten_ast() %>%
     lapply(branch2list) %>%
     lapply(purrr::map_at, "Image", list) %>%
+    lapply(format_by_attr) %>%
     lapply(drop_Para) %>%
     dplyr::bind_rows() %>%
     tibble::as_tibble() %>%
