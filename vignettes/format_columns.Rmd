@@ -29,7 +29,8 @@ The example below shows that `colformat_md()` function parses markdown texts in 
 data.frame(
   x = c("**bold**", "*italic*"),
   y = c("^superscript^", "~subscript~"),
-  z = c("*[**~ft~^Extra^**](https://ftextra.atusy.net/) is*", "*Cool*"),
+  z = c("*[**~ft~^Extra^**](https://ftextra.atusy.net/) is*",
+        "[*Cool*]{.underline shading.color='skyblue'}"),
   stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
@@ -48,6 +49,12 @@ Supported syntax are
 - footnote
 - image
 - line break
+- attributes
+    - to underline: `[foo]{.underline})`
+    - to color: `[foo]{color=red}`
+    - to highlight: `[foo]{shading.color=gray}`
+    - to change font: `[foo]{font.family=Roboto}`
+    - and the combinations of the above
 
 Note that other syntax may result in unexpected behaviors.
 The **ftExtra** package does not support multiple paragraphs or block elements other than the paragraph.
