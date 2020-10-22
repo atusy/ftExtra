@@ -2,7 +2,7 @@
 #' @param x A character vector
 #' @param .from Markdown format
 #' @noRd
-md2ast <- function(x, .from = "markdown") {
+md2ast <- function(x, .from = "markdown", .pandoc_args = NULL) {
   tf <- tempfile()
   writeLines(x, tf)
   jsonlite::fromJSON(
@@ -12,9 +12,7 @@ md2ast <- function(x, .from = "markdown") {
         tf,
         "--from", .from,
         "--to json",
-        "--lua-filter", system.file("lua/smart.lua", package = "ftExtra"),
-        "--lua-filter", system.file("lua/inline-code.lua", package = "ftExtra"),
-        ""
+        paste(.pandoc_args, collapse = " ")
       ),
       intern = TRUE
     ),

@@ -149,8 +149,8 @@ ast2df <- function(x) {
 
 #' Convert Pandoc's Markdown to data frame
 #' @noRd
-md2df <- function(x, .from) {
-  ast <- md2ast(x, .from = .from)
+md2df <- function(x, .from = "markdown", .pandoc_args = NULL) {
+  ast <- md2ast(x, .from = .from, .pandoc_args = .pandoc_args)
 
   if ((ast$blocks[[1]]$t != "Para") || (length(ast$blocks) > 1)) {
     stop("Markdown text must be a single paragraph")

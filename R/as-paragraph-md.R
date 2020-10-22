@@ -31,14 +31,23 @@ image_size <- function(x, y = "width") {
 }
 
 parse_md <- function(x,
-                     .from = "markdown",
                      auto_color_link = "blue",
+                     .from = "markdown",
+                     .pandoc_args = NULL,
                      .footnote_options = NULL) {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1L) {
     stop("`auto_color_link` must be a string")
   }
 
-  md_df <- md2df(x, .from = .from)
+  md_df <- md2df(
+    x,
+    .from = .from,
+    .pandoc_args = c(
+      "--lua-filter", system.file("lua/smart.lua", package = "ftExtra"),
+      "--lua-filter", system.file("lua/inline-code.lua", package = "ftExtra"),
+      .pandoc_args
+    )
+  )
 
   if (is.null(.footnote_options) || (all(names(md_df) != "Note"))) {
     y <- md_df
@@ -96,7 +105,12 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #' @param auto_color_link A color of the link texts.
 #' @param .from
 #'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).
-#' @param .footnote_options Spec options for footnotes via `colformat_md`.
+#' @param .extensions
+#'   Pandoc's extensions (see <https://www.pandoc.org/MANUAL.html#extensions>)
+#' @param .pandoc_args
+#'   Extra arguments given to Pandoc
+#' @param ...
+#'   Arguments passed to internal functions.
 #'
 #' @examples
 #' if (rmarkdown::pandoc_available()) {
@@ -114,10 +128,13 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 as_paragraph_md <- function(x,
                             auto_color_link = "blue",
                             .from = "markdown+autolink_bare_uris",
-                            .footnote_options = NULL) {
+                            .extensions = NULL,
+                            .pandoc_args = NULL,
+                            ...) {
   structure(lapply(x, parse_md,
-                   .from = .from,
+                   .from = paste0(.from, paste(.extensions, collapse="")),
+                   .pandoc_args = .pandoc_args,
                    auto_color_link = auto_color_link,
-                   .footnote_options = .footnote_options),
+                   ...),
             class = "paragraph")
 }
