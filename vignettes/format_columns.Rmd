@@ -173,7 +173,7 @@ data.frame(
 ) %>%
   as_flextable() %>%
   colformat_md(.pandoc_args = paste0("--bibliography=", bib)) %>%
-  flextable::autofit(add_w = 0.1)
+  flextable::autofit(add_w = 0.2)
 ```
 
 
