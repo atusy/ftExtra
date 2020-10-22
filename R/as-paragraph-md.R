@@ -58,6 +58,7 @@ parse_md <- function(x,
   construct_chunk(as.list(y), auto_color_link)
 }
 
+
 construct_chunk <- function(x, auto_color_link = "blue") {
   dplyr::bind_rows(
     header,
@@ -69,11 +70,19 @@ construct_chunk <- function(x, auto_color_link = "blue") {
       width = image_size(x$Image, "width"),
       height = image_size(x$Image, "height"),
       vertical.align = vertical_align(x$Superscript, x$Subscript),
+      underlined = x$underlined %||% NA,
+      color = x$color %||% NA_character_,
+      shading.color = x$shading.color %||% NA_character_,
+      font.family = x$font.family %||% NA_character_,
       stringsAsFactors = FALSE
     )
   ) %>%
     dplyr::mutate(
-      color = dplyr::if_else(is.na(url), NA_character_, auto_color_link),
+      color = dplyr::if_else(
+        is.na(.data$color) & !is.na(.data$url),
+        auto_color_link,
+        .data$color
+      ),
       img_data = x$Image %||% list(NULL),
       seq_index = dplyr::row_number()
     )
