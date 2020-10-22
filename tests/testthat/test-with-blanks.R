@@ -20,4 +20,6 @@ test_that("insert_blank", {
   )
 })
 
-test_that("with_blanks is tested via test-as-flextable.R", {})
+test_that("with_blanks is tested via test-as-flextable.R", {
+  expect_true(TRUE)
+})
