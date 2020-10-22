@@ -144,7 +144,9 @@
   <span class='kw'>part</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"body"</span>, <span class='st'>"header"</span>, <span class='st'>"all"</span>),
   <span class='kw'>auto_color_link</span> <span class='kw'>=</span> <span class='st'>"blue"</span>,
   <span class='kw'>.footnote_options</span> <span class='kw'>=</span> <span class='fu'><a href='footnote_options.html'>footnote_options</a></span>(),
-  <span class='kw'>.from</span> <span class='kw'>=</span> <span class='st'>"markdown+autolink_bare_uris"</span>
+  <span class='kw'>.from</span> <span class='kw'>=</span> <span class='st'>"markdown+autolink_bare_uris"</span>,
+  <span class='kw'>.extensions</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>.pandoc_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -175,6 +177,14 @@ order of "header" and "body".</p></td>
     <tr>
       <th>.from</th>
       <td><p>Pandoc's <code>--from</code> argument (default: <code>'markdown+autolink_bare_uris'</code>).</p></td>
+    </tr>
+    <tr>
+      <th>.extensions</th>
+      <td><p>Pandoc's extensions (see <a href='https://www.pandoc.org/MANUAL.html#extensions'>https://www.pandoc.org/MANUAL.html#extensions</a>)</p></td>
+    </tr>
+    <tr>
+      <th>.pandoc_args</th>
+      <td><p>Extra arguments given to Pandoc</p></td>
     </tr>
     </table>
 

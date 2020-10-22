@@ -142,7 +142,9 @@
   <span class='no'>x</span>,
   <span class='kw'>auto_color_link</span> <span class='kw'>=</span> <span class='st'>"blue"</span>,
   <span class='kw'>.from</span> <span class='kw'>=</span> <span class='st'>"markdown+autolink_bare_uris"</span>,
-  <span class='kw'>.footnote_options</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+  <span class='kw'>.extensions</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>.pandoc_args</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -161,8 +163,16 @@
       <td><p>Pandoc's <code>--from</code> argument (default: <code>'markdown+autolink_bare_uris'</code>).</p></td>
     </tr>
     <tr>
-      <th>.footnote_options</th>
-      <td><p>Spec options for footnotes via <code>colformat_md</code>.</p></td>
+      <th>.extensions</th>
+      <td><p>Pandoc's extensions (see <a href='https://www.pandoc.org/MANUAL.html#extensions'>https://www.pandoc.org/MANUAL.html#extensions</a>)</p></td>
+    </tr>
+    <tr>
+      <th>.pandoc_args</th>
+      <td><p>Extra arguments given to Pandoc</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Arguments passed to internal functions.</p></td>
     </tr>
     </table>
 
