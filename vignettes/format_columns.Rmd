@@ -51,6 +51,7 @@ Supported syntax are
 - footnote
 - image
 - line break
+- citations
 - attributes with Span, Link, Code, and so on
     - to underline: `[foo]{.underline})`
     - to color: `[foo]{color=red}`
@@ -143,6 +144,38 @@ data.frame(linebreak = c("a\nb"), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
   colformat_md(.from = "markdown+hard_line_breaks")
 ```
+
+## Citations
+
+Citations is experimentally supported.
+Note that there are no citation lists.
+It is expected to be produced by using R Markdown.
+
+```{r}
+bib <- tempfile(fileext = ".bib")
+
+writeLines(
+"
+@Manual{R-base,
+  title = {R: A Language and Environment for Statistical
+    Computing},
+  author = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address = {Vienna, Austria},
+  year = {2017},
+  url = {https://www.R-project.org/},
+}
+", bib
+)
+
+data.frame(
+  Cite = c("@R-base", "[@R-base]", "[-@R-base]")
+) %>%
+  as_flextable() %>%
+  colformat_md(.pandoc_args = paste0("--bibliography=", bib)) %>%
+  flextable::autofit()
+```
+
 
 ## Emoji
 
