@@ -32,8 +32,8 @@ image_size <- function(x, y = "width") {
 
 parse_md <- function(x,
                      auto_color_link = "blue",
+                     pandoc_args = NULL,
                      .from = "markdown",
-                     .pandoc_args = NULL,
                      .footnote_options = NULL) {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1L) {
     stop("`auto_color_link` must be a string")
@@ -41,12 +41,12 @@ parse_md <- function(x,
 
   md_df <- md2df(
     x,
-    .from = .from,
-    .pandoc_args = c(
+    pandoc_args = c(
       "--lua-filter", system.file("lua/smart.lua", package = "ftExtra"),
       "--lua-filter", system.file("lua/inline-code.lua", package = "ftExtra"),
-      .pandoc_args
-    )
+      pandoc_args
+    ),
+    .from = .from
   )
 
   if (is.null(.footnote_options) || (all(names(md_df) != "Note"))) {
@@ -66,7 +66,6 @@ parse_md <- function(x,
 
   construct_chunk(as.list(y), auto_color_link)
 }
-
 
 construct_chunk <- function(x, auto_color_link = "blue") {
   dplyr::bind_rows(
@@ -103,14 +102,15 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #'
 #' @param x A character vector.
 #' @param auto_color_link A color of the link texts.
+#' @param md_extensions
+#'   Pandoc's extensions. Although it is prefixed with "md", extensions for any
+#'   formats specified to `.from` can be used. See
+#'   <https://www.pandoc.org/MANUAL.html#extensions> for details.
 #' @param .from
 #'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).
-#' @param .extensions
-#'   Pandoc's extensions (see <https://www.pandoc.org/MANUAL.html#extensions>)
-#' @param .pandoc_args
-#'   Extra arguments given to Pandoc
 #' @param ...
 #'   Arguments passed to internal functions.
+#' @inheritParams rmarkdown::html_document
 #'
 #' @examples
 #' if (rmarkdown::pandoc_available()) {
@@ -127,14 +127,14 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #' @export
 as_paragraph_md <- function(x,
                             auto_color_link = "blue",
+                            md_extensions = NULL,
+                            pandoc_args = NULL,
                             .from = "markdown+autolink_bare_uris",
-                            .extensions = NULL,
-                            .pandoc_args = NULL,
                             ...) {
   structure(lapply(x, parse_md,
-                   .from = paste0(.from, paste(.extensions, collapse="")),
-                   .pandoc_args = .pandoc_args,
                    auto_color_link = auto_color_link,
+                   pandoc_args = pandoc_args,
+                   .from = paste0(.from, paste(md_extensions, collapse="")),
                    ...),
             class = "paragraph")
 }

@@ -24,10 +24,10 @@ colformat_md <- function(x,
                          j = where(is.character),
                          part = c("body", "header", "all"),
                          auto_color_link = "blue",
-                         .footnote_options = footnote_options(),
+                         md_extensions = NULL,
+                         pandoc_args = NULL,
                          .from = "markdown+autolink_bare_uris",
-                         .extensions = NULL,
-                         .pandoc_args = NULL
+                         .footnote_options = footnote_options()
 ) {
   .j <- rlang::enexpr(j)
   part <- match.arg(part)
@@ -58,8 +58,8 @@ colformat_md <- function(x,
                              unlist(dataset[col], use.names = FALSE),
                              auto_color_link = auto_color_link,
                              .from = .from,
-                             .extensions = .extensions,
-                             .pandoc_args = .pandoc_args,
+                             md_extensions = md_extensions,
+                             pandoc_args = pandoc_args,
                              .footnote_options = .footnote_options
                            ))
 

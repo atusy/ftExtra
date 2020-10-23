@@ -142,7 +142,7 @@ It is also possible to make `\n` as a hard line break by extending Pandoc's Mark
 ```{r}
 data.frame(linebreak = c("a\nb"), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
-  colformat_md(.from = "markdown+hard_line_breaks")
+  colformat_md(md_extensions = "+hard_line_breaks")
 ```
 
 ## Citations
@@ -151,9 +151,44 @@ Citations is experimentally supported.
 Note that there are no citation lists.
 It is expected to be produced by using R Markdown.
 
-```{r}
-bib <- tempfile(fileext = ".bib")
+First, create a `bib` file like below.
 
+```bib
+@Manual{R-base,
+  title = {R: A Language and Environment for Statistical
+    Computing},
+  author = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address = {Vienna, Austria},
+  year = {2020},
+  url = {https://www.R-project.org/},
+}
+```
+
+Second, specify it within the YAML front matter.
+It may also be required to cite references in the `nocite` field.
+
+```yaml
+---
+bibliography: example.bib
+nocite: @R-base
+---
+```
+
+Finally, cite the references within tables.
+
+```{r, eval=FALSE}
+data.frame(
+  Cite = c("@R-base", "[@R-base]", "[-@R-base]")
+) %>%
+  as_flextable() %>%
+  colformat_md() %>%
+  flextable::autofit(add_w = 0.2)
+```
+
+
+```{r, echo=FALSE}
+tf <- tempfile(fileext = ".bib")
 writeLines(
 "
 @Manual{R-base,
@@ -165,25 +200,26 @@ writeLines(
   year = {2020},
   url = {https://www.R-project.org/},
 }
-", bib
+", tf
 )
 
 data.frame(
   Cite = c("@R-base", "[@R-base]", "[-@R-base]")
 ) %>%
   as_flextable() %>%
-  colformat_md(.pandoc_args = paste0("--bibliography=", bib)) %>%
+  colformat_md(pandoc_args = paste0("--bibliography=", tf)) %>%
   flextable::autofit(add_w = 0.2)
 ```
-
 
 ## Emoji
 
 Pandoc's markdown provides an extension, `emoji`.
-To use it with `colformat_md()`, specify `.extensions="+emoji"`.
+To use it with `colformat_md()`, specify `md_extensions="+emoji"`.
 
 ```{r}
 data.frame(emoji = c(":+1:"), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
-  colformat_md(.extensions = "+emoji")
+  colformat_md(md_extensions = "+emoji")
 ```
+
+# Reference
