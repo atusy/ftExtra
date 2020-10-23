@@ -6,18 +6,15 @@ md2ast <- function(x, pandoc_args = NULL, .from = "markdown") {
   tf <- tempfile()
 
   yaml <- rmarkdown::metadata
-  if (length(yaml) > 0) {
-    if (!is.null(yaml$bibliography)) {
-      pandoc_args <- c(pandoc_args,
-                       rmarkdown::pandoc_citeproc_args())
-    }
+
+  front_matter <- if (length(yaml) > 0) {
     yaml::write_yaml(yaml, tf)
-    front_matter <- c("---", readLines(tf), "---")
-  } else {
-    front_matter <- NULL
+    c("---", readLines(tf), "---", "", "")
   }
 
-  writeLines(c(front_matter, "", "", x), tf)
+  citeproc <- if(!is.null(yaml$bibliography)) rmarkdown::pandoc_citeproc_args()
+
+  writeLines(c(front_matter, x), tf)
   jsonlite::fromJSON(
     system(
       paste(
