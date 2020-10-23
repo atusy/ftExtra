@@ -39,15 +39,16 @@ parse_md <- function(x,
     stop("`auto_color_link` must be a string")
   }
 
-  md_df <- md2df(
-    x,
-    pandoc_args = c(
-      "--lua-filter", system.file("lua/smart.lua", package = "ftExtra"),
-      "--lua-filter", system.file("lua/inline-code.lua", package = "ftExtra"),
-      pandoc_args
-    ),
-    .from = .from
-  )
+  filters <- if (rmarkdown::pandoc_available("2")) {
+    c(
+      "--lua-filter",
+      system.file("lua/smart.lua", package = "ftExtra"),
+      "--lua-filter",
+      system.file("lua/inline-code.lua", package = "ftExtra")
+    )
+  }
+
+  md_df <- md2df(x, pandoc_args = c(filters, pandoc_args), .from = .from)
 
   if (is.null(.footnote_options) || (all(names(md_df) != "Note"))) {
     y <- md_df
