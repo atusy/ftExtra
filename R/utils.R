@@ -11,3 +11,15 @@ group_of <- function(x) {
   }
   e1
 }
+
+drop_null <- function(x) {
+  x[!vapply(x, is.null, NA)]
+}
+
+drop_na <- function(x) {
+  x[!is.na(x)]
+}
+
+last <- function(x) {
+  x[[length(x)]]
+}

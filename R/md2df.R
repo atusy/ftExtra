@@ -100,18 +100,6 @@ drop_Para <- function(x) {
   x[names(x) != "Para"]
 }
 
-drop_null <- function(x) {
-  x[!vapply(x, is.null, NA)]
-}
-
-drop_na <- function(x) {
-  x[!is.na(x)]
-}
-
-last <- function(x) {
-  x[[length(x)]]
-}
-
 format_by_attr <- function(x) {
   a <- x %>%
     lapply(attr, 'pandoc_attr') %>%
