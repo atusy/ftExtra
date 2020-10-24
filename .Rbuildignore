@@ -11,4 +11,3 @@
 ^\.github$
 ^cran-comments\.md$
 ^CRAN-RELEASE$
-^vignettes/example.bib
