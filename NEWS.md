@@ -1,4 +1,4 @@
-# ftExtra 0.0.3.9
+# ftExtra 0.0.3.10
 
 * Support markdown footnote with `colformat_md`. Currently, one footnote per a cell is allowed, and it must be located at the end of the cell content (#22).
 * Add `footnote_options()` to configure options for footnotes (#23).
@@ -8,7 +8,9 @@
 * Support inline code (#25).
 * Add the `md_extensions` and `pandoc_args` arguments to `colformat_md()` and `as_paragraph_md()` (#26, #29).
 * Support citation. Bibliography can be inherited from YAML front matter of an Rmd file (#27, #29).
-* Support math (#30).
+* Support math on macOS and Linux (#30), and on Windows (#31).
+* Fix character corruptions on Windows by forcing UTF8 (#31).
+* Use pandoc citeproc when YAML frontmatter contains the bibliography field (#31).
 
 # ftExtra 0.0.3
 
