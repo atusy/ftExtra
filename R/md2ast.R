@@ -12,18 +12,17 @@ md2ast <- function(x, pandoc_args = NULL, .from = "markdown") {
     c("---", xfun::read_utf8(tf), "---", "", "")
   }
 
-  citeproc <- if(!is.null(yaml$bibliography)) rmarkdown::pandoc_citeproc_args()
-
   xfun::write_utf8(c(front_matter, x), tf)
 
-  system(paste(
-    shQuote(rmarkdown::pandoc_exec()),
-    tf,
-    "--from", .from,
-    "--to json",
-    "--output", tf,
-    paste(pandoc_args, collapse = " ")
-  ))
+  rmarkdown::pandoc_convert(
+    input = tf,
+    to = "json",
+    from = .from,
+    output = tf,
+    citeproc = !is.null(yaml$bibliography),
+    options = pandoc_args,
+    wd = getwd()
+  )
 
   jsonlite::read_json(tf, simplifyVector = FALSE)
 }
