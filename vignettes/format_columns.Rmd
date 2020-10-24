@@ -75,7 +75,8 @@ For example,
 ```{r}
 data.frame(
   package = "ftExtra",
-  description = "Extensions for 'Flextable'^[Supports of footnotes]"
+  description = "Extensions for 'Flextable'^[Supports of footnotes]",
+  stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
   colformat_md() %>%
@@ -196,7 +197,8 @@ writeLines(
 
 ```{r}
 data.frame(
-  Cite = c("@R-base", "[@R-base]", "[-@R-base]")
+  Cite = c("@R-base", "[@R-base]", "[-@R-base]"),
+  stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
   colformat_md() %>%
