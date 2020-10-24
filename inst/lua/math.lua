@@ -13,14 +13,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 https://github.com/atusy/lua-filters/blob/master/lua/math.lua
 ]]
-local cmd = "pandoc"
-
-local function math2html(text)
+function math2html(text)
   return pandoc.pipe(cmd, {"-t", "html", "-f", "markdown"}, text)
 end
 
 if pandoc.system.os == "mingw32" then
-  local function gen_math_writer(text)
+  function gen_math_writer(text)
     local function callback(directory)
       local path = directory .. "\\math.html"
       pandoc.pipe(cmd, {"-t", "html", "-f", "markdown", "-o", path}, text)
@@ -34,13 +32,15 @@ if pandoc.system.os == "mingw32" then
   end
 end
 
-local function Meta(elem)
+function Meta(elem)
   if elem["pandoc-path"] ~= nil then
     cmd = pandoc.utils.stringify(elem["pandoc-path"])
+  else
+    cmd = "pandoc"
   end
 end
 
-local function Math(elem)
+function Math(elem)
   local text = "$" .. elem.text .. "$"
   if elem.mathtype == "DisplayMath" then
     text = "$" .. text .. "$"
