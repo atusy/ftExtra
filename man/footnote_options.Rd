@@ -35,6 +35,6 @@ An environment
 Configure options for footnotes.
 }
 \examples{
-footnote_options("1", start = 1L)
+o <- footnote_options("1", start = 1L)
 
 }
