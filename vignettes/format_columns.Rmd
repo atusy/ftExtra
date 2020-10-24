@@ -1,5 +1,5 @@
 ---
-title: "Format columns"
+title: "Format columns as markdown"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Format columns}
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 library(ftExtra)
 ```
 
-# Treat character columns as markdown columns
+# Basic examples
 
 The example below shows that `colformat_md()` function parses markdown texts in the flextable object.
 
@@ -102,7 +102,7 @@ data.frame(
 ```
 
 
-## Images
+# Images
 
 Images can be inserted optionally with width and/or height attributes.
 Specifying one of them changes the other while keeping the aspect ratio.
@@ -119,7 +119,7 @@ data.frame(
 
 The R logo is distributed by The R Foundation with the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
 
-## Line breaks
+# Line breaks
 
 By default, soft line breaks becomes spaces.
 
@@ -145,7 +145,7 @@ data.frame(linebreak = c("a\nb"), stringsAsFactors = FALSE) %>%
   colformat_md(md_extensions = "+hard_line_breaks")
 ```
 
-## Citations
+# Citations
 
 Citations is experimentally supported.
 Note that there are no citation lists.
@@ -211,7 +211,7 @@ data.frame(
   flextable::autofit(add_w = 0.2)
 ```
 
-## Math
+# Math
 
 The rendering of math is also possible.
 
@@ -229,7 +229,7 @@ This feature relies on Pandoc's HTML writer, which
 > render TeX math as far as possible using Unicode characters \
 > https://pandoc.org/MANUAL.html#math-rendering-in-html
 
-## Emoji
+# Emoji
 
 Pandoc's markdown provides an extension, `emoji`.
 To use it with `colformat_md()`, specify `md_extensions="+emoji"`.
