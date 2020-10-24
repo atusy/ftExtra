@@ -5,7 +5,7 @@ vignette: >
   %\VignetteIndexEntry{Format columns as markdown}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-bibliography: example.bib
+bibliography: []
 ---
 
 This vignette introduces how to format columns in flextable.
@@ -180,6 +180,7 @@ nocite: @R-base
 Finally, cite the references within tables.
 
 ```{r, include=FALSE}
+temp_file <- tempfile(fileext = ".bib")
 writeLines(
 "
 @Manual{R-base,
@@ -191,9 +192,14 @@ writeLines(
   year = {2020},
   url = {https://www.R-project.org/},
 }
-", "example.bib"
+", temp_file
 )
 ```
+
+---
+bibliography: `r temp_file`
+nocite: @R-base
+---
 
 ```{r}
 data.frame(
