@@ -29,6 +29,7 @@ add_type <- function(x, t) {
       pandoc_attr = if ("Cite" %in% x$t || !has_attr(x$c)) {
         NULL
       } else {
+        print(x)
         flatten_attr(x$c[[1]])
       }
     )),
