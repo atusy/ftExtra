@@ -9,23 +9,21 @@ md2ast <- function(x, pandoc_args = NULL, .from = "markdown") {
 
   front_matter <- if (length(yaml) > 0) {
     yaml::write_yaml(yaml, tf)
-    c("---", readLines(tf), "---", "", "")
+    c("---", xfun::read_utf8(tf), "---", "", "")
   }
 
   citeproc <- if(!is.null(yaml$bibliography)) rmarkdown::pandoc_citeproc_args()
 
-  writeLines(c(front_matter, x), tf)
-  jsonlite::fromJSON(
-    system(
-      paste(
-        shQuote(rmarkdown::pandoc_exec()),
-        tf,
-        "--from", .from,
-        "--to json",
-        paste(pandoc_args, collapse = " ")
-      ),
-      intern = TRUE
-    ),
-    simplifyVector = FALSE
-  )
+  xfun::write_utf8(c(front_matter, x), tf)
+
+  system(paste(
+    shQuote(rmarkdown::pandoc_exec()),
+    tf,
+    "--from", .from,
+    "--to json",
+    "--output", tf,
+    paste(pandoc_args, collapse = " ")
+  ))
+
+  jsonlite::read_json(tf, simplifyVector = FALSE)
 }
