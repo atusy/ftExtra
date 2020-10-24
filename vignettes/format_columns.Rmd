@@ -211,6 +211,24 @@ data.frame(
   flextable::autofit(add_w = 0.2)
 ```
 
+## Math
+
+The rendering of math is also possible.
+
+```{r}
+data.frame(math = "$e^{i\\theta} = \\cos \\theta + i \\sin \\theta$",
+           stringsAsFactors = FALSE) %>%
+  as_flextable() %>%
+  colformat_md() %>%
+  flextable::autofit()
+```
+
+Note that results can be insufficient.
+This feature relies on Pandoc's HTML writer, which
+
+> render TeX math as far as possible using Unicode characters \
+> https://pandoc.org/MANUAL.html#math-rendering-in-html
+
 ## Emoji
 
 Pandoc's markdown provides an extension, `emoji`.
