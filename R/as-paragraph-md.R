@@ -47,7 +47,7 @@ parse_md <- function(x,
       system.file("lua/inline-code.lua", package = "ftExtra"),
       "--lua-filter",
       system.file("lua/math.lua", package = "ftExtra"),
-      paste0("--metadata=pandoc-path:'", rmarkdown::pandoc_exec(), "'")
+      paste0("--metadata=pandoc-path:", rmarkdown::pandoc_exec())
     )
   }
 

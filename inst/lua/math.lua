@@ -15,6 +15,25 @@ https://github.com/atusy/lua-filters/blob/master/lua/math.lua
 ]]
 local cmd = "pandoc"
 
+local function math2html(text)
+  return pandoc.pipe(cmd, {"-t", "html", "-f", "markdown"}, text)
+end
+
+if pandoc.system.os == "mingw32" then
+  local function gen_math_writer(text)
+    local function callback(directory)
+      local path = directory .. "\\math.html"
+      pandoc.pipe(cmd, {"-t", "html", "-f", "markdown", "-o", path}, text)
+      return io.open(path):read("a")
+    end
+    return callback
+  end
+  math2html = function(text)
+    return pandoc.system.with_temporary_directory(
+      "write_html_math", gen_math_writer(text))
+  end
+end
+
 local function Meta(elem)
   if elem["pandoc-path"] ~= nil then
     cmd = pandoc.utils.stringify(elem["pandoc-path"])
@@ -26,9 +45,7 @@ local function Math(elem)
   if elem.mathtype == "DisplayMath" then
     text = "$" .. text .. "$"
   end
-  return pandoc.read(
-    pandoc.pipe(cmd, {"-t", "html", "-f", "markdown"}, text), "html"
-  ).blocks[1].content[1].content
+  return pandoc.read(math2html(text), "html").blocks[1].content[1].content
 end
 
 return {
