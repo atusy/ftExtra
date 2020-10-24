@@ -302,11 +302,30 @@
 </tbody>
 </table></div>
 </div>
+<div id="math" class="section level2">
+<h2 class="hasAnchor">
+<a href="#math" class="anchor"></a>Math</h2>
+<p>The rendering of math is also possible.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>math <span class="op">=</span> <span class="st">"$e^{i\\theta} = \\cos \\theta + i \\sin \\theta$"</span>,
+           stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html">autofit</a></span><span class="op">(</span><span class="op">)</span></pre></div>
+<div class="tabwid"><table class="table">
+<thead><tr style="overflow-wrap:break-word;"><td style="width:107px;background-color:transparent;vertical-align: middle;border-bottom: 2.00px solid rgba(0, 0, 0, 1.00);border-top: 2.00px solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;"><p style="margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:2px;padding-top:2px;padding-left:5px;padding-right:5px;background-color:transparent;"><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;">math</span></p></td></tr></thead>
+<tbody><tr style="overflow-wrap:break-word;"><td style="width:107px;background-color:transparent;vertical-align: middle;border-bottom: 2.00px solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;"><p style="margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:2px;padding-top:2px;padding-left:5px;padding-right:5px;background-color:transparent;"><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;">e</span><span style="font-family:'Roboto';font-size:7px;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;position: relative;bottom:3px;">i</span><span style="font-family:'Roboto';font-size:7px;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;position: relative;bottom:3px;">θ</span><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;"> = cos </span><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;">θ</span><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;"> + </span><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;">i</span><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;">sin </span><span style="font-family:'Roboto';font-size:11px;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(17, 17, 17, 1.00);background-color:transparent;">θ</span></p></td></tr></tbody>
+</table></div>
+<p>Note that results can be insufficient. This feature relies on Pandoc’s HTML writer, which</p>
+<blockquote>
+<p>render TeX math as far as possible using Unicode characters<br><a href="https://pandoc.org/MANUAL.html#math-rendering-in-html" class="uri">https://pandoc.org/MANUAL.html#math-rendering-in-html</a></p>
+</blockquote>
+</div>
 <div id="emoji" class="section level2">
 <h2 class="hasAnchor">
 <a href="#emoji" class="anchor"></a>Emoji</h2>
 <p>Pandoc’s markdown provides an extension, <code>emoji</code>. To use it with <code><a href="../reference/colformat_md.html">colformat_md()</a></code>, specify <code>md_extensions="+emoji"</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit">
+<div class="sourceCode" id="cb13"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>emoji <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">":+1:"</span><span class="op">)</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span>md_extensions <span class="op">=</span> <span class="st">"+emoji"</span><span class="op">)</span></pre></div>

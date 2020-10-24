@@ -8,6 +8,7 @@
 * Support inline code (#25).
 * Add the `md_extensions` and `pandoc_args` arguments to `colformat_md()` and `as_paragraph_md()` (#26, #29).
 * Support citation. Bibliography can be inherited from YAML front matter of an Rmd file (#27, #29).
+* Support math (#30).
 
 # ftExtra 0.0.3
 
