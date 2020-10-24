@@ -2,10 +2,11 @@
 #' @param x A character vector
 #' @param .from Markdown format
 #' @noRd
-md2ast <- function(x, pandoc_args = NULL, .from = "markdown") {
+md2ast <- function(x,
+                   pandoc_args = NULL,
+                   .from = "markdown",
+                   yaml = rmarkdown::metadata) {
   tf <- tempfile()
-
-  yaml <- rmarkdown::metadata
 
   front_matter <- if (length(yaml) > 0) {
     yaml::write_yaml(yaml, tf)
