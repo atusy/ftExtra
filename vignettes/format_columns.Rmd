@@ -220,7 +220,7 @@ data.frame(math = "$e^{i\\theta} = \\cos \\theta + i \\sin \\theta$",
            stringsAsFactors = FALSE) %>%
   as_flextable() %>%
   colformat_md() %>%
-  flextable::autofit()
+  flextable::autofit(add_w = 0.2)
 ```
 
 Note that results can be insufficient.
