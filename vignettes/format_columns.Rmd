@@ -2,7 +2,7 @@
 title: "Format columns as markdown"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Format columns}
+  %\VignetteIndexEntry{Format columns as markdown}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -74,7 +74,8 @@ For example,
 ```{r}
 data.frame(
   package = "ftExtra",
-  description = "Extensions for 'Flextable'^[Supports of footnotes]"
+  description = "Extensions for 'Flextable'^[Supports of footnotes]",
+  stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
   colformat_md() %>%
@@ -151,18 +152,10 @@ Citations is experimentally supported.
 Note that there are no citation lists.
 It is expected to be produced by using R Markdown.
 
-First, create a `bib` file like below.
+First, create a `ftExtra.bib` file like below.
 
-```bib
-@Manual{R-base,
-  title = {R: A Language and Environment for Statistical
-    Computing},
-  author = {{R Core Team}},
-  organization = {R Foundation for Statistical Computing},
-  address = {Vienna, Austria},
-  year = {2020},
-  url = {https://www.R-project.org/},
-}
+```{r, echo=FALSE, collapse=FALSE, out.class="bib", warning=FALSE}
+knitr::write_bib("ftExtra")
 ```
 
 Second, specify it within the YAML front matter.
@@ -170,8 +163,8 @@ It may also be required to cite references in the `nocite` field.
 
 ```yaml
 ---
-bibliography: example.bib
-nocite: @R-base
+bibliography: ftExtra.bib
+nocite: @R-ftExtra
 ---
 ```
 
@@ -179,32 +172,20 @@ Finally, cite the references within tables.
 
 ```{r, eval=FALSE}
 data.frame(
-  Cite = c("@R-base", "[@R-base]", "[-@R-base]")
+  Cite = c("@R-ftExtra", "[@R-ftExtra]", "[-@R-ftExtra]"),
+  stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
   colformat_md() %>%
   flextable::autofit(add_w = 0.2)
 ```
 
-
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 tf <- tempfile(fileext = ".bib")
-writeLines(
-"
-@Manual{R-base,
-  title = {R: A Language and Environment for Statistical
-    Computing},
-  author = {{R Core Team}},
-  organization = {R Foundation for Statistical Computing},
-  address = {Vienna, Austria},
-  year = {2020},
-  url = {https://www.R-project.org/},
-}
-", tf
-)
-
+knitr::write_bib("ftExtra", tf)
 data.frame(
-  Cite = c("@R-base", "[@R-base]", "[-@R-base]")
+  Cite = c("@R-ftExtra", "[@R-ftExtra]", "[-@R-ftExtra]"),
+  stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
   colformat_md(pandoc_args = paste0("--bibliography=", tf)) %>%
@@ -239,5 +220,3 @@ data.frame(emoji = c(":+1:"), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
   colformat_md(md_extensions = "+emoji")
 ```
-
-# Reference

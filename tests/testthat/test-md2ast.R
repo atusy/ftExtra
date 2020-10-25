@@ -1,0 +1,28 @@
+test_with_pandoc <- function(...) {
+  if (rmarkdown::pandoc_available("2.7.2")) {
+    test_that(...)
+  }
+}
+
+test_with_pandoc("citation", {
+  temp_file <- tempfile(fileext = ".bib")
+  temp_dir <- dirname(temp_file)
+  current_dir <- getwd()
+  suppressWarnings(knitr::write_bib("ftExtra", temp_file))
+
+  setwd(temp_dir)
+  expect_identical(
+    md2ast(
+      "@R-ftExtra",
+      pandoc_args = c(
+        rmarkdown::pandoc_citeproc_args(),
+        paste0("--bibliography=", temp_file)
+      )
+    )$blocks,
+    md2ast(
+      "@R-ftExtra",
+      yaml = list(bibliography = basename(temp_file))
+    )$blocks
+  )
+  setwd(current_dir)
+})

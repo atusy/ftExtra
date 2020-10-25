@@ -16,7 +16,7 @@
 #' @return An environment
 #'
 #' @examples
-#' footnote_options("1", start = 1L)
+#' o <- footnote_options("1", start = 1L)
 #'
 #' @export
 footnote_options <- function(ref = c("1", "a", "A", "i", "I", "*"),

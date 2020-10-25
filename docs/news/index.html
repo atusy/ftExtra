@@ -126,9 +126,9 @@
       <small>Source: <a href='https://github.com/atusy/ftExtra/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="ftextra-0039" class="section level1">
-<h1 class="page-header" data-toc-text="0.0.3.9">
-<a href="#ftextra-0039" class="anchor"></a>ftExtra 0.0.3.9<small> Unreleased </small>
+    <div id="ftextra-00310" class="section level1">
+<h1 class="page-header" data-toc-text="0.0.3.10">
+<a href="#ftextra-00310" class="anchor"></a>ftExtra 0.0.3.10<small> Unreleased </small>
 </h1>
 <ul>
 <li>Support markdown footnote with <code>colformat_md</code>. Currently, one footnote per a cell is allowed, and it must be located at the end of the cell content (<a href='https://github.com/atusy/ftExtra/issues/22'>#22</a>).</li>
@@ -139,7 +139,9 @@
 <li>Support inline code (<a href='https://github.com/atusy/ftExtra/issues/25'>#25</a>).</li>
 <li>Add the <code>md_extensions</code> and <code>pandoc_args</code> arguments to <code><a href="../reference/colformat_md.html">colformat_md()</a></code> and <code><a href="../reference/as_paragraph_md.html">as_paragraph_md()</a></code> (<a href='https://github.com/atusy/ftExtra/issues/26'>#26</a>, <a href='https://github.com/atusy/ftExtra/issues/29'>#29</a>).</li>
 <li>Support citation. Bibliography can be inherited from YAML front matter of an Rmd file (<a href='https://github.com/atusy/ftExtra/issues/27'>#27</a>, <a href='https://github.com/atusy/ftExtra/issues/29'>#29</a>).</li>
-<li>Support math (<a href='https://github.com/atusy/ftExtra/issues/30'>#30</a>).</li>
+<li>Support math on macOS and Linux (<a href='https://github.com/atusy/ftExtra/issues/30'>#30</a>), and on Windows (<a href='https://github.com/atusy/ftExtra/issues/31'>#31</a>).</li>
+<li>Fix character corruptions on Windows by forcing UTF8 (<a href='https://github.com/atusy/ftExtra/issues/31'>#31</a>).</li>
+<li>Use pandoc citeproc when YAML frontmatter contains the bibliography field (<a href='https://github.com/atusy/ftExtra/issues/31'>#31</a>).</li>
 </ul>
 </div>
     <div id="ftextra-003" class="section level1">

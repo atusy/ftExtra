@@ -13,22 +13,56 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 https://github.com/atusy/lua-filters/blob/master/lua/math.lua
 ]]
-local cmd = "pandoc"
+is_pandoc_2_10 = (PANDOC_VERSION[1] >= 2) and (PANDOC_VERSION[2] >= 10)
 
-local function Meta(elem)
-  if elem["pandoc-path"] ~= nil then
-    cmd = pandoc.utils.stringify(elem["pandoc-path"])
+if pandoc.system.os ~= "mingw32" then
+  function math2html(text)
+    return pandoc.pipe(cmd, {"-t", "html", "-f", "markdown"}, text)
+  end
+else
+  if is_pandoc_2_10 then
+    with_temporary_directory = pandoc.system.with_temporary_directory
+  else
+    with_temporary_directory = function(ignored, callback)
+      return callback(temporary_directory)
+    end
+  end
+
+  function gen_math_writer(text)
+    local function callback(directory)
+      local path = directory .. "\\math-rendered-by-lua-filter.html"
+      pandoc.pipe(cmd, {"-t", "html", "-f", "markdown", "-o", path}, text)
+      return io.open(path):read("a")
+    end
+    return callback
+  end
+
+  math2html = function(text)
+    return with_temporary_directory(
+      "write_html_math", gen_math_writer(text))
   end
 end
 
-local function Math(elem)
+function Meta(elem)
+  if elem["pandoc-path"] ~= nil then
+    cmd = pandoc.utils.stringify(elem["pandoc-path"])
+  else
+    cmd = "pandoc"
+  end
+
+  if elem["temporary-directory"] ~= nil then
+    temporary_directory = pandoc.utils.stringify(elem["temporary-directory"])
+  else
+    temporary_directory = "."
+  end
+end
+
+function Math(elem)
   local text = "$" .. elem.text .. "$"
   if elem.mathtype == "DisplayMath" then
     text = "$" .. text .. "$"
   end
-  return pandoc.read(
-    pandoc.pipe(cmd, {"-t", "html", "-f", "markdown"}, text), "html"
-  ).blocks[1].content[1].content
+  return pandoc.read(math2html(text), "html").blocks[1].content[1].content
 end
 
 return {

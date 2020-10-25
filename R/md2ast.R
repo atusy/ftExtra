@@ -2,30 +2,28 @@
 #' @param x A character vector
 #' @param .from Markdown format
 #' @noRd
-md2ast <- function(x, pandoc_args = NULL, .from = "markdown") {
+md2ast <- function(x,
+                   pandoc_args = NULL,
+                   .from = "markdown",
+                   yaml = rmarkdown::metadata) {
   tf <- tempfile()
-
-  yaml <- rmarkdown::metadata
 
   front_matter <- if (length(yaml) > 0) {
     yaml::write_yaml(yaml, tf)
-    c("---", readLines(tf), "---", "", "")
+    c("---", xfun::read_utf8(tf), "---", "", "")
   }
 
-  citeproc <- if(!is.null(yaml$bibliography)) rmarkdown::pandoc_citeproc_args()
+  xfun::write_utf8(c(front_matter, x), tf)
 
-  writeLines(c(front_matter, x), tf)
-  jsonlite::fromJSON(
-    system(
-      paste(
-        shQuote(rmarkdown::pandoc_exec()),
-        tf,
-        "--from", .from,
-        "--to json",
-        paste(pandoc_args, collapse = " ")
-      ),
-      intern = TRUE
-    ),
-    simplifyVector = FALSE
+  rmarkdown::pandoc_convert(
+    input = tf,
+    to = "json",
+    from = .from,
+    output = tf,
+    citeproc = !is.null(yaml$bibliography),
+    options = pandoc_args,
+    wd = getwd()
   )
+
+  jsonlite::read_json(tf, simplifyVector = FALSE)
 }
