@@ -5,6 +5,10 @@ vignette: >
   %\VignetteIndexEntry{Format columns as markdown}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography:
+  - example.bib
+nocite: |
+  @R-ftExtra
 ---
 
 This vignette introduces how to format columns in flextable.
@@ -52,6 +56,7 @@ Supported syntax are
 - image
 - line break
 - citations
+- math
 - attributes with Span, Link, Code, and so on
     - to underline: `[foo]{.underline})`
     - to color: `[foo]{color=red}`
@@ -62,7 +67,7 @@ Supported syntax are
 Note that other syntax may result in unexpected behaviors.
 The **ftExtra** package does not support multiple paragraphs or block elements other than the paragraph.
 
-## Footnotes
+# Footnotes
 
 Currently footnotes have some limitations.
 
@@ -154,17 +159,19 @@ It is expected to be produced by using R Markdown.
 
 First, create a `ftExtra.bib` file like below.
 
-```{r, echo=FALSE, collapse=FALSE, out.class="bib", warning=FALSE}
+```{r, echo=FALSE, collapse=FALSE, output.class="bib", warning=FALSE, comment=""}
 knitr::write_bib("ftExtra")
 ```
 
 Second, specify it within the YAML front matter.
-It may also be required to cite references in the `nocite` field.
+It may also be required to cite references in the dummy `nocite` field.
 
 ```yaml
 ---
-bibliography: ftExtra.bib
-nocite: @R-ftExtra
+bibliography:
+  - ftExtra.bib
+nocite: |
+  @R-ftExtra
 ---
 ```
 
@@ -191,6 +198,12 @@ data.frame(
   colformat_md(pandoc_args = paste0("--bibliography=", tf)) %>%
   flextable::autofit(add_w = 0.2)
 ```
+
+## References
+
+::: {#refs}
+
+:::
 
 # Math
 
