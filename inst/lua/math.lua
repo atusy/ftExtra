@@ -51,7 +51,7 @@ function Meta(elem)
   end
 
   if elem["temporary-directory"] ~= nil then
-    temporary_directory = pandoc.utils.stringify(elem["pandoc-directory"])
+    temporary_directory = pandoc.utils.stringify(elem["temporary-directory"])
   else
     temporary_directory = "."
   end
