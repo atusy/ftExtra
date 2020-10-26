@@ -28,41 +28,31 @@ else
     end
   end
 
-  function gen_math_writer(text)
+  math2html = function(text)
     local function callback(directory)
       local path = directory .. "\\math-rendered-by-lua-filter.html"
       pandoc.pipe(cmd, {"-t", "html", "-f", "markdown", "-o", path}, text)
       return io.open(path):read("a")
     end
-    return callback
-  end
 
-  math2html = function(text)
-    return with_temporary_directory(
-      "write_html_math", gen_math_writer(text))
+    return with_temporary_directory("write_html_math", callback)
   end
 end
 
 function Meta(elem)
-  if elem["pandoc-path"] ~= nil then
-    cmd = pandoc.utils.stringify(elem["pandoc-path"])
-  else
-    cmd = "pandoc"
-  end
+  cmd = elem["pandoc-path"] and (
+    pandoc.utils.stringify(elem["pandoc-path"])
+  ) or "pandoc"
 
-  if elem["temporary-directory"] ~= nil then
-    temporary_directory = pandoc.utils.stringify(elem["temporary-directory"])
-  else
-    temporary_directory = "."
-  end
+  elem = elem["temporary-directory"] and (
+    pandoc.utils.stringify(elem["temporary-directory"])
+  ) or "."
 end
 
 function Math(elem)
-  local text = "$" .. elem.text .. "$"
-  if elem.mathtype == "DisplayMath" then
-    text = "$" .. text .. "$"
-  end
-  return pandoc.read(math2html(text), "html").blocks[1].content[1].content
+  return pandoc.read(math2html(string.format(
+    (elem.mathtype == "InlineMath") and "$%s$" or "$$%s$$", elem.text
+  )), "html").blocks[1].content[1].content
 end
 
 return {
