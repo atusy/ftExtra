@@ -50,9 +50,9 @@ function Meta(elem)
 end
 
 function Math(elem)
-  return pandoc.read(math2html(string.format(
-    (elem.mathtype == "InlineMath") and "$%s$" or "$$%s$$", elem.text
-  )), "html").blocks[1].content[1].content
+  return pandoc.read(
+    math2html("$" .. elem.text:gsub("[\n\r]", "") .. "$"), "html"
+  ).blocks[1].content[1].content
 end
 
 return {
