@@ -17,7 +17,7 @@ test_that("vertical_align", {
   )
 })
 
-test_that("as_paragraph_md renders math", {
+test_with_pandoc("as_paragraph_md renders math", {
   math = as_paragraph_md("$\\alpha$")[[1L]]$txt
   expect_length(math, 1L)
   expect_identical(nchar(math), 1L)
