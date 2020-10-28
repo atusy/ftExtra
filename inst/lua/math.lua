@@ -44,7 +44,7 @@ function Meta(elem)
     pandoc.utils.stringify(elem["pandoc-path"])
   ) or "pandoc"
 
-  elem = elem["temporary-directory"] and (
+  temporary_directory = elem["temporary-directory"] and (
     pandoc.utils.stringify(elem["temporary-directory"])
   ) or "."
 end
