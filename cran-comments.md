@@ -3,7 +3,7 @@
 ## Test environments
 
 * Local
-  * Debian GNU/Linux 10 (buster), R 3.6.3
+  * Debian GNU/Linux 10 (buster), R 4.0.2
 * GitHub Actions
   * macOS-latest (R-4.0)
   * windows-latest (R-4.0)
@@ -14,23 +14,24 @@
   * ubuntu-16.04 (R-3.4)
   * ubuntu-16.04 (R-3.3)
 * rhub
-  * fedora-clang-devel
-  * macos-highsierra-release-cran
-  * solaris-x86-patched
-  * ubuntu-gcc-release
-  * windows-x86_64-release
-  * windows-x86_64-devel
+  * Fedora Linux, R-devel, GCC
+  * Fedora Linux, R-devel, clang, gfortran
+  * Debian Linux, R-release, GCC
+  * Debian Linux, R-devel, GCC, no long double
+  * Debian Linux, R-devel, GCC
+  * Debian Linux, R-devel, clang, ISO-8859-15 locale
+  * Ubuntu Linux 16.04 LTS, R-devel with rchk
+* win builder
+  * R Under development (unstable) (2020-10-27 r79379)
+  * R version 4.0.3 (2020-10-10)
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-* checking for future file timestamps ... NOTE
-  unable to verify current time
-
-The above note is considered to be resulting from 403 of http://worldclockapi.com/ (cf. 
-https://stackoverflow.com/questions/63613301/r-cmd-check-note-unable-to-verify-current-time).
+0 errors | 0 warnings | 0 note
 
 ## revdepcheck results
 
-There are currently no downstream dependencies for this package
+We checked 1 reverse dependencies (0 from CRAN + 1 from BioConductor), comparing R CMD check results across CRAN and dev versions of this package.
+
+ * We saw 0 new problems
+ * We failed to check 0 packages
