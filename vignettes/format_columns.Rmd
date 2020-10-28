@@ -13,7 +13,8 @@ This vignette introduces how to format columns in flextable.
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  eval = rmarkdown::pandoc_available() && ("dplyr" %in% rownames(installed.packages()))
+  eval = rmarkdown::pandoc_available("2.7.2") &&
+    ("dplyr" %in% rownames(installed.packages()))
 )
 ```
 
