@@ -1,4 +1,4 @@
-# ftExtra 0.0.3.10
+# ftExtra 0.1.0
 
 * Support markdown footnote with `colformat_md`. Currently, one footnote per a cell is allowed, and it must be located at the end of the cell content (#22).
 * Add `footnote_options()` to configure options for footnotes (#23).

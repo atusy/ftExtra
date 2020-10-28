@@ -1,6 +1,6 @@
 Package: ftExtra
 Title: Extensions for 'Flextable'
-Version: 0.0.3
+Version: 0.1.0
 Authors@R: 
   c(person(given = "Atsushi",
            family = "Yasumoto",
@@ -35,7 +35,8 @@ Imports:
     yaml
 Suggests: 
     testthat (>= 2.1.0),
-    knitr
+    knitr,
+    qpdf
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
