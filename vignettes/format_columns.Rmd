@@ -111,6 +111,9 @@ readr::read_csv("example.csv") %>%
   ftExtra::colformat_md()
 ```
 
+By default, the **ftExtra** package employs Pandoc's markdown, which is also employed by R Markdown.
+This enables consistent user experience when using the **ftExtra** package in R Markdown.
+
 # Basic examples
 
 The example below shows that `colformat_md()` function parses markdown texts in the flextable object.
