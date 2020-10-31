@@ -19,7 +19,96 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+library(flextable)
 library(ftExtra)
+```
+
+# Why markdown?
+
+The **flextable** package is an excellent package that allows fine controls on styling tables, and export it to variety of formats (HTML, MS Word, PDF).
+Especially, when output format is MS Word, this package is the best solution in R.
+
+On the other hand, styling texts with the **flextable** package often require large efforts.
+The following example subscripts numeric values in chemical formulas.
+
+```{r}
+df <- data.frame(oxide = c("SiO2", "Al2O3"), stringsAsFactors = FALSE)
+ft <- flextable::flextable(df)
+
+ft %>%
+  flextable::compose(
+    i = 1, j = "oxide",
+    value = flextable::as_paragraph(
+      "SiO", as_sub("2")
+    )
+  ) %>%
+  flextable::compose(
+    i = 2, j = "oxide",
+    value = flextable::as_paragraph(
+      "Al", as_sub("2"), "O", as_sub("3")
+    )
+  )
+```
+
+The above example has two problems:
+
+1. This is just a *manual* re-writing of the table.
+    - Basically, users will explicitly input which characters to subscript.
+    - For fine formatting, users have to apply `compose` for each cells one by one.
+1. Users have to learn a lot of functions from the **flextable** package
+    - `compose`, `as_paragraph`, and `as_sub` in the above example
+
+The first point can be solved by using a `for` loop, however, the code becomes quite complex.
+
+```{r}
+df <- data.frame(Oxide = c("SiO2", "Fe2O3"), stringsAsFactors = FALSE)
+ft <- flextable::flextable(df)
+
+for (i in seq(nrow(df))) {
+  ft <- flextable::compose(
+    ft, i = i, j = "Oxide",
+    value = flextable::as_paragraph(
+      list_values = df$Oxide[i] %>%
+        stringr::str_replace_all("([2-9]+)", " \\1 ") %>%
+        stringr::str_split(" ", simplify = TRUE) %>%
+        purrr::map_if(
+          function(x) stringr::str_detect(x, "[2-9]+"),
+          flextable::as_sub
+        )
+    )
+  )
+}
+ft
+```
+The **ftExtra** package provides easy solution by introducing markdown.
+As markdown texts self-explain their formats by plain texts, what users have to do is manipulations of character columns with their favorite tools such as the famous **dplyr** and **stringr** packages.
+
+1. Preprocess a data frame to decorate texts with markdown syntax.
+2. Convert the data frame into a flextable object with the `flextable` function or `as_flextable` function.
+3. Format markdown columns with `colformat_md`
+
+The following example elegantly simplifies the prior example.
+
+```{r}
+df <- data.frame(Oxide = c("SiO2", "Fe2O3"), stringsAsFactors = FALSE)
+
+df %>%
+  dplyr::mutate(Oxide = stringr::str_replace_all(Oxide, "([2-9]+)", "~\\1~")) %>%
+  flextable::flextable() %>%
+  ftExtra::colformat_md()
+```
+
+The `colformat_md` function is smart enough to detect character columns, so users can start without learning its arguments.
+Of course, it is possible to chose columns.
+
+Another workflow is to read a markdown-formatted table from a external file.
+Again, markdown is by design a plain text, and can easily be embed in any formats such as  CSV and Excel.
+So users can do something like
+
+```r
+readr::read_csv("example.csv") %>%
+  flextable::flextable() %>%
+  ftExtra::colformat_md()
 ```
 
 # Basic examples
@@ -53,6 +142,7 @@ Supported syntax are
 - image
 - line break
 - citations
+- math
 - attributes with Span, Link, Code, and so on
     - to underline: `[foo]{.underline})`
     - to color: `[foo]{color=red}`
