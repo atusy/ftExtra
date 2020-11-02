@@ -32,18 +32,18 @@ On the other hand, styling texts with the **flextable** package often require la
 The following example subscripts numeric values in chemical formulas.
 
 ```{r}
-df <- data.frame(oxide = c("SiO2", "Al2O3"), stringsAsFactors = FALSE)
+df <- data.frame(Oxide = c("SiO2", "Al2O3"), stringsAsFactors = FALSE)
 ft <- flextable::flextable(df)
 
 ft %>%
   flextable::compose(
-    i = 1, j = "oxide",
+    i = 1, j = "Oxide",
     value = flextable::as_paragraph(
       "SiO", as_sub("2")
     )
   ) %>%
   flextable::compose(
-    i = 2, j = "oxide",
+    i = 2, j = "Oxide",
     value = flextable::as_paragraph(
       "Al", as_sub("2"), "O", as_sub("3")
     )
@@ -248,7 +248,7 @@ It is expected to be produced by using R Markdown.
 
 First, create a `ftExtra.bib` file like below.
 
-```{r, echo=FALSE, collapse=FALSE, out.class="bib", warning=FALSE}
+```{r, echo=FALSE, collapse=FALSE, class.output="bibtex", warning=FALSE, comment=""}
 knitr::write_bib("ftExtra")
 ```
 
