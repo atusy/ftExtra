@@ -1,6 +1,7 @@
 # ftExtra 0.1.0.1
 
 * Fix math not rendered on Windows with Pandoc < 2.10 (#33)
+* `math.lua` requires Pandoc >= 2.7.3 (#35)
 
 # ftExtra 0.1.0
 
