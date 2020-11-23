@@ -46,10 +46,14 @@ parse_md <- function(x,
       "--lua-filter",
       system.file("lua/inline-code.lua", package = "ftExtra"),
       "--lua-filter",
-      system.file("lua/math.lua", package = "ftExtra"),
-      paste0("--metadata=pandoc-path:", rmarkdown::pandoc_exec()),
-      if (!rmarkdown::pandoc_available("2.10")) {
-        paste0("--metadata=temporary-directory:", tempdir())
+      if (rmarkdown::pandoc_available("2.7.3")) {
+        c(
+          system.file("lua/math.lua", package = "ftExtra"),
+          paste0("--metadata=pandoc-path:", rmarkdown::pandoc_exec()),
+          if (!rmarkdown::pandoc_available("2.10")) {
+            paste0("--metadata=temporary-directory:", tempdir())
+          }
+        )
       }
     )
   }
