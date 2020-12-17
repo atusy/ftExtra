@@ -1,7 +1,8 @@
-# ftExtra 0.1.0.2
+# ftExtra 0.1.0.3
 
 * Fix math not rendered on Windows with Pandoc < 2.10 (#33)
 * `math.lua` requires Pandoc >= 2.7.3 (#35)
+* Fix Pandoc < 2.7.3 raising error message "option --lua-filter requires an argument SCRIPTPATH". This is a regression from #35 (#37)
 
 # ftExtra 0.1.0
 
