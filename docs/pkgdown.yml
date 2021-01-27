@@ -1,9 +1,9 @@
-pandoc: 2.7.3
-pkgdown: 1.6.1.9000
-pkgdown_sha: 9c934af88c9e2e33cb4f79a22a019d7d61e910e7
+pandoc: 2.11.3.2
+pkgdown: 1.6.1
+pkgdown_sha: ~
 articles:
   format_columns: format_columns.html
   group-rows: group-rows.html
   transform-headers: transform-headers.html
-last_built: 2020-10-28T13:38Z
+last_built: 2021-01-27T00:04Z
 

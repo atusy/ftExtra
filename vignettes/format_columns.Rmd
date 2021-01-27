@@ -204,7 +204,7 @@ Specifying one of them changes the other while keeping the aspect ratio.
 
 ```{r}
 data.frame(
-  R = c("![](https://www.r-project.org/logo/Rlogo.png){width=.5} is the great language"),
+  R = sprintf("![](%s)", system.file("img", "Rlogo.jpg", package="jpeg")),
   stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
