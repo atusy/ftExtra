@@ -25,8 +25,7 @@ values start at 1 at the far-left of the string; negative value start at -1 at
 the far-right of the string. The length of \code{sep} should be one less than
 \code{into}.}
 
-\item{theme_fun}{a function theme to apply before returning the flextable.
-set to NULL for none.}
+\item{theme_fun}{deprecated, use \code{\link[flextable:set_flextable_defaults]{set_flextable_defaults()}} instead.}
 
 \item{...}{Passed to \code{theme_fun}}
 }
