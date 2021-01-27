@@ -3,7 +3,7 @@
 ## Test environments
 
 * Local
-  * Debian GNU/Linux 10 (buster), R 4.0.2
+  * Debian GNU/Linux 10 (buster), R 4.0.3
 * GitHub Actions
   * macOS-latest (R-4.0)
   * windows-latest (R-4.0)
@@ -22,8 +22,8 @@
   * Debian Linux, R-devel, clang, ISO-8859-15 locale
   * Ubuntu Linux 16.04 LTS, R-devel with rchk
 * win builder
-  * R Under development (unstable) (2020-10-27 r79379)
-  * R version 4.0.3 (2020-10-10)
+  * R Under development (unstable)
+  * R version 4.0.3
 
 ## R CMD check results
 
