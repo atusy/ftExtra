@@ -9,8 +9,7 @@ test_with_pandoc("citation", {
     md2ast(
       "@R-ftExtra",
       pandoc_args = c(
-        rmarkdown::pandoc_citeproc_args(),
-        paste0("--bibliography=", temp_file)
+        "--bibliography", temp_file
       )
     )$blocks,
     md2ast(
