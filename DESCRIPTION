@@ -34,7 +34,6 @@ Imports:
     xfun,
     yaml
 Suggests: 
-    jpeg,
     testthat (>= 2.1.0),
     knitr,
     qpdf
