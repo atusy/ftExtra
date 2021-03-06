@@ -5,6 +5,7 @@
 * Fix Pandoc < 2.7.3 raising error message "option --lua-filter requires an argument SCRIPTPATH". This is a regression from #35 (#37)
 * Fix CRAN warning, "file 'https://www.r-project.org/logo/Rlogo.png' can not be found." (#38)
 * Fix `colformat_md(pandoc_args = c("--bibliography", "example.bib"))` should work even if bibliography field is missing from the YAML front matter (#41).
+* Drop **jpeg** package from suggests, which is formerly used in a vignette (#42).
 
 # ftExtra 0.1.0
 
