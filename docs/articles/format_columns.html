@@ -85,8 +85,8 @@
 
       
 
-      </header><script src="format_columns_files/header-attrs-2.6.6/header-attrs.js"></script><link href="format_columns_files/tabwid-1.0.0/tabwid.css" rel="stylesheet">
-<script src="format_columns_files/tabwid-1.0.0/tabwid.js"></script><div class="row">
+      </header><script src="format_columns_files/header-attrs-2.7/header-attrs.js"></script><link href="format_columns_files/tabwid-1.0.0/tabwid.css" rel="stylesheet">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Format columns as markdown</h1>
@@ -101,7 +101,7 @@
     
 <p>This vignette introduces how to format columns in flextable.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://davidgohel.github.io/flextable/">flextable</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ardata-fr.github.io/flextable-book/">flextable</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ftextra.atusy.net">ftExtra</a></span><span class="op">)</span></code></pre></div>
 <div id="why-markdown" class="section level1">
 <h1 class="hasAnchor">
@@ -125,17 +125,65 @@
       <span class="st">"Al"</span>, <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_sub.html">as_sub</a></span><span class="op">(</span><span class="st">"2"</span><span class="op">)</span>, <span class="st">"O"</span>, <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_sub.html">as_sub</a></span><span class="op">(</span><span class="st">"3"</span><span class="op">)</span>
     <span class="op">)</span>
   <span class="op">)</span></code></pre></div>
+<template id="24c1d3fe-098b-4612-a58b-84e10ab7dc1d"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3bdfd5de{border-collapse:collapse;}.cl-3bdb3a4c{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3bdb3a60{font-family:'DejaVu Sans';font-size:7pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3pt;}.cl-3bdb4a28{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3bdb6e86{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3bdb6ea4{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3bdb6eae{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3bdfd5de">
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-3bdb6eae"><p class="cl-3bdb4a28"><span class="cl-3bdb3a4c">Oxide</span></p></td></tr></thead>
+<style>.cl-6c57f3ba{border-collapse:collapse;}.cl-6c52bc24{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6c52bc38{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-6c52cd54{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6c5391a8{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6c5391d0{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6c5391da{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6c57f3ba">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-6c5391da"><p class="cl-6c52cd54"><span class="cl-6c52bc24">Oxide</span></p></td></tr></thead>
 <tbody>
-<tr style="overflow-wrap:break-word;"><td class="cl-3bdb6e86"><p class="cl-3bdb4a28"><span class="cl-3bdb3a4c">SiO</span><span class="cl-3bdb3a60">2</span></p></td></tr>
-<tr style="overflow-wrap:break-word;"><td class="cl-3bdb6ea4"><p class="cl-3bdb4a28"><span class="cl-3bdb3a4c">Al</span><span class="cl-3bdb3a60">2</span><span class="cl-3bdb3a4c">O</span><span class="cl-3bdb3a60">3</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td class="cl-6c5391a8"><p class="cl-6c52cd54"><span class="cl-6c52bc24">SiO</span><span class="cl-6c52bc38">2</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td class="cl-6c5391d0"><p class="cl-6c52cd54"><span class="cl-6c52bc24">Al</span><span class="cl-6c52bc38">2</span><span class="cl-6c52bc24">O</span><span class="cl-6c52bc38">3</span></p></td></tr>
 </tbody>
 </table>
-</div>
-<p>The above example has two problems:</p>
+</div></template><div id="ed781cbc-36bb-4cf6-bb90-43b3323f9b18"></div>
+<script>
+var dest = document.getElementById("ed781cbc-36bb-4cf6-bb90-43b3323f9b18");
+var template = document.getElementById("24c1d3fe-098b-4612-a58b-84e10ab7dc1d");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script><p>The above example has two problems:</p>
 <ol style="list-style-type: decimal">
 <li>This is just a <em>manual</em> re-writing of the table.
 <ul>
@@ -170,17 +218,65 @@
   <span class="op">)</span>
 <span class="op">}</span>
 <span class="va">ft</span></code></pre></div>
+<template id="67b843c1-3559-46c3-bb92-a65832d9a3c1"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3bf987a4{border-collapse:collapse;}.cl-3bf4677e{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3bf4679c{font-family:'DejaVu Sans';font-size:7pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3pt;}.cl-3bf472b4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3bf49046{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3bf4905a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3bf49064{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3bf987a4">
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-3bf49064"><p class="cl-3bf472b4"><span class="cl-3bf4677e">Oxide</span></p></td></tr></thead>
+<style>.cl-6c762164{border-collapse:collapse;}.cl-6c7083e4{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6c708402{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-6c708f7e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6c70ad38{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6c70ad56{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6c70ad60{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6c762164">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-6c70ad60"><p class="cl-6c708f7e"><span class="cl-6c7083e4">Oxide</span></p></td></tr></thead>
 <tbody>
-<tr style="overflow-wrap:break-word;"><td class="cl-3bf49046"><p class="cl-3bf472b4"><span class="cl-3bf4677e">SiO</span><span class="cl-3bf4679c">2</span><span class="cl-3bf4677e"></span></p></td></tr>
-<tr style="overflow-wrap:break-word;"><td class="cl-3bf4905a"><p class="cl-3bf472b4"><span class="cl-3bf4677e">Fe</span><span class="cl-3bf4679c">2</span><span class="cl-3bf4677e">O</span><span class="cl-3bf4679c">3</span><span class="cl-3bf4677e"></span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td class="cl-6c70ad38"><p class="cl-6c708f7e"><span class="cl-6c7083e4">SiO</span><span class="cl-6c708402">2</span><span class="cl-6c7083e4"></span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td class="cl-6c70ad56"><p class="cl-6c708f7e"><span class="cl-6c7083e4">Fe</span><span class="cl-6c708402">2</span><span class="cl-6c7083e4">O</span><span class="cl-6c708402">3</span><span class="cl-6c7083e4"></span></p></td></tr>
 </tbody>
 </table>
-</div>
-<p>The <strong>ftExtra</strong> package provides easy solution by introducing markdown. As markdown texts self-explain their formats by plain texts, what users have to do is manipulations of character columns with their favorite tools such as the famous <strong>dplyr</strong> and <strong>stringr</strong> packages.</p>
+</div></template><div id="623ffec3-08fc-4958-a18a-feda62fe5018"></div>
+<script>
+var dest = document.getElementById("623ffec3-08fc-4958-a18a-feda62fe5018");
+var template = document.getElementById("67b843c1-3559-46c3-bb92-a65832d9a3c1");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script><p>The <strong>ftExtra</strong> package provides easy solution by introducing markdown. As markdown texts self-explain their formats by plain texts, what users have to do is manipulations of character columns with their favorite tools such as the famous <strong>dplyr</strong> and <strong>stringr</strong> packages.</p>
 <ol style="list-style-type: decimal">
 <li>Preprocess a data frame to decorate texts with markdown syntax.</li>
 <li>Convert the data frame into a flextable object with the <code>flextable</code> function or <code>as_flextable</code> function.</li>
@@ -195,17 +291,65 @@
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Oxide <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">Oxide</span>, <span class="st">"([2-9]+)"</span>, <span class="st">"~\\1~"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/flextable.html">flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">ftExtra</span><span class="fu">::</span><span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<template id="a2412a87-b2ce-4188-a408-3114150bb892"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3c42b03c{border-collapse:collapse;}.cl-3c3e5988{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3c3e59a6{font-family:'DejaVu Sans';font-size:7pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3pt;}.cl-3c3e6694{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3c3e8534{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3c3e8548{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3c3e8552{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3c42b03c">
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-3c3e8552"><p class="cl-3c3e6694"><span class="cl-3c3e5988">Oxide</span></p></td></tr></thead>
+<style>.cl-6cd27036{border-collapse:collapse;}.cl-6ccd2176{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6ccd21a8{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-6ccd3846{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6ccdaab0{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ccdab46{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ccdab50{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6cd27036">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-6ccdab50"><p class="cl-6ccd3846"><span class="cl-6ccd2176">Oxide</span></p></td></tr></thead>
 <tbody>
-<tr style="overflow-wrap:break-word;"><td class="cl-3c3e8534"><p class="cl-3c3e6694"><span class="cl-3c3e5988">SiO</span><span class="cl-3c3e59a6">2</span></p></td></tr>
-<tr style="overflow-wrap:break-word;"><td class="cl-3c3e8548"><p class="cl-3c3e6694"><span class="cl-3c3e5988">Fe</span><span class="cl-3c3e59a6">2</span><span class="cl-3c3e5988">O</span><span class="cl-3c3e59a6">3</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td class="cl-6ccdaab0"><p class="cl-6ccd3846"><span class="cl-6ccd2176">SiO</span><span class="cl-6ccd21a8">2</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td class="cl-6ccdab46"><p class="cl-6ccd3846"><span class="cl-6ccd2176">Fe</span><span class="cl-6ccd21a8">2</span><span class="cl-6ccd2176">O</span><span class="cl-6ccd21a8">3</span></p></td></tr>
 </tbody>
 </table>
-</div>
-<p>The <code>colformat_md</code> function is smart enough to detect character columns, so users can start without learning its arguments. Of course, it is possible to chose columns.</p>
+</div></template><div id="4d181737-ee83-4139-933c-63c7167dade7"></div>
+<script>
+var dest = document.getElementById("4d181737-ee83-4139-933c-63c7167dade7");
+var template = document.getElementById("a2412a87-b2ce-4188-a408-3114150bb892");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script><p>The <code>colformat_md</code> function is smart enough to detect character columns, so users can start without learning its arguments. Of course, it is possible to chose columns.</p>
 <p>Another workflow is to read a markdown-formatted table from a external file. Again, markdown is by design a plain text, and can easily be embed in any formats such as CSV and Excel. So users can do something like</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"example.csv"</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -228,32 +372,80 @@
 <span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<template id="8a4d24a7-9746-427b-86f6-449b23e5a7c1"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3cc28c80{border-collapse:collapse;}.cl-3cbb3cbe{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3cbb3cdc{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3cbb3ce6{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3cbb3cf0{font-family:'DejaVu Sans';font-size:7pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3pt;}.cl-3cbb3cfa{font-family:'DejaVu Sans';font-size:7pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3pt;}.cl-3cbb3d04{font-family:'monospace';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:rgba(248, 248, 248, 1.00);}.cl-3cbb3d0e{font-family:'DejaVu Sans';font-size:7pt;font-weight:bold;font-style:italic;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;position: relative;top:3pt;}.cl-3cbb3d18{font-family:'DejaVu Sans';font-size:7pt;font-weight:bold;font-style:italic;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;position: relative;bottom:3pt;}.cl-3cbb3d22{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:underline;color:rgba(0, 0, 0, 1.00);background-color:rgba(135, 206, 235, 1.00);}.cl-3cbb4b5a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3cbb6d38{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3cbb6d4c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3cbb6d56{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3cc28c80">
+<style>.cl-6d4b20c6{border-collapse:collapse;}.cl-6d46f2b2{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d46f2d0{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d46f2da{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d46f2e4{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-6d46f2ee{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-6d46f2f8{font-family:'monospace';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:rgba(248, 248, 248, 1.00);}.cl-6d46f302{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:italic;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;position: relative;top:3.3pt;}.cl-6d46f30c{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:bold;font-style:italic;text-decoration:none;color:rgba(0, 0, 255, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-6d46f316{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:underline;color:rgba(0, 0, 0, 1.00);background-color:rgba(135, 206, 235, 1.00);}.cl-6d46ff78{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6d47203e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d472052{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d47205c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6d4b20c6">
 <thead><tr style="overflow-wrap:break-word;">
-<td class="cl-3cbb6d56"><p class="cl-3cbb4b5a"><span class="cl-3cbb3cbe">a</span></p></td>
-<td class="cl-3cbb6d56"><p class="cl-3cbb4b5a"><span class="cl-3cbb3cbe">b</span></p></td>
-<td class="cl-3cbb6d56"><p class="cl-3cbb4b5a"><span class="cl-3cbb3cbe">c</span></p></td>
-<td class="cl-3cbb6d56"><p class="cl-3cbb4b5a"><span class="cl-3cbb3cbe">d</span></p></td>
+<td class="cl-6d47205c"><p class="cl-6d46ff78"><span class="cl-6d46f2b2">a</span></p></td>
+<td class="cl-6d47205c"><p class="cl-6d46ff78"><span class="cl-6d46f2b2">b</span></p></td>
+<td class="cl-6d47205c"><p class="cl-6d46ff78"><span class="cl-6d46f2b2">c</span></p></td>
+<td class="cl-6d47205c"><p class="cl-6d46ff78"><span class="cl-6d46f2b2">d</span></p></td>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-3cbb6d38"><p class="cl-3cbb4b5a"><span class="cl-3cbb3cdc">bold</span></p></td>
-<td class="cl-3cbb6d38"><p class="cl-3cbb4b5a"><span class="cl-3cbb3cf0">superscript</span></p></td>
-<td class="cl-3cbb6d38"><p class="cl-3cbb4b5a"><span class="cl-3cbb3d04">code</span></p></td>
-<td class="cl-3cbb6d38"><p class="cl-3cbb4b5a"><a href="https://ftextra.atusy.net/"><span class="cl-3cbb3d0e">ft</span></a><a href="https://ftextra.atusy.net/"><span class="cl-3cbb3d18">Extra</span></a><span class="cl-3cbb3ce6"> </span><span class="cl-3cbb3ce6">is</span></p></td>
+<td class="cl-6d47203e"><p class="cl-6d46ff78"><span class="cl-6d46f2d0">bold</span></p></td>
+<td class="cl-6d47203e"><p class="cl-6d46ff78"><span class="cl-6d46f2e4">superscript</span></p></td>
+<td class="cl-6d47203e"><p class="cl-6d46ff78"><span class="cl-6d46f2f8">code</span></p></td>
+<td class="cl-6d47203e"><p class="cl-6d46ff78"><a href="https://ftextra.atusy.net/"><span class="cl-6d46f302">ft</span></a><a href="https://ftextra.atusy.net/"><span class="cl-6d46f30c">Extra</span></a><span class="cl-6d46f2da"> </span><span class="cl-6d46f2da">is</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-3cbb6d4c"><p class="cl-3cbb4b5a"><span class="cl-3cbb3ce6">italic</span></p></td>
-<td class="cl-3cbb6d4c"><p class="cl-3cbb4b5a"><span class="cl-3cbb3cfa">subscript</span></p></td>
-<td class="cl-3cbb6d4c"><p class="cl-3cbb4b5a"><span class="cl-3cbb3cbe">underline</span></p></td>
-<td class="cl-3cbb6d4c"><p class="cl-3cbb4b5a"><span class="cl-3cbb3d22">Cool</span></p></td>
+<td class="cl-6d472052"><p class="cl-6d46ff78"><span class="cl-6d46f2da">italic</span></p></td>
+<td class="cl-6d472052"><p class="cl-6d46ff78"><span class="cl-6d46f2ee">subscript</span></p></td>
+<td class="cl-6d472052"><p class="cl-6d46ff78"><span class="cl-6d46f2b2">underline</span></p></td>
+<td class="cl-6d472052"><p class="cl-6d46ff78"><span class="cl-6d46f316">Cool</span></p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>The table header can also be formatted by specifying <code>part = "header"</code> or <code>"all"</code> to <code><a href="../reference/colformat_md.html">colformat_md()</a></code></p>
+</div></template><div id="c7298ba8-9815-4c5f-a373-4403eb15e802"></div>
+<script>
+var dest = document.getElementById("c7298ba8-9815-4c5f-a373-4403eb15e802");
+var template = document.getElementById("8a4d24a7-9746-427b-86f6-449b23e5a7c1");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script><p>The table header can also be formatted by specifying <code>part = "header"</code> or <code>"all"</code> to <code><a href="../reference/colformat_md.html">colformat_md()</a></code></p>
 <p>Supported syntax are</p>
 <ul>
 <li><strong>bold</strong></li>
@@ -300,21 +492,69 @@
   <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html">autofit</a></span><span class="op">(</span>add_w <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code></pre></div>
+<template id="a3710f33-0a17-43d9-969e-c196e1c494da"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3cfb4336{border-collapse:collapse;}.cl-3cf67ca2{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3cf67cc0{font-family:'DejaVu Sans';font-size:7pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3pt;}.cl-3cf68b20{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3cf6a8e4{width:187pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3cf6a8f8{width:91pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3cf6a902{width:187pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3cf6a90c{width:91pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3cf6a916{width:187pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3cf6a920{width:91pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3cfb4336">
+<style>.cl-6d911fae{border-collapse:collapse;}.cl-6d890f80{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d890f9e{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-6d891ba6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6d893a78{width:192.2pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d893a96{width:96pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d893aa0{width:192.2pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d893aaa{width:96pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d893ab4{width:192.2pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d893abe{width:96pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6d911fae">
 <thead><tr style="overflow-wrap:break-word;">
-<td class="cl-3cf6a920"><p class="cl-3cf68b20"><span class="cl-3cf67ca2">package</span></p></td>
-<td class="cl-3cf6a916"><p class="cl-3cf68b20"><span class="cl-3cf67ca2">description</span></p></td>
+<td class="cl-6d893abe"><p class="cl-6d891ba6"><span class="cl-6d890f80">package</span></p></td>
+<td class="cl-6d893ab4"><p class="cl-6d891ba6"><span class="cl-6d890f80">description</span></p></td>
 </tr></thead>
 <tbody><tr style="overflow-wrap:break-word;">
-<td class="cl-3cf6a8f8"><p class="cl-3cf68b20"><span class="cl-3cf67ca2">ftExtra</span><span class="cl-3cf67cc0"></span></p></td>
-<td class="cl-3cf6a8e4"><p class="cl-3cf68b20"><span class="cl-3cf67ca2">Extensions</span><span class="cl-3cf67ca2"> </span><span class="cl-3cf67ca2">for</span><span class="cl-3cf67ca2"> </span><span class="cl-3cf67ca2">‘</span><span class="cl-3cf67ca2">Flextable</span><span class="cl-3cf67ca2">’</span><span class="cl-3cf67cc0">1</span></p></td>
+<td class="cl-6d893a96"><p class="cl-6d891ba6"><span class="cl-6d890f80">ftExtra</span><span class="cl-6d890f9e"></span></p></td>
+<td class="cl-6d893a78"><p class="cl-6d891ba6"><span class="cl-6d890f80">Extensions</span><span class="cl-6d890f80"> </span><span class="cl-6d890f80">for</span><span class="cl-6d890f80"> </span><span class="cl-6d890f80">‘</span><span class="cl-6d890f80">Flextable</span><span class="cl-6d890f80">’</span><span class="cl-6d890f9e">1</span></p></td>
 </tr></tbody>
-<tfoot><tr style="overflow-wrap:break-word;"><td colspan="2" class="cl-3cf6a90c"><p class="cl-3cf68b20"><span class="cl-3cf67cc0"></span><span class="cl-3cf67cc0">1</span><span class="cl-3cf67ca2">Supports</span><span class="cl-3cf67ca2"> </span><span class="cl-3cf67ca2">of</span><span class="cl-3cf67ca2"> </span><span class="cl-3cf67ca2">footnotes</span></p></td></tr></tfoot>
+<tfoot><tr style="overflow-wrap:break-word;"><td colspan="2" class="cl-6d893aaa"><p class="cl-6d891ba6"><span class="cl-6d890f9e"></span><span class="cl-6d890f9e">1</span><span class="cl-6d890f80">Supports</span><span class="cl-6d890f80"> </span><span class="cl-6d890f80">of</span><span class="cl-6d890f80"> </span><span class="cl-6d890f80">footnotes</span></p></td></tr></tfoot>
 </table>
-</div>
-<p>Reference symboles can be configured by <code><a href="../reference/footnote_options.html">footnote_options()</a></code>. Of course, markdown can be used inside footnotes as well.</p>
+</div></template><div id="af1235d6-ae45-4152-a108-142fb8e6e303"></div>
+<script>
+var dest = document.getElementById("af1235d6-ae45-4152-a108-142fb8e6e303");
+var template = document.getElementById("a3710f33-0a17-43d9-969e-c196e1c494da");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script><p>Reference symboles can be configured by <code><a href="../reference/footnote_options.html">footnote_options()</a></code>. Of course, markdown can be used inside footnotes as well.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
   package <span class="op">=</span> <span class="st">"ftExtra^[Short of *flextable extra*]"</span>,
@@ -330,20 +570,69 @@
                                          sep <span class="op">=</span> <span class="st">"; "</span><span class="op">)</span>
   <span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html">autofit</a></span><span class="op">(</span>add_w <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code></pre></div>
+<template id="46562cf3-8297-4d8d-8e76-ad7b857c152e"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3d3348a8{border-collapse:collapse;}.cl-3d2dfbc8{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3d2dfc0e{font-family:'DejaVu Sans';font-size:7pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3pt;}.cl-3d2dfc22{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3d2e1fe0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3d2e9038{width:192pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3d2e90e2{width:91pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3d2e90f6{width:192pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3d2e9100{width:91pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3d2e910a{width:192pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3d2e9114{width:91pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3d3348a8">
+<style>.cl-6ddaa8ae{border-collapse:collapse;}.cl-6dd419d0{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6dd41a0c{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-6dd41a20{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6dd4305a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6dd46782{width:197.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dd467aa{width:96pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dd467b4{width:197.6pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dd467be{width:96pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dd467c8{width:197.6pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dd467dc{width:96pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6ddaa8ae">
 <thead><tr style="overflow-wrap:break-word;">
-<td class="cl-3d2e9114"><p class="cl-3d2e1fe0"><span class="cl-3d2dfbc8">package</span></p></td>
-<td class="cl-3d2e910a"><p class="cl-3d2e1fe0"><span class="cl-3d2dfbc8">description</span></p></td>
+<td class="cl-6dd467dc"><p class="cl-6dd4305a"><span class="cl-6dd419d0">package</span></p></td>
+<td class="cl-6dd467c8"><p class="cl-6dd4305a"><span class="cl-6dd419d0">description</span></p></td>
 </tr></thead>
 <tbody><tr style="overflow-wrap:break-word;">
-<td class="cl-3d2e90e2"><p class="cl-3d2e1fe0"><span class="cl-3d2dfbc8">ftExtra</span><span class="cl-3d2dfc0e">[ii]</span><span class="cl-3d2dfc0e"></span></p></td>
-<td class="cl-3d2e9038"><p class="cl-3d2e1fe0"><span class="cl-3d2dfbc8">Extensions</span><span class="cl-3d2dfbc8"> </span><span class="cl-3d2dfbc8">for</span><span class="cl-3d2dfbc8"> </span><span class="cl-3d2dfbc8">‘</span><span class="cl-3d2dfbc8">Flextable</span><span class="cl-3d2dfbc8">’</span><span class="cl-3d2dfc0e">[iii]</span></p></td>
+<td class="cl-6dd467aa"><p class="cl-6dd4305a"><span class="cl-6dd419d0">ftExtra</span><span class="cl-6dd41a0c">[ii]</span><span class="cl-6dd41a0c"></span></p></td>
+<td class="cl-6dd46782"><p class="cl-6dd4305a"><span class="cl-6dd419d0">Extensions</span><span class="cl-6dd419d0"> </span><span class="cl-6dd419d0">for</span><span class="cl-6dd419d0"> </span><span class="cl-6dd419d0">‘</span><span class="cl-6dd419d0">Flextable</span><span class="cl-6dd419d0">’</span><span class="cl-6dd41a0c">[iii]</span></p></td>
 </tr></tbody>
-<tfoot><tr style="overflow-wrap:break-word;"><td colspan="2" class="cl-3d2e9100"><p class="cl-3d2e1fe0"><span class="cl-3d2dfc0e"></span><span class="cl-3d2dfc0e">[ii]</span><span class="cl-3d2dfbc8">Short</span><span class="cl-3d2dfbc8"> </span><span class="cl-3d2dfbc8">of</span><span class="cl-3d2dfbc8"> </span><span class="cl-3d2dfc22">flextable</span><span class="cl-3d2dfc22"> </span><span class="cl-3d2dfc22">extra</span><span class="cl-3d2dfbc8">; </span><span class="cl-3d2dfc0e"></span><span class="cl-3d2dfc0e">[iii]</span><span class="cl-3d2dfbc8">Supports</span><span class="cl-3d2dfbc8"> </span><span class="cl-3d2dfbc8">of</span><span class="cl-3d2dfbc8"> </span><span class="cl-3d2dfbc8">footnotes</span></p></td></tr></tfoot>
+<tfoot><tr style="overflow-wrap:break-word;"><td colspan="2" class="cl-6dd467be"><p class="cl-6dd4305a"><span class="cl-6dd41a0c"></span><span class="cl-6dd41a0c">[ii]</span><span class="cl-6dd419d0">Short</span><span class="cl-6dd419d0"> </span><span class="cl-6dd419d0">of</span><span class="cl-6dd419d0"> </span><span class="cl-6dd41a20">flextable</span><span class="cl-6dd41a20"> </span><span class="cl-6dd41a20">extra</span><span class="cl-6dd419d0">; </span><span class="cl-6dd41a0c"></span><span class="cl-6dd41a0c">[iii]</span><span class="cl-6dd419d0">Supports</span><span class="cl-6dd419d0"> </span><span class="cl-6dd419d0">of</span><span class="cl-6dd419d0"> </span><span class="cl-6dd419d0">footnotes</span></p></td></tr></tfoot>
 </table>
-</div>
+</div></template><div id="d3941504-7acd-46ec-8638-069dac7f7f29"></div>
+<script>
+var dest = document.getElementById("d3941504-7acd-46ec-8638-069dac7f7f29");
+var template = document.getElementById("46562cf3-8297-4d8d-8e76-ad7b857c152e");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
 </div>
 </div>
 <div id="images" class="section level1">
@@ -358,13 +647,6 @@
   <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html">autofit</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="tabwid">
-<style>.cl-3d587416{border-collapse:collapse;}.cl-3d53f54e{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3d540156{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3d54214a{width:23pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3d54215e{width:23pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3d587416">
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-3d54215e"><p class="cl-3d540156"><span class="cl-3d53f54e">R</span></p></td></tr></thead>
-<tbody><tr style="overflow-wrap:break-word;"><td class="cl-3d54214a"><p class="cl-3d540156"><img style="vertical-align:middle;width:NApt;height:NApt;" src="data:image/jpeg;base64,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"></p></td></tr></tbody>
-</table>
-</div>
 <p>The R logo is distributed by The R Foundation with the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a> license.</p>
 </div>
 <div id="line-breaks" class="section level1">
@@ -375,37 +657,182 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>linebreak <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a\nb"</span><span class="op">)</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<template id="e00ad948-6193-488b-b5d0-5ca5e5f6a2bd"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3d758ac4{border-collapse:collapse;}.cl-3d712e0c{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3d713992{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3d7156f2{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3d715710{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3d758ac4">
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-3d715710"><p class="cl-3d713992"><span class="cl-3d712e0c">linebreak</span></p></td></tr></thead>
-<tbody><tr style="overflow-wrap:break-word;"><td class="cl-3d7156f2"><p class="cl-3d713992"><span class="cl-3d712e0c">a</span><span class="cl-3d712e0c"> </span><span class="cl-3d712e0c">b</span></p></td></tr></tbody>
+<style>.cl-6e0960c2{border-collapse:collapse;}.cl-6e04a8a2{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6e04b54a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6e04d5ca{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e04d5e8{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6e0960c2">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-6e04d5e8"><p class="cl-6e04b54a"><span class="cl-6e04a8a2">linebreak</span></p></td></tr></thead>
+<tbody><tr style="overflow-wrap:break-word;"><td class="cl-6e04d5ca"><p class="cl-6e04b54a"><span class="cl-6e04a8a2">a</span><span class="cl-6e04a8a2"> </span><span class="cl-6e04a8a2">b</span></p></td></tr></tbody>
 </table>
-</div>
-<p>Pandoc’s markdown supports hard line breaks by adding a backslash or double spaces at the end of a line.</p>
+</div></template><div id="a4564dad-c7c3-4eee-a4fd-cefd024865c5"></div>
+<script>
+var dest = document.getElementById("a4564dad-c7c3-4eee-a4fd-cefd024865c5");
+var template = document.getElementById("e00ad948-6193-488b-b5d0-5ca5e5f6a2bd");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script><p>Pandoc’s markdown supports hard line breaks by adding a backslash or double spaces at the end of a line.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>linebreak <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a\\\nb"</span><span class="op">)</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<template id="d446c478-a5b9-4fa7-a568-37739742a7bb"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3d97a5d2{border-collapse:collapse;}.cl-3d9357d4{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3d93635a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3d9381c8{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3d9381dc{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3d97a5d2">
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-3d9381dc"><p class="cl-3d93635a"><span class="cl-3d9357d4">linebreak</span></p></td></tr></thead>
-<tbody><tr style="overflow-wrap:break-word;"><td class="cl-3d9381c8"><p class="cl-3d93635a"><span class="cl-3d9357d4">a</span><span class="cl-3d9357d4"><br></span><span class="cl-3d9357d4">b</span></p></td></tr></tbody>
+<style>.cl-6e2c0212{border-collapse:collapse;}.cl-6e27bfea{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6e27cd14{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6e27ee02{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e27ee16{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6e2c0212">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-6e27ee16"><p class="cl-6e27cd14"><span class="cl-6e27bfea">linebreak</span></p></td></tr></thead>
+<tbody><tr style="overflow-wrap:break-word;"><td class="cl-6e27ee02"><p class="cl-6e27cd14"><span class="cl-6e27bfea">a</span><span class="cl-6e27bfea"><br></span><span class="cl-6e27bfea">b</span></p></td></tr></tbody>
 </table>
-</div>
-<p>It is also possible to make <code>\n</code> as a hard line break by extending Pandoc’s Markdown.</p>
+</div></template><div id="c804db13-7aff-4111-b14d-7f1d9ae1ad80"></div>
+<script>
+var dest = document.getElementById("c804db13-7aff-4111-b14d-7f1d9ae1ad80");
+var template = document.getElementById("d446c478-a5b9-4fa7-a568-37739742a7bb");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script><p>It is also possible to make <code>\n</code> as a hard line break by extending Pandoc’s Markdown.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>linebreak <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a\nb"</span><span class="op">)</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span>md_extensions <span class="op">=</span> <span class="st">"+hard_line_breaks"</span><span class="op">)</span></code></pre></div>
+<template id="14e6c27b-88e1-4cb5-9d2f-91ab62f787a0"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3db9845e{border-collapse:collapse;}.cl-3db4e6f6{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3db4f498{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3db515d6{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3db515f4{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3db9845e">
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-3db515f4"><p class="cl-3db4f498"><span class="cl-3db4e6f6">linebreak</span></p></td></tr></thead>
-<tbody><tr style="overflow-wrap:break-word;"><td class="cl-3db515d6"><p class="cl-3db4f498"><span class="cl-3db4e6f6">a</span><span class="cl-3db4e6f6"><br></span><span class="cl-3db4e6f6">b</span></p></td></tr></tbody>
+<style>.cl-6e4e2234{border-collapse:collapse;}.cl-6e48fa66{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6e4908b2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6e492e8c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e492eaa{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6e4e2234">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-6e492eaa"><p class="cl-6e4908b2"><span class="cl-6e48fa66">linebreak</span></p></td></tr></thead>
+<tbody><tr style="overflow-wrap:break-word;"><td class="cl-6e492e8c"><p class="cl-6e4908b2"><span class="cl-6e48fa66">a</span><span class="cl-6e48fa66"><br></span><span class="cl-6e48fa66">b</span></p></td></tr></tbody>
 </table>
-</div>
+</div></template><div id="cfa565d0-cac9-4e9a-a4a0-b62e60a1c985"></div>
+<script>
+var dest = document.getElementById("cfa565d0-cac9-4e9a-a4a0-b62e60a1c985");
+var template = document.getElementById("14e6c27b-88e1-4cb5-9d2f-91ab62f787a0");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
 </div>
 <div id="citations" class="section level1">
 <h1 class="hasAnchor">
@@ -416,7 +843,7 @@
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span> = {ftExtra: Extensions for Flextable},</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span> = {Atsushi Yasumoto},</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">note</span> = {https://ftextra.atusy.net, https://github.com/atusy/ftExtra},</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span> = {2020},</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span> = {2021},</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Second, specify it within the YAML front matter. It may also be required to cite references in the <code>nocite</code> field.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
@@ -432,17 +859,66 @@
   <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html">autofit</a></span><span class="op">(</span>add_w <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></code></pre></div>
+<template id="c40bddca-80e8-4d6f-851f-2a9ec591e38e"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3e09e98a{border-collapse:collapse;}.cl-3e04de7c{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3e04e9b2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3e050820{width:95pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3e05083e{width:95pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3e050848{width:95pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3e09e98a">
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-3e050848"><p class="cl-3e04e9b2"><span class="cl-3e04de7c">Cite</span></p></td></tr></thead>
+<style>.cl-6ebc2b44{border-collapse:collapse;}.cl-6eb6d644{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6eb6ef80{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6eb71690{width:122.5pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6eb716a4{width:122.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6eb716ae{width:122.5pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6ebc2b44">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-6eb716ae"><p class="cl-6eb6ef80"><span class="cl-6eb6d644">Cite</span></p></td></tr></thead>
 <tbody>
-<tr style="overflow-wrap:break-word;"><td class="cl-3e050820"><p class="cl-3e04e9b2"><span class="cl-3e04de7c">@R-ftExtra</span></p></td></tr>
-<tr style="overflow-wrap:break-word;"><td class="cl-3e050820"><p class="cl-3e04e9b2"><span class="cl-3e04de7c">[@R-ftExtra]</span></p></td></tr>
-<tr style="overflow-wrap:break-word;"><td class="cl-3e05083e"><p class="cl-3e04e9b2"><span class="cl-3e04de7c">[-@R-ftExtra]</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td class="cl-6eb71690"><p class="cl-6eb6ef80"><span class="cl-6eb6d644">Yasumoto</span><span class="cl-6eb6d644"> </span><span class="cl-6eb6d644">(2021)</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td class="cl-6eb71690"><p class="cl-6eb6ef80"><span class="cl-6eb6d644">(Yasumoto</span><span class="cl-6eb6d644"> </span><span class="cl-6eb6d644">2021)</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td class="cl-6eb716a4"><p class="cl-6eb6ef80"><span class="cl-6eb6d644">(2021)</span></p></td></tr>
 </tbody>
 </table>
-</div>
+</div></template><div id="5fbaee58-a661-4e9e-8184-40263a860447"></div>
+<script>
+var dest = document.getElementById("5fbaee58-a661-4e9e-8184-40263a860447");
+var template = document.getElementById("c40bddca-80e8-4d6f-851f-2a9ec591e38e");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
 </div>
 <div id="math" class="section level1">
 <h1 class="hasAnchor">
@@ -454,14 +930,62 @@
   <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/autofit.html">autofit</a></span><span class="op">(</span>add_w <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></code></pre></div>
+<template id="f0e40397-5dcb-4ace-b891-8885f1ed044e"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3e2e9578{border-collapse:collapse;}.cl-3e2996e0{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3e2996fe{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3e299708{font-family:'DejaVu Sans';font-size:7pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3pt;}.cl-3e29a284{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3e29c14c{width:120pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3e29c160{width:120pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3e2e9578">
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-3e29c160"><p class="cl-3e29a284"><span class="cl-3e2996e0">math</span></p></td></tr></thead>
-<tbody><tr style="overflow-wrap:break-word;"><td class="cl-3e29c14c"><p class="cl-3e29a284"><span class="cl-3e2996fe">e</span><span class="cl-3e299708">i</span><span class="cl-3e299708">θ</span><span class="cl-3e2996e0"> = cos </span><span class="cl-3e2996fe">θ</span><span class="cl-3e2996e0"> + </span><span class="cl-3e2996fe">i</span><span class="cl-3e2996e0">sin </span><span class="cl-3e2996fe">θ</span></p></td></tr></tbody>
+<style>.cl-6ee7c9ca{border-collapse:collapse;}.cl-6ee268ae{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6ee268cc{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6ee268d6{font-family:'DejaVu Sans';font-size:6.6pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-6ee2747a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6ee292ca{width:125pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ee292de{width:125pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6ee7c9ca">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-6ee292de"><p class="cl-6ee2747a"><span class="cl-6ee268ae">math</span></p></td></tr></thead>
+<tbody><tr style="overflow-wrap:break-word;"><td class="cl-6ee292ca"><p class="cl-6ee2747a"><span class="cl-6ee268cc">e</span><span class="cl-6ee268d6">i</span><span class="cl-6ee268d6">θ</span><span class="cl-6ee268ae"> = cos </span><span class="cl-6ee268cc">θ</span><span class="cl-6ee268ae"> + </span><span class="cl-6ee268cc">i</span><span class="cl-6ee268ae">sin </span><span class="cl-6ee268cc">θ</span></p></td></tr></tbody>
 </table>
-</div>
-<p>Note that results can be insufficient. This feature relies on Pandoc’s HTML writer, which</p>
+</div></template><div id="8322ab04-9202-40ab-8fee-1af2c51198b3"></div>
+<script>
+var dest = document.getElementById("8322ab04-9202-40ab-8fee-1af2c51198b3");
+var template = document.getElementById("f0e40397-5dcb-4ace-b891-8885f1ed044e");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script><p>Note that results can be insufficient. This feature relies on Pandoc’s HTML writer, which</p>
 <blockquote>
 <p>render TeX math as far as possible using Unicode characters<br><a href="https://pandoc.org/MANUAL.html#math-rendering-in-html" class="uri">https://pandoc.org/MANUAL.html#math-rendering-in-html</a></p>
 </blockquote>
@@ -474,13 +998,62 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>emoji <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">":+1:"</span><span class="op">)</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/colformat_md.html">colformat_md</a></span><span class="op">(</span>md_extensions <span class="op">=</span> <span class="st">"+emoji"</span><span class="op">)</span></code></pre></div>
+<template id="7148257e-4ff3-4dda-a56c-c4fd99da36fd"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style>
 <div class="tabwid">
-<style>.cl-3e517c3c{border-collapse:collapse;}.cl-3e4d13b8{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3e4d1f66{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-3e4d3d34{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3e4d3d48{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-3e517c3c">
-<thead><tr style="overflow-wrap:break-word;"><td class="cl-3e4d3d48"><p class="cl-3e4d1f66"><span class="cl-3e4d13b8">emoji</span></p></td></tr></thead>
-<tbody><tr style="overflow-wrap:break-word;"><td class="cl-3e4d3d34"><p class="cl-3e4d1f66"><span class="cl-3e4d13b8">👍</span></p></td></tr></tbody>
+<style>.cl-6f104b84{border-collapse:collapse;}.cl-6f069292{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6f07b60e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6f081716{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6f08175c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table class="table cl-6f104b84">
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-6f08175c"><p class="cl-6f07b60e"><span class="cl-6f069292">emoji</span></p></td></tr></thead>
+<tbody><tr style="overflow-wrap:break-word;"><td class="cl-6f081716"><p class="cl-6f07b60e"><span class="cl-6f069292">👍</span></p></td></tr></tbody>
 </table>
-</div>
+</div></template><div id="078f1534-c00d-4748-8511-3ddedae7dd36"></div>
+<script>
+var dest = document.getElementById("078f1534-c00d-4748-8511-3ddedae7dd36");
+var template = document.getElementById("7148257e-4ff3-4dda-a56c-c4fd99da36fd");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
 </div>
   </div>
 
