@@ -20,7 +20,7 @@ md2ast <- function(x,
     to = "json",
     from = .from,
     output = tf,
-    citeproc = !is.null(yaml$bibliography),
+    citeproc = !is.null(yaml$bibliography) || any(grepl("^--bibliography", pandoc_args)),
     options = pandoc_args,
     wd = getwd()
   )
