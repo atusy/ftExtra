@@ -30,30 +30,35 @@ image_size <- function(x, y = "width") {
   as.numeric(pandoc_attrs(x, y))
 }
 
+lua <- function(...) {
+  c("--lua-filter", system.file("lua", ..., package = "ftExtra"))
+}
+
 parse_md <- function(x,
                      auto_color_link = "blue",
                      pandoc_args = NULL,
                      .from = "markdown",
-                     .footnote_options = NULL) {
+                     .footnote_options = NULL,
+                     .sep = "\n\n") {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1L) {
     stop("`auto_color_link` must be a string")
   }
 
   filters <- if (rmarkdown::pandoc_available("2")) {
     c(
-      "--lua-filter",
-      system.file("lua/smart.lua", package = "ftExtra"),
-      "--lua-filter",
-      system.file("lua/inline-code.lua", package = "ftExtra"),
+      lua("smart.lua"),
+      lua("inline-code.lua"),
       if (rmarkdown::pandoc_available("2.7.3")) {
         c(
-          "--lua-filter",
-          system.file("lua/math.lua", package = "ftExtra"),
+          lua("math.lua"),
           paste0("--metadata=pandoc-path:", rmarkdown::pandoc_exec()),
           if (!rmarkdown::pandoc_available("2.10")) {
             paste0("--metadata=temporary-directory:", tempdir())
           }
         )
+      },
+      if (rmarkdown::pandoc_available("2.2.3")) {
+        c(lua("blocks-to-inlines.lua"), paste0("--metadata=sep_blocks:", .sep))
       }
     )
   }
