@@ -51,6 +51,7 @@ iris \%>\%
 }
 \seealso{
 Other as_flextable methods: 
+\code{\link[flextable]{as_flextable.gam}()},
 \code{\link[flextable]{as_flextable.glm}()},
 \code{\link[flextable]{as_flextable.grouped_data}()},
 \code{\link[flextable]{as_flextable.htest}()},

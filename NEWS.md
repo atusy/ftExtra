@@ -1,5 +1,11 @@
 # ftExtra 0.1.1
 
+## New features
+
+* `colformat_md` supports multiple paragprahs by collapsing them with a separator given to the `.sep` argument (default: `"\n\n").
+
+## Bug fixes
+
 * Fix math not rendered on Windows with Pandoc < 2.10 (#33)
 * `math.lua` requires Pandoc >= 2.7.3 (#35)
 * Fix Pandoc < 2.7.3 raising error message "option --lua-filter requires an argument SCRIPTPATH". This is a regression from #35 (#37)

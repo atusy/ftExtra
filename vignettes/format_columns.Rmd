@@ -153,8 +153,10 @@ Supported syntax are
     - to change font: `[foo]{font.family=Roboto}`
     - and the combinations of the above
 
-Note that other syntax may result in unexpected behaviors.
-The **ftExtra** package does not support multiple paragraphs or block elements other than the paragraph.
+Notes:
+
+- other syntax may result in unexpected behaviors.
+- multiple paragraphs are collapsed to a single paragraph with a separator given to the `.sep` argument (default: `"\n\n"`).
 
 ## Footnotes
 
@@ -238,6 +240,16 @@ It is also possible to make `\n` as a hard line break by extending Pandoc's Mark
 data.frame(linebreak = c("a\nb"), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
   colformat_md(md_extensions = "+hard_line_breaks")
+```
+
+Markdown treats continuous linebreaks as a separator of blocks such as paragraphs.
+However, **flextable** package lacks the support for multiple paragraphs in a cell.
+To workaround, `colformat_md` collapses them to a single paragraph with a separator given to `.sep` (default: `\n\n`).
+
+```{r}
+data.frame(linebreak = c("a\n\nb"), stringsAsFactors = FALSE) %>%
+  as_flextable() %>%
+  colformat_md(.sep = "\n\n")
 ```
 
 # Citations
