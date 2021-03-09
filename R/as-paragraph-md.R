@@ -34,6 +34,27 @@ lua <- function(...) {
   c("--lua-filter", system.file("lua", ..., package = "ftExtra"))
 }
 
+lua_filters <- function(.sep) {
+  if (!rmarkdown::pandoc_available("2")) return(NULL)
+
+  c(
+    lua("smart.lua"),
+    lua("inline-code.lua"),
+    if (rmarkdown::pandoc_available("2.7.3")) {
+      c(
+        lua("math.lua"),
+        paste0("--metadata=pandoc-path:", rmarkdown::pandoc_exec()),
+        if (!rmarkdown::pandoc_available("2.10")) {
+          paste0("--metadata=temporary-directory:", tempdir())
+        }
+      )
+    },
+    if (rmarkdown::pandoc_available("2.2.3")) {
+      c(lua("blocks-to-inlines.lua"), paste0("--metadata=sep_blocks:", .sep))
+    }
+  )
+}
+
 parse_md <- function(x,
                      auto_color_link = "blue",
                      pandoc_args = NULL,
@@ -44,26 +65,11 @@ parse_md <- function(x,
     stop("`auto_color_link` must be a string")
   }
 
-  filters <- if (rmarkdown::pandoc_available("2")) {
-    c(
-      lua("smart.lua"),
-      lua("inline-code.lua"),
-      if (rmarkdown::pandoc_available("2.7.3")) {
-        c(
-          lua("math.lua"),
-          paste0("--metadata=pandoc-path:", rmarkdown::pandoc_exec()),
-          if (!rmarkdown::pandoc_available("2.10")) {
-            paste0("--metadata=temporary-directory:", tempdir())
-          }
-        )
-      },
-      if (rmarkdown::pandoc_available("2.2.3")) {
-        c(lua("blocks-to-inlines.lua"), paste0("--metadata=sep_blocks:", .sep))
-      }
-    )
-  }
-
-  md_df <- md2df(x, pandoc_args = c(filters, pandoc_args), .from = .from)
+  md_df <- md2df(
+    x,
+    pandoc_args = c(lua_filters(.sep = .sep), pandoc_args),
+    .from = .from
+  )
 
   if (is.null(.footnote_options) || (all(names(md_df) != "Note"))) {
     y <- md_df
