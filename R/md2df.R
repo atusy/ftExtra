@@ -22,7 +22,6 @@ has_attr <- function(x) {
 }
 
 add_type <- function(x, t) {
-  parents <- if (is.list(t)) t else stats::setNames(list(TRUE), t)
   child <- stats::setNames(
     list(structure(
       if (isTRUE(x$t %in% c("Image", "Link"))) x$c[[3]][[1]] else TRUE,
@@ -35,7 +34,7 @@ add_type <- function(x, t) {
     x$t
   )
 
-  x$t <- c(child, parents)
+  x$t <- c(child, if (is.list(t)) t else stats::setNames(list(TRUE), t))
 
   if (has_attr(x$c)) x$c <- x$c[[2]]
 
@@ -52,6 +51,9 @@ resolve_type <- function(x) {
   }
   if (identical(names(x$c), c("t", "c"))) {
     return(add_type(x$c, x$t))
+  }
+  if (identical(x$t, "Div")) {
+    return(resolve_type(add_type(x, list())))
   }
   return(lapply(x$c, add_type, x$t))
 }
@@ -127,7 +129,8 @@ ast2df <- function(x) {
   x$blocks %>%
     flatten_ast() %>%
     lapply(branch2list) %>%
-    lapply(purrr::map_at, "Image", list) %>%
+    # Div is not for users, but for processing multiple cells at once
+    lapply(purrr::map_at, c("Div", "Image"), list) %>%
     lapply(format_by_attr) %>%
     lapply(drop_Para) %>%
     dplyr::bind_rows() %>%
@@ -146,9 +149,9 @@ md2df <- function(x, .from = "markdown", pandoc_args = NULL) {
             NA)
   ]
 
-  if ((ast$blocks[[1]]$t != "Para") || (length(ast$blocks) > 1)) {
-    stop("With Pandoc < 2.2.3, markdown text must be a single paragraph")
-  }
+  # if ((ast$blocks[[1]]$t != "Para") || (length(ast$blocks) > 1)) {
+  #   stop("With Pandoc < 2.2.3, markdown text must be a single paragraph")
+  # }
 
   ast2df(ast)
 }
