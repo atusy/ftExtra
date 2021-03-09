@@ -55,6 +55,8 @@ lua_filters <- function(.sep) {
   )
 }
 
+
+
 parse_md <- function(x,
                      auto_color_link = "blue",
                      pandoc_args = NULL,
@@ -71,22 +73,30 @@ parse_md <- function(x,
     .from = .from
   )
 
-  if (is.null(.footnote_options) || (all(names(md_df) != "Note"))) {
-    y <- md_df
-  } else {
-    .footnote_options$n <- .footnote_options$n + 1L
-    ref <- data.frame(txt = .footnote_options$ref[[.footnote_options$n]],
-                      Superscript = TRUE,
-                      stringsAsFactors = FALSE)
-    .footnote_options$value <- c(
-      .footnote_options$value,
-      list(construct_chunk(as.list(dplyr::bind_rows(ref, md_df[md_df$Note, ])),
-                           auto_color_link))
-    )
-    y <- dplyr::bind_rows(md_df[!md_df$Note, ], ref)
+  id <- pandoc_attrs(md_df$Div, "id")
+  cells <- unname(split(dplyr::select(md_df, !"Div"), factor(id, levels = unique(id))))
+
+  lapply(cells, function(cell) {
+    y <- solve_footnote(cell, .footnote_options, auto_color_link)
+    construct_chunk(as.list(y), auto_color_link)
+  })
+}
+
+solve_footnote <- function(md_df, .footnote_options, auto_color_link) {
+  if (is.null(.footnote_options) || !any(md_df[["Note"]])) {
+    return(md_df)
   }
 
-  construct_chunk(as.list(y), auto_color_link)
+  .footnote_options$n <- .footnote_options$n + 1L
+  ref <- data.frame(txt = .footnote_options$ref[[.footnote_options$n]],
+                    Superscript = TRUE,
+                    stringsAsFactors = FALSE)
+  .footnote_options$value <- c(
+    .footnote_options$value,
+    list(construct_chunk(as.list(dplyr::bind_rows(ref, md_df[md_df$Note, ])),
+                         auto_color_link))
+  )
+  dplyr::bind_rows(md_df[!md_df$Note, ], ref)
 }
 
 construct_chunk <- function(x, auto_color_link = "blue") {
@@ -153,7 +163,16 @@ as_paragraph_md <- function(x,
                             pandoc_args = NULL,
                             .from = "markdown+autolink_bare_uris",
                             ...) {
-  structure(lapply(x, parse_md,
+  x <- paste(
+    purrr::map2_chr(
+      x,
+      paste0('cell', seq_along(x)),
+      function(x, id) sprintf('<div id="%s">%s</div>', id, x)
+    ),
+    collapse = ''
+  )
+
+  structure(parse_md(x,
                    auto_color_link = auto_color_link,
                    pandoc_args = pandoc_args,
                    .from = paste0(.from, paste(md_extensions, collapse="")),
