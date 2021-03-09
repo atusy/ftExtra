@@ -140,18 +140,18 @@ ast2df <- function(x) {
 
 #' Convert Pandoc's Markdown to data frame
 #' @noRd
-md2df <- function(x, .from = "markdown", pandoc_args = NULL) {
+md2df <- function(x, .from = "markdown", pandoc_args = NULL, .check = FALSE) {
   ast <- md2ast(x, .from = .from, pandoc_args = pandoc_args)
 
   ast$blocks <- ast$blocks[
     !vapply(ast$blocks,
-            function(x) identical(c(x$t, x$c[[1]][[1]]), c("Div", "refs")),
+            function(x) identical(c(x$t, x$c[[1L]][[1L]]), c("Div", "refs")),
             NA)
   ]
 
-  # if ((ast$blocks[[1]]$t != "Para") || (length(ast$blocks) > 1)) {
-  #   stop("With Pandoc < 2.2.3, markdown text must be a single paragraph")
-  # }
+  if (.check && any(vapply(ast$blocks, function(x) length(x$c[[2L]]), 0L) > 1L)) {
+    stop("With Pandoc < 2.2.3, markdown text must be a single paragraph")
+  }
 
   ast2df(ast)
 }

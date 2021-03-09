@@ -70,7 +70,8 @@ parse_md <- function(x,
   md_df <- md2df(
     x,
     pandoc_args = c(lua_filters(.sep = .sep), pandoc_args),
-    .from = .from
+    .from = .from,
+    .check = TRUE
   )
 
   id <- pandoc_attrs(md_df$Div, "id")
