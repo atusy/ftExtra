@@ -1,12 +1,12 @@
-para = pandoc.Para({})
+cite = {}
 
-function Cite(cite)
-  para.c:insert(cite)
-  para.c:insert(pandoc.Space())
+function Cite(elem)
+  table.insert(cite, elem)
+  table.insert(cite, pandoc.Space())
 end
 
 function Pandoc(doc)
-  table.remove(para.c)
-  doc.blocks = {para}
+  table.remove(cite)
+  doc.blocks = {pandoc.Para(cite)}
   return doc
 end
