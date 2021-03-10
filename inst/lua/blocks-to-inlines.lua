@@ -4,7 +4,9 @@ function Meta(meta)
     ) or {pandoc.LineBreak(), pandoc.LineBreak()}
 end
 
-function Pandoc(doc)
-  doc.blocks = {pandoc.Para(pandoc.utils.blocks_to_inlines(doc.blocks, sep))}
-  return doc
+function Div(div)
+  div.content = {pandoc.Para(pandoc.utils.blocks_to_inlines(div.content, sep))}
+  return div
 end
+
+return {{Meta = Meta}, {Div = Div}}

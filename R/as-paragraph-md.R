@@ -34,6 +34,29 @@ lua <- function(...) {
   c("--lua-filter", system.file("lua", ..., package = "ftExtra"))
 }
 
+lua_filters <- function(.sep) {
+  if (!rmarkdown::pandoc_available("2")) return(NULL)
+
+  c(
+    lua("smart.lua"),
+    lua("inline-code.lua"),
+    if (rmarkdown::pandoc_available("2.7.3")) {
+      c(
+        lua("math.lua"),
+        paste0("--metadata=pandoc-path:", rmarkdown::pandoc_exec()),
+        if (!rmarkdown::pandoc_available("2.10")) {
+          paste0("--metadata=temporary-directory:", tempdir())
+        }
+      )
+    },
+    if (rmarkdown::pandoc_available("2.2.3")) {
+      c(lua("blocks-to-inlines.lua"), paste0("--metadata=sep_blocks:", .sep))
+    }
+  )
+}
+
+
+
 parse_md <- function(x,
                      auto_color_link = "blue",
                      pandoc_args = NULL,
@@ -44,43 +67,37 @@ parse_md <- function(x,
     stop("`auto_color_link` must be a string")
   }
 
-  filters <- if (rmarkdown::pandoc_available("2")) {
-    c(
-      lua("smart.lua"),
-      lua("inline-code.lua"),
-      if (rmarkdown::pandoc_available("2.7.3")) {
-        c(
-          lua("math.lua"),
-          paste0("--metadata=pandoc-path:", rmarkdown::pandoc_exec()),
-          if (!rmarkdown::pandoc_available("2.10")) {
-            paste0("--metadata=temporary-directory:", tempdir())
-          }
-        )
-      },
-      if (rmarkdown::pandoc_available("2.2.3")) {
-        c(lua("blocks-to-inlines.lua"), paste0("--metadata=sep_blocks:", .sep))
-      }
-    )
+  md_df <- md2df(
+    x,
+    pandoc_args = c(lua_filters(.sep = .sep), pandoc_args),
+    .from = .from,
+    .check = TRUE
+  )
+
+  id <- pandoc_attrs(md_df$Div, "id")
+  cells <- unname(split(dplyr::select(md_df, !"Div"), factor(id, levels = unique(id))))
+
+  lapply(cells, function(cell) {
+    y <- solve_footnote(cell, .footnote_options, auto_color_link)
+    construct_chunk(as.list(y), auto_color_link)
+  })
+}
+
+solve_footnote <- function(md_df, .footnote_options, auto_color_link) {
+  if (is.null(.footnote_options) || !any(md_df[["Note"]])) {
+    return(md_df)
   }
 
-  md_df <- md2df(x, pandoc_args = c(filters, pandoc_args), .from = .from)
-
-  if (is.null(.footnote_options) || (all(names(md_df) != "Note"))) {
-    y <- md_df
-  } else {
-    .footnote_options$n <- .footnote_options$n + 1L
-    ref <- data.frame(txt = .footnote_options$ref[[.footnote_options$n]],
-                      Superscript = TRUE,
-                      stringsAsFactors = FALSE)
-    .footnote_options$value <- c(
-      .footnote_options$value,
-      list(construct_chunk(as.list(dplyr::bind_rows(ref, md_df[md_df$Note, ])),
-                           auto_color_link))
-    )
-    y <- dplyr::bind_rows(md_df[!md_df$Note, ], ref)
-  }
-
-  construct_chunk(as.list(y), auto_color_link)
+  .footnote_options$n <- .footnote_options$n + 1L
+  ref <- data.frame(txt = .footnote_options$ref[[.footnote_options$n]],
+                    Superscript = TRUE,
+                    stringsAsFactors = FALSE)
+  .footnote_options$value <- c(
+    .footnote_options$value,
+    list(construct_chunk(as.list(dplyr::bind_rows(ref, md_df[md_df$Note, ])),
+                         auto_color_link))
+  )
+  dplyr::bind_rows(md_df[!md_df$Note, ], ref)
 }
 
 construct_chunk <- function(x, auto_color_link = "blue") {
@@ -147,7 +164,16 @@ as_paragraph_md <- function(x,
                             pandoc_args = NULL,
                             .from = "markdown+autolink_bare_uris",
                             ...) {
-  structure(lapply(x, parse_md,
+  x <- paste(
+    purrr::map2_chr(
+      x,
+      paste0('cell', seq_along(x)),
+      function(x, id) sprintf('<div id="%s">%s</div>', id, x)
+    ),
+    collapse = ''
+  )
+
+  structure(parse_md(x,
                    auto_color_link = auto_color_link,
                    pandoc_args = pandoc_args,
                    .from = paste0(.from, paste(md_extensions, collapse="")),
