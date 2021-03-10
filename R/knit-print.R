@@ -3,7 +3,7 @@
 #' Adds a YAML meta data block to cite materials found by `colformat_md()` in
 #' the `flextable` object.
 #'
-#' @inheritParams kntir::knit_print
+#' @inheritParams knitr::knit_print
 #' @param label
 #'  A key to be set in the YAML meta data block to cite materials.
 #'  This must be unique in the document.
