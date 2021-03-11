@@ -54,7 +54,11 @@ lua_filters <- function(.sep, .cite_offset = 0) {
       )
     },
     if (.cite_offset != 0) {
-      c(lua("cite-offset.lua"), meta("citationNoteNumOffset", .cite_offset))
+      c(
+        rmarkdown::pandoc_citeproc_args(),
+        lua("cite-offset.lua"),
+        meta("citationNoteNumOffset", .cite_offset)
+      )
     },
     if (rmarkdown::pandoc_available("2.2.3")) {
       c(lua("blocks-to-inlines.lua"), meta("sep_blocks", .sep))
