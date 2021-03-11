@@ -3,7 +3,7 @@ function Meta(meta)
 end
 
 function Cite(cite)
-  cite.citations[1].note_num = offset + cite.citations[1].note_num
+  cite.citations[1].note_num = math.floor(offset + cite.citations[1].note_num)
   return cite
 end
 
