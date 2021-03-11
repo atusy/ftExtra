@@ -38,7 +38,7 @@ meta <- function(key, val) {
   sprintf("--metadata=%s:%s", key, val)
 }
 
-lua_filters <- function(.sep, .cite_offset = 0) {
+lua_filters <- function(.sep = "\n\n", .cite_offset = 0) {
   if (!rmarkdown::pandoc_available("2")) return(NULL)
 
   c(
