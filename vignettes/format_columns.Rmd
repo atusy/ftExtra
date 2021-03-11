@@ -265,12 +265,10 @@ knitr::write_bib("ftExtra")
 ```
 
 Second, specify it within the YAML front matter.
-It may also be required to cite references in the `nocite` field.
 
 ```yaml
 ---
 bibliography: ftExtra.bib
-nocite: @R-ftExtra
 ---
 ```
 
@@ -286,10 +284,6 @@ data.frame(
   flextable::autofit(add_w = 0.2)
 ```
 
----
-no-cite: "@R-ftExtra"
----
-
 ```{r, echo=FALSE, warning=FALSE}
 tf <- tempfile(fileext = ".bib")
 knitr::write_bib("ftExtra", tf)
@@ -301,6 +295,9 @@ data.frame(
   colformat_md(pandoc_args = c("--bibliography", tf)) %>%
   flextable::autofit(add_w = 0.2)
 ```
+
+If citation style such as Vancouver requires citations be numbered sequentially and consistently with the body,
+manually offset the number for example by `colformat_md(.cite_offset = 5)`.
 
 # Math
 
