@@ -71,7 +71,7 @@ colformat_md <- function(x,
                              pandoc_args = pandoc_args,
                              .footnote_options = .footnote_options,
                              .sep = .sep,
-                             .cite_offset = 0
+                             .cite_offset = .cite_offset
                            ))
 
   structure(
