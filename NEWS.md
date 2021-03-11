@@ -4,6 +4,7 @@
 
 * `colformat_md` supports multiple paragprahs by collapsing them with a separator given to the `.sep` argument (default: `"\n\n") (#43).
 * `colformat_md` can now automatically add citations to reference on R Markdown (#48).
+* `colformat_md` gains `.cite_offset` option (default: 0) to offset note number when the citation style such as vancouver requires the number be consistent with the body (#49).
 
 ## Bug fixes
 
