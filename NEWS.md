@@ -2,7 +2,8 @@
 
 ## New features
 
-* `colformat_md` supports multiple paragprahs by collapsing them with a separator given to the `.sep` argument (default: `"\n\n").
+* `colformat_md` supports multiple paragprahs by collapsing them with a separator given to the `.sep` argument (default: `"\n\n") (#43).
+* `colformat_md` can now automatically add citations to reference on R Markdown (#48).
 
 ## Bug fixes
 

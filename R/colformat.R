@@ -54,11 +54,13 @@ colformat_md <- function(x,
     return(x)
   }
 
+  texts <- unlist(dataset[col], use.names = FALSE)
+
   # Must evaluate outside add_footnotes due to lazy evaluation of arguments
   ft <- flextable::compose(x,
                            i = seq(nrow(dataset)), j = col, part = part,
                            value = as_paragraph_md(
-                             unlist(dataset[col], use.names = FALSE),
+                             texts,
                              auto_color_link = auto_color_link,
                              .from = .from,
                              md_extensions = md_extensions,
@@ -67,7 +69,11 @@ colformat_md <- function(x,
                              .sep = .sep
                            ))
 
-  add_footnotes(ft, part, .footnote_options)
+  structure(
+    add_footnotes(ft, part, .footnote_options),
+    class = c("ftExtra", class(ft)),
+    citations = collect_citations(paste(texts, collapse = "\n\n"))
+  )
 }
 
 where <- function(...) {
