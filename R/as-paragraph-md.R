@@ -34,7 +34,11 @@ lua <- function(...) {
   c("--lua-filter", system.file("lua", ..., package = "ftExtra"))
 }
 
-lua_filters <- function(.sep) {
+meta <- function(key, val) {
+  sprintf("--metadata=%s:%s", key, val)
+}
+
+lua_filters <- function(.sep, .cite_offset = 0) {
   if (!rmarkdown::pandoc_available("2")) return(NULL)
 
   c(
@@ -43,33 +47,38 @@ lua_filters <- function(.sep) {
     if (rmarkdown::pandoc_available("2.7.3")) {
       c(
         lua("math.lua"),
-        paste0("--metadata=pandoc-path:", rmarkdown::pandoc_exec()),
+        meta("pandoc_path", rmarkdown::pandoc_exec()),
         if (!rmarkdown::pandoc_available("2.10")) {
-          paste0("--metadata=temporary-directory:", tempdir())
+          meta("temporary-directory", tempdir())
         }
       )
     },
+    if (.cite_offset != 0) {
+      c(lua("cite-offset.lua"), meta("citationNoteNumOffset", .cite_offset))
+    },
     if (rmarkdown::pandoc_available("2.2.3")) {
-      c(lua("blocks-to-inlines.lua"), paste0("--metadata=sep_blocks:", .sep))
+      c(lua("blocks-to-inlines.lua"), meta("sep_blocks", .sep))
     }
   )
 }
 
 
-
+#' @param ...
+#'  parameters passed to lua_filters
+#' @noRd
 parse_md <- function(x,
                      auto_color_link = "blue",
                      pandoc_args = NULL,
                      .from = "markdown",
                      .footnote_options = NULL,
-                     .sep = "\n\n") {
+                     ...) {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1L) {
     stop("`auto_color_link` must be a string")
   }
 
   md_df <- md2df(
     x,
-    pandoc_args = c(lua_filters(.sep = .sep), pandoc_args),
+    pandoc_args = c(lua_filters(...), pandoc_args),
     .from = .from,
     .check = TRUE
   )
