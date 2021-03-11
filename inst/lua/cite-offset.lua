@@ -3,6 +3,8 @@ function Meta(meta)
 end
 
 function Cite(cite)
-  cite.citations.note_num = offset + cite.citations.note_num
+  cite.citations[1].note_num = offset + cite.citations[1].note_num
   return cite
 end
+
+return {{Meta = Meta}, {Cite = Cite}}
