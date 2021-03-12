@@ -158,14 +158,9 @@ Notes:
 - other syntax may result in unexpected behaviors.
 - multiple paragraphs are collapsed to a single paragraph with a separator given to the `.sep` argument (default: `"\n\n"`).
 
-## Footnotes
+# Footnotes
 
-Currently footnotes have some limitations.
-
-- A cell allows up to one footnote.
-- A footnote needs be added at the end of the cell.
-
-For example,
+An easy way to add a footnote is inline footnote.
 
 ```{r}
 data.frame(
@@ -178,7 +173,7 @@ data.frame(
   flextable::autofit(add_w = 0.5)
 ```
 
-Reference symboles can be configured by `footnote_options()`.
+Reference symbols can be configured by `footnote_options()`.
 Of course, markdown can be used inside footnotes as well.
 
 ```{r}
@@ -196,6 +191,20 @@ data.frame(
                                          sep = "; ")
   ) %>%
   flextable::autofit(add_w = 0.5)
+```
+
+In order to add multiple footnotes to a cell, use normal footnotes syntax.
+
+```{r}
+data.frame(x = 
+"foo[^a]^,^ [^b]
+
+[^a]: aaa
+
+[^b]: bbb"
+) %>%
+  as_flextable() %>%
+  colformat_md()
 ```
 
 
@@ -265,12 +274,10 @@ knitr::write_bib("ftExtra")
 ```
 
 Second, specify it within the YAML front matter.
-It may also be required to cite references in the `nocite` field.
 
 ```yaml
 ---
 bibliography: ftExtra.bib
-nocite: @R-ftExtra
 ---
 ```
 
@@ -286,10 +293,6 @@ data.frame(
   flextable::autofit(add_w = 0.2)
 ```
 
----
-no-cite: "@R-ftExtra"
----
-
 ```{r, echo=FALSE, warning=FALSE}
 tf <- tempfile(fileext = ".bib")
 knitr::write_bib("ftExtra", tf)
@@ -301,6 +304,9 @@ data.frame(
   colformat_md(pandoc_args = c("--bibliography", tf)) %>%
   flextable::autofit(add_w = 0.2)
 ```
+
+If citation style such as Vancouver requires citations be numbered sequentially and consistently with the body,
+manually offset the number for example by `colformat_md(.cite_offset = 5)`.
 
 # Math
 
