@@ -149,9 +149,5 @@ md2df <- function(x, .from = "markdown", pandoc_args = NULL, .check = FALSE) {
             NA)
   ]
 
-  if (.check && any(vapply(ast$blocks, function(x) length(x$c[[2L]]), 0L) > 1L)) {
-    stop("With Pandoc < 2.2.3, markdown text must be a single paragraph")
-  }
-
   ast2df(ast)
 }

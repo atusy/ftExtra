@@ -336,3 +336,29 @@ data.frame(emoji = c(":+1:"), stringsAsFactors = FALSE) %>%
   as_flextable() %>%
   colformat_md(md_extensions = "+emoji")
 ```
+
+# Other input formats
+
+`colformat_md` supports variety of formats.
+They can even be HTML despite the name of the function.
+
+```{r}
+data.frame(
+  x = "H<sub>2</sub>O",
+  stringsAsFactors = FALSE
+) %>%
+  as_flextable() %>%
+  colformat_md(.from = "html")
+```
+Note that multiple paragraphs are not supported if `.from` is not `"markdown"`.
+Below is an example with commonmark.
+
+
+```{r}
+data.frame(
+  x = "foo\n\nbar",
+  stringsAsFactors = FALSE
+) %>%
+  as_flextable() %>%
+  colformat_md(.from = "commonmark")
+```

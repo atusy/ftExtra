@@ -8,7 +8,7 @@ md2ast <- function(x,
                    yaml = rmarkdown::metadata) {
   tf <- tempfile()
 
-  front_matter <- if (length(yaml) > 0) {
+  front_matter <- if ((length(yaml) > 0) && grepl("^markdown([+-].*)?$", .from)) {
     yaml::write_yaml(yaml, tf)
     c("---", xfun::read_utf8(tf), "---", "", "")
   }
