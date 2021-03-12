@@ -51,7 +51,10 @@ parse_md <- function(x,
   )
 
   id <- pandoc_attrs(md_df$Div, "id")
-  cells <- unname(split(dplyr::select(md_df, !"Div"), factor(id, levels = unique(id))))
+  cells <- unname(split(
+    dplyr::select(md_df, !"Div"),
+    factor(id, levels = unique(id))
+  ))
 
   lapply(cells, function(cell) {
     y <- solve_footnote(cell, .footnote_options, auto_color_link)
