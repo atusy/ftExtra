@@ -69,3 +69,34 @@ add_footnotes <- function(x, part, .footnote_options) {
                       inline = .footnote_options$inline,
                       sep = .footnote_options$sep)
 }
+
+solve_footnote <- function(md_df, .footnote_options, auto_color_link) {
+  is_note <- md_df[["Note"]]
+  if (is.null(.footnote_options) || !any(is_note)) {
+    return(md_df)
+  }
+
+  local_id <- vctrs::vec_unrep(is_note) %>%
+    dplyr::mutate(id = cumsum(.data[["key"]]) * .data[["key"]]) %>%
+    purrr::pmap(function(id, times, ...) rep(id, times)) %>%
+    unlist(use.names = FALSE, recursive = FALSE)
+  global_id <- .footnote_options$n + local_id
+
+  .footnote_options$value <- c(
+    .footnote_options$value,
+    md_df[is_note, ] %>%
+      split(global_id[is_note]) %>%
+      purrr::imap(function(fn, id) {
+        construct_chunk(
+          as.list(dplyr::bind_rows(list(txt = id, Superscript = TRUE), fn)),
+          auto_color_link = auto_color_link
+        )
+      })
+  )
+  .footnote_options$n <- .footnote_options$n + max(local_id)
+
+  md_df[is_note, ] <- NA
+  md_df[is_note, "Superscript"] <- TRUE
+  md_df[is_note, "txt"] <- .footnote_options$ref[global_id[is_note]]
+  md_df[!is_note | !duplicated(local_id), ]
+}
