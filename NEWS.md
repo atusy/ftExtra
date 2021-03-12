@@ -13,7 +13,7 @@
 ## Internal changes
 
 * Drop **jpeg** package from suggests, which is formerly used in a vignette (#42).
-* `colformat_md` converts cells to Pandoc's AST by a single call of Pandoc. Previously it called pandoc for each cell. This change improves performance around 15X faster (#46).
+* `colformat_md` converts cells to Pandoc's AST by a single call of Pandoc. Previously it called pandoc for each cell. This change improves performance around 15X faster (#46). Note that #46 broken support for some input formats (e.g., commonmark), but the regression is already fixed (#53).
 
 # ftExtra 0.1.1
 * Fix math not rendered on Windows with Pandoc < 2.10 (#33)
