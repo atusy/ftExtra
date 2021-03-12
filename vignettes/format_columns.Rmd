@@ -350,8 +350,9 @@ data.frame(
   as_flextable() %>%
   colformat_md(.from = "html")
 ```
-Note that multiple paragraphs are not well supported.
+Note that multiple paragraphs are not supported if `.from` is not `"markdown"`.
 Below is an example with commonmark.
+
 
 ```{r}
 data.frame(
@@ -361,4 +362,3 @@ data.frame(
   as_flextable() %>%
   colformat_md(.from = "commonmark")
 ```
-
