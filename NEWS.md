@@ -1,10 +1,11 @@
-# ftExtra 0.1.2
+# ftExtra 0.2.0
 
 ## New features
 
 * `colformat_md` supports multiple paragprahs by collapsing them with a separator given to the `.sep` argument (default: `"\n\n") (#43).
 * `colformat_md` can now automatically add citations to reference on R Markdown (#48).
 * `colformat_md` can now contain cells with multiple footnotes. In addition, footnote keys are placed exactly the same place of source. The previous implementation moved the keys to the end of corresponding cells (#51).
+* `as_paragraph_md` supports variety of input formats by checking enabled extensions (#54).
 
 ## Bug fixes
 

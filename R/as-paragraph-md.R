@@ -119,15 +119,13 @@ as_paragraph_md <- function(x,
   pandoc_args <- c(lua_filters(...), pandoc_args)
   .from <- paste0(.from, paste(md_extensions, collapse=""))
 
-  md_df <- x %>%
-    purrr::map2_chr(
-      paste0('cell', seq_along(x)),
-      function(x, id) sprintf('\n\n::: {#%s}\n\n%s\n\n:::\n\n', id, x)
-    ) %>%
-    paste(collapse = "") %>%
-    md2df(pandoc_args = pandoc_args, .from = .from, .check = TRUE)
+  divs <- supported_divs(.from)
 
-  paragraph <- if ("Div" %in% names(md_df)) {
+  paragraph <- if (length(divs) > 0L) {
+      md_df <- x %>%
+        purrr::map2_chr(paste0('cell', seq_along(x)), add_id, divs = divs) %>%
+        paste(collapse = "") %>%
+        md2df(pandoc_args = pandoc_args, .from = .from, .check = TRUE)
       organize(md_df, auto_color_link, .footnote_options)
     } else {
       lapply(x, function(x) {
@@ -140,4 +138,13 @@ as_paragraph_md <- function(x,
     }
 
   structure(paragraph, class = "paragraph")
+}
+
+divs_template <- c(
+  fenced_divs = "\n\n::: {#%s}\n\n%s\n\n:::\n\n",
+  native_divs = "\n\n<div id=%s>\n\n%s\n\n</div>\n\n"
+)
+
+add_id <- function(x, id, divs = "fenced_divs") {
+  sprintf(divs_template[divs[[1L]]], id, x)
 }
