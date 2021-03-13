@@ -1,5 +1,5 @@
 reshape_extensions <- function(extensions) {
-  setNames(grepl("\\+", extensions), gsub("[+-]", "", extensions))
+  stats::setNames(grepl("\\+", extensions), gsub("[+-]", "", extensions))
 }
 
 pandoc_default_extensions <- function(format, pandoc = rmarkdown::pandoc_exec()) {
@@ -42,7 +42,7 @@ supported_divs <- function(format, ...) {
 
 support_extensions <- function(format, extensions, ...) {
   enabled <- pandoc_enabled_extensions(format, ...)
-  setNames(extensions %in% enabled, extensions)
+  stats::setNames(extensions %in% enabled, extensions)
 }
 
 support_yaml <- function(format, ...) {
