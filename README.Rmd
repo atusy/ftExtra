@@ -52,7 +52,8 @@ install.packages("ftExtra")
 ### from GitHub
 
 ``` r
-remotes::install_github("atusy/ftExtra")
+options(repos = c(atusy = 'https://atusy.r-universe.dev', getOption("repos")))
+install.packages("ftExtra")
 ```
 
 ## Example
