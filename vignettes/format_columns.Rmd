@@ -179,7 +179,8 @@ Of course, markdown can be used inside footnotes as well.
 ```{r}
 data.frame(
   package = "ftExtra^[Short of *flextable extra*]",
-  description = "Extensions for 'Flextable'^[Supports of footnotes]"
+  description = "Extensions for 'Flextable'^[Supports of footnotes]",
+  stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
   colformat_md(
@@ -201,7 +202,8 @@ data.frame(x =
 
 [^a]: aaa
 
-[^b]: bbb"
+[^b]: bbb",
+stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
   colformat_md()
