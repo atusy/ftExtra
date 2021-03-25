@@ -45,10 +45,11 @@ organize <- function(md_df,
   })
 }
 
+#' @importFrom flextable chunk_dataframe
 construct_chunk <- function(x, auto_color_link = "blue") {
   dplyr::bind_rows(
     header,
-    data.frame(
+    chunk_dataframe(
       txt = x$txt,
       italic = x$Emph %||% NA,
       bold = x$Strong %||% NA,
@@ -59,8 +60,7 @@ construct_chunk <- function(x, auto_color_link = "blue") {
       underlined = x$underlined %||% NA,
       color = x$color %||% NA_character_,
       shading.color = x$shading.color %||% NA_character_,
-      font.family = x$font.family %||% NA_character_,
-      stringsAsFactors = FALSE
+      font.family = x$font.family %||% NA_character_
     )
   ) %>%
     dplyr::mutate(

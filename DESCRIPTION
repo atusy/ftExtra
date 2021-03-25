@@ -22,7 +22,7 @@ BugReports: https://github.com/atusy/ftExtra/issues
 Imports:
     dplyr,
     jsonlite,
-    flextable,
+    flextable (>= 0.6.4),
     tidyr,
     purrr,
     magrittr,
