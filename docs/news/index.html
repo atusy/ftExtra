@@ -164,6 +164,8 @@
 <li>Drop <strong>jpeg</strong> package from suggests, which is formerly used in a vignette (<a href='https://github.com/atusy/ftExtra/issues/42'>#42</a>).</li>
 <li>
 <code>colformat_md</code> converts cells to Pandoc’s AST by a single call of Pandoc. Previously it called pandoc for each cell. This change improves performance around 15X faster (<a href='https://github.com/atusy/ftExtra/issues/46'>#46</a>). Note that <a href='https://github.com/atusy/ftExtra/issues/46'>#46</a> broken support for some input formats (e.g., commonmark), but the regression is already fixed (<a href='https://github.com/atusy/ftExtra/issues/53'>#53</a>).</li>
+<li>
+<code><a href="../reference/as_paragraph_md.html">as_paragraph_md()</a></code> internally uses <code><a href="https://davidgohel.github.io/flextable/reference/chunk_dataframe.html">flextable::chunk_dataframe()</a></code> in order to avoid potential problems if the <strong>flextable</strong> pacage changes the chunk structure in the future (<a href='https://github.com/atusy/ftExtra/issues/56'>#56</a>, thanks <a href='https://github.com/davidgohel'>@davidgohel</a>).</li>
 </ul>
 </div>
 </div>
