@@ -1,5 +1,3 @@
-header <- flextable::as_paragraph("")[[1L]][-1L, ]
-
 vertical_align <- function(sup, sub) {
   .f <- rep(FALSE, max(1L, length(sup), length(sub)))
   sup <- sup %||% .f
@@ -46,22 +44,18 @@ organize <- function(md_df,
 }
 
 construct_chunk <- function(x, auto_color_link = "blue") {
-  dplyr::bind_rows(
-    header,
-    data.frame(
-      txt = x$txt,
-      italic = x$Emph %||% NA,
-      bold = x$Strong %||% NA,
-      url = x$Link %||% NA_character_,
-      width = image_size(x$Image, "width"),
-      height = image_size(x$Image, "height"),
-      vertical.align = vertical_align(x$Superscript, x$Subscript),
-      underlined = x$underlined %||% NA,
-      color = x$color %||% NA_character_,
-      shading.color = x$shading.color %||% NA_character_,
-      font.family = x$font.family %||% NA_character_,
-      stringsAsFactors = FALSE
-    )
+  flextable::chunk_dataframe(
+    txt = x$txt,
+    italic = x$Emph %||% NA,
+    bold = x$Strong %||% NA,
+    url = x$Link %||% NA_character_,
+    width = image_size(x$Image, "width"),
+    height = image_size(x$Image, "height"),
+    vertical.align = vertical_align(x$Superscript, x$Subscript),
+    underlined = x$underlined %||% NA,
+    color = x$color %||% NA_character_,
+    shading.color = x$shading.color %||% NA_character_,
+    font.family = x$font.family %||% NA_character_
   ) %>%
     dplyr::mutate(
       color = dplyr::if_else(
