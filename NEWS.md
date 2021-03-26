@@ -14,7 +14,7 @@
 ## Internal changes
 
 * Drop **jpeg** package from suggests, which is formerly used in a vignette (#42).
-* `colformat_md` converts cells to Pandoc's AST by a single call of Pandoc. Previously it called pandoc for each cell. This change improves performance around 15X faster (#46). Note that #46 broken support for some input formats (e.g., commonmark), but the regression is already fixed (#53).
+* `colformat_md` converts cells to Pandoc's AST by a single call of Pandoc. Previously it called pandoc for each cell. This change improves performance around 15X faster (#46). Note that #46 broken support for some input formats (e.g., commonmark) and old Pandoc (< 2.0.6), but the regression is already fixed (#53, #57).
 * `as_paragraph_md()` internally uses `flextable::chunk_dataframe()` in order to avoid potential problems if the **flextable** pacage changes the chunk structure in the future (#56, thanks @davidgohel).
 
 # ftExtra 0.1.1
