@@ -35,7 +35,7 @@ formats specified to \code{.from} can be used. See
 Parse markdown cells and returns the "paragraph" object.
 }
 \examples{
-if (rmarkdown::pandoc_available()) {
+if (rmarkdown::pandoc_available("2.0.6")) {
   library(flextable)
   ft <- flextable(
     data.frame(

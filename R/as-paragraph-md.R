@@ -87,7 +87,7 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #' @inheritParams rmarkdown::html_document
 #'
 #' @examples
-#' if (rmarkdown::pandoc_available()) {
+#' if (rmarkdown::pandoc_available("2.0.6")) {
 #'   library(flextable)
 #'   ft <- flextable(
 #'     data.frame(

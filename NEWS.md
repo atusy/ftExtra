@@ -1,5 +1,9 @@
 # ftExtra 0.2.0
 
+## Breaking changes
+
+* Drop supports for Pandoc versions < 2.0.6 in order to reduce maintenance costs. (#59).
+
 ## New features
 
 * `colformat_md` supports multiple paragprahs by collapsing them with a separator given to the `.sep` argument (default: `"\n\n") (#43).
