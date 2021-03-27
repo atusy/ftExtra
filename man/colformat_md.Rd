@@ -43,7 +43,7 @@ formats specified to \code{.from} can be used. See
 Format character columns as markdown text
 }
 \examples{
-if (rmarkdown::pandoc_available()) {
+if (rmarkdown::pandoc_available("2.0.6")) {
   d <- data.frame(
     x = c("**bold**", "*italic*"),
     y = c("^superscript^", "~subscript~"),
