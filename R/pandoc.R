@@ -26,3 +26,31 @@ lua_filters <- function(.sep = "\n\n") {
     }
   )
 }
+
+temp_bib <- function(n) {
+  temp_file <- tempfile(fileext = ".bib")
+  xfun::write_utf8(
+    paste0("@book{ftExtra-dummy-entry-",
+           seq(n),
+           ", author = {ftExtra}, title = {ftExtra}, publisher = {ftExtra}}"),
+    temp_file
+  )
+  return(temp_file)
+}
+
+temp_yaml_cite <- function(n) {
+  temp_file <- tempfile(fileext = ".yml")
+  xfun::write_utf8(
+    sprintf('ftExtra-dummy-cite: "%s"',
+            paste(paste0("@ftExtra-dummy-entry-", seq(n)), collapse = " ")),
+    temp_file
+  )
+  return(temp_file)
+}
+
+pandoc_args_citation_number <- function(n = 1L) {
+  if (n <= 1L) return(character(0))
+
+  return(c(paste0("--bibliography=", temp_bib(n)),
+           paste0("--metadata-file=", temp_yaml_cite(n))))
+}

@@ -105,12 +105,15 @@ as_paragraph_md <- function(x,
                             pandoc_args = NULL,
                             .from = "markdown+autolink_bare_uris",
                             .footnote_options = NULL,
+                            .citation_number = 1L,
                             ...) {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1L) {
     stop("`auto_color_link` must be a string")
   }
 
-  pandoc_args <- c(lua_filters(...), pandoc_args)
+  pandoc_args <- c(lua_filters(...),
+                   pandoc_args_citation_number(.citation_number),
+                   pandoc_args)
   .from <- paste0(.from, paste(md_extensions, collapse=""))
 
   divs <- supported_divs(.from)
