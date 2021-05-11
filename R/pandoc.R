@@ -51,6 +51,8 @@ temp_yaml_cite <- function(n) {
 pandoc_args_citation_number <- function(n = 1L) {
   if (n <= 1L) return(character(0))
 
+  n <- n - 1L
+
   return(c(paste0("--bibliography=", temp_bib(n)),
            paste0("--metadata-file=", temp_yaml_cite(n))))
 }
