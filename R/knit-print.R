@@ -21,7 +21,8 @@ knit_print.ftExtra <- function(x,
 
   if (cite == "") return(ft)
 
-  res <- (if (knitr::is_html_output()) {
+  res <- (if (attr(x, "vancouver", exact = TRUE)
+              || isTRUE(options$ftExtra_dummy_cite)) {
     div_cite
   } else {
     yaml_cite
@@ -35,7 +36,7 @@ knit_print.ftExtra <- function(x,
 div_cite <- function(cite, ft, ...) {
   paste0(
     '::: {.ftExtra-dummy-cite style="display: none; visibility: hidden;"}\n\n',
-    cite, "\n\n",
+    "`<w:rPr><w:vanish/></w:rPr>`{=openxml}", cite, "\n\n",
     ':::\n\n',
     ft
   )
