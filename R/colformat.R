@@ -28,6 +28,7 @@ colformat_md <- function(x,
                          pandoc_args = NULL,
                          .from = "markdown+autolink_bare_uris",
                          .footnote_options = footnote_options(),
+                         .citation_number = 1L,
                          .sep = "\n\n"
 ) {
   .j <- rlang::enexpr(j)
@@ -39,6 +40,7 @@ colformat_md <- function(x,
       x <- colformat_md(x, j = !!.j, part = part,
                         auto_color_link = auto_color_link,
                         .footnote_options = .footnote_options,
+                        .citation_number = .citation_number,
                         .from = .from)
       .footnote_options$value <- list()
     }
@@ -64,13 +66,15 @@ colformat_md <- function(x,
                              md_extensions = md_extensions,
                              pandoc_args = pandoc_args,
                              .footnote_options = .footnote_options,
+                             .citation_number = .citation_number,
                              .sep = .sep
                            ))
 
   structure(
     add_footnotes(ft, part, .footnote_options),
     class = c("ftExtra", class(ft)),
-    citations = collect_citations(paste(texts, collapse = "\n\n"))
+    citations = collect_citations(paste(texts, collapse = "\n\n")),
+    vancouver = .citation_number > 1L
   )
 }
 

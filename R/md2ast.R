@@ -21,7 +21,7 @@ md2ast <- function(x,
     from = .from,
     output = tf,
     citeproc = !is.null(yaml$bibliography) || any(grepl("^--bibliography", pandoc_args)),
-    options = pandoc_args,
+    options = c(sprintf("--bibliography=%s", yaml$bibliography), pandoc_args),
     wd = getwd()
   )
 

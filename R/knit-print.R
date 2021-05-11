@@ -21,7 +21,27 @@ knit_print.ftExtra <- function(x,
 
   if (cite == "") return(ft)
 
-  res <- sprintf('---\n%s: "%s"\n---\n\n%s', key, cite, ft)
+  res <- (if (attr(x, "vancouver", exact = TRUE)
+              || isTRUE(options$ftExtra_dummy_cite)) {
+    div_cite
+  } else {
+    yaml_cite
+  })(key = key, cite = cite, ft = ft)
+
   attributes(res) <- attributes(ft)
+
   res
+}
+
+div_cite <- function(cite, ft, ...) {
+  paste0(
+    '::: {.ftExtra-dummy-cite style="display: none; visibility: hidden;"}\n\n',
+    "`<w:rPr><w:vanish/></w:rPr>`{=openxml}", cite, "\n\n",
+    ':::\n\n',
+    ft
+  )
+}
+
+yaml_cite <- function(key, cite, ft, ...) {
+  sprintf('---\n%s: "%s"\n---\n\n%s', key, cite, ft)
 }
