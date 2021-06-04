@@ -78,6 +78,7 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #'   Pandoc's extensions. Although it is prefixed with "md", extensions for any
 #'   formats specified to `.from` can be used. See
 #'   <https://www.pandoc.org/MANUAL.html#extensions> for details.
+#' @param replace_na A value to replace `NA` (default = `""`).
 #' @param .from
 #'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).
 #' @param .footnote_options
@@ -103,6 +104,7 @@ as_paragraph_md <- function(x,
                             auto_color_link = "blue",
                             md_extensions = NULL,
                             pandoc_args = NULL,
+                            replace_na = "",
                             .from = "markdown+autolink_bare_uris",
                             .footnote_options = NULL,
                             ...) {
@@ -117,6 +119,7 @@ as_paragraph_md <- function(x,
 
   paragraph <- if (length(divs) > 0L) {
       md_df <- x %>%
+        stringr::str_replace_na(replace_na) %>%
         purrr::map2_chr(paste0('cell', seq_along(x)), add_id, divs = divs) %>%
         paste(collapse = "") %>%
         md2df(pandoc_args = pandoc_args, .from = .from, .check = TRUE)
