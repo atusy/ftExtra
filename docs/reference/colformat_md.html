@@ -145,6 +145,7 @@
   auto_color_link <span class='op'>=</span> <span class='st'>"blue"</span>,
   md_extensions <span class='op'>=</span> <span class='cn'>NULL</span>,
   pandoc_args <span class='op'>=</span> <span class='cn'>NULL</span>,
+  replace_na <span class='op'>=</span> <span class='st'>""</span>,
   .from <span class='op'>=</span> <span class='st'>"markdown+autolink_bare_uris"</span>,
   .footnote_options <span class='op'>=</span> <span class='fu'><a href='footnote_options.html'>footnote_options</a></span><span class='op'>(</span><span class='op'>)</span>,
   .sep <span class='op'>=</span> <span class='st'>"\n\n"</span>
@@ -180,6 +181,10 @@ formats specified to <code>.from</code> can be used. See
     <tr>
       <th>pandoc_args</th>
       <td><p>Additional command line options to pass to pandoc</p></td>
+    </tr>
+    <tr>
+      <th>replace_na</th>
+      <td><p>A value to replace <code>NA</code> (default = <code>""</code>).</p></td>
     </tr>
     <tr>
       <th>.from</th>
