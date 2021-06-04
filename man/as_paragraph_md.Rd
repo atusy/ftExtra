@@ -9,6 +9,7 @@ as_paragraph_md(
   auto_color_link = "blue",
   md_extensions = NULL,
   pandoc_args = NULL,
+  replace_na = "",
   .from = "markdown+autolink_bare_uris",
   .footnote_options = NULL,
   ...
@@ -24,6 +25,8 @@ formats specified to \code{.from} can be used. See
 \url{https://www.pandoc.org/MANUAL.html#extensions} for details.}
 
 \item{pandoc_args}{Additional command line options to pass to pandoc}
+
+\item{replace_na}{A value to replace \code{NA} (default = \code{""}).}
 
 \item{.from}{Pandoc's \code{--from} argument (default: \code{'markdown+autolink_bare_uris'}).}
 
