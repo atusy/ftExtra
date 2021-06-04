@@ -41,7 +41,7 @@ colformat_md <- function(x,
                         auto_color_link = auto_color_link,
                         pandoc_args = pandoc_args, replace_na = replace_na,
                         .from = .from, .footnote_options = .footnote_options,
-                        sep = .sep)
+                        .sep = .sep)
       .footnote_options$value <- list()
     }
     return(x)
