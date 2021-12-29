@@ -7,7 +7,6 @@ fill_header <- function(x, fill = TRUE) {
       tidyselect::starts_with("level"),
       names_to = "var",
       names_prefix = "level",
-      names_ptypes = integer(),
       values_to = "val"
     ) %>%
     tidyr::fill("val") %>%
