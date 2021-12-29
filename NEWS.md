@@ -1,3 +1,7 @@
+# ftExtra 0.3.0.9999
+
+* Support tidyr 1.2.0 (thanks, @DavisVaughan, #66)
+
 # ftExtra 0.3.0
 
 ## New features
