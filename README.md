@@ -5,8 +5,7 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/atusy/ftExtra/workflows/R-CMD-check/badge.svg)](https://github.com/atusy/ftExtra/actions)
+[![R-CMD-check](https://github.com/atusy/ftExtra/workflows/R-CMD-check/badge.svg)](https://github.com/atusy/ftExtra/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ftExtra)](https://CRAN.R-project.org/package=ftExtra)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/ftExtra)
