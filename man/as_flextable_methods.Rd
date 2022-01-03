@@ -31,7 +31,9 @@ the dataset, they will be added as blank columns by default.}
 \description{
 This is a convenient function
 to let users create flextable bindings
-from any objects.
+from any objects. Users should consult documentation
+of corresponding method to understand the details and
+see what arguments can be used.
 }
 \examples{
 
