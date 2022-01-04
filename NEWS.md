@@ -1,12 +1,12 @@
-# ftExtra 0.3.0.9999
-
-* Support tidyr 1.2.0 (thanks, @DavisVaughan, #66)
-
 # ftExtra 0.3.0
 
 ## New features
 
 * `colformat_md` and `as_paragraph_md` gains `replace_na = ""` as a new default parameter. Previously, `NA` are printed as `"NA"` (#63).
+
+## Internal changes
+
+* Support tidyr 1.2.0 (thanks, @DavisVaughan, #66)
 
 # ftExtra 0.2.0
 
