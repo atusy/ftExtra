@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ftExtra</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -144,6 +144,13 @@
 <code>colformat_md</code> and <code>as_paragraph_md</code> gains <code>replace_na = ""</code> as a new default parameter. Previously, <code>NA</code> are printed as <code>"NA"</code> (<a href='https://github.com/atusy/ftExtra/issues/63'>#63</a>).</li>
 </ul>
 </div>
+<div id="internal-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internal-changes" class="anchor"></a>Internal changes</h2>
+<ul>
+<li>Support tidyr 1.2.0 (thanks, <a href='https://github.com/DavisVaughan'>@DavisVaughan</a>, <a href='https://github.com/atusy/ftExtra/issues/66'>#66</a>)</li>
+</ul>
+</div>
 </div>
     <div id="ftextra-020" class="section level1">
 <h1 class="page-header" data-toc-text="0.2.0">
@@ -177,9 +184,9 @@
 <li>Fix <code><a href="../reference/colformat_md.html">colformat_md(pandoc_args = c("--bibliography", "example.bib"))</a></code> should work even if bibliography field is missing from the YAML front matter (<a href='https://github.com/atusy/ftExtra/issues/41'>#41</a>).</li>
 </ul>
 </div>
-<div id="internal-changes" class="section level2">
+<div id="internal-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#internal-changes" class="anchor"></a>Internal changes</h2>
+<a href="#internal-changes-1" class="anchor"></a>Internal changes</h2>
 <ul>
 <li>Drop <strong>jpeg</strong> package from suggests, which is formerly used in a vignette (<a href='https://github.com/atusy/ftExtra/issues/42'>#42</a>).</li>
 <li>
