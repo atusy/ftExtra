@@ -126,6 +126,7 @@ as_paragraph_md <- function(x,
       organize(md_df, auto_color_link, .footnote_options)
     } else {
       lapply(x, function(x) {
+        if (x == "") return(construct_chunk(list()))
         y <- x %>%
           md2df(pandoc_args = pandoc_args, .from = .from, .check = TRUE) %>%
           solve_footnote(.footnote_options, auto_color_link) %>%
