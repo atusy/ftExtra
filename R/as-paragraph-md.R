@@ -45,7 +45,7 @@ organize <- function(md_df,
 
 construct_chunk <- function(x, auto_color_link = "blue") {
   flextable::chunk_dataframe(
-    txt = x$txt,
+    txt = x$txt %||% "", # x can be empty list when input is empty string
     italic = x$Emph %||% NA,
     bold = x$Strong %||% NA,
     url = x$Link %||% NA_character_,
