@@ -1,3 +1,7 @@
+# ftExtra 0.3.0.9999
+
+* `as_paragraph_md` supports empty string, `""`, as an input (#68).
+
 # ftExtra 0.3.0
 
 ## New features
