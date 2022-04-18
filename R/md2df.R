@@ -112,7 +112,7 @@ format_by_attr <- function(x) {
 
   if(length(a) == 0L) return(x)
 
-  x$underlined = any(a$class == "underline")
+  x$Underline = any(x$Underline, a$class == "underline")
   x$color = last(a$color) %||% NA_character_
   x$shading.color = last(a$shading.color) %||% NA_character_
   x$font.family = last(a$font.family) %||% NA_character_
