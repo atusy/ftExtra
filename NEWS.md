@@ -1,6 +1,7 @@
 # ftExtra 0.3.0.9999
 
 * `as_paragraph_md` supports empty string, `""`, as an input (#68).
+* Improved support for the underline syntax in Pandoc's Markdown (#73).
 
 # ftExtra 0.3.0
 
