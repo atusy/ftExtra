@@ -48,13 +48,15 @@ colformat_md <- function(x,
   }
 
   dataset <- x[[part]]$dataset
-  col <- names(tidyselect::eval_select(rlang::expr(c(!!.j)), dataset))
+  content <- x[[part]][["content"]][["content"]][["data"]]
+  nm <- colnames(content)
+  col <- tidyselect::eval_select(rlang::expr(c(!!.j)), dataset[nm])
 
   if (length(col) == 0) {
     return(x)
   }
 
-  texts <- unlist(dataset[col], use.names = FALSE)
+  texts <- purrr::map_chr(content[, col], paragraph2txt)
 
   # Must evaluate outside add_footnotes due to lazy evaluation of arguments
   ft <- flextable::compose(x,
@@ -79,4 +81,15 @@ colformat_md <- function(x,
 
 where <- function(...) {
   tidyselect::vars_select_helpers$where(...)
+}
+
+paragraph2txt <- function(x) {
+  if (all(is.na(x$txt))) return(NA_character_)
+
+  txt <- x[["txt"]]
+  img <- x[["img_data"]]
+  has_img <- !purrr::map_lgl(img, is.null) & !is.na(img)
+  txt[has_img] <- sprintf("![](%s)", img[has_img])
+
+  paste(txt[!is.na(txt)], collapse = "")
 }
