@@ -1,7 +1,7 @@
 Package: ftExtra
 Title: Extensions for 'Flextable'
-Version: 0.3.0.9999
-Date: 2022-01-04
+Version: 0.4.0
+Date: 2022-04-20
 Authors@R: 
   c(person(given = "Atsushi",
            family = "Yasumoto",
@@ -14,8 +14,7 @@ Authors@R:
     person(given = "Romain",
            family = "François",
            role = "ctb",
-           comment = c(ORCID = "0000-0002-2444-4226"))
-  )
+           comment = c(ORCID = "0000-0002-2444-4226")))
 Maintainer: Atsushi Yasumoto <atusy.rpkg@gmail.com>
 Description: Build display tables easily by extending the functionality of the
     'flextable' package. Features include spanning header, grouping rows,
