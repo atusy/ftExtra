@@ -19,7 +19,8 @@
 \arguments{
 \item{x}{object to be transformed as flextable}
 
-\item{groups_to}{One of \code{titles}, \code{merged}, or \code{asis}. See examples for the result.}
+\item{groups_to}{One of \code{titles}, \code{merged}, or \code{asis}.
+See examples and \code{vignette("group-rows")} for the result.}
 
 \item{groups_pos}{When \code{groups_to = "merged"}, grouping columns are reordered according to
 \code{group_pos}. Choices are \code{left} (default) or \code{asis}.}

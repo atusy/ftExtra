@@ -6,7 +6,8 @@ flextable::as_flextable
 #' @name as_flextable_methods
 #' @inherit flextable::as_flextable
 #' @param groups_to
-#'   One of `titles`, `merged`, or `asis`. See examples for the result.
+#'   One of `titles`, `merged`, or `asis`.
+#'   See examples and `vignette("group-rows")` for the result.
 #' @param groups_pos
 #'   When `groups_to = "merged"`, grouping columns are reordered according to
 #'   `group_pos`. Choices are `left` (default) or `asis`.
