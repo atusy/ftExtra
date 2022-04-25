@@ -10,6 +10,10 @@ flextable::as_flextable
 #' @param groups_pos
 #'   When `groups_to = "merged"`, grouping columns are reordered according to
 #'   `group_pos`. Choices are `left` (default) or `asis`.
+#' @param arrange_groups
+#'   When `TRUE`, grouping columns are sorted by [dplyr::arrange()].
+#'   If you want to sort by yourself,
+#'   set `FALSE` and give `x` the grouped data.frame after sorting.
 #'
 #' @examples
 #'
@@ -27,6 +31,7 @@ as_flextable.grouped_df <- function(
                                     x,
                                     groups_to = c("titles", "merged", "asis"),
                                     groups_pos = c("left", "asis"),
+                                    arrange_groups = FALSE,
                                     ...) {
   groups_to <- match.arg(groups_to)
   groups_pos <- match.arg(groups_pos)
@@ -36,6 +41,8 @@ as_flextable.grouped_df <- function(
   }
 
   g <- group_of(x)
+
+  if (arrange_groups) x <- dplyr::arrange(x, dplyr::across({{ g }}))
 
   if (groups_to == "titles") {
     return(

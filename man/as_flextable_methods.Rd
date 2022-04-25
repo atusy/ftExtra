@@ -10,6 +10,7 @@
   x,
   groups_to = c("titles", "merged", "asis"),
   groups_pos = c("left", "asis"),
+  arrange_groups = FALSE,
   ...
 )
 
@@ -22,6 +23,10 @@
 
 \item{groups_pos}{When \code{groups_to = "merged"}, grouping columns are reordered according to
 \code{group_pos}. Choices are \code{left} (default) or \code{asis}.}
+
+\item{arrange_groups}{When \code{TRUE}, grouping columns are sorted by \code{\link[dplyr:arrange]{dplyr::arrange()}}.
+If you want to sort by yourself,
+set \code{FALSE} and give \code{x} the grouped data.frame after sorting.}
 
 \item{...}{arguments for custom methods}
 

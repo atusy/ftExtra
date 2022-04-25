@@ -23,7 +23,7 @@ License: MIT + file LICENSE
 URL: https://ftextra.atusy.net, https://github.com/atusy/ftExtra
 BugReports: https://github.com/atusy/ftExtra/issues
 Imports:
-    dplyr,
+    dplyr (>= 1.0.0),
     jsonlite,
     flextable (>= 0.6.4),
     tidyr,
