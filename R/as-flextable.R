@@ -52,7 +52,7 @@ as_flextable.grouped_df <- function(
         dplyr::ungroup() %>%
         dplyr::select(if (groups_pos == "left") g, tidyselect::everything()) %>%
         as_flextable.data.frame(...) %>%
-        flextable::merge_v(g[1L], g) %>%
+        flextable::merge_v(g) %>%
         flextable::theme_vanilla() %>%
         flextable::fix_border_issues()
     )
