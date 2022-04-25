@@ -62,7 +62,7 @@ test_that("as_flextable.grouped_df multi groups", {
   )
 
   expect_identical(
-    as_flextable(d, groups_to = "merged", arrange_groups = TRUE),
+    as_flextable(d, groups_to = "merged", groups_arrange = TRUE),
     x %>%
       dplyr::relocate(am, cyl, mpg) %>%
       dplyr::arrange(am, cyl, mpg) %>%
