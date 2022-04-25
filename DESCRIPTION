@@ -1,6 +1,6 @@
 Package: ftExtra
 Title: Extensions for 'Flextable'
-Version: 0.4.0
+Version: 0.4.0.9999
 Date: 2022-04-20
 Authors@R: 
   c(person(given = "Atsushi",
