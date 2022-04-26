@@ -14,7 +14,11 @@ Authors@R:
     person(given = "Romain",
            family = "François",
            role = "ctb",
-           comment = c(ORCID = "0000-0002-2444-4226")))
+           comment = c(ORCID = "0000-0002-2444-4226")),
+    person(given = "Tatsuya",
+           family = "Shima",
+           email = "ts1s1andn@gmail.com",
+           role = "ctb"))
 Maintainer: Atsushi Yasumoto <atusy.rpkg@gmail.com>
 Description: Build display tables easily by extending the functionality of the
     'flextable' package. Features include spanning header, grouping rows,
