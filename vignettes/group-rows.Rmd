@@ -76,8 +76,12 @@ grouped_iris %>%
 
 ```{r}
 grouped_mtcars %>%
-  as_flextable(groups_to = "merged") %>%
-  flextable::theme_vanilla()
+  as_flextable(groups_to = "merged", groups_arrange = TRUE)
+```
+
+```{r}
+grouped_mtcars %>%
+  as_flextable(groups_to = "merged", groups_arrange = FALSE)
 ```
 
 ## Position of grouping variables

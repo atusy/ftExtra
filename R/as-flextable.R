@@ -6,10 +6,16 @@ flextable::as_flextable
 #' @name as_flextable_methods
 #' @inherit flextable::as_flextable
 #' @param groups_to
-#'   One of `titles`, `merged`, or `asis`. See examples for the result.
+#'   One of `titles`, `merged`, or `asis`.
+#'   See examples and `vignette("group-rows")` for the result.
 #' @param groups_pos
 #'   When `groups_to = "merged"`, grouping columns are reordered according to
 #'   `group_pos`. Choices are `left` (default) or `asis`.
+#' @param groups_arrange
+#'   `TRUE` automatically arranges grouping columns by [dplyr::arrange()].
+#'   Specify `FALSE` to keep the arrangement of the input data frame.
+#'   The default value is `NULL` which implies `FALSE` to keep the backward
+#'   compatibility, but will be `TRUE` in the future.
 #'
 #' @examples
 #'
@@ -27,6 +33,7 @@ as_flextable.grouped_df <- function(
                                     x,
                                     groups_to = c("titles", "merged", "asis"),
                                     groups_pos = c("left", "asis"),
+                                    groups_arrange = NULL,
                                     ...) {
   groups_to <- match.arg(groups_to)
   groups_pos <- match.arg(groups_pos)
@@ -36,6 +43,8 @@ as_flextable.grouped_df <- function(
   }
 
   g <- group_of(x)
+
+  if (isTRUE(groups_arrange)) x <- dplyr::arrange(x, dplyr::across({{ g }}))
 
   if (groups_to == "titles") {
     return(
@@ -52,7 +61,7 @@ as_flextable.grouped_df <- function(
         dplyr::ungroup() %>%
         dplyr::select(if (groups_pos == "left") g, tidyselect::everything()) %>%
         as_flextable.data.frame(...) %>%
-        flextable::merge_v(g[1L], g) %>%
+        flextable::merge_v(g) %>%
         flextable::theme_vanilla() %>%
         flextable::fix_border_issues()
     )
