@@ -42,7 +42,7 @@ as_flextable.grouped_df <- function(
     return(as_flextable.data.frame(dplyr::ungroup(x), ...))
   }
 
-  g <- group_of(x)
+  g <- dplyr::group_vars(x)
 
   if (isTRUE(groups_arrange)) x <- dplyr::arrange(x, dplyr::across({{ g }}))
 
