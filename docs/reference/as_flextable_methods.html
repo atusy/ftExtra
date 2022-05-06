@@ -21,7 +21,7 @@ see what arguments can be used."><!-- mathjax --><script src="https://cdnjs.clou
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ftExtra</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0.9999</span>
       </span>
     </div>
 
@@ -82,6 +82,7 @@ see what arguments can be used.</p>
   <span class="va">x</span>,
   groups_to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"titles"</span>, <span class="st">"merged"</span>, <span class="st">"asis"</span><span class="op">)</span>,
   groups_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"asis"</span><span class="op">)</span>,
+  groups_arrange <span class="op">=</span> <span class="cn">NULL</span>,
   <span class="va">...</span>
 <span class="op">)</span>
 
@@ -94,10 +95,16 @@ see what arguments can be used.</p>
     <dl><dt>x</dt>
 <dd><p>object to be transformed as flextable</p></dd>
 <dt>groups_to</dt>
-<dd><p>One of <code>titles</code>, <code>merged</code>, or <code>asis</code>. See examples for the result.</p></dd>
+<dd><p>One of <code>titles</code>, <code>merged</code>, or <code>asis</code>.
+See examples and <code><a href="../articles/group-rows.html">vignette("group-rows")</a></code> for the result.</p></dd>
 <dt>groups_pos</dt>
 <dd><p>When <code>groups_to = "merged"</code>, grouping columns are reordered according to
 <code>group_pos</code>. Choices are <code>left</code> (default) or <code>asis</code>.</p></dd>
+<dt>groups_arrange</dt>
+<dd><p><code>TRUE</code> automatically arranges grouping columns by <code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">dplyr::arrange()</a></code>.
+Specify <code>FALSE</code> to keep the arrangement of the input data frame.
+The default value is <code>NULL</code> which implies <code>FALSE</code> to keep the backward
+compatibility, but will be <code>TRUE</code> in the future.</p></dd>
 <dt>...</dt>
 <dd><p>arguments for custom methods</p></dd>
 <dt>col_keys</dt>

@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ftExtra</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.4.0.9999</span>
       </span>
     </div>
 
@@ -74,6 +74,7 @@
   auto_color_link <span class="op">=</span> <span class="st">"blue"</span>,
   md_extensions <span class="op">=</span> <span class="cn">NULL</span>,
   pandoc_args <span class="op">=</span> <span class="cn">NULL</span>,
+  metadata <span class="op">=</span> <span class="fu">rmarkdown</span><span class="fu">::</span><span class="va"><a href="https://pkgs.rstudio.com/rmarkdown/reference/metadata.html" class="external-link">metadata</a></span>,
   replace_na <span class="op">=</span> <span class="st">""</span>,
   .from <span class="op">=</span> <span class="st">"markdown+autolink_bare_uris"</span>,
   .footnote_options <span class="op">=</span> <span class="cn">NULL</span>,
@@ -93,6 +94,10 @@ formats specified to <code>.from</code> can be used. See
 <a href="https://www.pandoc.org/MANUAL.html#extensions" class="external-link">https://www.pandoc.org/MANUAL.html#extensions</a> for details.</p></dd>
 <dt>pandoc_args</dt>
 <dd><p>Additional command line options to pass to pandoc</p></dd>
+<dt>metadata</dt>
+<dd><p>A list of metadata, typically the parsed result of the YAML front matter
+(default: <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/metadata.html" class="external-link">rmarkdown::metadata</a></code>). This value is used iff the <code>.from</code>
+argument specifies the input format that supports the YAML metadata blocks.</p></dd>
 <dt>replace_na</dt>
 <dd><p>A value to replace <code>NA</code> (default = <code>""</code>).</p></dd>
 <dt>.from</dt>
