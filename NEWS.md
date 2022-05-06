@@ -2,6 +2,8 @@
 
 * Fix `as_flextable.grouped_df` which broke second and subsequent group variables. Also, this function gains `groups_arrange` argument. The default value is `NULL` which implies `FALSE` for the backward-compatibility. In the next version, `NULL` remains the default but becomes deprecated. Then, `TRUE` becomes the default in the subsequent release (thanks, @eitsupi, #76).
 
+* `as_paragraph_md` and `colformat_md` gains the `metadata` argument with the default value `rmarkdown::metadata` (#78).
+
 # ftExtra 0.4.0
 
 * `as_paragraph_md` supports empty string, `""`, as an input (#68).
