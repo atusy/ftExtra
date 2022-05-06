@@ -14,7 +14,7 @@ test_with_pandoc("citation", {
     )$blocks,
     md2ast(
       "@R-ftExtra",
-      yaml = list(bibliography = basename(temp_file))
+      metadata = list(bibliography = basename(temp_file))
     )$blocks
   )
   setwd(current_dir)
