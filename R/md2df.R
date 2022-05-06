@@ -140,8 +140,12 @@ ast2df <- function(x) {
 
 #' Convert Pandoc's Markdown to data frame
 #' @noRd
-md2df <- function(x, .from = "markdown", pandoc_args = NULL, .check = FALSE) {
-  ast <- md2ast(x, .from = .from, pandoc_args = pandoc_args)
+md2df <- function(x,
+                  pandoc_args = NULL,
+                  metadata = rmarkdown::metadata,
+                  .from = "markdown",
+                  .check = FALSE) {
+  ast <- md2ast(x, pandoc_args = pandoc_args, metadata = metadata, .from = .from)
 
   ast$blocks <- ast$blocks[
     !vapply(ast$blocks,
