@@ -6,6 +6,8 @@
 
 * `as_flextable.grouped_df` uses `dplyr::group_vars` to get names of grouping variables, and remove an internal synonym (#79).
 
+* `as_paragraph_md` and `colformat_md` disables two Pandoc extentions, `raw_html` and `raw_attribute`. Previously, these synstaxes raised errors on formatting (#80).
+
 # ftExtra 0.4.0
 
 * `as_paragraph_md` supports empty string, `""`, as an input (#68).
