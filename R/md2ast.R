@@ -10,7 +10,7 @@ md2ast <- function(x,
 
   front_matter <- if ((length(metadata) > 0) && support_yaml(.from)) {
     yaml::write_yaml(metadata, tf)
-    c("---", warn_chunk(xfun::read_utf8(tf)), "---", "", "")
+    c("---", xfun::read_utf8(tf), "---", "", "")
   }
 
   xfun::write_utf8(c(front_matter, x), tf)
@@ -26,20 +26,4 @@ md2ast <- function(x,
   )
 
   jsonlite::read_json(tf, simplifyVector = FALSE)
-}
-
-
-warn_chunk <- function(text) {
-  purl <- withr::with_options(list(knitr.purl.inline = TRUE),
-                              knitr::purl(text = text, quiet = TRUE))
-
-  if (purl != "") {
-    warning(
-      "The metadata argument of colformat_md or as_paragraph_md should not ",
-      "contain chunks or inline chunks because of potential errors on Pandoc.",
-      "Consider replacing them with evaluated values."
-    )
-  }
-
-  return(text)
 }
