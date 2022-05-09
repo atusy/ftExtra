@@ -4,6 +4,8 @@
 
 * `as_paragraph_md` and `colformat_md` gains the `metadata` argument with the default value `rmarkdown::metadata` (#78).
 
+* `as_flextable.grouped_df` uses `dplyr::group_vars` to get names of grouping variables, and remove an internal synonym (#79).
+
 # ftExtra 0.4.0
 
 * `as_paragraph_md` supports empty string, `""`, as an input (#68).
