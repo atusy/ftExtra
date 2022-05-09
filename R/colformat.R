@@ -28,7 +28,7 @@ colformat_md <- function(x,
                          pandoc_args = NULL,
                          metadata = rmarkdown::metadata,
                          replace_na = "",
-                         .from = "markdown+autolink_bare_uris",
+                         .from = "markdown+autolink_bare_uris-raw_html-raw_attribute",
                          .footnote_options = footnote_options(),
                          .sep = "\n\n"
 ) {
