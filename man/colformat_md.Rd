@@ -11,6 +11,7 @@ colformat_md(
   auto_color_link = "blue",
   md_extensions = NULL,
   pandoc_args = NULL,
+  metadata = rmarkdown::metadata,
   replace_na = "",
   .from = "markdown+autolink_bare_uris",
   .footnote_options = footnote_options(),
@@ -33,6 +34,10 @@ formats specified to \code{.from} can be used. See
 \url{https://www.pandoc.org/MANUAL.html#extensions} for details.}
 
 \item{pandoc_args}{Additional command line options to pass to pandoc}
+
+\item{metadata}{A list of metadata, typically the parsed result of the YAML front matter
+(default: \code{rmarkdown::metadata}). This value is used iff the \code{.from}
+argument specifies the input format that supports the YAML metadata blocks.}
 
 \item{replace_na}{A value to replace \code{NA} (default = \code{""}).}
 
