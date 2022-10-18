@@ -66,7 +66,9 @@ ft <- flextable::flextable(df)
 
 for (i in seq(nrow(df))) {
   ft <- flextable::compose(
-    ft, i = i, j = "Oxide",
+    ft,
+    i = i,
+    j = "Oxide",
     value = flextable::as_paragraph(
       list_values = df$Oxide[i] %>%
         stringr::str_replace_all("([2-9]+)", " \\1 ") %>%
@@ -123,8 +125,10 @@ data.frame(
   a = c("**bold**", "*italic*"),
   b = c("^superscript^", "~subscript~"),
   c = c("`code`", "[underline]{.underline}"),
-  d = c("*[**~ft~^Extra^**](https://ftextra.atusy.net/) is*",
-        "[Cool]{.underline shading.color='skyblue'}"),
+  d = c(
+    "*[**~ft~^Extra^**](https://ftextra.atusy.net/) is*",
+    "[Cool]{.underline shading.color='skyblue'}"
+  ),
   stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
@@ -184,12 +188,14 @@ data.frame(
 ) %>%
   as_flextable() %>%
   colformat_md(
-    .footnote_options = footnote_options(ref = "i",
-                                         prefix = '[',
-                                         suffix = ']',
-                                         start = 2,
-                                         inline = TRUE,
-                                         sep = "; ")
+    .footnote_options = footnote_options(
+      ref = "i",
+      prefix = "[",
+      suffix = "]",
+      start = 2,
+      inline = TRUE,
+      sep = "; "
+    )
   ) %>%
   flextable::autofit(add_w = 0.5)
 ```
@@ -197,13 +203,14 @@ data.frame(
 In order to add multiple footnotes to a cell, use normal footnotes syntax.
 
 ```{r}
-data.frame(x = 
-"foo[^a]^,^ [^b]
+data.frame(
+  x =
+    "foo[^a]^,^ [^b]
 
 [^a]: aaa
 
 [^b]: bbb",
-stringsAsFactors = FALSE
+  stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
   colformat_md()
@@ -217,7 +224,7 @@ Specifying one of them changes the other while keeping the aspect ratio.
 
 ```{r}
 data.frame(
-  R = sprintf("![](%s)", file.path( R.home("doc"), "html", "logo.jpg" )),
+  R = sprintf("![](%s)", file.path(R.home("doc"), "html", "logo.jpg")),
   stringsAsFactors = FALSE
 ) %>%
   as_flextable() %>%
@@ -316,8 +323,10 @@ manually offset the number for example by `colformat_md(.cite_offset = 5)`.
 The rendering of math is also possible.
 
 ```{r}
-data.frame(math = "$e^{i\\theta} = \\cos \\theta + i \\sin \\theta$",
-           stringsAsFactors = FALSE) %>%
+data.frame(
+  math = "$e^{i\\theta} = \\cos \\theta + i \\sin \\theta$",
+  stringsAsFactors = FALSE
+) %>%
   as_flextable() %>%
   colformat_md() %>%
   flextable::autofit(add_w = 0.2)
