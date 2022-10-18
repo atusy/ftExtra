@@ -69,15 +69,15 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">footnote_options</span><span class="op">(</span>
-  ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"a"</span>, <span class="st">"A"</span>, <span class="st">"i"</span>, <span class="st">"I"</span>, <span class="st">"*"</span><span class="op">)</span>,
-  prefix <span class="op">=</span> <span class="st">""</span>,
-  suffix <span class="op">=</span> <span class="st">""</span>,
-  start <span class="op">=</span> <span class="fl">1L</span>,
-  max <span class="op">=</span> <span class="fl">26L</span>,
-  inline <span class="op">=</span> <span class="cn">FALSE</span>,
-  sep <span class="op">=</span> <span class="st">"; "</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">footnote_options</span><span class="op">(</span></span>
+<span>  ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"a"</span>, <span class="st">"A"</span>, <span class="st">"i"</span>, <span class="st">"I"</span>, <span class="st">"*"</span><span class="op">)</span>,</span>
+<span>  prefix <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  suffix <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  start <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  max <span class="op">=</span> <span class="fl">26L</span>,</span>
+<span>  inline <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  sep <span class="op">=</span> <span class="st">"; "</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -85,26 +85,39 @@
     <dl><dt>ref</dt>
 <dd><p>One of "1", "a", "A", "i", "I", or "*" to as a choice for a symbol to
 cross-reference footnotes.</p></dd>
+
+
 <dt>prefix, suffix</dt>
 <dd><p>Pre- and suf-fixes for <code>ref</code> (default: <code>""</code>).</p></dd>
+
+
 <dt>start</dt>
 <dd><p>A starting number of footnotes.</p></dd>
+
+
 <dt>max</dt>
 <dd><p>A max number of footnotes.</p></dd>
+
+
 <dt>inline</dt>
 <dd><p>whether to add footnote on same line as previous footnote or not</p></dd>
+
+
 <dt>sep</dt>
 <dd><p>inline = T, character string to use as a separator between footnotes</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>An environment</p>
+    
+
+<p>An environment</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">o</span> <span class="op">&lt;-</span> <span class="fu">footnote_options</span><span class="op">(</span><span class="st">"1"</span>, start <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">o</span> <span class="op">&lt;-</span> <span class="fu">footnote_options</span><span class="op">(</span><span class="st">"1"</span>, start <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -119,8 +132,7 @@ cross-reference footnotes.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

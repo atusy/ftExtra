@@ -8,6 +8,8 @@
 
 * `as_paragraph_md` and `colformat_md` disables two Pandoc extentions, `raw_html` and `raw_attribute`. Previously, these synstaxes raised errors on formatting (#80).
 
+* mention **ftExtra** respects `csl` field in the YAML front matter (#83).
+
 # ftExtra 0.4.0
 
 * `as_paragraph_md` supports empty string, `""`, as an input (#68).
