@@ -69,13 +69,15 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">span_header</span><span class="op">(</span><span class="va">x</span>, sep <span class="op">=</span> <span class="st">"[_\\.]"</span>, theme_fun <span class="op">=</span> <span class="fu">flextable</span><span class="fu">::</span><span class="va"><a href="https://davidgohel.github.io/flextable/reference/theme_booktabs.html" class="external-link">theme_booktabs</a></span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">span_header</span><span class="op">(</span><span class="va">x</span>, sep <span class="op">=</span> <span class="st">"[_\\.]"</span>, theme_fun <span class="op">=</span> <span class="fu">flextable</span><span class="fu">::</span><span class="va"><a href="https://davidgohel.github.io/flextable/reference/theme_booktabs.html" class="external-link">theme_booktabs</a></span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>A <code>flextable</code> object`</p></dd>
+
+
 <dt>sep</dt>
 <dd><p>Separator between columns.</p>
 <p>If character, <code>sep</code> is interpreted as a regular expression. The default
@@ -85,17 +87,22 @@ non-alphanumeric values.</p>
 values start at 1 at the far-left of the string; negative value start at -1 at
 the far-right of the string. The length of <code>sep</code> should be one less than
 <code>into</code>.</p></dd>
+
+
 <dt>theme_fun</dt>
 <dd><p>deprecated, use <code><a href="https://davidgohel.github.io/flextable/reference/set_flextable_defaults.html" class="external-link">set_flextable_defaults()</a></code> instead.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Passed to <code>theme_fun</code></p></dd>
+
 </dl></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">span_header</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">span_header</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> a flextable object.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> col_keys: `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`, `Species` </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> header has 2 row(s) </span>
@@ -121,8 +128,7 @@ the far-right of the string. The length of <code>sep</code> should be one less t
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

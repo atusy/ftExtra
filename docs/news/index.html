@@ -65,43 +65,26 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.0.9999" id="ftextra-0409999">ftExtra 0.4.0.9999<a class="anchor" aria-label="anchor" href="#ftextra-0409999"></a></h2>
-<ul><li><p>Fix <code>as_flextable.grouped_df</code> which broke second and
-subsequent group variables. Also, this function gains
-<code>groups_arrange</code> argument. The default value is
-<code>NULL</code> which implies <code>FALSE</code> for the
-backward-compatibility. In the next version, <code>NULL</code> remains
-the default but becomes deprecated. Then, <code>TRUE</code> becomes the
-default in the subsequent release (thanks, <a href="https://github.com/eitsupi" class="external-link">@eitsupi</a>, <a href="https://github.com/atusy/ftExtra/issues/76" class="external-link">#76</a>).</p></li>
-<li><p><code>as_paragraph_md</code> and <code>colformat_md</code> gains
-the <code>metadata</code> argument with the default value
-<code><a href="https://pkgs.rstudio.com/rmarkdown/reference/metadata.html" class="external-link">rmarkdown::metadata</a></code> (<a href="https://github.com/atusy/ftExtra/issues/78" class="external-link">#78</a>).</p></li>
-<li><p><code>as_flextable.grouped_df</code> uses
-<code><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">dplyr::group_vars</a></code> to get names of grouping variables, and
-remove an internal synonym (<a href="https://github.com/atusy/ftExtra/issues/79" class="external-link">#79</a>).</p></li>
-<li><p><code>as_paragraph_md</code> and <code>colformat_md</code>
-disables two Pandoc extentions, <code>raw_html</code> and
-<code>raw_attribute</code>. Previously, these synstaxes raised errors on
-formatting (<a href="https://github.com/atusy/ftExtra/issues/80" class="external-link">#80</a>).</p></li>
+<ul><li><p>Fix <code>as_flextable.grouped_df</code> which broke second and subsequent group variables. Also, this function gains <code>groups_arrange</code> argument. The default value is <code>NULL</code> which implies <code>FALSE</code> for the backward-compatibility. In the next version, <code>NULL</code> remains the default but becomes deprecated. Then, <code>TRUE</code> becomes the default in the subsequent release (thanks, <a href="https://github.com/eitsupi" class="external-link">@eitsupi</a>, <a href="https://github.com/atusy/ftExtra/issues/76" class="external-link">#76</a>).</p></li>
+<li><p><code>as_paragraph_md</code> and <code>colformat_md</code> gains the <code>metadata</code> argument with the default value <code><a href="https://pkgs.rstudio.com/rmarkdown/reference/metadata.html" class="external-link">rmarkdown::metadata</a></code> (<a href="https://github.com/atusy/ftExtra/issues/78" class="external-link">#78</a>).</p></li>
+<li><p><code>as_flextable.grouped_df</code> uses <code><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">dplyr::group_vars</a></code> to get names of grouping variables, and remove an internal synonym (<a href="https://github.com/atusy/ftExtra/issues/79" class="external-link">#79</a>).</p></li>
+<li><p><code>as_paragraph_md</code> and <code>colformat_md</code> disables two Pandoc extentions, <code>raw_html</code> and <code>raw_attribute</code>. Previously, these synstaxes raised errors on formatting (<a href="https://github.com/atusy/ftExtra/issues/80" class="external-link">#80</a>).</p></li>
+<li><p>mention <strong>ftExtra</strong> respects <code>csl</code> field in the YAML front matter (<a href="https://github.com/atusy/ftExtra/issues/83" class="external-link">#83</a>).</p></li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.0" id="ftextra-040">ftExtra 0.4.0<small>2022-04-20</small><a class="anchor" aria-label="anchor" href="#ftextra-040"></a></h2>
 <ul><li>
-<code>as_paragraph_md</code> supports empty string, <code>""</code>,
-as an input (<a href="https://github.com/atusy/ftExtra/issues/68" class="external-link">#68</a>).</li>
+<code>as_paragraph_md</code> supports empty string, <code>""</code>, as an input (<a href="https://github.com/atusy/ftExtra/issues/68" class="external-link">#68</a>).</li>
 <li>
-<code>colformat_md</code> applies on actual content of flextable
-rather than input dataset (<a href="https://github.com/atusy/ftExtra/issues/72" class="external-link">#72</a>).</li>
-<li>Improved support for the underline syntax in Pandoc’s Markdown
-(<a href="https://github.com/atusy/ftExtra/issues/73" class="external-link">#73</a>).</li>
+<code>colformat_md</code> applies on actual content of flextable rather than input dataset (<a href="https://github.com/atusy/ftExtra/issues/72" class="external-link">#72</a>).</li>
+<li>Improved support for the underline syntax in Pandoc’s Markdown (<a href="https://github.com/atusy/ftExtra/issues/73" class="external-link">#73</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.0" id="ftextra-030">ftExtra 0.3.0<small>2022-01-04</small><a class="anchor" aria-label="anchor" href="#ftextra-030"></a></h2>
 <div class="section level3">
 <h3 id="new-features-0-3-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-3-0"></a></h3>
 <ul><li>
-<code>colformat_md</code> and <code>as_paragraph_md</code> gains
-<code>replace_na = ""</code> as a new default parameter. Previously,
-<code>NA</code> are printed as <code>"NA"</code> (<a href="https://github.com/atusy/ftExtra/issues/63" class="external-link">#63</a>).</li>
+<code>colformat_md</code> and <code>as_paragraph_md</code> gains <code>replace_na = ""</code> as a new default parameter. Previously, <code>NA</code> are printed as <code>"NA"</code> (<a href="https://github.com/atusy/ftExtra/issues/63" class="external-link">#63</a>).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="internal-changes-0-3-0">Internal changes<a class="anchor" aria-label="anchor" href="#internal-changes-0-3-0"></a></h3>
@@ -112,49 +95,30 @@ rather than input dataset (<a href="https://github.com/atusy/ftExtra/issues/72" 
 <h2 class="page-header" data-toc-text="0.2.0" id="ftextra-020">ftExtra 0.2.0<small>2021-03-28</small><a class="anchor" aria-label="anchor" href="#ftextra-020"></a></h2>
 <div class="section level3">
 <h3 id="breaking-changes-0-2-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-2-0"></a></h3>
-<ul><li>Drop supports for Pandoc versions &lt; 2.0.6 in order to reduce
-maintenance costs. (<a href="https://github.com/atusy/ftExtra/issues/59" class="external-link">#59</a>).</li>
+<ul><li>Drop supports for Pandoc versions &lt; 2.0.6 in order to reduce maintenance costs. (<a href="https://github.com/atusy/ftExtra/issues/59" class="external-link">#59</a>).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="new-features-0-2-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-2-0"></a></h3>
 <ul><li>
-<code>colformat_md</code> supports multiple paragraphs by collapsing
-them with a separator given to the <code>.sep</code> argument (default:
-`“”) (<a href="https://github.com/atusy/ftExtra/issues/43" class="external-link">#43</a>).</li>
+<code>colformat_md</code> supports multiple paragraphs by collapsing them with a separator given to the <code>.sep</code> argument (default: `“”) (<a href="https://github.com/atusy/ftExtra/issues/43" class="external-link">#43</a>).</li>
 <li>
-<code>colformat_md</code> can now automatically add citations to
-reference on R Markdown (<a href="https://github.com/atusy/ftExtra/issues/48" class="external-link">#48</a>).</li>
+<code>colformat_md</code> can now automatically add citations to reference on R Markdown (<a href="https://github.com/atusy/ftExtra/issues/48" class="external-link">#48</a>).</li>
 <li>
-<code>colformat_md</code> can now contain cells with multiple
-footnotes. In addition, footnote keys are placed exactly the same place
-of source. The previous implementation moved the keys to the end of
-corresponding cells (<a href="https://github.com/atusy/ftExtra/issues/51" class="external-link">#51</a>).</li>
+<code>colformat_md</code> can now contain cells with multiple footnotes. In addition, footnote keys are placed exactly the same place of source. The previous implementation moved the keys to the end of corresponding cells (<a href="https://github.com/atusy/ftExtra/issues/51" class="external-link">#51</a>).</li>
 <li>
-<code>as_paragraph_md</code> supports variety of input formats by
-checking enabled extensions (<a href="https://github.com/atusy/ftExtra/issues/54" class="external-link">#54</a>).</li>
+<code>as_paragraph_md</code> supports variety of input formats by checking enabled extensions (<a href="https://github.com/atusy/ftExtra/issues/54" class="external-link">#54</a>).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-0-2-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-2-0"></a></h3>
-<ul><li>Fix
-<code>colformat_md(pandoc_args = c("--bibliography", "example.bib"))</code>
-should work even if bibliography field is missing from the YAML front
-matter (<a href="https://github.com/atusy/ftExtra/issues/41" class="external-link">#41</a>).</li>
+<ul><li>Fix <code>colformat_md(pandoc_args = c("--bibliography", "example.bib"))</code> should work even if bibliography field is missing from the YAML front matter (<a href="https://github.com/atusy/ftExtra/issues/41" class="external-link">#41</a>).</li>
 </ul></div>
 <div class="section level3">
 <h3 id="internal-changes-0-2-0">Internal changes<a class="anchor" aria-label="anchor" href="#internal-changes-0-2-0"></a></h3>
-<ul><li>Drop <strong>jpeg</strong> package from suggests, which is formerly
-used in a vignette (<a href="https://github.com/atusy/ftExtra/issues/42" class="external-link">#42</a>).</li>
+<ul><li>Drop <strong>jpeg</strong> package from suggests, which is formerly used in a vignette (<a href="https://github.com/atusy/ftExtra/issues/42" class="external-link">#42</a>).</li>
 <li>
-<code>colformat_md</code> converts cells to Pandoc’s AST by a single
-call of Pandoc. Previously it called pandoc for each cell. This change
-improves performance around 15X faster (<a href="https://github.com/atusy/ftExtra/issues/46" class="external-link">#46</a>). Note that <a href="https://github.com/atusy/ftExtra/issues/46" class="external-link">#46</a> broken
-support for some input formats (e.g., commonmark) and old Pandoc (&lt;
-2.0.6), but the regression is already fixed (<a href="https://github.com/atusy/ftExtra/issues/53" class="external-link">#53</a>, <a href="https://github.com/atusy/ftExtra/issues/57" class="external-link">#57</a>).</li>
+<code>colformat_md</code> converts cells to Pandoc’s AST by a single call of Pandoc. Previously it called pandoc for each cell. This change improves performance around 15X faster (<a href="https://github.com/atusy/ftExtra/issues/46" class="external-link">#46</a>). Note that <a href="https://github.com/atusy/ftExtra/issues/46" class="external-link">#46</a> broken support for some input formats (e.g., commonmark) and old Pandoc (&lt; 2.0.6), but the regression is already fixed (<a href="https://github.com/atusy/ftExtra/issues/53" class="external-link">#53</a>, <a href="https://github.com/atusy/ftExtra/issues/57" class="external-link">#57</a>).</li>
 <li>
-<code><a href="../reference/as_paragraph_md.html">as_paragraph_md()</a></code> internally uses
-<code><a href="https://davidgohel.github.io/flextable/reference/chunk_dataframe.html" class="external-link">flextable::chunk_dataframe()</a></code> in order to avoid potential
-problems if the <strong>flextable</strong> package changes the chunk
-structure in the future (<a href="https://github.com/atusy/ftExtra/issues/56" class="external-link">#56</a>, thanks <a href="https://github.com/davidgohel" class="external-link">@davidgohel</a>).</li>
+<code><a href="../reference/as_paragraph_md.html">as_paragraph_md()</a></code> internally uses <code><a href="https://davidgohel.github.io/flextable/reference/chunk_dataframe.html" class="external-link">flextable::chunk_dataframe()</a></code> in order to avoid potential problems if the <strong>flextable</strong> package changes the chunk structure in the future (<a href="https://github.com/atusy/ftExtra/issues/56" class="external-link">#56</a>, thanks <a href="https://github.com/davidgohel" class="external-link">@davidgohel</a>).</li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -162,41 +126,26 @@ structure in the future (<a href="https://github.com/atusy/ftExtra/issues/56" cl
 <ul><li>Fix math not rendered on Windows with Pandoc &lt; 2.10 (<a href="https://github.com/atusy/ftExtra/issues/33" class="external-link">#33</a>)</li>
 <li>
 <code>math.lua</code> requires Pandoc &gt;= 2.7.3 (<a href="https://github.com/atusy/ftExtra/issues/35" class="external-link">#35</a>)</li>
-<li>Fix Pandoc &lt; 2.7.3 raising error message “option –lua-filter
-requires an argument SCRIPTPATH”. This is a regression from <a href="https://github.com/atusy/ftExtra/issues/35" class="external-link">#35</a>
-(<a href="https://github.com/atusy/ftExtra/issues/37" class="external-link">#37</a>)</li>
-<li>Fix CRAN warning, “file ‘<a href="https://www.r-project.org/logo/Rlogo.png" class="external-link uri">https://www.r-project.org/logo/Rlogo.png</a>’ can not be
-found.” (<a href="https://github.com/atusy/ftExtra/issues/38" class="external-link">#38</a>)</li>
+<li>Fix Pandoc &lt; 2.7.3 raising error message “option –lua-filter requires an argument SCRIPTPATH”. This is a regression from <a href="https://github.com/atusy/ftExtra/issues/35" class="external-link">#35</a> (<a href="https://github.com/atusy/ftExtra/issues/37" class="external-link">#37</a>)</li>
+<li>Fix CRAN warning, “file ‘<a href="https://www.r-project.org/logo/Rlogo.png" class="external-link uri">https://www.r-project.org/logo/Rlogo.png</a>’ can not be found.” (<a href="https://github.com/atusy/ftExtra/issues/38" class="external-link">#38</a>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.0" id="ftextra-010">ftExtra 0.1.0<small>2020-10-28</small><a class="anchor" aria-label="anchor" href="#ftextra-010"></a></h2>
-<ul><li>Support markdown footnote with <code>colformat_md</code>. Currently,
-one footnote per a cell is allowed, and it must be located at the end of
-the cell content (<a href="https://github.com/atusy/ftExtra/issues/22" class="external-link">#22</a>).</li>
-<li>Add <code><a href="../reference/footnote_options.html">footnote_options()</a></code> to configure options for
-footnotes (<a href="https://github.com/atusy/ftExtra/issues/23" class="external-link">#23</a>).</li>
-<li>Support formatting markdown texts on header with
-<code>colformat_md(part = "header")</code> (<a href="https://github.com/atusy/ftExtra/issues/23" class="external-link">#23</a>).</li>
+<ul><li>Support markdown footnote with <code>colformat_md</code>. Currently, one footnote per a cell is allowed, and it must be located at the end of the cell content (<a href="https://github.com/atusy/ftExtra/issues/22" class="external-link">#22</a>).</li>
+<li>Add <code><a href="../reference/footnote_options.html">footnote_options()</a></code> to configure options for footnotes (<a href="https://github.com/atusy/ftExtra/issues/23" class="external-link">#23</a>).</li>
+<li>Support formatting markdown texts on header with <code>colformat_md(part = "header")</code> (<a href="https://github.com/atusy/ftExtra/issues/23" class="external-link">#23</a>).</li>
 <li>Support single- and double-quotes by a lua filter (dfc82e0).</li>
-<li>Support attributes with Span, Link, and Code. Useful attributes
-include the <code>.underline</code> class and the <code>color</code>,
-<code>shading.color</code>, and <code>font.family</code> attributes
-(<a href="https://github.com/atusy/ftExtra/issues/24" class="external-link">#24</a>).</li>
+<li>Support attributes with Span, Link, and Code. Useful attributes include the <code>.underline</code> class and the <code>color</code>, <code>shading.color</code>, and <code>font.family</code> attributes (<a href="https://github.com/atusy/ftExtra/issues/24" class="external-link">#24</a>).</li>
 <li>Support inline code (<a href="https://github.com/atusy/ftExtra/issues/25" class="external-link">#25</a>).</li>
-<li>Add the <code>md_extensions</code> and <code>pandoc_args</code>
-arguments to <code><a href="../reference/colformat_md.html">colformat_md()</a></code> and
-<code><a href="../reference/as_paragraph_md.html">as_paragraph_md()</a></code> (<a href="https://github.com/atusy/ftExtra/issues/26" class="external-link">#26</a>, <a href="https://github.com/atusy/ftExtra/issues/29" class="external-link">#29</a>).</li>
-<li>Support citation. Bibliography can be inherited from YAML front
-matter of an Rmd file (<a href="https://github.com/atusy/ftExtra/issues/27" class="external-link">#27</a>, <a href="https://github.com/atusy/ftExtra/issues/29" class="external-link">#29</a>).</li>
+<li>Add the <code>md_extensions</code> and <code>pandoc_args</code> arguments to <code><a href="../reference/colformat_md.html">colformat_md()</a></code> and <code><a href="../reference/as_paragraph_md.html">as_paragraph_md()</a></code> (<a href="https://github.com/atusy/ftExtra/issues/26" class="external-link">#26</a>, <a href="https://github.com/atusy/ftExtra/issues/29" class="external-link">#29</a>).</li>
+<li>Support citation. Bibliography can be inherited from YAML front matter of an Rmd file (<a href="https://github.com/atusy/ftExtra/issues/27" class="external-link">#27</a>, <a href="https://github.com/atusy/ftExtra/issues/29" class="external-link">#29</a>).</li>
 <li>Support math on macOS and Linux (<a href="https://github.com/atusy/ftExtra/issues/30" class="external-link">#30</a>), and on Windows (<a href="https://github.com/atusy/ftExtra/issues/31" class="external-link">#31</a>).</li>
 <li>Fix character corruptions on Windows by forcing UTF8 (<a href="https://github.com/atusy/ftExtra/issues/31" class="external-link">#31</a>).</li>
-<li>Use pandoc citeproc when YAML frontmatter contains the bibliography
-field (<a href="https://github.com/atusy/ftExtra/issues/31" class="external-link">#31</a>).</li>
+<li>Use pandoc citeproc when YAML frontmatter contains the bibliography field (<a href="https://github.com/atusy/ftExtra/issues/31" class="external-link">#31</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.0.3" id="ftextra-003">ftExtra 0.0.3<small>2020-08-30</small><a class="anchor" aria-label="anchor" href="#ftextra-003"></a></h2>
-<ul><li>Patched to pass “CRAN Package Check Results for Package” where
-<code>r-patched-solaris-x86</code> fails because of missing pandoc.</li>
+<ul><li>Patched to pass “CRAN Package Check Results for Package” where <code>r-patched-solaris-x86</code> fails because of missing pandoc.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.0.2" id="ftextra-002">ftExtra 0.0.2<small>2020-08-29</small><a class="anchor" aria-label="anchor" href="#ftextra-002"></a></h2>
@@ -207,42 +156,27 @@ field (<a href="https://github.com/atusy/ftExtra/issues/31" class="external-link
 <ul><li>Links</li>
 <li>Inline images</li>
 <li>Soft line breaks</li>
-<li>Hard line breaks (e.g.,
-<code>colformat_md(as_flextable(data.frame('a\\\nb', stringsAsFactors = FALSE)))</code>).</li>
+<li>Hard line breaks (e.g., <code>colformat_md(as_flextable(data.frame('a\\\nb', stringsAsFactors = FALSE)))</code>).</li>
 </ul></li>
-<li>stops with error if there are multiple paragraphs or block elements
-other than the paragraph.</li>
+<li>stops with error if there are multiple paragraphs or block elements other than the paragraph.</li>
 </ul></li>
 <li>
 <code><a href="../reference/colformat_md.html">colformat_md()</a></code>
-<ul><li>controls colors of links for example by
-<code>colformat_md(auto_color_link = 'red')</code>.</li>
-<li>gains <code>.from</code> argument to specify Pandoc’s
-<code>--from</code> argument.</li>
-<li>gains <code>j</code> argument so that users can choose which columns
-to be treated as markdown based on <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code>’s
-semantics.</li>
+<ul><li>controls colors of links for example by <code>colformat_md(auto_color_link = 'red')</code>.</li>
+<li>gains <code>.from</code> argument to specify Pandoc’s <code>--from</code> argument.</li>
+<li>gains <code>j</code> argument so that users can choose which columns to be treated as markdown based on <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code>’s semantics.</li>
 </ul></li>
-<li>Add <code>as_paragraph_md</code> which parses markdown texts on
-selected cells rather than selected columns. Use this function within
-<code><a href="https://davidgohel.github.io/flextable/reference/compose.html" class="external-link">flextable::compose</a></code>.</li>
+<li>Add <code>as_paragraph_md</code> which parses markdown texts on selected cells rather than selected columns. Use this function within <code><a href="https://davidgohel.github.io/flextable/reference/compose.html" class="external-link">flextable::compose</a></code>.</li>
 </ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.0.1" id="ftextra-001">ftExtra 0.0.1<small>2020-03-20</small><a class="anchor" aria-label="anchor" href="#ftextra-001"></a></h2>
-<ul><li>Add <code><a href="../reference/colformat_md.html">colformat_md()</a></code> which parses markdown text in the
-body of the flextable object.</li>
-<li>Add <code><a href="../reference/separate_header.html">separate_header()</a></code> which separates header into
-multiple rows based on regular expression.</li>
-<li>Add <code><a href="../reference/span_header.html">span_header()</a></code> which separates header into multiple
-rows based on regular expression, and spans them if the adjacent values
-share the same value.</li>
-<li>Add <code><a href="../reference/with_blanks.html">with_blanks()</a></code> which inserts blank columns based on
-the semantics of <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select</a></code>.</li>
-<li>Add <code>as_flextable.data.frame</code> to convert data frames to
-flextable.</li>
-<li>Add <code>as_flextable.grouped_df</code> to convert grouped data
-frames to flextable.</li>
+<ul><li>Add <code><a href="../reference/colformat_md.html">colformat_md()</a></code> which parses markdown text in the body of the flextable object.</li>
+<li>Add <code><a href="../reference/separate_header.html">separate_header()</a></code> which separates header into multiple rows based on regular expression.</li>
+<li>Add <code><a href="../reference/span_header.html">span_header()</a></code> which separates header into multiple rows based on regular expression, and spans them if the adjacent values share the same value.</li>
+<li>Add <code><a href="../reference/with_blanks.html">with_blanks()</a></code> which inserts blank columns based on the semantics of <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select</a></code>.</li>
+<li>Add <code>as_flextable.data.frame</code> to convert data frames to flextable.</li>
+<li>Add <code>as_flextable.grouped_df</code> to convert grouped data frames to flextable.</li>
 </ul></div>
   </div>
 
@@ -258,8 +192,7 @@ frames to flextable.</li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

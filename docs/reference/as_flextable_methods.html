@@ -77,39 +77,50 @@ see what arguments can be used.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for grouped_df</span>
-<span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span>
-  <span class="va">x</span>,
-  groups_to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"titles"</span>, <span class="st">"merged"</span>, <span class="st">"asis"</span><span class="op">)</span>,
-  groups_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"asis"</span><span class="op">)</span>,
-  groups_arrange <span class="op">=</span> <span class="cn">NULL</span>,
-  <span class="va">...</span>
-<span class="op">)</span>
-
-<span class="co"># S3 method for data.frame</span>
-<span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="va">x</span>, col_keys <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for grouped_df</span></span>
+<span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  groups_to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"titles"</span>, <span class="st">"merged"</span>, <span class="st">"asis"</span><span class="op">)</span>,</span>
+<span>  groups_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"asis"</span><span class="op">)</span>,</span>
+<span>  groups_arrange <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for data.frame</span></span>
+<span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="va">x</span>, col_keys <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>object to be transformed as flextable</p></dd>
+
+
 <dt>groups_to</dt>
 <dd><p>One of <code>titles</code>, <code>merged</code>, or <code>asis</code>.
 See examples and <code><a href="../articles/group-rows.html">vignette("group-rows")</a></code> for the result.</p></dd>
+
+
 <dt>groups_pos</dt>
 <dd><p>When <code>groups_to = "merged"</code>, grouping columns are reordered according to
 <code>group_pos</code>. Choices are <code>left</code> (default) or <code>asis</code>.</p></dd>
+
+
 <dt>groups_arrange</dt>
 <dd><p><code>TRUE</code> automatically arranges grouping columns by <code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">dplyr::arrange()</a></code>.
 Specify <code>FALSE</code> to keep the arrangement of the input data frame.
 The default value is <code>NULL</code> which implies <code>FALSE</code> to keep the backward
 compatibility, but will be <code>TRUE</code> in the future.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>arguments for custom methods</p></dd>
+
+
 <dt>col_keys</dt>
 <dd><p>columns names/keys to display. If some column names are not in
 the dataset, they will be added as blank columns by default.</p></dd>
+
 </dl></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -125,13 +136,13 @@ the dataset, they will be added as blank columns by default.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="co"># For grouped_df</span></span>
-<span class="r-in"><span class="va">grouped_df</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="va">grouped_df</span>, groups_to <span class="op">=</span> <span class="st">"titles"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># For grouped_df</span></span></span>
+<span class="r-in"><span><span class="va">grouped_df</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="va">grouped_df</span>, groups_to <span class="op">=</span> <span class="st">"titles"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> a flextable object.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> col_keys: `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width` </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> header has 1 row(s) </span>
@@ -143,7 +154,7 @@ the dataset, they will be added as blank columns by default.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5       &lt;NA&gt;          4.9         3.0          1.4         0.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 versicolor           NA          NA           NA          NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6       &lt;NA&gt;          7.0         3.2          4.7         1.4</span>
-<span class="r-in"><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="va">grouped_df</span>, groups_to <span class="op">=</span> <span class="st">"titles"</span>, hide_grouplabel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="va">grouped_df</span>, groups_to <span class="op">=</span> <span class="st">"titles"</span>, hide_grouplabel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> a flextable object.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> col_keys: `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width` </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> header has 1 row(s) </span>
@@ -155,7 +166,7 @@ the dataset, they will be added as blank columns by default.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5       &lt;NA&gt;          4.9         3.0          1.4         0.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 versicolor           NA          NA           NA          NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6       &lt;NA&gt;          7.0         3.2          4.7         1.4</span>
-<span class="r-in"><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="va">grouped_df</span>, groups_to <span class="op">=</span> <span class="st">"merged"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="va">grouped_df</span>, groups_to <span class="op">=</span> <span class="st">"merged"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> a flextable object.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> col_keys: `Species`, `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width` </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> header has 1 row(s) </span>
@@ -167,7 +178,7 @@ the dataset, they will be added as blank columns by default.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3 versicolor          7.0         3.2          4.7         1.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 versicolor          6.4         3.2          4.5         1.5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  virginica          6.3         3.3          6.0         2.5</span>
-<span class="r-in"><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="va">grouped_df</span>, groups_to <span class="op">=</span> <span class="st">"asis"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="va">grouped_df</span>, groups_to <span class="op">=</span> <span class="st">"asis"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> a flextable object.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> col_keys: `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`, `Species` </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> header has 1 row(s) </span>
@@ -179,10 +190,10 @@ the dataset, they will be added as blank columns by default.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3          7.0         3.2          4.7         1.4 versicolor</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4          6.4         3.2          4.5         1.5 versicolor</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5          6.3         3.3          6.0         2.5  virginica</span>
-<span class="r-in"><span class="co"># For data.frame</span></span>
-<span class="r-in"><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co"># For data.frame</span></span></span>
+<span class="r-in"><span><span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> a flextable object.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> col_keys: `Sepal.Length`, `Sepal.Width`, `Petal.Length`, `Petal.Width`, `Species` </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> header has 1 row(s) </span>
@@ -208,8 +219,7 @@ the dataset, they will be added as blank columns by default.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
