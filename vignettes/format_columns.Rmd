@@ -275,11 +275,12 @@ First, create a `ftExtra.bib` file like below.
 knitr::write_bib("ftExtra")
 ```
 
-Second, specify it within the YAML front matter.
+Second, specify it, and optionally a CSL file, within the YAML front matter.
 
 ```yaml
 ---
 bibliography: ftExtra.bib
+# csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
 ---
 ```
 
