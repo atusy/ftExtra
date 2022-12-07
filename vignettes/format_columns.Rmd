@@ -303,7 +303,14 @@ data.frame(
   flextable::autofit(add_w = 0.2)
 ```
 
-```{r, echo=FALSE, warning=FALSE}
+<!--
+NOTE: Avoid strange errors from some environments by error=TRUE
+(e.g., Fedora Linux, R-devel, GCC on R-hub)
+> pandoc-citeproc: Error in $: Incompatible API versions:
+> encoded with [1,20] but attempted to decode with [1,17,0,4].
+-->
+
+```{r, echo=FALSE, warning=FALSE, error=TRUE}
 tf <- tempfile(fileext = ".bib")
 knitr::write_bib("ftExtra", tf)
 data.frame(
