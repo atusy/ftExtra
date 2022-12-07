@@ -26,7 +26,8 @@ cross-reference footnotes.}
 
 \item{inline}{whether to add footnote on same line as previous footnote or not}
 
-\item{sep}{inline = T, character string to use as a separator between footnotes}
+\item{sep}{used only when inline = TRUE, character string to use as
+a separator between footnotes.}
 }
 \value{
 An environment
