@@ -12,6 +12,8 @@
 
 * mention **ftExtra** respects `csl` field in the YAML front matter (#83).
 
+* Fix a performance issue on `colformat_md` when using footnotes (#85).
+
 # ftExtra 0.4.0
 
 * `as_paragraph_md` supports empty string, `""`, as an input (#68).
