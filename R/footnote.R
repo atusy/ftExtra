@@ -54,6 +54,14 @@ generate_ref <- function(ref, n, prefix, suffix) {
   paste0(prefix, ref_generators[[ref]](n), suffix)
 }
 
+collapse_footnotes <- function(value, sep) {
+  value %>%
+    lapply(dplyr::add_row, data.frame(txt = sep %||% "")) %>%
+    dplyr::bind_rows() %>%
+    dplyr::mutate(seq_index = dplyr::row_number()) %>%
+    list()
+}
+
 add_footnotes <- function(x, part, .footnote_options) {
   n <- length(.footnote_options$value)
 
@@ -61,10 +69,14 @@ add_footnotes <- function(x, part, .footnote_options) {
     return(x)
   }
 
-  flextable::add_footer_lines(
-    x,
-    values = structure(.footnote_options$value, class = "paragraph")
-  )
+  footer_lines <- if (.footnote_options$inline) {
+    collapse_footnotes(.footnote_options$value, .footnote_options$sep)
+  } else {
+    .footnote_options$value
+  }
+  class(footer_lines) <- "paragraph"
+
+  flextable::add_footer_lines(x, values = footer_lines)
 }
 
 solve_footnote <- function(md_df, .footnote_options, auto_color_link) {
