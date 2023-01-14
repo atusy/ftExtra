@@ -61,13 +61,10 @@ add_footnotes <- function(x, part, .footnote_options) {
     return(x)
   }
 
-  pos <- rep(1L, n)
-  flextable::footnote(x, i = pos, j = pos, part = part,
-                      value = structure(.footnote_options$value,
-                                        class = "paragraph"),
-                      ref_symbols = rep("", n),
-                      inline = .footnote_options$inline,
-                      sep = .footnote_options$sep)
+  flextable::add_footer_lines(
+    x,
+    values = structure(.footnote_options$value, class = "paragraph")
+  )
 }
 
 solve_footnote <- function(md_df, .footnote_options, auto_color_link) {
