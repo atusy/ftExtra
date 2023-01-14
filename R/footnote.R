@@ -62,7 +62,7 @@ collapse_footnotes <- function(value, sep) {
     list()
 }
 
-add_footnotes <- function(x, part, .footnote_options) {
+add_footnotes <- function(x, .footnote_options) {
   n <- length(.footnote_options$value)
 
   if (n == 0L) {
