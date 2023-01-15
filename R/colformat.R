@@ -75,7 +75,7 @@ colformat_md <- function(x,
                            ))
 
   structure(
-    add_footnotes(ft, part, .footnote_options),
+    add_footnotes(ft, .footnote_options),
     class = c("ftExtra", class(ft)),
     citations = collect_citations(paste(texts, collapse = "\n\n"))
   )
