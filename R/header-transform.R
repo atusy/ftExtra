@@ -28,7 +28,7 @@ merge_header <- function(x, merge = TRUE) {
 transform_header <- function(
   x,
   sep = "[_\\.]",
-  theme_fun = flextable::theme_booktabs,
+  theme_fun = NULL,
   .fill = FALSE,
   .merge = FALSE,
   ...
@@ -43,6 +43,15 @@ transform_header <- function(
     ) %>%
     fill_header(.fill)
 
+  if (is.null(theme_fun)) {
+    default_theme <- flextable::get_flextable_defaults()$theme_fun
+    theme_fun <- if (is.function(default_theme)) {
+      default_theme
+    } else {
+      getNamespace("flextable")[[default_theme]]
+    }
+  }
+
   x %>%
     flextable::set_header_df(mapping, key = "original") %>%
     merge_header(.merge) %>%
@@ -55,6 +64,10 @@ transform_header <- function(
 #' @param x A `flextable` object`
 #' @inheritParams tidyr::separate
 #' @inheritParams flextable::flextable
+#' @param
+#'   theme_fun A flextable theme function.
+#'   When `NULL` (default), the value is resolved by
+#'   `flextable::get_flextable_defaults()`.
 #' @param ... Passed to `theme_fun`
 #'
 #' @examples
@@ -65,7 +78,7 @@ transform_header <- function(
 separate_header <- function(
   x,
   sep = "[_\\.]",
-  theme_fun = flextable::theme_booktabs,
+  theme_fun = NULL,
   ...
 ) {
   transform_header(
@@ -87,7 +100,7 @@ separate_header <- function(
 span_header <- function(
   x,
   sep = "[_\\.]",
-  theme_fun = flextable::theme_booktabs,
+  theme_fun = NULL,
   ...
 ) {
   transform_header(
