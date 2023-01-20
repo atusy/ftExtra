@@ -1,6 +1,4 @@
-# ftExtra 0.4.0.9999
-
-* `separate_header` and `span_header` now refers to `flextable::get_flextable_defaults()` to find default value for `theme_fun` (#86).
+# ftExtra 0.5.0
 
 * Fix `as_flextable.grouped_df` which broke second and subsequent group variables. Also, this function gains `groups_arrange` argument. The default value is `NULL` which implies `FALSE` for the backward-compatibility. In the next version, `NULL` remains the default but becomes deprecated. Then, `TRUE` becomes the default in the subsequent release (thanks, @eitsupi, #76).
 
@@ -13,6 +11,8 @@
 * mention **ftExtra** respects `csl` field in the YAML front matter (#83).
 
 * Fix a performance issue on `colformat_md` when using footnotes (#85).
+
+* `separate_header` and `span_header` now refers to `flextable::get_flextable_defaults()` to find default value for `theme_fun` (#86).
 
 # ftExtra 0.4.0
 
