@@ -104,7 +104,7 @@ drop_Para <- function(x) {
 
 format_by_attr <- function(x) {
   a <- x %>%
-    lapply(attr, 'pandoc_attr') %>%
+    lapply(attr, "pandoc_attr") %>%
     drop_null() %>%
     lapply(drop_null) %>%
     dplyr::bind_rows() %>%

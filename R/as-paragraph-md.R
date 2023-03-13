@@ -127,7 +127,7 @@ as_paragraph_md <- function(x,
       # here, x becomes a single document whose divs represent cells.
       md_df <- x %>%
         stringr::str_replace_na(replace_na) %>%
-        purrr::map2_chr(paste0('cell', seq_along(x)), add_id, divs = divs) %>%
+        purrr::map2_chr(paste0("cell", seq_along(x)), add_id, divs = divs) %>%
         paste(collapse = "") %>%
         md2df(pandoc_args = pandoc_args,
               metadata = metadata,
