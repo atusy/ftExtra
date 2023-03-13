@@ -98,7 +98,7 @@ branch2list <- function(x) {
 #' dplyr::bind_rows(lapply(x, drop_Para))
 #'
 #' @noRd
-drop_Para <- function(x) {
+drop_para <- function(x) {
   x[names(x) != "Para"]
 }
 
@@ -132,7 +132,7 @@ ast2df <- function(x) {
     # Div is not for users, but for processing multiple cells at once
     lapply(purrr::map_at, c("Div", "Image"), list) %>%
     lapply(format_by_attr) %>%
-    lapply(drop_Para) %>%
+    lapply(drop_para) %>%
     dplyr::bind_rows() %>%
     tibble::as_tibble() %>%
     dplyr::mutate_if(is.logical, dplyr::coalesce, FALSE)
