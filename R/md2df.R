@@ -66,7 +66,7 @@ flatten_branch <- function(x) {
 }
 
 flatten_ast <- function(x) {
-  n <- purrr::vec_depth(x) / 2 - 1.5 # (vec_depth(x) - 1) / 2 - 1
+  n <- purrr::vec_depth(x) / 2 - 1.5 # is equal to (vec_depth(x) - 1) / 2 - 1
   purrr::compose(!!!rep(list(flatten_branch), n))(x)
 }
 
@@ -98,24 +98,24 @@ branch2list <- function(x) {
 #' dplyr::bind_rows(lapply(x, drop_Para))
 #'
 #' @noRd
-drop_Para <- function(x) {
+drop_para <- function(x) {
   x[names(x) != "Para"]
 }
 
 format_by_attr <- function(x) {
   a <- x %>%
-    lapply(attr, 'pandoc_attr') %>%
+    lapply(attr, "pandoc_attr") %>%
     drop_null() %>%
     lapply(drop_null) %>%
     dplyr::bind_rows() %>%
     lapply(drop_na)
 
-  if(length(a) == 0L) return(x)
+  if (length(a) == 0L) return(x)
 
-  x$Underline = any(x$Underline, a$class == "underline")
-  x$color = last(a$color) %||% NA_character_
-  x$shading.color = last(a$shading.color) %||% NA_character_
-  x$font.family = last(a$font.family) %||% NA_character_
+  x$Underline <- any(x$Underline, a$class == "underline")
+  x$color <- last(a$color) %||% NA_character_
+  x$shading.color <- last(a$shading.color) %||% NA_character_
+  x$font.family <- last(a$font.family) %||% NA_character_
 
   x
 }
@@ -132,7 +132,7 @@ ast2df <- function(x) {
     # Div is not for users, but for processing multiple cells at once
     lapply(purrr::map_at, c("Div", "Image"), list) %>%
     lapply(format_by_attr) %>%
-    lapply(drop_Para) %>%
+    lapply(drop_para) %>%
     dplyr::bind_rows() %>%
     tibble::as_tibble() %>%
     dplyr::mutate_if(is.logical, dplyr::coalesce, FALSE)
@@ -143,9 +143,10 @@ ast2df <- function(x) {
 md2df <- function(x,
                   pandoc_args = NULL,
                   metadata = rmarkdown::metadata,
-                  .from = "markdown",
-                  .check = FALSE) {
-  ast <- md2ast(x, pandoc_args = pandoc_args, metadata = metadata, .from = .from)
+                  .from = "markdown") {
+  ast <- md2ast(
+    x, pandoc_args = pandoc_args, metadata = metadata, .from = .from
+  )
 
   ast$blocks <- ast$blocks[
     !vapply(ast$blocks,

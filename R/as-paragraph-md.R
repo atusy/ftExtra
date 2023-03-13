@@ -104,39 +104,43 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #'   autofit(ft)
 #' }
 #' @export
-as_paragraph_md <- function(x,
-                            auto_color_link = "blue",
-                            md_extensions = NULL,
-                            pandoc_args = NULL,
-                            metadata = rmarkdown::metadata,
-                            replace_na = "",
-                            .from = "markdown+autolink_bare_uris-raw_html-raw_attribute",
-                            .footnote_options = NULL,
-                            ...) {
+as_paragraph_md <- function(
+  x,
+  auto_color_link = "blue",
+  md_extensions = NULL,
+  pandoc_args = NULL,
+  metadata = rmarkdown::metadata,
+  replace_na = "",
+  .from = "markdown+autolink_bare_uris-raw_html-raw_attribute",
+  .footnote_options = NULL,
+  ...
+) {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1L) {
     stop("`auto_color_link` must be a string")
   }
 
   pandoc_args <- c(lua_filters(...), pandoc_args)
-  .from <- paste0(.from, paste(md_extensions, collapse=""))
+  .from <- paste0(.from, paste(md_extensions, collapse = ""))
 
   divs <- supported_divs(.from)
 
   paragraph <- if (length(divs) > 0L) {
+      # a faster processing of x by reducing calls of pandoc.
+      # here, x becomes a single document whose divs represent cells.
       md_df <- x %>%
         stringr::str_replace_na(replace_na) %>%
-        purrr::map2_chr(paste0('cell', seq_along(x)), add_id, divs = divs) %>%
+        purrr::map2_chr(paste0("cell", seq_along(x)), add_id, divs = divs) %>%
         paste(collapse = "") %>%
         md2df(pandoc_args = pandoc_args,
               metadata = metadata,
-              .from = .from,
-              .check = TRUE)
+              .from = .from)
       organize(md_df, auto_color_link, .footnote_options)
     } else {
+      # a slower processing of x by calling pandoc for each cells.
       lapply(x, function(x) {
         if (x == "") return(construct_chunk(list()))
         y <- x %>%
-          md2df(pandoc_args = pandoc_args, .from = .from, .check = TRUE) %>%
+          md2df(pandoc_args = pandoc_args, .from = .from) %>%
           solve_footnote(.footnote_options, auto_color_link) %>%
           as.list()
         construct_chunk(as.list(y), auto_color_link)
