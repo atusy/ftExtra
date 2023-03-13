@@ -118,7 +118,7 @@ as_paragraph_md <- function(x,
   }
 
   pandoc_args <- c(lua_filters(...), pandoc_args)
-  .from <- paste0(.from, paste(md_extensions, collapse=""))
+  .from <- paste0(.from, paste(md_extensions, collapse = ""))
 
   divs <- supported_divs(.from)
 
