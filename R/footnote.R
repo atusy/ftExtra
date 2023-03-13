@@ -10,7 +10,7 @@
 #' @param start
 #'   A starting number of footnotes.
 #' @param max
-#'   A max number of footnotes.
+#'   A max number of footnotes used only when `ref` is "a" or "A".
 #' @inheritParams flextable::footnote
 #'
 #' @return An environment
