@@ -51,11 +51,18 @@ symbol_generators <- list(
 )
 
 generate_ref <- function(ref, n, prefix, suffix) {
+  if (is.function(ref)) {
+    return(function(n, ...) lapply(ref(n), md2df, ...))
+  }
   ref <- match.arg(as.character(ref), names(symbol_generators))
   if ((ref %in% c("a", "A")) && (n > 26)) {
     stop('If `footnote_symbol` is "a" or "A", `footnote_max` must be <= 26')
   }
-  paste0(prefix, symbol_generators[[ref]](n), suffix)
+  res <- lapply(
+    paste0(prefix, symbol_generators[[ref]](n), suffix),
+    function(x) list(txt = x, Str = TRUE, Superscript = TRUE)
+  )
+  function(n, ...) res[n]
 }
 
 collapse_footnotes <- function(value, sep) {
@@ -83,7 +90,10 @@ add_footnotes <- function(x, .footnote_options) {
   flextable::add_footer_lines(x, values = footer_lines)
 }
 
-solve_footnote <- function(md_df, .footnote_options, auto_color_link) {
+solve_footnote <- function(
+  md_df, .footnote_options, auto_color_link,
+  pandoc_args, metadata, .from
+) {
   is_note <- md_df[["Note"]]
   if (is.null(.footnote_options) || !any(is_note)) {
     return(md_df)
@@ -94,23 +104,26 @@ solve_footnote <- function(md_df, .footnote_options, auto_color_link) {
     purrr::pmap(function(id, times, ...) rep(id, times)) %>%
     unlist(use.names = FALSE, recursive = FALSE)
   global_id <- .footnote_options$n + local_id
-  refs <- .footnote_options$ref[global_id[is_note]]
+  note_id <- global_id[is_note]
+  refs <- .footnote_options$ref(
+    note_id, pandoc_args = pandoc_args, metadata = metadata, .from = .from
+  )
 
   .footnote_options$value <- c(
     .footnote_options$value,
     md_df[is_note, ] %>%
-      split(refs) %>%
-      purrr::imap(function(group, ref) {
+      split(note_id) %>%
+      purrr::map2(refs, function(group, ref) {
         construct_chunk(
-          as.list(dplyr::bind_rows(list(txt = ref, Superscript = TRUE), group)),
+          as.list(dplyr::bind_rows(ref, group)),
           auto_color_link = auto_color_link
         )
       })
   )
   .footnote_options$n <- .footnote_options$n + max(local_id)
 
-  md_df[is_note, ] <- NA
-  md_df[is_note, "Superscript"] <- TRUE
-  md_df[is_note, "txt"] <- refs
-  md_df[!is_note | !duplicated(local_id), ]
+  rows <- purrr::pmap(md_df, list)
+  rows[is_note] <- refs
+
+  dplyr::bind_rows(rows[!is_note | !duplicated(local_id)])
 }
