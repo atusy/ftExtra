@@ -104,15 +104,17 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #'   autofit(ft)
 #' }
 #' @export
-as_paragraph_md <- function(x,
-                            auto_color_link = "blue",
-                            md_extensions = NULL,
-                            pandoc_args = NULL,
-                            metadata = rmarkdown::metadata,
-                            replace_na = "",
-                            .from = "markdown+autolink_bare_uris-raw_html-raw_attribute",
-                            .footnote_options = NULL,
-                            ...) {
+as_paragraph_md <- function(
+  x,
+  auto_color_link = "blue",
+  md_extensions = NULL,
+  pandoc_args = NULL,
+  metadata = rmarkdown::metadata,
+  replace_na = "",
+  .from = "markdown+autolink_bare_uris-raw_html-raw_attribute",
+  .footnote_options = NULL,
+  ...
+) {
   if (!is.character(auto_color_link) || length(auto_color_link) != 1L) {
     stop("`auto_color_link` must be a string")
   }

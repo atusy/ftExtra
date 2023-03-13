@@ -144,7 +144,9 @@ md2df <- function(x,
                   pandoc_args = NULL,
                   metadata = rmarkdown::metadata,
                   .from = "markdown") {
-  ast <- md2ast(x, pandoc_args = pandoc_args, metadata = metadata, .from = .from)
+  ast <- md2ast(
+    x, pandoc_args = pandoc_args, metadata = metadata, .from = .from
+  )
 
   ast$blocks <- ast$blocks[
     !vapply(ast$blocks,
