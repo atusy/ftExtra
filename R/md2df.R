@@ -110,7 +110,7 @@ format_by_attr <- function(x) {
     dplyr::bind_rows() %>%
     lapply(drop_na)
 
-  if(length(a) == 0L) return(x)
+  if (length(a) == 0L) return(x)
 
   x$Underline = any(x$Underline, a$class == "underline")
   x$color = last(a$color) %||% NA_character_
