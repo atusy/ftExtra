@@ -3,10 +3,15 @@
 #' Configure options for footnotes.
 #'
 #' @param ref
-#'   One of "1", "a", "A", "i", "I", or "*" to as a choice for a symbol to
-#'   cross-reference footnotes.
+#'   A string or a function that defines symbols of footnote references.
+#'   If the value is string, it must be one of the "1", "a", "A", "i", "I", or
+#'   "*". If a function, keep in mind this is an experimental feature. It
+#'   receives an integer vector as an input, and returns a character vector
+#'   with the length equal to the input. The returned values will further be
+#'   processed as markdown strings.
 #' @param prefix,suffix
-#'   Pre- and suf-fixes for `ref` (default: `""`).
+#'   Pre- and suf-fixes for `ref` (default: `""`). These parameters are used
+#'   if and only if ref is a character.
 #' @param start
 #'   A starting number of footnotes.
 #' @param max
