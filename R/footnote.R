@@ -35,7 +35,7 @@ footnote_options <- function(ref = c("1", "a", "A", "i", "I", "*"),
   env
 }
 
-ref_generators <- list(
+symbol_generators <- list(
   `1` = function(n) as.character(seq(n)),
   a = function(n) letters[seq(n)],
   A = function(n) LETTERS[seq(n)],
@@ -47,11 +47,11 @@ ref_generators <- list(
 )
 
 generate_ref <- function(ref, n, prefix, suffix) {
-  ref <- match.arg(as.character(ref), names(ref_generators))
+  ref <- match.arg(as.character(ref), names(symbol_generators))
   if ((ref %in% c("a", "A")) && (n > 26)) {
     stop('If `footnote_symbol` is "a" or "A", `footnote_max` must be <= 26')
   }
-  paste0(prefix, ref_generators[[ref]](n), suffix)
+  paste0(prefix, symbol_generators[[ref]](n), suffix)
 }
 
 collapse_footnotes <- function(value, sep) {
