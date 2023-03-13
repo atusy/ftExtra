@@ -90,14 +90,15 @@ solve_footnote <- function(md_df, .footnote_options, auto_color_link) {
     purrr::pmap(function(id, times, ...) rep(id, times)) %>%
     unlist(use.names = FALSE, recursive = FALSE)
   global_id <- .footnote_options$n + local_id
+  refs <- .footnote_options$ref[global_id[is_note]]
 
   .footnote_options$value <- c(
     .footnote_options$value,
     md_df[is_note, ] %>%
-      split(global_id[is_note]) %>%
-      purrr::imap(function(fn, id) {
+      split(refs) %>%
+      purrr::imap(function(group, ref) {
         construct_chunk(
-          as.list(dplyr::bind_rows(list(txt = id, Superscript = TRUE), fn)),
+          as.list(dplyr::bind_rows(list(txt = ref, Superscript = TRUE), group)),
           auto_color_link = auto_color_link
         )
       })
@@ -106,6 +107,6 @@ solve_footnote <- function(md_df, .footnote_options, auto_color_link) {
 
   md_df[is_note, ] <- NA
   md_df[is_note, "Superscript"] <- TRUE
-  md_df[is_note, "txt"] <- .footnote_options$ref[global_id[is_note]]
+  md_df[is_note, "txt"] <- refs
   md_df[!is_note | !duplicated(local_id), ]
 }
