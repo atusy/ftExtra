@@ -129,14 +129,13 @@ as_paragraph_md <- function(x,
         paste(collapse = "") %>%
         md2df(pandoc_args = pandoc_args,
               metadata = metadata,
-              .from = .from,
-              .check = TRUE)
+              .from = .from)
       organize(md_df, auto_color_link, .footnote_options)
     } else {
       lapply(x, function(x) {
         if (x == "") return(construct_chunk(list()))
         y <- x %>%
-          md2df(pandoc_args = pandoc_args, .from = .from, .check = TRUE) %>%
+          md2df(pandoc_args = pandoc_args, .from = .from) %>%
           solve_footnote(.footnote_options, auto_color_link) %>%
           as.list()
         construct_chunk(as.list(y), auto_color_link)

@@ -143,8 +143,7 @@ ast2df <- function(x) {
 md2df <- function(x,
                   pandoc_args = NULL,
                   metadata = rmarkdown::metadata,
-                  .from = "markdown",
-                  .check = FALSE) {
+                  .from = "markdown") {
   ast <- md2ast(x, pandoc_args = pandoc_args, metadata = metadata, .from = .from)
 
   ast$blocks <- ast$blocks[
