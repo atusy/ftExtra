@@ -66,7 +66,7 @@ flatten_branch <- function(x) {
 }
 
 flatten_ast <- function(x) {
-  n <- purrr::vec_depth(x) / 2 - 1.5 # (vec_depth(x) - 1) / 2 - 1
+  n <- purrr::vec_depth(x) / 2 - 1.5 # is equal to (vec_depth(x) - 1) / 2 - 1
   purrr::compose(!!!rep(list(flatten_branch), n))(x)
 }
 
