@@ -1,3 +1,7 @@
+# ftExtra 0.5.9999
+
+* Fix `footnote_options` not controlling reference symbols correctly. Formerly, only symbols in the cells used the `prefix` and the `suffix` arguments. Now, footnote texts also respects them (#88).
+
 # ftExtra 0.5.0
 
 * Fix `as_flextable.grouped_df` which broke second and subsequent group variables. Also, this function gains `groups_arrange` argument. The default value is `NULL` which implies `FALSE` for the backward-compatibility. In the next version, `NULL` remains the default but becomes deprecated. Then, `TRUE` becomes the default in the subsequent release (thanks, @eitsupi, #76).
