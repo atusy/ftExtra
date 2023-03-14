@@ -32,6 +32,8 @@ footnote_options <- function(ref = c("1", "a", "A", "i", "I", "*"),
   env$n <- start - 1L
   env$inline <- inline
   env$sep <- sep
+  env$part <- "body"
+  env$caller <- NA_character_
   env
 }
 
@@ -52,7 +54,13 @@ symbol_generators <- list(
 
 generate_ref <- function(ref, n, prefix, suffix) {
   if (is.function(ref)) {
-    return(function(n, ...) lapply(ref(n), md2df, ...))
+    #'@noRd
+    #'@param n n-th ref symbol (integer)
+    #'@param part "body" (default) or "header"
+    #'@param footer `TRUE` or `FALSE`
+    #'@param ... Other arguments passed to md2df
+    f <- function(n, part, footer, ...) lapply(ref(n, part, footer), md2df, ...)
+    return(f)
   }
   ref <- match.arg(as.character(ref), names(symbol_generators))
   if ((ref %in% c("a", "A")) && (n > 26)) {
@@ -105,17 +113,21 @@ solve_footnote <- function(
     unlist(use.names = FALSE, recursive = FALSE)
   global_id <- .footnote_options$n + local_id
   note_id <- global_id[is_note]
-  refs <- .footnote_options$ref(
-    note_id, pandoc_args = pandoc_args, metadata = metadata, .from = .from
-  )
+
+  ref <- function(n, footer) {
+    .footnote_options$ref(
+      n, .footnote_options$part, footer,
+      pandoc_args = pandoc_args, metadata = metadata, .from = .from
+    )
+  }
 
   .footnote_options$value <- c(
     .footnote_options$value,
     md_df[is_note, ] %>%
       split(note_id) %>%
-      purrr::map2(refs, function(group, ref) {
+      purrr::imap(function(group, i) {
         construct_chunk(
-          as.list(dplyr::bind_rows(ref, group)),
+          as.list(dplyr::bind_rows(ref(as.integer(i), TRUE), group)),
           auto_color_link = auto_color_link
         )
       })
@@ -123,7 +135,7 @@ solve_footnote <- function(
   .footnote_options$n <- .footnote_options$n + max(local_id)
 
   rows <- purrr::pmap(md_df, list)
-  rows[is_note] <- refs
+  rows[is_note] <- ref(note_id, FALSE)
 
   dplyr::bind_rows(rows[!is_note | !duplicated(local_id)])
 }
