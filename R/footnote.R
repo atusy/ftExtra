@@ -105,11 +105,11 @@ symbol_generators <- list(
 
 generate_ref <- function(ref, n, prefix, suffix) {
   if (is.function(ref)) {
-    #'@noRd
-    #'@param n n-th ref symbol (integer)
-    #'@param part "body" (default) or "header"
-    #'@param footer `TRUE` or `FALSE`
-    #'@param ... Other arguments passed to md2df
+    #' @noRd
+    #' @param n n-th ref symbol (integer)
+    #' @param part "body" (default) or "header"
+    #' @param footer `TRUE` or `FALSE`
+    #' @param ... Other arguments passed to md2df
     f <- function(n, part, footer, ...) lapply(ref(n, part, footer), md2df, ...)
     return(f)
   }
