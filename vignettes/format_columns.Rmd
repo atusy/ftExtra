@@ -64,7 +64,7 @@ The first point can be solved by using a `for` loop, however, the code becomes q
 df <- data.frame(Oxide = c("SiO2", "Fe2O3"), stringsAsFactors = FALSE)
 ft <- flextable::flextable(df)
 
-for (i in seq(nrow(df))) {
+for (i in seq_len(nrow(df))) {
   ft <- flextable::compose(
     ft,
     i = i,
@@ -95,7 +95,9 @@ The following example elegantly simplifies the prior example.
 df <- data.frame(Oxide = c("SiO2", "Fe2O3"), stringsAsFactors = FALSE)
 
 df %>%
-  dplyr::mutate(Oxide = stringr::str_replace_all(Oxide, "([2-9]+)", "~\\1~")) %>%
+  dplyr::mutate(
+    Oxide = stringr::str_replace_all(Oxide, "([2-9]+)", "~\\1~")
+  ) %>%
   flextable::flextable() %>%
   ftExtra::colformat_md()
 ```
