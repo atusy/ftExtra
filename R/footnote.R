@@ -35,6 +35,40 @@
 #'     .footnote_options = footnote_options("1", start = 1L)
 #'   )
 #' }
+#'
+#' # Use a user-defined function to format footnote symbols
+#' if (rmarkdown::pandoc_available()) {
+#'   # a function to format symbols of footnote references
+#'   ref <- function(n, part, footer) {
+#'     # Header uses letters and body uses integers for the symbols
+#'     s <- if (part == "header") {
+#'       letters[n]
+#'     } else {
+#'       as.character(n)
+#'     }
+#'
+#'     # Suffix symbols with ": " (a colon and a space) in the footer
+#'     if (footer) {
+#'       return(paste(s, ":\\ "))
+#'     }
+#'
+#'     # Use superscript in the header and the body
+#'     return(paste0("^", s, "^"))
+#'   }
+#'
+#'   # apply custom format of symbols
+#'   ft %>%
+#'     # process header first
+#'     colformat_md(
+#'       part = "header", .footnote_options = footnote_options(ref)
+#'     ) %>%
+#'     # process body next
+#'     colformat_md(
+#'       part = "body", .footnote_options = footnote_options(ref)
+#'     ) %>%
+#'     # tweak width for visibility
+#'     flextable::autofit(add_w = 0.2)
+#' }
 #' @export
 footnote_options <- function(ref = c("1", "a", "A", "i", "I", "*"),
                              prefix = "",
