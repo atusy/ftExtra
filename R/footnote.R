@@ -21,8 +21,20 @@
 #' @return An environment
 #'
 #' @examples
-#' o <- footnote_options("1", start = 1L)
+#' # A examole flextable with unprocessed markdown footnotes
+#' ft <- as_flextable(tibble::tibble(
+#'   "header1^[note a]" = c("x^[note 1]", "y"),
+#'   "header2" = c("a", "b^[note 2]")
+#' ))
 #'
+#' # Render all footnotes in the same format.
+#' if (rmarkdown::pandoc_available()) {
+#'   ft %>%
+#'   colformat_md(
+#'     part = "all",
+#'     .footnote_options = footnote_options("1", start = 1L)
+#'   )
+#' }
 #' @export
 footnote_options <- function(ref = c("1", "a", "A", "i", "I", "*"),
                              prefix = "",
