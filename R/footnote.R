@@ -41,9 +41,13 @@ symbol_generators <- list(
   A = function(n) LETTERS[seq(n)],
   i = function(n) tolower(as.roman(seq(n))),
   I = function(n) as.roman(seq(n)),
-  `*` = function(n) vapply(seq(n),
-                           function(i) paste(rep("*", i), collapse = ""),
-                           NA_character_)
+  `*` = function(n) {
+    vapply(
+      seq(n),
+      function(i) paste(rep("*", i), collapse = ""),
+      NA_character_
+    )
+  }
 )
 
 generate_ref <- function(ref, n, prefix, suffix) {
