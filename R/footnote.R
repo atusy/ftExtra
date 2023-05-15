@@ -51,7 +51,7 @@
 #'
 #'     # Suffix symbols with ": " (a colon and a space) in the footer
 #'     if (footer) {
-#'       return(paste(s, ":\\ "))
+#'       return(paste0(s, ":\\ "))
 #'     }
 #'
 #'     # Use superscript in the header and the body
