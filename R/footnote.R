@@ -6,9 +6,9 @@
 #'   A string or a function that defines symbols of footnote references.
 #'   If the value is string, it must be one of the "1", "a", "A", "i", "I", or
 #'   "*". If a function, keep in mind this is an experimental feature. It
-#'   receives an integer vector as an input, and returns a character vector
-#'   with the length equal to the input. The returned values will further be
-#'   processed as markdown strings.
+#'   receives 3 parameters (`n`, `part`, and `footer`) and returns character
+#'   vectors which will further be processed as markdown. See examples for the
+#'   details.
 #' @param prefix,suffix
 #'   Pre- and suf-fixes for `ref` (default: `""`). These parameters are used
 #'   if and only if ref is a character.
@@ -40,7 +40,9 @@
 #' if (rmarkdown::pandoc_available()) {
 #'   # a function to format symbols of footnote references
 #'   ref <- function(n, part, footer) {
-#'     # Header uses letters and body uses integers for the symbols
+#'     # Change symbols by context
+#'     # - header: letters (a, b, c, ...)
+#'     # - body: integers (1, 2, 3, ...)
 #'     s <- if (part == "header") {
 #'       letters[n]
 #'     } else {
