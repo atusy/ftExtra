@@ -225,7 +225,7 @@ Experimentally, reference symbols can be formatted by an user-defined function.
 #'
 #' @param n n-th reference symbol (integer)
 #' @param part where footnote exists: "body" or "header"
-#' @param footer whether to format sybols in the footer: `TRUE` or `FALSE`
+#' @param footer whether to format symbols in the footer: `TRUE` or `FALSE`
 #'
 #' @return a character vector which will further be processed as markdown texts
 ref <- function(n, part, footer) {
