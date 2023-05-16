@@ -62,11 +62,11 @@
 #'   ft %>%
 #'     # process header first
 #'     colformat_md(
-#'       part = "header", .footnote_options = footnote_options(ref)
+#'       part = "header", .footnote_options = footnote_options(ref = ref)
 #'     ) %>%
 #'     # process body next
 #'     colformat_md(
-#'       part = "body", .footnote_options = footnote_options(ref)
+#'       part = "body", .footnote_options = footnote_options(ref = ref)
 #'     ) %>%
 #'     # tweak width for visibility
 #'     flextable::autofit(add_w = 0.2)
