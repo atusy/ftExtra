@@ -70,6 +70,7 @@ Other as_flextable methods:
 \code{\link[flextable]{as_flextable.merMod}()},
 \code{\link[flextable]{as_flextable.pam}()},
 \code{\link[flextable]{as_flextable.summarizor}()},
+\code{\link[flextable]{as_flextable.table}()},
 \code{\link[flextable]{as_flextable.tabular}()},
 \code{\link[flextable]{as_flextable.tabulator}()},
 \code{\link[flextable]{as_flextable.xtable}()}
