@@ -136,6 +136,54 @@
       1 **    TRUE  TRUE       
       
 
+# generating footnote refs with prefix and suffix
+
+    Code
+      opt$ref(1L, "header", TRUE)
+    Output
+      [[1]]
+      # A tibble: 1 x 3
+        txt   Str   Superscript
+        <chr> <lgl> <lgl>      
+      1 (1)   TRUE  TRUE       
+      
+
+---
+
+    Code
+      opt$ref(1L, "header", FALSE)
+    Output
+      [[1]]
+      # A tibble: 1 x 3
+        txt   Str   Superscript
+        <chr> <lgl> <lgl>      
+      1 (1)   TRUE  TRUE       
+      
+
+---
+
+    Code
+      opt$ref(1L, "body", TRUE)
+    Output
+      [[1]]
+      # A tibble: 1 x 3
+        txt   Str   Superscript
+        <chr> <lgl> <lgl>      
+      1 (1)   TRUE  TRUE       
+      
+
+---
+
+    Code
+      opt$ref(1L, "body", FALSE)
+    Output
+      [[1]]
+      # A tibble: 1 x 3
+        txt   Str   Superscript
+        <chr> <lgl> <lgl>      
+      1 (1)   TRUE  TRUE       
+      
+
 # generating footnote refs with callbacks
 
     Code

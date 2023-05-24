@@ -12,6 +12,14 @@ testthat::test_that("generating footnote refs with common settings", {
   testthat::expect_snapshot(footnote_options(ref = "*")$ref(c(1L, 2L)))
 })
 
+testthat::test_that("generating footnote refs with prefix and suffix", {
+  opt <- footnote_options(prefix = "(", suffix = ")")
+  testthat::expect_snapshot(opt$ref(1L, "header", TRUE))
+  testthat::expect_snapshot(opt$ref(1L, "header", FALSE))
+  testthat::expect_snapshot(opt$ref(1L, "body", TRUE))
+  testthat::expect_snapshot(opt$ref(1L, "body", FALSE))
+})
+
 testthat::test_that("generating footnote refs with callbacks", {
   ref <- function(n, part, footer) {
     mark <- if (part == "header") {
