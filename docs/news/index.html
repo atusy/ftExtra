@@ -65,7 +65,14 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.5.9999" id="ftextra-059999">ftExtra 0.5.9999<a class="anchor" aria-label="anchor" href="#ftextra-059999"></a></h2>
-<ul><li>Fix <code>footnote_options</code> not controlling reference symbols correctly. Formerly, only symbols in the cells used the <code>prefix</code> and the <code>suffix</code> arguments. Now, footnote texts also respects them (<a href="https://github.com/atusy/ftExtra/issues/88" class="external-link">#88</a>).</li>
+<ul><li><p>Fix <code>footnote_options</code> not controlling reference symbols correctly. Formerly, only symbols in the cells used the <code>prefix</code> and the <code>suffix</code> arguments. Now, footnote texts also respects them (<a href="https://github.com/atusy/ftExtra/issues/88" class="external-link">#88</a>).</p></li>
+<li>
+<p>Support fine controls on footnote symbols in two ways. See <code><a href="../reference/footnote_options.html">?footnote_options</a></code> for the details (<a href="https://github.com/atusy/ftExtra/issues/90" class="external-link">#90</a>).</p>
+<ul><li>
+<code>prefix</code> and <code>suffix</code> labels by passing the corresponding arguments to <code>footnote_options</code>
+</li>
+<li>finest controls by passing a function to <code>footnote_options(ref = ...)</code>.</li>
+</ul></li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.5.0" id="ftextra-050">ftExtra 0.5.0<small>2023-01-20</small><a class="anchor" aria-label="anchor" href="#ftextra-050"></a></h2>

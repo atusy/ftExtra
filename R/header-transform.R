@@ -11,7 +11,7 @@ fill_header <- function(x, fill = TRUE) {
     ) %>%
     tidyr::fill("val") %>%
     tidyr::pivot_wider(
-      "original",
+      id_cols = "original",
       names_from = "var", values_from = "val", names_prefix = "level"
     )
 }

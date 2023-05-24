@@ -35,6 +35,7 @@ colformat_md <- function(x,
   .j <- rlang::enexpr(j)
   part <- match.arg(part)
   .footnote_options$caller <- "colformat_md"
+  .footnote_options$part <- part
 
   if (part == "all") {
     for (part in c("header", "body")) {

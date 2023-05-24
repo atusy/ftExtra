@@ -15,14 +15,19 @@ footnote_options(
 )
 }
 \arguments{
-\item{ref}{One of "1", "a", "A", "i", "I", or "*" to as a choice for a symbol to
-cross-reference footnotes.}
+\item{ref}{A string or a function that defines symbols of footnote references.
+If the value is string, it must be one of the "1", "a", "A", "i", "I", or
+"*". If a function, keep in mind this is an experimental feature. It
+receives 3 parameters (\code{n}, \code{part}, and \code{footer}) and returns character
+vectors which will further be processed as markdown. See examples for the
+details.}
 
-\item{prefix, suffix}{Pre- and suf-fixes for \code{ref} (default: \code{""}).}
+\item{prefix, suffix}{Pre- and suf-fixes for \code{ref} (default: \code{""}). These parameters are used
+if and only if ref is a character.}
 
 \item{start}{A starting number of footnotes.}
 
-\item{max}{A max number of footnotes.}
+\item{max}{A max number of footnotes used only when \code{ref} is "a" or "A".}
 
 \item{inline}{whether to add footnote on same line as previous footnote or not}
 
@@ -36,6 +41,54 @@ An environment
 Configure options for footnotes.
 }
 \examples{
-o <- footnote_options("1", start = 1L)
+# A examole flextable with unprocessed markdown footnotes
+ft <- as_flextable(tibble::tibble(
+  "header1^[note a]" = c("x^[note 1]", "y"),
+  "header2" = c("a", "b^[note 2]")
+))
 
+# Render all footnotes in the same format.
+if (rmarkdown::pandoc_available()) {
+  ft \%>\%
+    colformat_md(
+      part = "all",
+      .footnote_options = footnote_options("1", start = 1L)
+    )
+}
+
+# Use a user-defined function to format footnote symbols
+if (rmarkdown::pandoc_available()) {
+  # a function to format symbols of footnote references
+  ref <- function(n, part, footer) {
+    # Change symbols by context
+    # - header: letters (a, b, c, ...)
+    # - body: integers (1, 2, 3, ...)
+    s <- if (part == "header") {
+      letters[n]
+    } else {
+      as.character(n)
+    }
+
+    # Suffix symbols with ": " (a colon and a space) in the footer
+    if (footer) {
+      return(paste0(s, ":\\\\ "))
+    }
+
+    # Use superscript in the header and the body
+    return(paste0("^", s, "^"))
+  }
+
+  # apply custom format of symbols
+  ft \%>\%
+    # process header first
+    colformat_md(
+      part = "header", .footnote_options = footnote_options(ref = ref)
+    ) \%>\%
+    # process body next
+    colformat_md(
+      part = "body", .footnote_options = footnote_options(ref = ref)
+    ) \%>\%
+    # tweak width for visibility
+    flextable::autofit(add_w = 0.2)
+}
 }

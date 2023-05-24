@@ -81,8 +81,8 @@
 
       
 
-      </header><link href="group-rows_files/tabwid-1.1.2/tabwid.css" rel="stylesheet">
-<div class="row">
+      </header><link href="group-rows_files/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="group-rows_files/tabwid-1.1.3/tabwid.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Group rows</h1>
@@ -118,307 +118,170 @@ frame created by <code><a href="https://dplyr.tidyverse.org/reference/group_by.h
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grouped_iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<template id="9c4bcc6a-64de-4649-83b4-355196ed0765"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style>
 <div class="tabwid">
-<style>.cl-cab6a336{}.cl-cab19346{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cab3d9bc{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cab3d9d0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cab3e77c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cab3e786{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cab3e790{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cab3e791{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-cab6a336">
+<style>.cl-95f89a14{}.cl-95efbc28{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-95f2e66e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-95f2e678{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-95f2fa96{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-95f2faa0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-95f2faaa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-95f2faab{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="table cl-95f89a14">
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-cab3e77c"><p class="cl-cab3d9bc"><span class="cl-cab19346">Sepal.Length</span></p></th>
-<th class="cl-cab3e77c"><p class="cl-cab3d9bc"><span class="cl-cab19346">Sepal.Width</span></p></th>
-<th class="cl-cab3e77c"><p class="cl-cab3d9bc"><span class="cl-cab19346">Petal.Length</span></p></th>
-<th class="cl-cab3e77c"><p class="cl-cab3d9bc"><span class="cl-cab19346">Petal.Width</span></p></th>
+<th class="cl-95f2fa96"><p class="cl-95f2e66e"><span class="cl-95efbc28">Sepal.Length</span></p></th>
+<th class="cl-95f2fa96"><p class="cl-95f2e66e"><span class="cl-95efbc28">Sepal.Width</span></p></th>
+<th class="cl-95f2fa96"><p class="cl-95f2e66e"><span class="cl-95efbc28">Petal.Length</span></p></th>
+<th class="cl-95f2fa96"><p class="cl-95f2e66e"><span class="cl-95efbc28">Petal.Width</span></p></th>
 </tr></thead>
 <tbody>
-<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-cab3e786"><p class="cl-cab3d9d0"><span class="cl-cab19346">Species</span><span class="cl-cab19346">: </span><span class="cl-cab19346">setosa</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-95f2faa0"><p class="cl-95f2e678"><span class="cl-95efbc28">Species</span><span class="cl-95efbc28">: </span><span class="cl-95efbc28">setosa</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">5.1</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">3.5</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">1.4</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">0.2</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">5.1</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">3.5</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">1.4</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">0.2</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">4.9</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">3.0</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">1.4</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">0.2</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">4.9</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">3.0</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">1.4</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">0.2</span></p></td>
 </tr>
-<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-cab3e786"><p class="cl-cab3d9d0"><span class="cl-cab19346">Species</span><span class="cl-cab19346">: </span><span class="cl-cab19346">versicolor</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-95f2faa0"><p class="cl-95f2e678"><span class="cl-95efbc28">Species</span><span class="cl-95efbc28">: </span><span class="cl-95efbc28">versicolor</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">7.0</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">3.2</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">4.7</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">1.4</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">6.4</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">3.2</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">4.5</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">1.5</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-cab3e786"><p class="cl-cab3d9d0"><span class="cl-cab19346">Species</span><span class="cl-cab19346">: </span><span class="cl-cab19346">virginica</span></p></td></tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">6.3</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">3.3</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">6.0</span></p></td>
-<td class="cl-cab3e790"><p class="cl-cab3d9bc"><span class="cl-cab19346">2.5</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">7.0</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">3.2</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">4.7</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">1.4</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cab3e791"><p class="cl-cab3d9bc"><span class="cl-cab19346">5.8</span></p></td>
-<td class="cl-cab3e791"><p class="cl-cab3d9bc"><span class="cl-cab19346">2.7</span></p></td>
-<td class="cl-cab3e791"><p class="cl-cab3d9bc"><span class="cl-cab19346">5.1</span></p></td>
-<td class="cl-cab3e791"><p class="cl-cab3d9bc"><span class="cl-cab19346">1.9</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">6.4</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">3.2</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">4.5</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">1.5</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-95f2faa0"><p class="cl-95f2e678"><span class="cl-95efbc28">Species</span><span class="cl-95efbc28">: </span><span class="cl-95efbc28">virginica</span></p></td></tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">6.3</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">3.3</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">6.0</span></p></td>
+<td class="cl-95f2faaa"><p class="cl-95f2e66e"><span class="cl-95efbc28">2.5</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-95f2faab"><p class="cl-95f2e66e"><span class="cl-95efbc28">5.8</span></p></td>
+<td class="cl-95f2faab"><p class="cl-95f2e66e"><span class="cl-95efbc28">2.7</span></p></td>
+<td class="cl-95f2faab"><p class="cl-95f2e66e"><span class="cl-95efbc28">5.1</span></p></td>
+<td class="cl-95f2faab"><p class="cl-95f2e66e"><span class="cl-95efbc28">1.9</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="790a032a-3126-4728-87a1-7d1253eeddac"></div>
-<script>
-var dest = document.getElementById("790a032a-3126-4728-87a1-7d1253eeddac");
-var template = document.getElementById("9c4bcc6a-64de-4649-83b4-355196ed0765");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+</div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grouped_iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span>hide_grouplabel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<template id="260f7bb1-67da-427f-a063-eef0de22d23b"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style>
 <div class="tabwid">
-<style>.cl-cad01578{}.cl-caca3432{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cacd0586{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cacd0590{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cacd1878{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cacd1882{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cacd1883{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cacd188c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-cad01578">
+<style>.cl-961f3e62{}.cl-96135c50{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9617fc60{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9617fc7e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-96182730{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9618273a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9618273b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96182744{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="table cl-961f3e62">
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-cacd1878"><p class="cl-cacd0586"><span class="cl-caca3432">Sepal.Length</span></p></th>
-<th class="cl-cacd1878"><p class="cl-cacd0586"><span class="cl-caca3432">Sepal.Width</span></p></th>
-<th class="cl-cacd1878"><p class="cl-cacd0586"><span class="cl-caca3432">Petal.Length</span></p></th>
-<th class="cl-cacd1878"><p class="cl-cacd0586"><span class="cl-caca3432">Petal.Width</span></p></th>
+<th class="cl-96182730"><p class="cl-9617fc60"><span class="cl-96135c50">Sepal.Length</span></p></th>
+<th class="cl-96182730"><p class="cl-9617fc60"><span class="cl-96135c50">Sepal.Width</span></p></th>
+<th class="cl-96182730"><p class="cl-9617fc60"><span class="cl-96135c50">Petal.Length</span></p></th>
+<th class="cl-96182730"><p class="cl-9617fc60"><span class="cl-96135c50">Petal.Width</span></p></th>
 </tr></thead>
 <tbody>
-<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-cacd1882"><p class="cl-cacd0590"><span class="cl-caca3432">setosa</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-9618273a"><p class="cl-9617fc7e"><span class="cl-96135c50">setosa</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">5.1</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">3.5</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">1.4</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">0.2</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">5.1</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">3.5</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">1.4</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">0.2</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">4.9</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">3.0</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">1.4</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">0.2</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">4.9</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">3.0</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">1.4</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">0.2</span></p></td>
 </tr>
-<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-cacd1882"><p class="cl-cacd0590"><span class="cl-caca3432">versicolor</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-9618273a"><p class="cl-9617fc7e"><span class="cl-96135c50">versicolor</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">7.0</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">3.2</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">4.7</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">1.4</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">6.4</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">3.2</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">4.5</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">1.5</span></p></td>
-</tr>
-<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-cacd1882"><p class="cl-cacd0590"><span class="cl-caca3432">virginica</span></p></td></tr>
-<tr style="overflow-wrap:break-word;">
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">6.3</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">3.3</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">6.0</span></p></td>
-<td class="cl-cacd1883"><p class="cl-cacd0586"><span class="cl-caca3432">2.5</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">7.0</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">3.2</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">4.7</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">1.4</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cacd188c"><p class="cl-cacd0586"><span class="cl-caca3432">5.8</span></p></td>
-<td class="cl-cacd188c"><p class="cl-cacd0586"><span class="cl-caca3432">2.7</span></p></td>
-<td class="cl-cacd188c"><p class="cl-cacd0586"><span class="cl-caca3432">5.1</span></p></td>
-<td class="cl-cacd188c"><p class="cl-cacd0586"><span class="cl-caca3432">1.9</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">6.4</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">3.2</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">4.5</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">1.5</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;"><td colspan="4" class="cl-9618273a"><p class="cl-9617fc7e"><span class="cl-96135c50">virginica</span></p></td></tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">6.3</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">3.3</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">6.0</span></p></td>
+<td class="cl-9618273b"><p class="cl-9617fc60"><span class="cl-96135c50">2.5</span></p></td>
+</tr>
+<tr style="overflow-wrap:break-word;">
+<td class="cl-96182744"><p class="cl-9617fc60"><span class="cl-96135c50">5.8</span></p></td>
+<td class="cl-96182744"><p class="cl-9617fc60"><span class="cl-96135c50">2.7</span></p></td>
+<td class="cl-96182744"><p class="cl-9617fc60"><span class="cl-96135c50">5.1</span></p></td>
+<td class="cl-96182744"><p class="cl-9617fc60"><span class="cl-96135c50">1.9</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="e3a1adc8-ac7a-4fed-8970-f0935571c208"></div>
-<script>
-var dest = document.getElementById("e3a1adc8-ac7a-4fed-8970-f0935571c208");
-var template = document.getElementById("260f7bb1-67da-427f-a063-eef0de22d23b");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
+</div>
 </div>
 <div class="section level3">
 <h3 id="multiple-grouping-columns">Multiple grouping columns<a class="anchor" aria-label="anchor" href="#multiple-grouping-columns"></a>
 </h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grouped_mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<template id="875c6f10-c9a1-45a5-87ca-89b6e4ae9d54"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style>
 <div class="tabwid">
-<style>.cl-caea31f6{}.cl-cae4f9b6{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cae6f05e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cae6f072{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cae70238{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cae70242{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cae7024c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cae7024d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cae7024e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cae7024f{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-caea31f6">
+<style>.cl-964b7504{}.cl-9642669e{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-964638aa{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-964638be{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-96464e30{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96464e3a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96464e3b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96464e44{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96464e4e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96464e4f{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="table cl-964b7504">
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-cae70238"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">model</span></p></th>
-<th class="cl-cae70242"><p class="cl-cae6f072"><span class="cl-cae4f9b6">mpg</span></p></th>
-<th class="cl-cae70242"><p class="cl-cae6f072"><span class="cl-cae4f9b6">disp</span></p></th>
+<th class="cl-96464e30"><p class="cl-964638aa"><span class="cl-9642669e">model</span></p></th>
+<th class="cl-96464e3a"><p class="cl-964638be"><span class="cl-9642669e">mpg</span></p></th>
+<th class="cl-96464e3a"><p class="cl-964638be"><span class="cl-9642669e">disp</span></p></th>
 </tr></thead>
 <tbody>
-<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">am</span><span class="cl-cae4f9b6">: </span><span class="cl-cae4f9b6">1.0</span></p></td></tr>
-<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">cyl</span><span class="cl-cae4f9b6">: </span><span class="cl-cae4f9b6">6.0</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">am</span><span class="cl-9642669e">: </span><span class="cl-9642669e">1.0</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">cyl</span><span class="cl-9642669e">: </span><span class="cl-9642669e">6.0</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">Mazda RX4</span></p></td>
-<td class="cl-cae7024d"><p class="cl-cae6f072"><span class="cl-cae4f9b6">21.0</span></p></td>
-<td class="cl-cae7024d"><p class="cl-cae6f072"><span class="cl-cae4f9b6">160</span></p></td>
+<td class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">Mazda RX4</span></p></td>
+<td class="cl-96464e44"><p class="cl-964638be"><span class="cl-9642669e">21.0</span></p></td>
+<td class="cl-96464e44"><p class="cl-964638be"><span class="cl-9642669e">160</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">Mazda RX4 Wag</span></p></td>
-<td class="cl-cae7024d"><p class="cl-cae6f072"><span class="cl-cae4f9b6">21.0</span></p></td>
-<td class="cl-cae7024d"><p class="cl-cae6f072"><span class="cl-cae4f9b6">160</span></p></td>
+<td class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">Mazda RX4 Wag</span></p></td>
+<td class="cl-96464e44"><p class="cl-964638be"><span class="cl-9642669e">21.0</span></p></td>
+<td class="cl-96464e44"><p class="cl-964638be"><span class="cl-9642669e">160</span></p></td>
 </tr>
-<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">am</span><span class="cl-cae4f9b6">: </span><span class="cl-cae4f9b6">1.0</span></p></td></tr>
-<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">cyl</span><span class="cl-cae4f9b6">: </span><span class="cl-cae4f9b6">4.0</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">am</span><span class="cl-9642669e">: </span><span class="cl-9642669e">1.0</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">cyl</span><span class="cl-9642669e">: </span><span class="cl-9642669e">4.0</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">Datsun 710</span></p></td>
-<td class="cl-cae7024d"><p class="cl-cae6f072"><span class="cl-cae4f9b6">22.8</span></p></td>
-<td class="cl-cae7024d"><p class="cl-cae6f072"><span class="cl-cae4f9b6">108</span></p></td>
+<td class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">Datsun 710</span></p></td>
+<td class="cl-96464e44"><p class="cl-964638be"><span class="cl-9642669e">22.8</span></p></td>
+<td class="cl-96464e44"><p class="cl-964638be"><span class="cl-9642669e">108</span></p></td>
 </tr>
-<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">am</span><span class="cl-cae4f9b6">: </span><span class="cl-cae4f9b6">0.0</span></p></td></tr>
-<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">cyl</span><span class="cl-cae4f9b6">: </span><span class="cl-cae4f9b6">6.0</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">am</span><span class="cl-9642669e">: </span><span class="cl-9642669e">0.0</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">cyl</span><span class="cl-9642669e">: </span><span class="cl-9642669e">6.0</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">Hornet 4 Drive</span></p></td>
-<td class="cl-cae7024d"><p class="cl-cae6f072"><span class="cl-cae4f9b6">21.4</span></p></td>
-<td class="cl-cae7024d"><p class="cl-cae6f072"><span class="cl-cae4f9b6">258</span></p></td>
+<td class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">Hornet 4 Drive</span></p></td>
+<td class="cl-96464e44"><p class="cl-964638be"><span class="cl-9642669e">21.4</span></p></td>
+<td class="cl-96464e44"><p class="cl-964638be"><span class="cl-9642669e">258</span></p></td>
 </tr>
-<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">am</span><span class="cl-cae4f9b6">: </span><span class="cl-cae4f9b6">0.0</span></p></td></tr>
-<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">cyl</span><span class="cl-cae4f9b6">: </span><span class="cl-cae4f9b6">8.0</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">am</span><span class="cl-9642669e">: </span><span class="cl-9642669e">0.0</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">cyl</span><span class="cl-9642669e">: </span><span class="cl-9642669e">8.0</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">Hornet Sportabout</span></p></td>
-<td class="cl-cae7024d"><p class="cl-cae6f072"><span class="cl-cae4f9b6">18.7</span></p></td>
-<td class="cl-cae7024d"><p class="cl-cae6f072"><span class="cl-cae4f9b6">360</span></p></td>
+<td class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">Hornet Sportabout</span></p></td>
+<td class="cl-96464e44"><p class="cl-964638be"><span class="cl-9642669e">18.7</span></p></td>
+<td class="cl-96464e44"><p class="cl-964638be"><span class="cl-9642669e">360</span></p></td>
 </tr>
-<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">am</span><span class="cl-cae4f9b6">: </span><span class="cl-cae4f9b6">0.0</span></p></td></tr>
-<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-cae7024c"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">cyl</span><span class="cl-cae4f9b6">: </span><span class="cl-cae4f9b6">6.0</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">am</span><span class="cl-9642669e">: </span><span class="cl-9642669e">0.0</span></p></td></tr>
+<tr style="overflow-wrap:break-word;"><td colspan="3" class="cl-96464e3b"><p class="cl-964638aa"><span class="cl-9642669e">cyl</span><span class="cl-9642669e">: </span><span class="cl-9642669e">6.0</span></p></td></tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cae7024e"><p class="cl-cae6f05e"><span class="cl-cae4f9b6">Valiant</span></p></td>
-<td class="cl-cae7024f"><p class="cl-cae6f072"><span class="cl-cae4f9b6">18.1</span></p></td>
-<td class="cl-cae7024f"><p class="cl-cae6f072"><span class="cl-cae4f9b6">225</span></p></td>
+<td class="cl-96464e4e"><p class="cl-964638aa"><span class="cl-9642669e">Valiant</span></p></td>
+<td class="cl-96464e4f"><p class="cl-964638be"><span class="cl-9642669e">18.1</span></p></td>
+<td class="cl-96464e4f"><p class="cl-964638be"><span class="cl-9642669e">225</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="58a5a130-db5b-4453-ad9b-e4a38b448bf2"></div>
-<script>
-var dest = document.getElementById("58a5a130-db5b-4453-ad9b-e4a38b448bf2");
-var template = document.getElementById("875c6f10-c9a1-45a5-87ca-89b6e4ae9d54");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
+</div>
 </div>
 </div>
 <div class="section level2">
@@ -434,105 +297,59 @@ booktab theme is not intuitive.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grouped_iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span>groups_to <span class="op">=</span> <span class="st">"merged"</span><span class="op">)</span></span></code></pre></div>
-<template id="438373f4-8b47-4aca-8339-b0814a2dec32"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style>
 <div class="tabwid">
-<style>.cl-caff428a{}.cl-cafa1a1c{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cafa1a26{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cafc2d98{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cafc2da2{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cafc39c8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cafc39d2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cafc39d3{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cafc39dc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cafc39dd{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cafc39de{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cafc39df{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cafc39e6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-caff428a">
+<style>.cl-9673761c{}.cl-9669f1d2{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9669f1e6{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-966dd22a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-966dd23e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-966de7d8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-966de7ec{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-966de7ed{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-966de7f6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-966de7f7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-966de800{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-966de801{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-966de80a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="table cl-9673761c">
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-cafc39c8"><p class="cl-cafc2d98"><span class="cl-cafa1a1c">Species</span></p></th>
-<th class="cl-cafc39d2"><p class="cl-cafc2da2"><span class="cl-cafa1a1c">Sepal.Length</span></p></th>
-<th class="cl-cafc39d2"><p class="cl-cafc2da2"><span class="cl-cafa1a1c">Sepal.Width</span></p></th>
-<th class="cl-cafc39d2"><p class="cl-cafc2da2"><span class="cl-cafa1a1c">Petal.Length</span></p></th>
-<th class="cl-cafc39d2"><p class="cl-cafc2da2"><span class="cl-cafa1a1c">Petal.Width</span></p></th>
+<th class="cl-966de7d8"><p class="cl-966dd22a"><span class="cl-9669f1d2">Species</span></p></th>
+<th class="cl-966de7ec"><p class="cl-966dd23e"><span class="cl-9669f1d2">Sepal.Length</span></p></th>
+<th class="cl-966de7ec"><p class="cl-966dd23e"><span class="cl-9669f1d2">Sepal.Width</span></p></th>
+<th class="cl-966de7ec"><p class="cl-966dd23e"><span class="cl-9669f1d2">Petal.Length</span></p></th>
+<th class="cl-966de7ec"><p class="cl-966dd23e"><span class="cl-9669f1d2">Petal.Width</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-cafc39d3"><p class="cl-cafc2d98"><span class="cl-cafa1a26">setosa</span></p></td>
-<td class="cl-cafc39dc"><p class="cl-cafc2da2"><span class="cl-cafa1a26">5.1</span></p></td>
-<td class="cl-cafc39dc"><p class="cl-cafc2da2"><span class="cl-cafa1a26">3.5</span></p></td>
-<td class="cl-cafc39dc"><p class="cl-cafc2da2"><span class="cl-cafa1a26">1.4</span></p></td>
-<td class="cl-cafc39dc"><p class="cl-cafc2da2"><span class="cl-cafa1a26">0.2</span></p></td>
+<td rowspan="2" class="cl-966de7ed"><p class="cl-966dd22a"><span class="cl-9669f1e6">setosa</span></p></td>
+<td class="cl-966de7f6"><p class="cl-966dd23e"><span class="cl-9669f1e6">5.1</span></p></td>
+<td class="cl-966de7f6"><p class="cl-966dd23e"><span class="cl-9669f1e6">3.5</span></p></td>
+<td class="cl-966de7f6"><p class="cl-966dd23e"><span class="cl-9669f1e6">1.4</span></p></td>
+<td class="cl-966de7f6"><p class="cl-966dd23e"><span class="cl-9669f1e6">0.2</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">4.9</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">3.0</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">1.4</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">0.2</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">4.9</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">3.0</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">1.4</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">0.2</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-cafc39dd"><p class="cl-cafc2d98"><span class="cl-cafa1a26">versicolor</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">7.0</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">3.2</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">4.7</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">1.4</span></p></td>
+<td rowspan="2" class="cl-966de7f7"><p class="cl-966dd22a"><span class="cl-9669f1e6">versicolor</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">7.0</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">3.2</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">4.7</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">1.4</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">6.4</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">3.2</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">4.5</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">1.5</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">6.4</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">3.2</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">4.5</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">1.5</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-cafc39df"><p class="cl-cafc2d98"><span class="cl-cafa1a26">virginica</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">6.3</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">3.3</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">6.0</span></p></td>
-<td class="cl-cafc39de"><p class="cl-cafc2da2"><span class="cl-cafa1a26">2.5</span></p></td>
+<td rowspan="2" class="cl-966de801"><p class="cl-966dd22a"><span class="cl-9669f1e6">virginica</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">6.3</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">3.3</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">6.0</span></p></td>
+<td class="cl-966de800"><p class="cl-966dd23e"><span class="cl-9669f1e6">2.5</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cafc39e6"><p class="cl-cafc2da2"><span class="cl-cafa1a26">5.8</span></p></td>
-<td class="cl-cafc39e6"><p class="cl-cafc2da2"><span class="cl-cafa1a26">2.7</span></p></td>
-<td class="cl-cafc39e6"><p class="cl-cafc2da2"><span class="cl-cafa1a26">5.1</span></p></td>
-<td class="cl-cafc39e6"><p class="cl-cafc2da2"><span class="cl-cafa1a26">1.9</span></p></td>
+<td class="cl-966de80a"><p class="cl-966dd23e"><span class="cl-9669f1e6">5.8</span></p></td>
+<td class="cl-966de80a"><p class="cl-966dd23e"><span class="cl-9669f1e6">2.7</span></p></td>
+<td class="cl-966de80a"><p class="cl-966dd23e"><span class="cl-9669f1e6">5.1</span></p></td>
+<td class="cl-966de80a"><p class="cl-966dd23e"><span class="cl-9669f1e6">1.9</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="c3fa467a-9745-4bde-b7a9-7c3fa27ecf93"></div>
-<script>
-var dest = document.getElementById("c3fa467a-9745-4bde-b7a9-7c3fa27ecf93");
-var template = document.getElementById("438373f4-8b47-4aca-8339-b0814a2dec32");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
+</div>
 </div>
 <div class="section level3">
 <h3 id="multiple-grouping-variables">Multiple grouping variables<a class="anchor" aria-label="anchor" href="#multiple-grouping-variables"></a>
@@ -540,201 +357,110 @@ fantome.appendChild(templateContent);
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grouped_mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span>groups_to <span class="op">=</span> <span class="st">"merged"</span>, groups_arrange <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<template id="837ea423-f698-44cb-a6d8-ddd077726d7d"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style>
 <div class="tabwid">
-<style>.cl-cb14afd0{}.cl-cb0f8078{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cb0f808c{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cb1192aa{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cb1192b4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cb11a3a8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb11a3a9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb11a3b2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb11a3b3{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb11a3bc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb11a3bd{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb11a3be{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb11a3c6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-cb14afd0">
+<style>.cl-969b6cee{}.cl-96921fe0{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-96921ff4{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-9695eb02{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-9695eb16{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-96960222{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9696022c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9696022d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96960236{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96960237{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96960240{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96960241{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9696024a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="table cl-969b6cee">
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-cb11a3a8"><p class="cl-cb1192aa"><span class="cl-cb0f8078">am</span></p></th>
-<th class="cl-cb11a3a8"><p class="cl-cb1192aa"><span class="cl-cb0f8078">cyl</span></p></th>
-<th class="cl-cb11a3a9"><p class="cl-cb1192b4"><span class="cl-cb0f8078">model</span></p></th>
-<th class="cl-cb11a3a8"><p class="cl-cb1192aa"><span class="cl-cb0f8078">mpg</span></p></th>
-<th class="cl-cb11a3a8"><p class="cl-cb1192aa"><span class="cl-cb0f8078">disp</span></p></th>
+<th class="cl-96960222"><p class="cl-9695eb02"><span class="cl-96921fe0">am</span></p></th>
+<th class="cl-96960222"><p class="cl-9695eb02"><span class="cl-96921fe0">cyl</span></p></th>
+<th class="cl-9696022c"><p class="cl-9695eb16"><span class="cl-96921fe0">model</span></p></th>
+<th class="cl-96960222"><p class="cl-9695eb02"><span class="cl-96921fe0">mpg</span></p></th>
+<th class="cl-96960222"><p class="cl-9695eb02"><span class="cl-96921fe0">disp</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="3" class="cl-cb11a3b2"><p class="cl-cb1192aa"><span class="cl-cb0f808c">0</span></p></td>
-<td rowspan="2" class="cl-cb11a3b2"><p class="cl-cb1192aa"><span class="cl-cb0f808c">6</span></p></td>
-<td class="cl-cb11a3b3"><p class="cl-cb1192b4"><span class="cl-cb0f808c">Hornet 4 Drive</span></p></td>
-<td class="cl-cb11a3b2"><p class="cl-cb1192aa"><span class="cl-cb0f808c">21.4</span></p></td>
-<td class="cl-cb11a3b2"><p class="cl-cb1192aa"><span class="cl-cb0f808c">258</span></p></td>
+<td rowspan="3" class="cl-9696022d"><p class="cl-9695eb02"><span class="cl-96921ff4">0</span></p></td>
+<td rowspan="2" class="cl-9696022d"><p class="cl-9695eb02"><span class="cl-96921ff4">6</span></p></td>
+<td class="cl-96960236"><p class="cl-9695eb16"><span class="cl-96921ff4">Hornet 4 Drive</span></p></td>
+<td class="cl-9696022d"><p class="cl-9695eb02"><span class="cl-96921ff4">21.4</span></p></td>
+<td class="cl-9696022d"><p class="cl-9695eb02"><span class="cl-96921ff4">258</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb11a3bd"><p class="cl-cb1192b4"><span class="cl-cb0f808c">Valiant</span></p></td>
-<td class="cl-cb11a3bc"><p class="cl-cb1192aa"><span class="cl-cb0f808c">18.1</span></p></td>
-<td class="cl-cb11a3bc"><p class="cl-cb1192aa"><span class="cl-cb0f808c">225</span></p></td>
+<td class="cl-96960240"><p class="cl-9695eb16"><span class="cl-96921ff4">Valiant</span></p></td>
+<td class="cl-96960237"><p class="cl-9695eb02"><span class="cl-96921ff4">18.1</span></p></td>
+<td class="cl-96960237"><p class="cl-9695eb02"><span class="cl-96921ff4">225</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb11a3bc"><p class="cl-cb1192aa"><span class="cl-cb0f808c">8</span></p></td>
-<td class="cl-cb11a3bd"><p class="cl-cb1192b4"><span class="cl-cb0f808c">Hornet Sportabout</span></p></td>
-<td class="cl-cb11a3bc"><p class="cl-cb1192aa"><span class="cl-cb0f808c">18.7</span></p></td>
-<td class="cl-cb11a3bc"><p class="cl-cb1192aa"><span class="cl-cb0f808c">360</span></p></td>
+<td class="cl-96960237"><p class="cl-9695eb02"><span class="cl-96921ff4">8</span></p></td>
+<td class="cl-96960240"><p class="cl-9695eb16"><span class="cl-96921ff4">Hornet Sportabout</span></p></td>
+<td class="cl-96960237"><p class="cl-9695eb02"><span class="cl-96921ff4">18.7</span></p></td>
+<td class="cl-96960237"><p class="cl-9695eb02"><span class="cl-96921ff4">360</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="3" class="cl-cb11a3be"><p class="cl-cb1192aa"><span class="cl-cb0f808c">1</span></p></td>
-<td class="cl-cb11a3bc"><p class="cl-cb1192aa"><span class="cl-cb0f808c">4</span></p></td>
-<td class="cl-cb11a3bd"><p class="cl-cb1192b4"><span class="cl-cb0f808c">Datsun 710</span></p></td>
-<td class="cl-cb11a3bc"><p class="cl-cb1192aa"><span class="cl-cb0f808c">22.8</span></p></td>
-<td class="cl-cb11a3bc"><p class="cl-cb1192aa"><span class="cl-cb0f808c">108</span></p></td>
+<td rowspan="3" class="cl-96960241"><p class="cl-9695eb02"><span class="cl-96921ff4">1</span></p></td>
+<td class="cl-96960237"><p class="cl-9695eb02"><span class="cl-96921ff4">4</span></p></td>
+<td class="cl-96960240"><p class="cl-9695eb16"><span class="cl-96921ff4">Datsun 710</span></p></td>
+<td class="cl-96960237"><p class="cl-9695eb02"><span class="cl-96921ff4">22.8</span></p></td>
+<td class="cl-96960237"><p class="cl-9695eb02"><span class="cl-96921ff4">108</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="2" class="cl-cb11a3be"><p class="cl-cb1192aa"><span class="cl-cb0f808c">6</span></p></td>
-<td class="cl-cb11a3bd"><p class="cl-cb1192b4"><span class="cl-cb0f808c">Mazda RX4</span></p></td>
-<td class="cl-cb11a3bc"><p class="cl-cb1192aa"><span class="cl-cb0f808c">21.0</span></p></td>
-<td class="cl-cb11a3bc"><p class="cl-cb1192aa"><span class="cl-cb0f808c">160</span></p></td>
+<td rowspan="2" class="cl-96960241"><p class="cl-9695eb02"><span class="cl-96921ff4">6</span></p></td>
+<td class="cl-96960240"><p class="cl-9695eb16"><span class="cl-96921ff4">Mazda RX4</span></p></td>
+<td class="cl-96960237"><p class="cl-9695eb02"><span class="cl-96921ff4">21.0</span></p></td>
+<td class="cl-96960237"><p class="cl-9695eb02"><span class="cl-96921ff4">160</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb11a3c6"><p class="cl-cb1192b4"><span class="cl-cb0f808c">Mazda RX4 Wag</span></p></td>
-<td class="cl-cb11a3be"><p class="cl-cb1192aa"><span class="cl-cb0f808c">21.0</span></p></td>
-<td class="cl-cb11a3be"><p class="cl-cb1192aa"><span class="cl-cb0f808c">160</span></p></td>
+<td class="cl-9696024a"><p class="cl-9695eb16"><span class="cl-96921ff4">Mazda RX4 Wag</span></p></td>
+<td class="cl-96960241"><p class="cl-9695eb02"><span class="cl-96921ff4">21.0</span></p></td>
+<td class="cl-96960241"><p class="cl-9695eb02"><span class="cl-96921ff4">160</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="a37c4752-aa98-4507-829e-2f8021ac2e15"></div>
-<script>
-var dest = document.getElementById("a37c4752-aa98-4507-829e-2f8021ac2e15");
-var template = document.getElementById("837ea423-f698-44cb-a6d8-ddd077726d7d");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+</div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grouped_mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span>groups_to <span class="op">=</span> <span class="st">"merged"</span>, groups_arrange <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<template id="58ded033-1749-446f-b2fc-f21f0923dc74"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style>
 <div class="tabwid">
-<style>.cl-cb29a7fa{}.cl-cb2445f8{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cb24460c{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cb2635fc{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cb263610{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cb264312{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb26431c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb26431d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb26431e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb264326{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb264327{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb264328{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb264330{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-cb29a7fa">
+<style>.cl-96c1cc04{}.cl-96b8dd42{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-96b8dd60{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-96bc3b04{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-96bc3b18{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-96bc50d0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96bc50da{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96bc50e4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96bc50e5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96bc50ee{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96bc50f8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96bc50f9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96bc50fa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="table cl-96c1cc04">
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-cb264312"><p class="cl-cb2635fc"><span class="cl-cb2445f8">am</span></p></th>
-<th class="cl-cb264312"><p class="cl-cb2635fc"><span class="cl-cb2445f8">cyl</span></p></th>
-<th class="cl-cb26431c"><p class="cl-cb263610"><span class="cl-cb2445f8">model</span></p></th>
-<th class="cl-cb264312"><p class="cl-cb2635fc"><span class="cl-cb2445f8">mpg</span></p></th>
-<th class="cl-cb264312"><p class="cl-cb2635fc"><span class="cl-cb2445f8">disp</span></p></th>
+<th class="cl-96bc50d0"><p class="cl-96bc3b04"><span class="cl-96b8dd42">am</span></p></th>
+<th class="cl-96bc50d0"><p class="cl-96bc3b04"><span class="cl-96b8dd42">cyl</span></p></th>
+<th class="cl-96bc50da"><p class="cl-96bc3b18"><span class="cl-96b8dd42">model</span></p></th>
+<th class="cl-96bc50d0"><p class="cl-96bc3b04"><span class="cl-96b8dd42">mpg</span></p></th>
+<th class="cl-96bc50d0"><p class="cl-96bc3b04"><span class="cl-96b8dd42">disp</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="3" class="cl-cb26431d"><p class="cl-cb2635fc"><span class="cl-cb24460c">1</span></p></td>
-<td rowspan="2" class="cl-cb26431d"><p class="cl-cb2635fc"><span class="cl-cb24460c">6</span></p></td>
-<td class="cl-cb26431e"><p class="cl-cb263610"><span class="cl-cb24460c">Mazda RX4</span></p></td>
-<td class="cl-cb26431d"><p class="cl-cb2635fc"><span class="cl-cb24460c">21.0</span></p></td>
-<td class="cl-cb26431d"><p class="cl-cb2635fc"><span class="cl-cb24460c">160</span></p></td>
+<td rowspan="3" class="cl-96bc50e4"><p class="cl-96bc3b04"><span class="cl-96b8dd60">1</span></p></td>
+<td rowspan="2" class="cl-96bc50e4"><p class="cl-96bc3b04"><span class="cl-96b8dd60">6</span></p></td>
+<td class="cl-96bc50e5"><p class="cl-96bc3b18"><span class="cl-96b8dd60">Mazda RX4</span></p></td>
+<td class="cl-96bc50e4"><p class="cl-96bc3b04"><span class="cl-96b8dd60">21.0</span></p></td>
+<td class="cl-96bc50e4"><p class="cl-96bc3b04"><span class="cl-96b8dd60">160</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb264327"><p class="cl-cb263610"><span class="cl-cb24460c">Mazda RX4 Wag</span></p></td>
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">21.0</span></p></td>
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">160</span></p></td>
+<td class="cl-96bc50f8"><p class="cl-96bc3b18"><span class="cl-96b8dd60">Mazda RX4 Wag</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">21.0</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">160</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">4</span></p></td>
-<td class="cl-cb264327"><p class="cl-cb263610"><span class="cl-cb24460c">Datsun 710</span></p></td>
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">22.8</span></p></td>
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">108</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">4</span></p></td>
+<td class="cl-96bc50f8"><p class="cl-96bc3b18"><span class="cl-96b8dd60">Datsun 710</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">22.8</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">108</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td rowspan="3" class="cl-cb264328"><p class="cl-cb2635fc"><span class="cl-cb24460c">0</span></p></td>
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">6</span></p></td>
-<td class="cl-cb264327"><p class="cl-cb263610"><span class="cl-cb24460c">Hornet 4 Drive</span></p></td>
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">21.4</span></p></td>
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">258</span></p></td>
+<td rowspan="3" class="cl-96bc50f9"><p class="cl-96bc3b04"><span class="cl-96b8dd60">0</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">6</span></p></td>
+<td class="cl-96bc50f8"><p class="cl-96bc3b18"><span class="cl-96b8dd60">Hornet 4 Drive</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">21.4</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">258</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">8</span></p></td>
-<td class="cl-cb264327"><p class="cl-cb263610"><span class="cl-cb24460c">Hornet Sportabout</span></p></td>
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">18.7</span></p></td>
-<td class="cl-cb264326"><p class="cl-cb2635fc"><span class="cl-cb24460c">360</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">8</span></p></td>
+<td class="cl-96bc50f8"><p class="cl-96bc3b18"><span class="cl-96b8dd60">Hornet Sportabout</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">18.7</span></p></td>
+<td class="cl-96bc50ee"><p class="cl-96bc3b04"><span class="cl-96b8dd60">360</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb264328"><p class="cl-cb2635fc"><span class="cl-cb24460c">6</span></p></td>
-<td class="cl-cb264330"><p class="cl-cb263610"><span class="cl-cb24460c">Valiant</span></p></td>
-<td class="cl-cb264328"><p class="cl-cb2635fc"><span class="cl-cb24460c">18.1</span></p></td>
-<td class="cl-cb264328"><p class="cl-cb2635fc"><span class="cl-cb24460c">225</span></p></td>
+<td class="cl-96bc50f9"><p class="cl-96bc3b04"><span class="cl-96b8dd60">6</span></p></td>
+<td class="cl-96bc50fa"><p class="cl-96bc3b18"><span class="cl-96b8dd60">Valiant</span></p></td>
+<td class="cl-96bc50f9"><p class="cl-96bc3b04"><span class="cl-96b8dd60">18.1</span></p></td>
+<td class="cl-96bc50f9"><p class="cl-96bc3b04"><span class="cl-96b8dd60">225</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="82f0dcbf-fa54-4930-b5cb-3b64ef4a7f6a"></div>
-<script>
-var dest = document.getElementById("82f0dcbf-fa54-4930-b5cb-3b64ef4a7f6a");
-var template = document.getElementById("58ded033-1749-446f-b2fc-f21f0923dc74");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
+</div>
 </div>
 <div class="section level3">
 <h3 id="position-of-grouping-variables">Position of grouping variables<a class="anchor" aria-label="anchor" href="#position-of-grouping-variables"></a>
@@ -745,103 +471,57 @@ their positions, specify <code>group_pos = 'asis'</code>.</p>
 <code class="sourceCode R"><span><span class="va">grouped_mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://davidgohel.github.io/flextable/reference/as_flextable.html" class="external-link">as_flextable</a></span><span class="op">(</span>groups_to <span class="op">=</span> <span class="st">"merged"</span>, groups_pos <span class="op">=</span> <span class="st">"asis"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">flextable</span><span class="fu">::</span><span class="fu"><a href="https://davidgohel.github.io/flextable/reference/theme_vanilla.html" class="external-link">theme_vanilla</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<template id="70164816-06f7-494b-929e-99d4dfac5052"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style>
 <div class="tabwid">
-<style>.cl-cb3f1f86{}.cl-cb39d7e2{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cb39d7ec{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cb3bca84{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cb3bca8e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cb3c4f54{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb3c4f5e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb3c4f68{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb3c4f69{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb3c4f72{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb3c4f73{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb3c4f74{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cb3c4f7c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table class="table cl-cb3f1f86">
+<style>.cl-96e9229a{}.cl-96ded0ce{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-96ded0d8{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-96e41bba{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-96e41bce{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-96e43424{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96e4342e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96e43438{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96e43439{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96e43442{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96e4344c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96e4344d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-96e43456{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="table cl-96e9229a">
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-cb3c4f54"><p class="cl-cb3bca84"><span class="cl-cb39d7e2">model</span></p></th>
-<th class="cl-cb3c4f5e"><p class="cl-cb3bca8e"><span class="cl-cb39d7e2">cyl</span></p></th>
-<th class="cl-cb3c4f5e"><p class="cl-cb3bca8e"><span class="cl-cb39d7e2">mpg</span></p></th>
-<th class="cl-cb3c4f5e"><p class="cl-cb3bca8e"><span class="cl-cb39d7e2">disp</span></p></th>
-<th class="cl-cb3c4f5e"><p class="cl-cb3bca8e"><span class="cl-cb39d7e2">am</span></p></th>
+<th class="cl-96e43424"><p class="cl-96e41bba"><span class="cl-96ded0ce">model</span></p></th>
+<th class="cl-96e4342e"><p class="cl-96e41bce"><span class="cl-96ded0ce">cyl</span></p></th>
+<th class="cl-96e4342e"><p class="cl-96e41bce"><span class="cl-96ded0ce">mpg</span></p></th>
+<th class="cl-96e4342e"><p class="cl-96e41bce"><span class="cl-96ded0ce">disp</span></p></th>
+<th class="cl-96e4342e"><p class="cl-96e41bce"><span class="cl-96ded0ce">am</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb3c4f68"><p class="cl-cb3bca84"><span class="cl-cb39d7ec">Mazda RX4</span></p></td>
-<td rowspan="2" class="cl-cb3c4f69"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">6</span></p></td>
-<td class="cl-cb3c4f69"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">21.0</span></p></td>
-<td class="cl-cb3c4f69"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">160</span></p></td>
-<td rowspan="3" class="cl-cb3c4f69"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">1</span></p></td>
+<td class="cl-96e43438"><p class="cl-96e41bba"><span class="cl-96ded0d8">Mazda RX4</span></p></td>
+<td rowspan="2" class="cl-96e43439"><p class="cl-96e41bce"><span class="cl-96ded0d8">6</span></p></td>
+<td class="cl-96e43439"><p class="cl-96e41bce"><span class="cl-96ded0d8">21.0</span></p></td>
+<td class="cl-96e43439"><p class="cl-96e41bce"><span class="cl-96ded0d8">160</span></p></td>
+<td rowspan="3" class="cl-96e43439"><p class="cl-96e41bce"><span class="cl-96ded0d8">1</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb3c4f72"><p class="cl-cb3bca84"><span class="cl-cb39d7ec">Mazda RX4 Wag</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">21.0</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">160</span></p></td>
+<td class="cl-96e43442"><p class="cl-96e41bba"><span class="cl-96ded0d8">Mazda RX4 Wag</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">21.0</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">160</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb3c4f72"><p class="cl-cb3bca84"><span class="cl-cb39d7ec">Datsun 710</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">4</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">22.8</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">108</span></p></td>
+<td class="cl-96e43442"><p class="cl-96e41bba"><span class="cl-96ded0d8">Datsun 710</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">4</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">22.8</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">108</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb3c4f72"><p class="cl-cb3bca84"><span class="cl-cb39d7ec">Hornet 4 Drive</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">6</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">21.4</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">258</span></p></td>
-<td rowspan="3" class="cl-cb3c4f74"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">0</span></p></td>
+<td class="cl-96e43442"><p class="cl-96e41bba"><span class="cl-96ded0d8">Hornet 4 Drive</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">6</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">21.4</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">258</span></p></td>
+<td rowspan="3" class="cl-96e4344d"><p class="cl-96e41bce"><span class="cl-96ded0d8">0</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb3c4f72"><p class="cl-cb3bca84"><span class="cl-cb39d7ec">Hornet Sportabout</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">8</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">18.7</span></p></td>
-<td class="cl-cb3c4f73"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">360</span></p></td>
+<td class="cl-96e43442"><p class="cl-96e41bba"><span class="cl-96ded0d8">Hornet Sportabout</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">8</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">18.7</span></p></td>
+<td class="cl-96e4344c"><p class="cl-96e41bce"><span class="cl-96ded0d8">360</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-cb3c4f7c"><p class="cl-cb3bca84"><span class="cl-cb39d7ec">Valiant</span></p></td>
-<td class="cl-cb3c4f74"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">6</span></p></td>
-<td class="cl-cb3c4f74"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">18.1</span></p></td>
-<td class="cl-cb3c4f74"><p class="cl-cb3bca8e"><span class="cl-cb39d7ec">225</span></p></td>
+<td class="cl-96e43456"><p class="cl-96e41bba"><span class="cl-96ded0d8">Valiant</span></p></td>
+<td class="cl-96e4344d"><p class="cl-96e41bce"><span class="cl-96ded0d8">6</span></p></td>
+<td class="cl-96e4344d"><p class="cl-96e41bce"><span class="cl-96ded0d8">18.1</span></p></td>
+<td class="cl-96e4344d"><p class="cl-96e41bce"><span class="cl-96ded0d8">225</span></p></td>
 </tr>
 </tbody>
 </table>
-</div></template><div class="flextable-shadow-host" id="5f2b2e86-0fea-4234-a42a-cbb0300c4e55"></div>
-<script>
-var dest = document.getElementById("5f2b2e86-0fea-4234-a42a-cbb0300c4e55");
-var template = document.getElementById("70164816-06f7-494b-929e-99d4dfac5052");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
+</div>
 </div>
 </div>
   </div>

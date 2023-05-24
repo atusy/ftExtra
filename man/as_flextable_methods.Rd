@@ -4,7 +4,7 @@
 \alias{as_flextable_methods}
 \alias{as_flextable.grouped_df}
 \alias{as_flextable.data.frame}
-\title{method to convert object to flextable}
+\title{Method to transform objects into flextables}
 \usage{
 \method{as_flextable}{grouped_df}(
   x,
@@ -60,12 +60,18 @@ iris \%>\%
 }
 \seealso{
 Other as_flextable methods: 
+\code{\link[flextable]{as_flextable.data.frame}()},
 \code{\link[flextable]{as_flextable.gam}()},
 \code{\link[flextable]{as_flextable.glm}()},
 \code{\link[flextable]{as_flextable.grouped_data}()},
 \code{\link[flextable]{as_flextable.htest}()},
+\code{\link[flextable]{as_flextable.kmeans}()},
 \code{\link[flextable]{as_flextable.lm}()},
+\code{\link[flextable]{as_flextable.merMod}()},
+\code{\link[flextable]{as_flextable.pam}()},
 \code{\link[flextable]{as_flextable.summarizor}()},
+\code{\link[flextable]{as_flextable.table}()},
+\code{\link[flextable]{as_flextable.tabular}()},
 \code{\link[flextable]{as_flextable.tabulator}()},
 \code{\link[flextable]{as_flextable.xtable}()}
 }

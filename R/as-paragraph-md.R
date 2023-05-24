@@ -28,9 +28,7 @@ image_size <- function(x, y = "width") {
   as.numeric(pandoc_attrs(x, y))
 }
 
-organize <- function(md_df,
-                     auto_color_link = "blue",
-                     .footnote_options = NULL) {
+organize <- function(md_df, auto_color_link, .solve_footnote) {
   id <- pandoc_attrs(md_df$Div, "id")
   cells <- unname(split(
     dplyr::select(md_df, !"Div"),
@@ -38,8 +36,7 @@ organize <- function(md_df,
   ))
 
   lapply(cells, function(cell) {
-    y <- solve_footnote(cell, .footnote_options, auto_color_link)
-    construct_chunk(as.list(y), auto_color_link)
+    construct_chunk(as.list(.solve_footnote(cell)), auto_color_link)
   })
 }
 
@@ -124,6 +121,17 @@ as_paragraph_md <- function(
 
   divs <- supported_divs(.from)
 
+  .solve_footnote <- function(...) {
+    solve_footnote(
+      ...,
+      .footnote_options = .footnote_options,
+      auto_color_link = auto_color_link,
+      pandoc_args = pandoc_args,
+      metadata = metadata,
+      .from = .from
+    )
+  }
+
   paragraph <- if (length(divs) > 0L) {
       # a faster processing of x by reducing calls of pandoc.
       # here, x becomes a single document whose divs represent cells.
@@ -134,14 +142,14 @@ as_paragraph_md <- function(
         md2df(pandoc_args = pandoc_args,
               metadata = metadata,
               .from = .from)
-      organize(md_df, auto_color_link, .footnote_options)
+      organize(md_df, auto_color_link, .solve_footnote)
     } else {
       # a slower processing of x by calling pandoc for each cells.
       lapply(x, function(x) {
         if (x == "") return(construct_chunk(list()))
         y <- x %>%
           md2df(pandoc_args = pandoc_args, .from = .from) %>%
-          solve_footnote(.footnote_options, auto_color_link) %>%
+          .solve_footnote() %>%
           as.list()
         construct_chunk(as.list(y), auto_color_link)
       })
