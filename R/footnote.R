@@ -30,10 +30,10 @@
 #' # Render all footnotes in the same format.
 #' if (rmarkdown::pandoc_available()) {
 #'   ft %>%
-#'   colformat_md(
-#'     part = "all",
-#'     .footnote_options = footnote_options("1", start = 1L)
-#'   )
+#'     colformat_md(
+#'       part = "all",
+#'       .footnote_options = footnote_options("1", start = 1L)
+#'     )
 #' }
 #'
 #' # Use a user-defined function to format footnote symbols
@@ -154,9 +154,8 @@ add_footnotes <- function(x, .footnote_options) {
 }
 
 solve_footnote <- function(
-  md_df, .footnote_options, auto_color_link,
-  pandoc_args, metadata, .from
-) {
+    md_df, .footnote_options, auto_color_link,
+    pandoc_args, metadata, .from) {
   is_note <- md_df[["Note"]]
   if (is.null(.footnote_options) || !any(is_note)) {
     return(md_df)
