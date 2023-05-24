@@ -105,6 +105,8 @@ symbol_generators <- list(
   }
 )
 
+#' @noRd
+#' @return fun(n: integer, header: "body" | "header", footer: boolean): tibble[]
 generate_ref <- function(ref, n, prefix, suffix) {
   if (is.function(ref)) {
     #' @noRd
@@ -121,7 +123,7 @@ generate_ref <- function(ref, n, prefix, suffix) {
   }
   res <- lapply(
     paste0(prefix, symbol_generators[[ref]](n), suffix),
-    function(x) list(txt = x, Str = TRUE, Superscript = TRUE)
+    function(x) tibble::tibble(txt = x, Str = TRUE, Superscript = TRUE)
   )
   function(n, ...) res[n]
 }
