@@ -50,10 +50,10 @@ ft <- as_flextable(tibble::tibble(
 # Render all footnotes in the same format.
 if (rmarkdown::pandoc_available()) {
   ft \%>\%
-  colformat_md(
-    part = "all",
-    .footnote_options = footnote_options("1", start = 1L)
-  )
+    colformat_md(
+      part = "all",
+      .footnote_options = footnote_options("1", start = 1L)
+    )
 }
 
 # Use a user-defined function to format footnote symbols
