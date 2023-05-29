@@ -1,4 +1,4 @@
-# ftExtra 0.5.9999
+# ftExtra 0.6.0
 
 * Fix `footnote_options` not controlling reference symbols correctly. Formerly, only symbols in the cells used the `prefix` and the `suffix` arguments. Now, footnote texts also respects them (#88).
 
