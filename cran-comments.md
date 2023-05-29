@@ -1,7 +1,7 @@
 ## Test environments
 
 - Local
-  - Debian GNU/Linux 10 (buster), R 4.0
+  -x86_64-pc-linux-gnu (64-bit), R 4.3
 - GitHub Actions
   - {os: macOS-latest,   r: 'release'}
   - {os: windows-latest, r: 'release'}
