@@ -1,7 +1,7 @@
 Package: ftExtra
 Title: Extensions for 'Flextable'
 Version: 0.6.0
-Date: 2023-01-16
+Date: 2023-05-30
 Authors@R: 
   c(person(given = "Atsushi",
            family = "Yasumoto",
