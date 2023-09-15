@@ -80,7 +80,7 @@ transform_header <- function(
 #' @export
 split_header <- function(
   x,
-  sep = "[_\\.]",
+  sep = "[_.]",
   theme_fun = NULL,
   ...
 ) {
@@ -94,7 +94,7 @@ split_header <- function(
 #' @export
 separate_header <- function(
   x,
-  sep = "[_\\.]",
+  sep = "[_.]",
   theme_fun = NULL,
   ...
 ) {
@@ -123,7 +123,7 @@ separate_header <- function(
 #' @export
 span_header <- function(
   x,
-  sep = "[_\\.]",
+  sep = "[_.]",
   theme_fun = NULL,
   ...
 ) {
