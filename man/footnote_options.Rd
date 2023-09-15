@@ -42,7 +42,7 @@ Configure options for footnotes.
 }
 \examples{
 # A examole flextable with unprocessed markdown footnotes
-ft <- as_flextable(tibble::tibble(
+ft <- flextable(tibble::tibble(
   "header1^[note a]" = c("x^[note 1]", "y"),
   "header2" = c("a", "b^[note 2]")
 ))

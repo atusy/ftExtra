@@ -4,7 +4,7 @@
 \alias{span_header}
 \title{Span the header based on delimiters}
 \usage{
-span_header(x, sep = "[_\\\\.]", theme_fun = NULL, ...)
+span_header(x, sep = "[_.]", theme_fun = NULL, ...)
 }
 \arguments{
 \item{x}{A \code{flextable} object`}
@@ -29,8 +29,11 @@ When \code{NULL} (default), the value is resolved by
 \description{
 Span the header based on delimiters
 }
+\note{
+\code{split_header} is a rename of \code{separate_header} and the latter will be removed in the future release.
+}
 \examples{
 iris \%>\%
-  as_flextable() \%>\%
+  flextable() \%>\%
   span_header()
 }
