@@ -86,7 +86,7 @@ The **ftExtra** package provides easy solution by introducing markdown.
 As markdown texts self-explain their formats by plain texts, what users have to do is manipulations of character columns with their favorite tools such as the famous **dplyr** and **stringr** packages.
 
 1. Preprocess a data frame to decorate texts with markdown syntax.
-2. Convert the data frame into a flextable object with the `flextable` function or `as_flextable` function.
+2. Convert the data frame into a flextable object with the `flextable` function or `flextable` function.
 3. Format markdown columns with `colformat_md`
 
 The following example elegantly simplifies the prior example.
@@ -133,7 +133,7 @@ data.frame(
   ),
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md()
 ```
 
@@ -174,7 +174,7 @@ data.frame(
   description = "Extensions for 'Flextable'^[Supports of footnotes]",
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md() %>%
   flextable::autofit(add_w = 0.5)
 ```
@@ -188,7 +188,7 @@ data.frame(
   description = "Extensions for 'Flextable'^[Supports of footnotes]",
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md(
     .footnote_options = footnote_options(
       ref = "i",
@@ -214,7 +214,7 @@ data.frame(
 [^b]: bbb",
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md()
 ```
 
@@ -250,7 +250,7 @@ tibble::tibble(
   "header1^[note a]" = c("x^[note 1]", "y"),
   "header2" = c("a", "b^[note 2]")
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   # process header first
   colformat_md(
     part = "header", .footnote_options = footnote_options(ref = ref)
@@ -286,7 +286,7 @@ data.frame(
   R = sprintf("![](%s)", file.path(R.home("doc"), "html", "logo.jpg")),
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md() %>%
   flextable::autofit()
 ```
@@ -299,7 +299,7 @@ By default, soft line breaks becomes spaces.
 
 ```{r}
 data.frame(linebreak = c("a\nb"), stringsAsFactors = FALSE) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md()
 ```
 
@@ -307,7 +307,7 @@ Pandoc's markdown supports hard line breaks by adding a backslash or double spac
 
 ```{r}
 data.frame(linebreak = c("a\\\nb"), stringsAsFactors = FALSE) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md()
 ```
 
@@ -315,7 +315,7 @@ It is also possible to make `\n` as a hard line break by extending Pandoc's Mark
 
 ```{r}
 data.frame(linebreak = c("a\nb"), stringsAsFactors = FALSE) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md(md_extensions = "+hard_line_breaks")
 ```
 
@@ -325,7 +325,7 @@ To workaround, `colformat_md` collapses them to a single paragraph with a separa
 
 ```{r}
 data.frame(linebreak = c("a\n\nb"), stringsAsFactors = FALSE) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md(.sep = "\n\n")
 ```
 
@@ -357,7 +357,7 @@ data.frame(
   Cite = c("@R-ftExtra", "[@R-ftExtra]", "[-@R-ftExtra]"),
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md() %>%
   flextable::autofit(add_w = 0.2)
 ```
@@ -376,7 +376,7 @@ data.frame(
   Cite = c("@R-ftExtra", "[@R-ftExtra]", "[-@R-ftExtra]"),
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md(pandoc_args = c("--bibliography", tf)) %>%
   flextable::autofit(add_w = 0.2)
 ```
@@ -393,7 +393,7 @@ data.frame(
   math = "$e^{i\\theta} = \\cos \\theta + i \\sin \\theta$",
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md() %>%
   flextable::autofit(add_w = 0.2)
 ```
@@ -411,7 +411,7 @@ To use it with `colformat_md()`, specify `md_extensions="+emoji"`.
 
 ```{r}
 data.frame(emoji = c(":+1:"), stringsAsFactors = FALSE) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md(md_extensions = "+emoji")
 ```
 
@@ -425,7 +425,7 @@ data.frame(
   x = "H<sub>2</sub>O",
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md(.from = "html")
 ```
 
@@ -438,6 +438,6 @@ data.frame(
   x = "foo\n\nbar",
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md(.from = "commonmark")
 ```

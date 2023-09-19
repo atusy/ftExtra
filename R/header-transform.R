@@ -75,7 +75,7 @@ transform_header <- function(
 #'
 #' @examples
 #' iris %>%
-#'   as_flextable() %>%
+#'   flextable() %>%
 #'   separate_header()
 #' @export
 split_header <- function(
@@ -118,7 +118,7 @@ separate_header <- function(
 #'
 #' @examples
 #' iris %>%
-#'   as_flextable() %>%
+#'   flextable() %>%
 #'   span_header()
 #' @export
 span_header <- function(

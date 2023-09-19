@@ -24,7 +24,7 @@ library(ftExtra)
 # Prepare flextable
 
 ```{r}
-ft <- iris[1:2, ] %>% as_flextable
+ft <- iris[1:2, ] %>% flextable
 ft
 ```
 
