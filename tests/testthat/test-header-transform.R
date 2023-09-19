@@ -28,9 +28,9 @@ test_that("merge_header", {
   expect_identical(merge_header(ft, FALSE), ft)
 })
 
-test_that("separate-header", {
+test_that("split-header", {
   expect_identical(
-    d %>% flextable() %>% separate_header(),
+    d %>% flextable() %>% split_header(),
     ft %>% flextable::theme_booktabs() %>% flextable::fix_border_issues()
   )
 })

@@ -51,7 +51,7 @@ as_flextable.grouped_df <- function(
       x %>%
         dplyr::ungroup() %>%
         flextable::as_grouped_data(g) %>%
-        as_flextable(...)
+        flextable::as_flextable(...)
     )
   }
 
