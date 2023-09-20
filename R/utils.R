@@ -16,3 +16,7 @@ drop_na <- function(x) {
 last <- function(x) {
   x[[length(x)]]
 }
+
+.Deprecated <- function(...) {
+  if (!getOption("ftExtra.ignore.deprecation", FALSE)) base::.Deprecated(...)
+}

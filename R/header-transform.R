@@ -59,7 +59,10 @@ transform_header <- function(
     flextable::fix_border_issues()
 }
 
-#' Separate the header based on delimiters
+#' Split the header based on delimiters
+#'
+#' @note
+#' `split_header` is a rename of `separate_header` and the latter will be removed in the future release.
 #'
 #' @param x A `flextable` object`
 #' @inheritParams tidyr::separate
@@ -72,12 +75,12 @@ transform_header <- function(
 #'
 #' @examples
 #' iris %>%
-#'   as_flextable() %>%
+#'   flextable() %>%
 #'   separate_header()
 #' @export
-separate_header <- function(
+split_header <- function(
   x,
-  sep = "[_\\.]",
+  sep = "[_.]",
   theme_fun = NULL,
   ...
 ) {
@@ -86,6 +89,27 @@ separate_header <- function(
     sep = sep, theme_fun = theme_fun, .fill = FALSE, .merge = FALSE, ...
   )
 }
+
+#' @rdname split_header
+#' @export
+separate_header <- function(
+  x,
+  sep = "[_.]",
+  theme_fun = NULL,
+  ...
+) {
+  .Deprecated(
+    "split_header",
+    msg = paste(
+      "ftExtra::separate_header will be removed in the future release",
+      "to avoid masking `flextable::separate_header`.",
+      "Instead, use ftExtra::split_header which is a copy of",
+      "ftExtra::separate_header."
+    )
+  )
+  split_header(x, sep, theme_fun, ...)
+}
+
 #' Span the header based on delimiters
 #'
 #' @inherit separate_header
@@ -94,12 +118,12 @@ separate_header <- function(
 #'
 #' @examples
 #' iris %>%
-#'   as_flextable() %>%
+#'   flextable() %>%
 #'   span_header()
 #' @export
 span_header <- function(
   x,
-  sep = "[_\\.]",
+  sep = "[_.]",
   theme_fun = NULL,
   ...
 ) {

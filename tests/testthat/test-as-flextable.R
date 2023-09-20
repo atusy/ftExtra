@@ -1,18 +1,7 @@
 x <- tibble::as_tibble(iris[c(1, 2, 51, 52), c(5, 1)])
 
-test_that("as_flextable.data.frame", {
-  expect_identical(as_flextable(x), flextable::flextable(x))
-  expect_identical(
-    as_flextable(x, with_blanks("Species", "Sepal.Length")),
-    flextable::flextable(
-      x,
-      col_keys = c("Species", "..after1", "..before1", "Sepal.Length")
-    )
-  )
-})
-
-
 test_that("as.flextable.grouped_df", {
+  options(ftExtra.ignore.deprecation = TRUE)
   d <- dplyr::group_by(x, .data$Species)
   f <- flextable::as_grouped_data(x, "Species")
 
@@ -27,22 +16,12 @@ test_that("as.flextable.grouped_df", {
   )
 
   expect_identical(
-    as_flextable(d, groups_to = "merged", col_keys = with_blanks("Species")),
-    x %>%
-      flextable::flextable(
-        col_keys = c("Species", "..after1", "Sepal.Length")
-      ) %>%
-      flextable::merge_v("Species") %>%
-      flextable::theme_vanilla()
-  )
-
-  expect_identical(
     as_flextable(d, groups_to = "asis"),
     flextable::flextable(x)
   )
 })
 
-test_that("as_flextable.grouped_df multi groups", {
+test_that("flextable.grouped_df multi groups", {
   x <- mtcars %>%
     tibble::as_tibble(rownames = "model") %>%
     dplyr::select(model, cyl, mpg, disp, am)
@@ -75,21 +54,6 @@ test_that("as_flextable.grouped_df multi groups", {
     as_flextable(d, groups_to = "merged", groups_pos = "asis"),
     x %>%
       flextable::flextable() %>%
-      flextable::merge_v(c("am", "cyl", "mpg")) %>%
-      flextable::theme_vanilla()
-  )
-
-  expect_identical(
-    as_flextable(
-      d,
-      groups_to = "merged",
-      col_keys = with_blanks(tidyselect::starts_with("m"))
-    ),
-    x %>%
-      dplyr::relocate(am, cyl, mpg) %>%
-      flextable::flextable(
-        col_keys = c("am", "cyl", "mpg", "..after1", "model", "..after2", "disp")
-      ) %>%
       flextable::merge_v(c("am", "cyl", "mpg")) %>%
       flextable::theme_vanilla()
   )

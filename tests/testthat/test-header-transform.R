@@ -28,16 +28,16 @@ test_that("merge_header", {
   expect_identical(merge_header(ft, FALSE), ft)
 })
 
-test_that("separate-header", {
+test_that("split-header", {
   expect_identical(
-    d %>% as_flextable() %>% separate_header(),
+    d %>% flextable() %>% split_header(),
     ft %>% flextable::theme_booktabs() %>% flextable::fix_border_issues()
   )
 })
 
 test_that("span-header", {
   expect_identical(
-    d %>% as_flextable() %>% span_header(),
+    d %>% flextable() %>% span_header(),
     flextable::flextable(d) %>%
       flextable::set_header_df(h %>% fill_header(), key = "original") %>%
       merge_header() %>%

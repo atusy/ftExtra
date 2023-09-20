@@ -1,3 +1,11 @@
+# ftExtra 0.6.1
+
+* Deprecated functions masking the corresponding ones from the **flextable** package (#95)
+
+* Renamed `separate_header` to `split_header` (#95)
+
+* Fixed a wrong escape regex in the  `sep` parameter of `split_header`, `span_header`, and `separate_header` (#95)
+
 # ftExtra 0.6.0
 
 * Fix `footnote_options` not controlling reference symbols correctly. Formerly, only symbols in the cells used the `prefix` and the `suffix` arguments. Now, footnote texts also respects them (#88).

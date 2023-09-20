@@ -51,7 +51,7 @@ as_flextable.grouped_df <- function(
       x %>%
         dplyr::ungroup() %>%
         flextable::as_grouped_data(g) %>%
-        as_flextable(...)
+        flextable::as_flextable(...)
     )
   }
 
@@ -79,6 +79,16 @@ as_flextable.grouped_df <- function(
 #'   as_flextable()
 #' @export
 as_flextable.data.frame <- function(x, col_keys = names(x), ...) {
+  .Deprecated(
+    "flextable:::as_flextable.data.frame",
+    msg = paste(
+      "ftExtra:::as_flextable.data.frame is deprecated",
+      "and will be removed in the future release.",
+      "Consider using flextalbe's implementation by running",
+      '`.S3method("as_flextable", "data.frame",',
+      "flextable:::as_flextable.data.frame)`"
+    )
+  )
   if (is.function(col_keys)) col_keys <- col_keys(x)
   flextable::flextable(x, col_keys = col_keys, ...)
 }

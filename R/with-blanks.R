@@ -6,7 +6,7 @@ insert_blanks <- function(after = NULL, before = NULL, data) {
     names(data),
     sprintf("..after%s", seq_along(.after)),
     sprintf("..before%s", seq_along(.before))
-  )[order(c(seq(length(data)), .after, .before))]
+  )[order(c(seq_along(data), .after, .before))]
 }
 
 #' Specify blank columns easily via `col_keys`
@@ -20,6 +20,9 @@ insert_blanks <- function(after = NULL, before = NULL, data) {
 #'   as_flextable(col_keys = with_blanks(dplyr::ends_with("Width")))
 #' @export
 with_blanks <- function(after = NULL, before = NULL) {
+  .Deprecated(msg = paste(
+    "This is a result of deprecating ftExtra:::as_flextable.data.frame"
+  ))
   after <- rlang::enquo(after)
   before <- rlang::enquo(before)
   function(data) insert_blanks(after = after, before = before, data = data)
