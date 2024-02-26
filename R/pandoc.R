@@ -14,6 +14,7 @@ lua_filters <- function(.sep = "\n\n") {
   c(
     lua("smart.lua"),
     lua("inline-code.lua"),
+    lua("horizontal-rule.lua"),
     if (rmarkdown::pandoc_available("2.7.3")) {
       c(
         lua("math.lua"),
