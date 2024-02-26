@@ -14,10 +14,10 @@ knitr::opts_chunk$set(
 )
 
 render_html <- function(x, options, ...) {
-  to <- tempfile(fileext = '.png')
+  to <- tempfile(fileext = ".png")
   knit_print(structure(
-    flextable::save_as_image(x, to, webshot = 'webshot2'),
-    class = 'webshot'
+    flextable::save_as_image(x, to, webshot = "webshot2"),
+    class = "webshot"
   ))
 }
 
@@ -80,7 +80,7 @@ data.frame(
 
 ```{r span-header, render = render_html}
 iris %>%
-  head %>%
+  head() %>%
   as_flextable() %>%
   span_header()
 ```

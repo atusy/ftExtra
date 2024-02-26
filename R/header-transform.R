@@ -26,13 +26,12 @@ merge_header <- function(x, merge = TRUE) {
 }
 
 transform_header <- function(
-  x,
-  sep = "[_\\.]",
-  theme_fun = NULL,
-  .fill = FALSE,
-  .merge = FALSE,
-  ...
-) {
+    x,
+    sep = "[_\\.]",
+    theme_fun = NULL,
+    .fill = FALSE,
+    .merge = FALSE,
+    ...) {
   header <- names(x$header$dataset)
 
   mapping <- data.frame(original = header, stringsAsFactors = FALSE) %>%
@@ -79,11 +78,10 @@ transform_header <- function(
 #'   separate_header()
 #' @export
 split_header <- function(
-  x,
-  sep = "[_.]",
-  theme_fun = NULL,
-  ...
-) {
+    x,
+    sep = "[_.]",
+    theme_fun = NULL,
+    ...) {
   transform_header(
     x,
     sep = sep, theme_fun = theme_fun, .fill = FALSE, .merge = FALSE, ...
@@ -93,11 +91,10 @@ split_header <- function(
 #' @rdname split_header
 #' @export
 separate_header <- function(
-  x,
-  sep = "[_.]",
-  theme_fun = NULL,
-  ...
-) {
+    x,
+    sep = "[_.]",
+    theme_fun = NULL,
+    ...) {
   .Deprecated(
     "split_header",
     msg = paste(
@@ -122,11 +119,10 @@ separate_header <- function(
 #'   span_header()
 #' @export
 span_header <- function(
-  x,
-  sep = "[_.]",
-  theme_fun = NULL,
-  ...
-) {
+    x,
+    sep = "[_.]",
+    theme_fun = NULL,
+    ...) {
   transform_header(
     x,
     sep = sep, theme_fun = theme_fun,

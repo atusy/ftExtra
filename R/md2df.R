@@ -93,7 +93,7 @@ branch2list <- function(x) {
 #' @param x A named list
 #'
 #' @examples
-#' x <- lapply(flatten_ast(md2ast('foo^[bar]')$blocks), branch2list)
+#' x <- lapply(flatten_ast(md2ast("foo^[bar]")$blocks), branch2list)
 #' dplyr::bind_rows(x)
 #' dplyr::bind_rows(lapply(x, drop_Para))
 #'
@@ -110,7 +110,9 @@ format_by_attr <- function(x) {
     dplyr::bind_rows() %>%
     lapply(drop_na)
 
-  if (length(a) == 0L) return(x)
+  if (length(a) == 0L) {
+    return(x)
+  }
 
   x$Underline <- any(x$Underline, a$class == "underline")
   x$color <- last(a$color) %||% NA_character_
@@ -145,13 +147,16 @@ md2df <- function(x,
                   metadata = rmarkdown::metadata,
                   .from = "markdown") {
   ast <- md2ast(
-    x, pandoc_args = pandoc_args, metadata = metadata, .from = .from
+    x,
+    pandoc_args = pandoc_args, metadata = metadata, .from = .from
   )
 
   ast$blocks <- ast$blocks[
-    !vapply(ast$blocks,
-            function(x) identical(c(x$t, x$c[[1L]][[1L]]), c("Div", "refs")),
-            NA)
+    !vapply(
+      ast$blocks,
+      function(x) identical(c(x$t, x$c[[1L]][[1L]]), c("Div", "refs")),
+      NA
+    )
   ]
 
   ast2df(ast)

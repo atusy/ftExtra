@@ -3,7 +3,9 @@ reshape_extensions <- function(extensions) {
 }
 
 pandoc_default_extensions <- function(format, pandoc = rmarkdown::pandoc_exec()) {
-  if (!rmarkdown::pandoc_available("2.0.6")) return(character(0))
+  if (!rmarkdown::pandoc_available("2.0.6")) {
+    return(character(0))
+  }
   pandoc %>%
     system2(paste0("--list-extensions=", format), stdout = TRUE) %>%
     reshape_extensions()
@@ -11,7 +13,7 @@ pandoc_default_extensions <- function(format, pandoc = rmarkdown::pandoc_exec())
 
 
 pandoc_specified_extensions <- function(format) {
-  if(!grepl("[+-]", format)) {
+  if (!grepl("[+-]", format)) {
     return(character(0))
   }
 

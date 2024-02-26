@@ -30,8 +30,7 @@ colformat_md <- function(x,
                          replace_na = "",
                          .from = "markdown+autolink_bare_uris-raw_html-raw_attribute",
                          .footnote_options = footnote_options(),
-                         .sep = "\n\n"
-) {
+                         .sep = "\n\n") {
   .j <- rlang::enexpr(j)
   part <- match.arg(part)
   .footnote_options$caller <- "colformat_md"
@@ -39,11 +38,13 @@ colformat_md <- function(x,
 
   if (part == "all") {
     for (part in c("header", "body")) {
-      x <- colformat_md(x, j = !!.j, part = part,
-                        auto_color_link = auto_color_link,
-                        pandoc_args = pandoc_args, metadata = metadata,
-                        replace_na = replace_na, .from = .from,
-                        .footnote_options = .footnote_options, .sep = .sep)
+      x <- colformat_md(x,
+        j = !!.j, part = part,
+        auto_color_link = auto_color_link,
+        pandoc_args = pandoc_args, metadata = metadata,
+        replace_na = replace_na, .from = .from,
+        .footnote_options = .footnote_options, .sep = .sep
+      )
       .footnote_options$value <- list()
     }
     return(x)
@@ -62,18 +63,19 @@ colformat_md <- function(x,
 
   # Must evaluate outside add_footnotes due to lazy evaluation of arguments
   ft <- flextable::compose(x,
-                           i = seq(nrow(dataset)), j = col, part = part,
-                           value = as_paragraph_md(
-                             texts,
-                             auto_color_link = auto_color_link,
-                             .from = .from,
-                             md_extensions = md_extensions,
-                             pandoc_args = pandoc_args,
-                             metadata = metadata,
-                             replace_na = replace_na,
-                             .footnote_options = .footnote_options,
-                             .sep = .sep
-                           ))
+    i = seq(nrow(dataset)), j = col, part = part,
+    value = as_paragraph_md(
+      texts,
+      auto_color_link = auto_color_link,
+      .from = .from,
+      md_extensions = md_extensions,
+      pandoc_args = pandoc_args,
+      metadata = metadata,
+      replace_na = replace_na,
+      .footnote_options = .footnote_options,
+      .sep = .sep
+    )
+  )
 
   structure(
     add_footnotes(ft, .footnote_options),
@@ -87,7 +89,9 @@ where <- function(...) {
 }
 
 paragraph2txt <- function(x) {
-  if (all(is.na(x$txt))) return(NA_character_)
+  if (all(is.na(x$txt))) {
+    return(NA_character_)
+  }
 
   txt <- x[["txt"]]
   img <- x[["img_data"]]

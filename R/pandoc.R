@@ -7,7 +7,9 @@ lua <- function(...) {
 }
 
 lua_filters <- function(.sep = "\n\n") {
-  if (!rmarkdown::pandoc_available("2")) return(NULL)
+  if (!rmarkdown::pandoc_available("2")) {
+    return(NULL)
+  }
 
   c(
     lua("smart.lua"),

@@ -19,7 +19,9 @@ knit_print.ftExtra <- function(x,
 
   cite <- attr(x, "citations", exact = TRUE)
 
-  if (cite == "") return(ft)
+  if (cite == "") {
+    return(ft)
+  }
 
   res <- sprintf('---\n%s: "%s"\n---\n\n%s', key, cite, ft)
   attributes(res) <- attributes(ft)

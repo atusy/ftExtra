@@ -29,8 +29,7 @@ flextable::as_flextable
 #' as_flextable(grouped_df, groups_to = "merged")
 #' as_flextable(grouped_df, groups_to = "asis")
 #' @export
-as_flextable.grouped_df <- function(
-                                    x,
+as_flextable.grouped_df <- function(x,
                                     groups_to = c("titles", "merged", "asis"),
                                     groups_pos = c("left", "asis"),
                                     groups_arrange = NULL,

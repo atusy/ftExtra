@@ -1,4 +1,4 @@
-collect_citations <- function(x, .from = 'markdown') {
+collect_citations <- function(x, .from = "markdown") {
   tf <- tempfile()
   xfun::write_utf8(x, tf)
   rmarkdown::pandoc_convert(
