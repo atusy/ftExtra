@@ -1,3 +1,7 @@
+# ftExtra 0.6.2
+
+* Fixed an error from `as_paragraph_md()` when the input markdown contains a HorizontalRule element. Instead, the element is substituted with plain hyphens, `---`, with a warning.
+
 # ftExtra 0.6.1
 
 * Deprecated functions masking the corresponding ones from the **flextable** package (#95)
