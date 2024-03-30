@@ -51,7 +51,12 @@ colformat_md <- function(x,
   }
 
   dataset <- x[[part]]$dataset
-  content <- x[[part]][["content"]][["content"]][["data"]]
+  content <- if (is.null(x[[part]][["content"]][["content"]])) {
+    # flextable >= 0.9.5
+    x[[part]][["content"]][["data"]]
+  } else {
+    x[[part]][["content"]][["content"]][["data"]]
+  }
   nm <- colnames(content)
   col <- tidyselect::eval_select(rlang::expr(c(!!.j)), dataset[nm])
 
