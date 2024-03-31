@@ -1,3 +1,7 @@
+# ftExtra 0.6.2
+
+* Require **flextable**>=0.9.5 to fix broken `colformat_md` (#101)
+
 # ftExtra 0.6.1
 
 * Deprecated functions masking the corresponding ones from the **flextable** package (#95)
