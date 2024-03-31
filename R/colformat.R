@@ -51,7 +51,7 @@ colformat_md <- function(x,
   }
 
   dataset <- x[[part]]$dataset
-  content <- x[[part]][["content"]][["content"]][["data"]]
+  content <- x[[part]][["content"]][["data"]]
   nm <- colnames(content)
   col <- tidyselect::eval_select(rlang::expr(c(!!.j)), dataset[nm])
 
@@ -63,7 +63,7 @@ colformat_md <- function(x,
 
   # Must evaluate outside add_footnotes due to lazy evaluation of arguments
   ft <- flextable::compose(x,
-    i = seq(nrow(dataset)), j = col, part = part,
+    i = seq_len(nrow(dataset)), j = col, part = part,
     value = as_paragraph_md(
       texts,
       auto_color_link = auto_color_link,
