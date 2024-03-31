@@ -1,6 +1,10 @@
-# ftExtra 0.6.2
+# ftExtra 0.6.3
 
 * Require **flextable**>=0.9.5 to fix broken `colformat_md` (#101)
+
+# ftExtra 0.6.2
+
+* Avoid error from using horizontal rule (#98)
 
 # ftExtra 0.6.1
 
