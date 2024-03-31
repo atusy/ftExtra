@@ -63,7 +63,7 @@ colformat_md <- function(x,
 
   # Must evaluate outside add_footnotes due to lazy evaluation of arguments
   ft <- flextable::compose(x,
-    i = seq(nrow(dataset)), j = col, part = part,
+    i = seq_len(nrow(dataset)), j = col, part = part,
     value = as_paragraph_md(
       texts,
       auto_color_link = auto_color_link,
