@@ -47,7 +47,7 @@ data.frame(
   z = c("***~ft~^Extra^** is*", "*Cool*"),
   stringsAsFactors = FALSE
 ) %>%
-  as_flextable() %>%
+  flextable() %>%
   colformat_md()
 ```
 
@@ -58,7 +58,7 @@ data.frame(
 ``` r
 iris %>%
   head %>%
-  as_flextable() %>%
+  flextable() %>%
   span_header()
 ```
 
@@ -71,7 +71,7 @@ library(dplyr, warn.conflicts = FALSE)
 iris %>%
   group_by(Species) %>%
   slice(1:2) %>%
-  as_flextable()
+  flextable()
 ```
 
 <img src="man/figures/group-rows-1.png" width="100%" />
