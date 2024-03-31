@@ -37,7 +37,8 @@
 #' }
 #'
 #' # Use a user-defined function to format footnote symbols
-#' if (rmarkdown::pandoc_available("2.0.6")) {
+#' # Skipped to reduce build time
+#' if (FALSE) {
 #'   # a function to format symbols of footnote references
 #'   ref <- function(n, part, footer) {
 #'     # Change symbols by context
