@@ -1,3 +1,7 @@
+# ftExtra 0.6.4
+
+* Fix broken markdown rendering from a change in **flextable** 0.9.5 (#103)
+
 # ftExtra 0.6.3
 
 * Require **flextable**>=0.9.5 to fix broken `colformat_md` (#101)
