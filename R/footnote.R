@@ -133,7 +133,7 @@ collapse_footnotes <- function(value, sep) {
   value %>%
     lapply(dplyr::add_row, data.frame(txt = sep %||% "")) %>%
     dplyr::bind_rows() %>%
-    dplyr::mutate(seq_index = dplyr::row_number()) %>%
+    dplyr::mutate(.chunk_index = dplyr::row_number()) %>%
     list()
 }
 
