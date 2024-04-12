@@ -61,7 +61,7 @@ construct_chunk <- function(x, auto_color_link = "blue") {
         .data$color
       ),
       img_data = x$Image %||% list(NULL),
-      seq_index = dplyr::row_number()
+      .chunk_index = dplyr::row_number()
     )
 }
 
