@@ -1,6 +1,7 @@
 # ftExtra 0.6.4
 
 * Fix broken markdown rendering from a change in **flextable** 0.9.5 (#103)
+* Fix disappearance of spaces on markdown rendering caused by a change in R 4.4 (#106)
 
 # ftExtra 0.6.3
 
