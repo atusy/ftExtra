@@ -42,7 +42,7 @@ add_type <- function(x, t) {
 }
 
 resolve_type <- function(x) {
-  if (is.atomic(x$c)) {
+  if (is.null(x$c) || is.atomic(x$c)) {
     return(x)
   }
   if (identical(x$c, list())) {
