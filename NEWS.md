@@ -1,3 +1,7 @@
+# ftExtra 0.6.4.9999
+
+* Fix `colformat_md` to apply `md_extensions` when `part = "all"` (#110, thanks @astrochemx)
+
 # ftExtra 0.6.4
 
 * Fix broken markdown rendering from a change in **flextable** 0.9.5 (#103)
