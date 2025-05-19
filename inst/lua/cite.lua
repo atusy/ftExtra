@@ -1,4 +1,4 @@
-cite = {}
+local cite = {}
 
 function Cite(elem)
 	table.insert(cite, elem)

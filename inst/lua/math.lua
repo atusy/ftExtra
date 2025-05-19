@@ -13,40 +13,42 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 https://github.com/atusy/lua-filters/blob/master/lua/math.lua
 ]]
-is_pandoc_2_10 = (PANDOC_VERSION[1] >= 2) and (PANDOC_VERSION[2] >= 10)
+local is_pandoc_2_10 = (PANDOC_VERSION[1] >= 2) and (PANDOC_VERSION[2] >= 10)
+
+local L = {}
 
 if pandoc.system.os ~= "mingw32" then
-	function math2html(text)
+	function L.math2html(cmd, text)
 		return pandoc.pipe(cmd, { "-t", "html", "-f", "markdown" }, text)
 	end
 else
 	if is_pandoc_2_10 then
-		with_temporary_directory = pandoc.system.with_temporary_directory
+		L.with_temporary_directory = pandoc.system.with_temporary_directory
 	else
-		with_temporary_directory = function(ignored, callback)
-			return callback(temporary_directory)
+		function L.with_temporary_directory(_, callback)
+			return callback(L.temporary_directory)
 		end
 	end
 
-	math2html = function(text)
+	function L.math2html(cmd, text)
 		local function callback(directory)
 			local path = directory .. "\\math-rendered-by-lua-filter.html"
 			pandoc.pipe(cmd, { "-t", "html", "-f", "markdown", "-o", path }, text)
 			return io.open(path):read("a")
 		end
 
-		return with_temporary_directory("write_html_math", callback)
+		return L.with_temporary_directory("write_html_math", callback)
 	end
 end
 
 function Meta(elem)
-	cmd = elem["pandoc-path"] and (pandoc.utils.stringify(elem["pandoc-path"])) or "pandoc"
+	L.cmd = elem["pandoc-path"] and (pandoc.utils.stringify(elem["pandoc-path"])) or "pandoc"
 
-	temporary_directory = elem["temporary-directory"] and (pandoc.utils.stringify(elem["temporary-directory"])) or "."
+	L.temporary_directory = elem["temporary-directory"] and (pandoc.utils.stringify(elem["temporary-directory"])) or "."
 end
 
 function Math(elem)
-	return pandoc.read(math2html("$" .. elem.text:gsub("[\n\r]", "") .. "$"), "html").blocks[1].content[1].content
+	return pandoc.read(L.math2html(L.cmd, "$" .. elem.text:gsub("[\n\r]", "") .. "$"), "html").blocks[1].content[1].content
 end
 
 return {

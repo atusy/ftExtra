@@ -1,3 +1,5 @@
+local sep = {}
+
 function Meta(meta)
 	sep = meta.sep_blocks and (meta.sep_blocks.t and meta.sep_blocks or { pandoc.Str(meta.sep_blocks) })
 		or { pandoc.LineBreak(), pandoc.LineBreak() }
