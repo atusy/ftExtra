@@ -16,46 +16,40 @@ https://github.com/atusy/lua-filters/blob/master/lua/math.lua
 is_pandoc_2_10 = (PANDOC_VERSION[1] >= 2) and (PANDOC_VERSION[2] >= 10)
 
 if pandoc.system.os ~= "mingw32" then
-  function math2html(text)
-    return pandoc.pipe(cmd, {"-t", "html", "-f", "markdown"}, text)
-  end
+	function math2html(text)
+		return pandoc.pipe(cmd, { "-t", "html", "-f", "markdown" }, text)
+	end
 else
-  if is_pandoc_2_10 then
-    with_temporary_directory = pandoc.system.with_temporary_directory
-  else
-    with_temporary_directory = function(ignored, callback)
-      return callback(temporary_directory)
-    end
-  end
+	if is_pandoc_2_10 then
+		with_temporary_directory = pandoc.system.with_temporary_directory
+	else
+		with_temporary_directory = function(ignored, callback)
+			return callback(temporary_directory)
+		end
+	end
 
-  math2html = function(text)
-    local function callback(directory)
-      local path = directory .. "\\math-rendered-by-lua-filter.html"
-      pandoc.pipe(cmd, {"-t", "html", "-f", "markdown", "-o", path}, text)
-      return io.open(path):read("a")
-    end
+	math2html = function(text)
+		local function callback(directory)
+			local path = directory .. "\\math-rendered-by-lua-filter.html"
+			pandoc.pipe(cmd, { "-t", "html", "-f", "markdown", "-o", path }, text)
+			return io.open(path):read("a")
+		end
 
-    return with_temporary_directory("write_html_math", callback)
-  end
+		return with_temporary_directory("write_html_math", callback)
+	end
 end
 
 function Meta(elem)
-  cmd = elem["pandoc-path"] and (
-    pandoc.utils.stringify(elem["pandoc-path"])
-  ) or "pandoc"
+	cmd = elem["pandoc-path"] and (pandoc.utils.stringify(elem["pandoc-path"])) or "pandoc"
 
-  temporary_directory = elem["temporary-directory"] and (
-    pandoc.utils.stringify(elem["temporary-directory"])
-  ) or "."
+	temporary_directory = elem["temporary-directory"] and (pandoc.utils.stringify(elem["temporary-directory"])) or "."
 end
 
 function Math(elem)
-  return pandoc.read(
-    math2html("$" .. elem.text:gsub("[\n\r]", "") .. "$"), "html"
-  ).blocks[1].content[1].content
+	return pandoc.read(math2html("$" .. elem.text:gsub("[\n\r]", "") .. "$"), "html").blocks[1].content[1].content
 end
 
 return {
-  {Meta = Meta},
-  {Math = Math}
+	{ Meta = Meta },
+	{ Math = Math },
 }

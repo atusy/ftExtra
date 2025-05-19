@@ -15,13 +15,13 @@ https://github.com/atusy/lua-filters/blob/master/lua/smart.lua
 ]]
 
 local quotes = {
-  SingleQuote = {pandoc.Str("‘"), pandoc.Str("’")},
-  DoubleQuote = {pandoc.Str("“"), pandoc.Str("”")}
+	SingleQuote = { pandoc.Str("‘"), pandoc.Str("’") },
+	DoubleQuote = { pandoc.Str("“"), pandoc.Str("”") },
 }
 
 function Quoted(elem)
-  local q = quotes[elem.quotetype]
-  table.insert(elem.content, 1, q[1])
-  table.insert(elem.content, q[2])
-  return elem.content
+	local q = quotes[elem.quotetype]
+	table.insert(elem.content, 1, q[1])
+	table.insert(elem.content, q[2])
+	return elem.content
 end
