@@ -126,6 +126,10 @@ test_with_pandoc("Quarto bibliography retains Pandoc resource-path lookup", {
   ), info, auto_unbox = TRUE)
   withr::local_envvar(QUARTO_EXECUTE_INFO = info)
   withr::local_dir(project)
+  expect_identical(render_metadata()$bibliography, "references.bib")
+  skip_if_not(rmarkdown::pandoc_available("2.11"),
+    "Bibliography resource-path lookup requires built-in citeproc"
+  )
   paragraph <- as_paragraph_md("@example", pandoc_args = "--resource-path=refs")
   expect_identical(paragraph2txt(paragraph[[1L]]), "Doe (2024)")
 })
