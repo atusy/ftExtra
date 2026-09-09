@@ -76,9 +76,14 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #'   formats specified to `.from` can be used. See
 #'   <https://www.pandoc.org/MANUAL.html#extensions> for details.
 #' @param metadata
-#'   A list of metadata, typically the parsed result of the YAML front matter
-#'   (default: `rmarkdown::metadata`). This value is used iff the `.from`
-#'   argument specifies the input format that supports the YAML metadata blocks.
+#'   A list of metadata, typically the parsed result of the YAML front matter.
+#'   By default, uses resolved Quarto execution metadata when
+#'   `QUARTO_EXECUTE_INFO` is set (Quarto 1.8 or later), otherwise
+#'   `rmarkdown::metadata`. Explicit values, including `NULL` or `list()`,
+#'   override this default. Inherited bibliography, CSL, and citation-abbreviation
+#'   paths are resolved relative to the Quarto source document.
+#'   This value is used iff the `.from` argument specifies an input format
+#'   that supports YAML metadata blocks.
 #' @param replace_na A value to replace `NA` (default = `""`).
 #' @param .from
 #'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).

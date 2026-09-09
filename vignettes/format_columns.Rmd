@@ -356,6 +356,25 @@ Citations is experimentally supported.
 Note that there are no citation lists.
 It is expected to be produced by using R Markdown.
 
+In Quarto 1.8 or later, `colformat_md()` and `as_paragraph_md()` automatically
+use the resolved metadata provided by Quarto during rendering. This includes
+bibliography and CSL settings inherited from a book's `_quarto.yml`, directory
+metadata, and active profiles. Citation resource paths follow the source
+document even when `execute-dir: project` changes the R working directory.
+
+With older Quarto versions, or outside rendering, pass the metadata explicitly:
+
+```{r, eval=FALSE}
+colformat_md(ft, metadata = list(
+  bibliography = "references.bib",
+  csl = "style.csl"
+))
+```
+
+Explicit paths are relative to the R working directory. An explicit `metadata`
+value takes precedence over automatic detection; use `metadata = list()` to
+disable inherited metadata. R Markdown continues to use `rmarkdown::metadata`.
+
 First, create a `ftExtra.bib` file like below.
 
 ```{r, echo=FALSE, collapse=FALSE, class.output="bibtex", warning=FALSE, comment=""}

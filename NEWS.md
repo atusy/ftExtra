@@ -1,5 +1,8 @@
 # ftExtra 0.6.4.9999
 
+* Use resolved Quarto execution metadata for citations in books and other
+  documents when available (Quarto 1.8 or later; #112).
+
 * Fix Markdown list items being joined without separators (#115). Lists now use
   bullet or decimal markers, preserve inline formatting, and indent nested items.
 * Fix math rendering with Pandoc 3.11 by explicitly requesting plain HTML math.
