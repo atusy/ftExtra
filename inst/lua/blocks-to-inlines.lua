@@ -8,10 +8,11 @@ end
 local function expand_lists(blocks, indent)
 	local expanded = {}
 	for _, block in ipairs(blocks) do
-		if block.t == "BulletList" then
-			for _, item in ipairs(block.content) do
+		if block.t == "BulletList" or block.t == "OrderedList" then
+			for i, item in ipairs(block.content) do
 				local content = pandoc.utils.blocks_to_inlines(expand_lists(item, indent .. "  "), sep)
-				table.insert(content, 1, pandoc.Str(indent .. "• "))
+				local marker = block.t == "BulletList" and "• " or tostring(block.start + i - 1) .. ". "
+				table.insert(content, 1, pandoc.Str(indent .. marker))
 				table.insert(expanded, pandoc.Para(content))
 			end
 		else

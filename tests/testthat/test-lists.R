@@ -6,3 +6,8 @@ test_with_pandoc("colformat_md keeps bullet list items separate", {
     "\u2022 ABCD\n\n\u2022 EFG"
   )
 })
+
+test_with_pandoc("ordered list items keep their starting number", {
+  paragraph <- as_paragraph_md("3. ABCD\n4. EFG")[[1L]]
+  expect_identical(paragraph2txt(paragraph), "3. ABCD\n\n4. EFG")
+})
