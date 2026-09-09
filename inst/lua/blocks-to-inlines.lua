@@ -10,7 +10,16 @@ local function expand_lists(blocks, indent)
 	for _, block in ipairs(blocks) do
 		if block.t == "BulletList" or block.t == "OrderedList" then
 			for i, item in ipairs(block.content) do
-				local content = pandoc.utils.blocks_to_inlines(expand_lists(item, indent .. "  "), sep)
+				local first = item[1]
+				while first and (first.t == "Div" or first.t == "BlockQuote") do
+					first = first.content[1]
+				end
+				local item_blocks = expand_lists(item, indent .. "  ")
+				if first and (first.t == "BulletList" or first.t == "OrderedList") then
+					-- Keep an empty parent item on its own line before its child list.
+					table.insert(item_blocks, 1, pandoc.Plain({}))
+				end
+				local content = pandoc.utils.blocks_to_inlines(item_blocks, sep)
 				local marker = block.t == "BulletList" and "• " or tostring(block.start + i - 1) .. ". "
 				table.insert(content, 1, pandoc.Str(indent .. marker))
 				table.insert(expanded, pandoc.Para(content))

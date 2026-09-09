@@ -70,3 +70,18 @@ test_with_pandoc("nested Divs retain the enclosing list indentation", {
     "\u2022 parent\n\n  \u2022 child\n\n\u2022 sibling"
   )
 })
+
+test_with_pandoc("empty parent list items stay separate from their children", {
+  paragraphs <- as_paragraph_md(
+    c(
+      "-\n  - child\n- sibling",
+      "- ::: {.foo}\n  - child\n  :::\n- sibling",
+      "- > - child\n- sibling"
+    ),
+    .sep = " | "
+  )
+  expect_identical(
+    vapply(paragraphs, paragraph2txt, ""),
+    rep("\u2022  |   \u2022 child | \u2022 sibling", 3L)
+  )
+})
