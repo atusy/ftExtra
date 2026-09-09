@@ -38,6 +38,11 @@ local function expand_lists(blocks, indent)
 	return expanded
 end
 
+function Note(note)
+	note.content = { pandoc.Para(pandoc.utils.blocks_to_inlines(expand_lists(note.content, ""), sep)) }
+	return note
+end
+
 function Pandoc(doc)
 	-- Start at the cell Divs; bottom-up Div callbacks lose the enclosing list depth.
 	for _, block in ipairs(doc.blocks) do
@@ -48,4 +53,4 @@ function Pandoc(doc)
 	return doc
 end
 
-return { { Meta = Meta }, { Pandoc = Pandoc } }
+return { { Meta = Meta }, { Note = Note, Pandoc = Pandoc } }

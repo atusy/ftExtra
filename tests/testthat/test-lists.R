@@ -85,3 +85,12 @@ test_with_pandoc("empty parent list items stay separate from their children", {
     rep("\u2022  |   \u2022 child | \u2022 sibling", 3L)
   )
 })
+
+test_with_pandoc("Div paragraphs inside footnotes retain their separator", {
+  options <- footnote_options()
+  as_paragraph_md(
+    "text[^n]\n\n[^n]:\n    ::: {.foo}\n    first\n\n    second\n    :::",
+    .footnote_options = options
+  )
+  expect_identical(paragraph2txt(options$value[[1L]]), "1first\n\nsecond")
+})
