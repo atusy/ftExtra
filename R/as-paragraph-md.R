@@ -106,7 +106,7 @@ as_paragraph_md <- function(
     auto_color_link = "blue",
     md_extensions = NULL,
     pandoc_args = NULL,
-    metadata = rmarkdown::metadata,
+    metadata = render_metadata(),
     replace_na = "",
     .from = "markdown+autolink_bare_uris-raw_html-raw_attribute",
     .footnote_options = NULL,

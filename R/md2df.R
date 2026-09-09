@@ -144,7 +144,7 @@ ast2df <- function(x) {
 #' @noRd
 md2df <- function(x,
                   pandoc_args = NULL,
-                  metadata = rmarkdown::metadata,
+                  metadata = render_metadata(),
                   .from = "markdown") {
   ast <- md2ast(
     x,

@@ -4,7 +4,7 @@
 #' @noRd
 md2ast <- function(x,
                    pandoc_args = NULL,
-                   metadata = rmarkdown::metadata,
+                   metadata = render_metadata(),
                    .from = "markdown") {
   tf <- tempfile()
 
