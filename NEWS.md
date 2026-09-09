@@ -1,5 +1,7 @@
 # ftExtra 0.6.4.9999
 
+* Fix Markdown list items being joined without separators (#115). Lists now use
+  bullet or decimal markers, preserve inline formatting, and indent nested items.
 * Fix math rendering with Pandoc 3.11 by explicitly requesting plain HTML math.
 * Use the Pandoc executable selected by **rmarkdown** for math rendering.
 * Fix `colformat_md` to apply `md_extensions` when `part = "all"` (#110, thanks @astrochemx)

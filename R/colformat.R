@@ -7,7 +7,7 @@
 #'   One of "body", "header", and "all". If "all", formatting proceeds in the
 #'   order of "header" and "body".
 #' @param .sep
-#'   A separator of paragraphs (default: `"\n\n"`)
+#'   A separator of paragraphs and list items (default: `"\n\n"`)
 #' @inheritParams as_paragraph_md
 #'
 #' @examples
