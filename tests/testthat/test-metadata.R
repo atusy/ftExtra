@@ -33,3 +33,43 @@ test_with_pandoc("Quarto bibliography paths follow the document directory", {
   ft <- colformat_md(flextable::flextable(data.frame(Citation = "@example")))
   expect_identical(paragraph2txt(ft$body$content$data[[1L]]), "Doe (2024)")
 })
+
+test_that("non-Quarto calls retain R Markdown metadata", {
+  withr::local_envvar(QUARTO_EXECUTE_INFO = NA_character_)
+  expect_identical(render_metadata(), rmarkdown::metadata)
+})
+
+test_with_pandoc("explicit metadata bypasses Quarto execution information", {
+  withr::local_envvar(QUARTO_EXECUTE_INFO = "missing-execution-info.json")
+  for (metadata in list(NULL, list())) {
+    ft <- colformat_md(
+      flextable::flextable(data.frame(Citation = "@example")),
+      metadata = metadata
+    )
+    expect_identical(paragraph2txt(ft$body$content$data[[1L]]), "@example")
+  }
+})
+
+test_that("citation resource URLs and absolute paths are preserved", {
+  info <- tempfile(fileext = ".json")
+  on.exit(unlink(info))
+  metadata <- list(
+    bibliography = list("https://example.org/refs.bib", normalizePath(tempdir())),
+    csl = "style.csl",
+    `citation-abbreviations` = "abbreviations.json",
+    references = list(list(id = "inline", title = "Inline reference"))
+  )
+  document <- file.path(tempdir(), "chapter.qmd")
+  jsonlite::write_json(list(
+    `document-path` = document,
+    format = list(metadata = metadata)
+  ), info, auto_unbox = TRUE)
+  withr::local_envvar(QUARTO_EXECUTE_INFO = info)
+  result <- render_metadata()
+  expect_identical(result$bibliography, metadata$bibliography)
+  expect_identical(result$csl, file.path(dirname(document), "style.csl"))
+  expect_identical(result$`citation-abbreviations`,
+    file.path(dirname(document), "abbreviations.json")
+  )
+  expect_identical(result$references, metadata$references)
+})
