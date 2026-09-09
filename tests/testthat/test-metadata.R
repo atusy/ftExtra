@@ -133,3 +133,18 @@ test_with_pandoc("Quarto bibliography retains Pandoc resource-path lookup", {
   paragraph <- as_paragraph_md("@example", pandoc_args = "--resource-path=refs")
   expect_identical(paragraph2txt(paragraph[[1L]]), "Doe (2024)")
 })
+
+test_with_pandoc("Quarto inline references enable citation processing", {
+  info <- tempfile(fileext = ".json")
+  on.exit(unlink(info))
+  metadata <- list(references = list(list(
+    id = "inline", type = "book", title = "Example Book",
+    author = list(list(family = "Doe", given = "Jane")),
+    issued = list(`date-parts` = list(list(2024)))
+  )))
+  jsonlite::write_json(list(format = list(metadata = metadata)), info,
+    auto_unbox = TRUE
+  )
+  withr::local_envvar(QUARTO_EXECUTE_INFO = info)
+  expect_identical(paragraph2txt(as_paragraph_md("@inline")[[1L]]), "Doe (2024)")
+})
