@@ -73,3 +73,11 @@ test_that("citation resource URLs and absolute paths are preserved", {
   )
   expect_identical(result$references, metadata$references)
 })
+
+test_with_pandoc("explicit metadata bypasses Quarto without Div extensions", {
+  withr::local_envvar(QUARTO_EXECUTE_INFO = "missing-execution-info.json")
+  paragraph <- as_paragraph_md(
+    "plain", metadata = list(), .from = "markdown-fenced_divs-native_divs"
+  )[[1L]]
+  expect_identical(paragraph2txt(paragraph), "plain")
+})

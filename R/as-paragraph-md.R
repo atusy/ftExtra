@@ -156,7 +156,7 @@ as_paragraph_md <- function(
         return(construct_chunk(list()))
       }
       y <- x %>%
-        md2df(pandoc_args = pandoc_args, .from = .from) %>%
+        md2df(pandoc_args = pandoc_args, metadata = metadata, .from = .from) %>%
         .solve_footnote() %>%
         as.list()
       construct_chunk(as.list(y), auto_color_link)
