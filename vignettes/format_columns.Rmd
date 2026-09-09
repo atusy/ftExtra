@@ -361,6 +361,8 @@ use the resolved metadata provided by Quarto during rendering. This includes
 bibliography and CSL settings inherited from a book's `_quarto.yml`, directory
 metadata, and active profiles. Citation resource paths follow the source
 document even when `execute-dir: project` changes the R working directory.
+Names not found there remain available to Pandoc's `--resource-path` and
+built-in CSL lookup.
 
 With older Quarto versions, or outside rendering, pass the metadata explicitly:
 

@@ -40,7 +40,8 @@ By default, uses resolved Quarto execution metadata when
 \code{QUARTO_EXECUTE_INFO} is set (Quarto 1.8 or later), otherwise
 \code{rmarkdown::metadata}. Explicit values, including \code{NULL} or \code{list()},
 override this default. Inherited bibliography, CSL, and citation-abbreviation
-paths are resolved relative to the Quarto source document.
+paths are resolved relative to the Quarto source document when the file
+exists there; other names retain Pandoc's resource lookup.
 This value is used iff the \code{.from} argument specifies an input format
 that supports YAML metadata blocks.}
 

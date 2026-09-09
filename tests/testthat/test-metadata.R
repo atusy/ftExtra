@@ -59,7 +59,9 @@ test_that("citation resource URLs and absolute paths are preserved", {
     `citation-abbreviations` = "abbreviations.json",
     references = list(list(id = "inline", title = "Inline reference"))
   )
-  document <- file.path(tempdir(), "chapter.qmd")
+  directory <- withr::local_tempdir()
+  file.create(file.path(directory, c("style.csl", "abbreviations.json")))
+  document <- file.path(directory, "chapter.qmd")
   jsonlite::write_json(list(
     `document-path` = document,
     format = list(metadata = metadata)
@@ -108,4 +110,22 @@ test_with_pandoc("Quarto Pandoc settings supply citation abbreviations", {
   ), info, auto_unbox = TRUE)
   withr::local_envvar(QUARTO_EXECUTE_INFO = info)
   expect_identical(paragraph2txt(as_paragraph_md("@example")[[1L]]), "J. Test.")
+})
+
+test_with_pandoc("Quarto bibliography retains Pandoc resource-path lookup", {
+  project <- withr::local_tempdir()
+  dir.create(file.path(project, "refs"))
+  writeLines(
+    "@book{example, author={Jane Doe}, title={Example Book}, year={2024}}",
+    file.path(project, "refs", "references.bib")
+  )
+  info <- file.path(project, "context.json")
+  jsonlite::write_json(list(
+    `document-path` = file.path(project, "test.qmd"),
+    format = list(metadata = list(bibliography = "references.bib"))
+  ), info, auto_unbox = TRUE)
+  withr::local_envvar(QUARTO_EXECUTE_INFO = info)
+  withr::local_dir(project)
+  paragraph <- as_paragraph_md("@example", pandoc_args = "--resource-path=refs")
+  expect_identical(paragraph2txt(paragraph[[1L]]), "Doe (2024)")
 })

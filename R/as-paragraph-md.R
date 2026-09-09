@@ -81,7 +81,8 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #'   `QUARTO_EXECUTE_INFO` is set (Quarto 1.8 or later), otherwise
 #'   `rmarkdown::metadata`. Explicit values, including `NULL` or `list()`,
 #'   override this default. Inherited bibliography, CSL, and citation-abbreviation
-#'   paths are resolved relative to the Quarto source document.
+#'   paths are resolved relative to the Quarto source document when the file
+#'   exists there; other names retain Pandoc's resource lookup.
 #'   This value is used iff the `.from` argument specifies an input format
 #'   that supports YAML metadata blocks.
 #' @param replace_na A value to replace `NA` (default = `""`).

@@ -17,7 +17,9 @@ render_metadata <- function() {
       if (xfun::is_abs_path(path) || grepl("^[[:alpha:]][[:alnum:]+.-]*:", path)) {
         return(path)
       }
-      file.path(dirname(document), path)
+      candidate <- file.path(dirname(document), path)
+      # Keep names available to Pandoc's resource-path and built-in CSL lookup.
+      if (file.exists(candidate)) candidate else path
     }
     for (key in c("bibliography", "csl", "citation-abbreviations")) {
       if (is.character(metadata[[key]])) {
