@@ -42,7 +42,7 @@ Imports:
     yaml,
     vctrs
 Suggests: 
-    testthat (>= 2.1.0),
+    testthat (>= 3.3.2),
     knitr,
     qpdf
 VignetteBuilder: 
