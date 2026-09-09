@@ -150,6 +150,7 @@ Supported syntax are
 - footnote
 - image
 - line break
+- bullet and ordered lists
 - citations
 - math
 - attributes with Span, Link, Code, and so on
@@ -327,6 +328,26 @@ To workaround, `colformat_md` collapses them to a single paragraph with a separa
 data.frame(linebreak = c("a\n\nb"), stringsAsFactors = FALSE) %>%
   flextable() %>%
   colformat_md(.sep = "\n\n")
+```
+
+# Lists
+
+Markdown list items are rendered with text markers and separated by `.sep`
+(default: `"\n\n"`). Use `.sep = "\n"` for more compact lists.
+Bullet markers are normalized to `•`, and ordered markers to decimal numbers,
+starting at the number parsed by Pandoc. Nested lists are indented by two spaces
+per level. Inline formatting such as bold, italic, and links is preserved.
+List markers are plain text within a single cell paragraph.
+
+```{r}
+data.frame(
+  bullets = "- **ABCD**\n\n- EFG",
+  numbered = "3. ABCD\n4. EFG",
+  stringsAsFactors = FALSE
+) %>%
+  flextable() %>%
+  colformat_md(.sep = "\n") %>%
+  flextable::autofit()
 ```
 
 # Citations
