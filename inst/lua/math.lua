@@ -15,11 +15,17 @@ https://github.com/atusy/lua-filters/blob/master/lua/math.lua
 ]]
 local is_pandoc_2_10 = (PANDOC_VERSION[1] >= 2) and (PANDOC_VERSION[2] >= 10)
 
+-- Pandoc 3.11 defaults to MathML, but the R renderer needs plain HTML inlines.
+local math_method_option
+if PANDOC_VERSION[1] > 3 or (PANDOC_VERSION[1] == 3 and PANDOC_VERSION[2] >= 11) then
+	math_method_option = "--math-method=plain"
+end
+
 local L = {}
 
 if pandoc.system.os ~= "mingw32" then
 	function L.math2html(cmd, text)
-		return pandoc.pipe(cmd, { "-t", "html", "-f", "markdown" }, text)
+		return pandoc.pipe(cmd, { "-t", "html", "-f", "markdown", math_method_option }, text)
 	end
 else
 	if is_pandoc_2_10 then
@@ -33,7 +39,7 @@ else
 	function L.math2html(cmd, text)
 		local function callback(directory)
 			local path = directory .. "\\math-rendered-by-lua-filter.html"
-			pandoc.pipe(cmd, { "-t", "html", "-f", "markdown", "-o", path }, text)
+			pandoc.pipe(cmd, { "-t", "html", "-f", "markdown", "-o", path, math_method_option }, text)
 			return io.open(path):read("a")
 		end
 
