@@ -5,6 +5,11 @@ render_metadata <- function() {
   }
   context <- jsonlite::read_json(info)
   metadata <- context$format$metadata
+  # Quarto classifies this citation setting as a Pandoc option.
+  abbreviations <- context$format$pandoc[["citation-abbreviations"]]
+  if (!is.null(abbreviations)) {
+    metadata[["citation-abbreviations"]] <- abbreviations
+  }
   document <- context[["document-path"]]
   if (!is.null(document)) {
     # Quarto resolves resource paths relative to the source document, not getwd().

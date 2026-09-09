@@ -81,3 +81,31 @@ test_with_pandoc("explicit metadata bypasses Quarto without Div extensions", {
   )[[1L]]
   expect_identical(paragraph2txt(paragraph), "plain")
 })
+
+test_with_pandoc("Quarto Pandoc settings supply citation abbreviations", {
+  project <- withr::local_tempdir()
+  writeLines(
+    "@article{example, title={Article}, journal={Journal of Testing}, year={2024}}",
+    file.path(project, "refs.bib")
+  )
+  writeLines(paste0(
+    '<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text">',
+    '<info><title>Test</title><id>https://example.org/test</id>',
+    '<updated>2024-01-01T00:00:00+00:00</updated></info>',
+    '<citation><layout><text variable="container-title" form="short"/>',
+    '</layout></citation></style>'
+  ), file.path(project, "style.csl"))
+  jsonlite::write_json(list(default = list(
+    `container-title` = list(`Journal of Testing` = "J. Test.")
+  )), file.path(project, "abbreviations.json"), auto_unbox = TRUE)
+  info <- file.path(project, "context.json")
+  jsonlite::write_json(list(
+    `document-path` = file.path(project, "test.qmd"),
+    format = list(
+      metadata = list(bibliography = "refs.bib", csl = "style.csl"),
+      pandoc = list(`citation-abbreviations` = "abbreviations.json")
+    )
+  ), info, auto_unbox = TRUE)
+  withr::local_envvar(QUARTO_EXECUTE_INFO = info)
+  expect_identical(paragraph2txt(as_paragraph_md("@example")[[1L]]), "J. Test.")
+})
