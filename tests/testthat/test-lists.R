@@ -94,3 +94,11 @@ test_with_pandoc("Div paragraphs inside footnotes retain their separator", {
   )
   expect_identical(paragraph2txt(options$value[[1L]]), "1first\n\nsecond")
 })
+
+test_with_pandoc("Div paragraphs inside definitions retain their separator", {
+  paragraph <- as_paragraph_md(
+    "term\n:   ::: {.foo}\n    first\n\n    second\n    :::",
+    .sep = " | "
+  )[[1L]]
+  expect_match(paragraph2txt(paragraph), "first | second", fixed = TRUE)
+})

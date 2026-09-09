@@ -24,6 +24,13 @@ local function expand_lists(blocks, indent)
 				table.insert(content, 1, pandoc.Str(indent .. marker))
 				table.insert(expanded, pandoc.Para(content))
 			end
+		elseif block.t == "DefinitionList" then
+			for _, item in ipairs(block.content) do
+				for i, definition in ipairs(item[2]) do
+					item[2][i] = expand_lists(definition, indent)
+				end
+			end
+			table.insert(expanded, block)
 		elseif block.t == "BlockQuote" then
 			for _, child in ipairs(expand_lists(block.content, indent)) do
 				table.insert(expanded, child)
