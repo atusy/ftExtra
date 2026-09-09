@@ -19,6 +19,9 @@ local function expand_lists(blocks, indent)
 			for _, child in ipairs(expand_lists(block.content, indent)) do
 				table.insert(expanded, child)
 			end
+		elseif block.t == "Div" then
+			block.content = { pandoc.Para(pandoc.utils.blocks_to_inlines(expand_lists(block.content, indent), sep)) }
+			table.insert(expanded, block)
 		else
 			table.insert(expanded, block)
 		end
@@ -26,9 +29,14 @@ local function expand_lists(blocks, indent)
 	return expanded
 end
 
-function Div(div)
-	div.content = { pandoc.Para(pandoc.utils.blocks_to_inlines(expand_lists(div.content, ""), sep)) }
-	return div
+function Pandoc(doc)
+	-- Start at the cell Divs; bottom-up Div callbacks lose the enclosing list depth.
+	for _, block in ipairs(doc.blocks) do
+		if block.t == "Div" then
+			block.content = { pandoc.Para(pandoc.utils.blocks_to_inlines(expand_lists(block.content, ""), sep)) }
+		end
+	end
+	return doc
 end
 
-return { { Meta = Meta }, { Div = Div } }
+return { { Meta = Meta }, { Pandoc = Pandoc } }

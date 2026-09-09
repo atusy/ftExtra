@@ -60,3 +60,13 @@ test_with_pandoc("lists inside block quotes keep item boundaries", {
   )[[1L]]
   expect_identical(paragraph2txt(paragraph), "\u2022 first\n\n\u2022 second")
 })
+
+test_with_pandoc("nested Divs retain the enclosing list indentation", {
+  paragraph <- as_paragraph_md(
+    "- parent\n\n  ::: {.foo}\n  - child\n  :::\n- sibling"
+  )[[1L]]
+  expect_identical(
+    paragraph2txt(paragraph),
+    "\u2022 parent\n\n  \u2022 child\n\n\u2022 sibling"
+  )
+})
