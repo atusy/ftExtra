@@ -102,3 +102,21 @@ test_with_pandoc("Div paragraphs inside definitions retain their separator", {
   )[[1L]]
   expect_match(paragraph2txt(paragraph), "first | second", fixed = TRUE)
 })
+
+test_with_pandoc("Div paragraphs inside tables retain their separator", {
+  paragraph <- as_paragraph_md(
+    "<table><tr><td><div><p>first</p><p>second</p></div></td></tr></table>",
+    .from = "html",
+    .sep = " | "
+  )[[1L]]
+  expect_match(paragraph2txt(paragraph), "first | second", fixed = TRUE)
+})
+
+test_with_pandoc("Div paragraphs inside figures retain their separator", {
+  paragraph <- as_paragraph_md(
+    "<figure><div><p>first</p><p>second</p></div></figure>",
+    .from = "html",
+    .sep = " | "
+  )[[1L]]
+  expect_match(paragraph2txt(paragraph), "first | second", fixed = TRUE)
+})
