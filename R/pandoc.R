@@ -18,7 +18,7 @@ lua_filters <- function(.sep = "\n\n") {
     if (rmarkdown::pandoc_available("2.7.3")) {
       c(
         lua("math.lua"),
-        meta("pandoc_path", rmarkdown::pandoc_exec()),
+        meta("pandoc-path", rmarkdown::pandoc_exec()),
         if (!rmarkdown::pandoc_available("2.10")) {
           meta("temporary-directory", tempdir())
         }
