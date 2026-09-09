@@ -53,3 +53,10 @@ test_with_pandoc("fancy ordered lists use decimal markers", {
   paragraph <- as_paragraph_md("c.  third\nd.  fourth")[[1L]]
   expect_identical(paragraph2txt(paragraph), "3. third\n\n4. fourth")
 })
+
+test_with_pandoc("lists inside block quotes keep item boundaries", {
+  paragraph <- as_paragraph_md(
+    "> - first\n> - second"
+  )[[1L]]
+  expect_identical(paragraph2txt(paragraph), "\u2022 first\n\n\u2022 second")
+})

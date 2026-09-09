@@ -15,6 +15,10 @@ local function expand_lists(blocks, indent)
 				table.insert(content, 1, pandoc.Str(indent .. marker))
 				table.insert(expanded, pandoc.Para(content))
 			end
+		elseif block.t == "BlockQuote" then
+			for _, child in ipairs(expand_lists(block.content, indent)) do
+				table.insert(expanded, child)
+			end
 		else
 			table.insert(expanded, block)
 		end
