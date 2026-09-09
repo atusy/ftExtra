@@ -3,5 +3,24 @@ render_metadata <- function() {
   if (!nzchar(info)) {
     return(rmarkdown::metadata)
   }
-  jsonlite::read_json(info)$format$metadata
+  context <- jsonlite::read_json(info)
+  metadata <- context$format$metadata
+  document <- context[["document-path"]]
+  if (!is.null(document)) {
+    # Quarto resolves resource paths relative to the source document, not getwd().
+    resolve_path <- function(path) {
+      if (xfun::is_abs_path(path) || grepl("^[[:alpha:]][[:alnum:]+.-]*:", path)) {
+        return(path)
+      }
+      file.path(dirname(document), path)
+    }
+    for (key in c("bibliography", "csl", "citation-abbreviations")) {
+      if (is.character(metadata[[key]])) {
+        metadata[[key]] <- vapply(metadata[[key]], resolve_path, "", USE.NAMES = FALSE)
+      } else if (is.list(metadata[[key]])) {
+        metadata[[key]] <- lapply(metadata[[key]], resolve_path)
+      }
+    }
+  }
+  metadata
 }
