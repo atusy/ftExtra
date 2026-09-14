@@ -1,5 +1,9 @@
 # ftExtra 0.6.4.9999
 
+* Markdown images without explicit dimensions now obtain their size using
+  `flextable::as_image()`, allowing `flextable::save_as_image()` to render them
+  (#109). Automatic sizing requires the optional magick package.
+
 * Use resolved Quarto execution metadata for citations in books and other
   documents when available (Quarto 1.8 or later; #112).
 

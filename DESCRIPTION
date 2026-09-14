@@ -42,6 +42,7 @@ Imports:
     yaml,
     vctrs
 Suggests: 
+    magick,
     testthat (>= 3.3.2),
     knitr,
     qpdf,

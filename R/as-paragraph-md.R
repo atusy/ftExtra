@@ -41,13 +41,28 @@ organize <- function(md_df, auto_color_link, .solve_footnote) {
 }
 
 construct_chunk <- function(x, auto_color_link = "blue") {
+  width <- image_size(x$Image, "width")
+  height <- image_size(x$Image, "height")
+  for (i in seq_along(x$Image)) {
+    if (!is.null(x$Image[[i]]) && (is.na(width[i]) || is.na(height[i]))) {
+      size <- flextable::as_image(src = x$Image[[i]])
+      if (!is.na(width[i])) {
+        height[i] <- width[i] * size$height / size$width
+      } else if (!is.na(height[i])) {
+        width[i] <- height[i] * size$width / size$height
+      } else {
+        width[i] <- size$width
+        height[i] <- size$height
+      }
+    }
+  }
   flextable::chunk_dataframe(
     txt = x$txt %||% "", # x can be empty list when input is empty string
     italic = x$Emph %||% NA,
     bold = x$Strong %||% NA,
     url = x$Link %||% NA_character_,
-    width = image_size(x$Image, "width"),
-    height = image_size(x$Image, "height"),
+    width = width,
+    height = height,
     vertical.align = vertical_align(x$Superscript, x$Subscript),
     underlined = x$Underline %||% NA,
     color = x$color %||% NA_character_,

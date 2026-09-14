@@ -281,6 +281,10 @@ Some notes:
 
 Images can be inserted optionally with width and/or height attributes.
 Specifying one of them changes the other while keeping the aspect ratio.
+When either dimension is omitted, the optional **magick** package is required
+to read the image dimensions. With neither specified, dimensions are calculated
+at 72 pixels per inch, following `flextable::as_image()`.
+Specify both dimensions (in inches) to avoid automatic sizing.
 
 ```{r}
 data.frame(
