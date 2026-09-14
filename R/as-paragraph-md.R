@@ -46,8 +46,14 @@ construct_chunk <- function(x, auto_color_link = "blue") {
   for (i in seq_along(x$Image)) {
     if (!is.null(x$Image[[i]]) && (is.na(width[i]) || is.na(height[i]))) {
       size <- flextable::as_image(src = x$Image[[i]])
-      width[i] <- size$width
-      height[i] <- size$height
+      if (!is.na(width[i])) {
+        height[i] <- width[i] * size$height / size$width
+      } else if (!is.na(height[i])) {
+        width[i] <- height[i] * size$width / size$height
+      } else {
+        width[i] <- size$width
+        height[i] <- size$height
+      }
     }
   }
   flextable::chunk_dataframe(

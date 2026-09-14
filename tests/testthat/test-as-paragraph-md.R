@@ -34,3 +34,17 @@ test_with_pandoc("markdown images have intrinsic dimensions", {
   expect_equal(chunk$width, size$width / 72)
   expect_equal(chunk$height, size$height / 72)
 })
+
+test_with_pandoc("a single image dimension preserves the aspect ratio", {
+  skip_if_not_installed("magick")
+  src <- normalizePath(file.path(R.home("doc"), "html", "logo.jpg"),
+    winslash = "/"
+  )
+  size <- magick::image_info(magick::image_read(src))
+  chunk <- as_paragraph_md(sprintf("![](%s){width=2}", src))[[1L]]
+  expect_equal(chunk$width, 2)
+  expect_equal(chunk$height, 2 * size$height / size$width)
+  chunk <- as_paragraph_md(sprintf("![](%s){height=3}", src))[[1L]]
+  expect_equal(chunk$height, 3)
+  expect_equal(chunk$width, 3 * size$width / size$height)
+})
