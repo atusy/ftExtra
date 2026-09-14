@@ -23,3 +23,14 @@ test_with_pandoc("as_paragraph_md renders math", {
   expect_identical(nchar(math), 1L)
   expect_identical(math, "\u03b1")
 })
+
+test_with_pandoc("markdown images have intrinsic dimensions", {
+  skip_if_not_installed("magick")
+  src <- normalizePath(file.path(R.home("doc"), "html", "logo.jpg"),
+    winslash = "/"
+  )
+  size <- magick::image_info(magick::image_read(src))
+  chunk <- as_paragraph_md(sprintf("![](%s)", src))[[1L]]
+  expect_equal(chunk$width, size$width / 72)
+  expect_equal(chunk$height, size$height / 72)
+})
