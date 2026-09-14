@@ -286,7 +286,7 @@ to read the image dimensions. With neither specified, dimensions are calculated
 at 72 pixels per inch, following `flextable::as_image()`.
 Specify both dimensions (in inches) to avoid automatic sizing.
 
-```{r}
+```{r, eval=knitr::opts_chunk$get("eval") && requireNamespace("magick", quietly = TRUE)}
 data.frame(
   R = sprintf("![](%s)", file.path(R.home("doc"), "html", "logo.jpg")),
   stringsAsFactors = FALSE
