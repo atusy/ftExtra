@@ -13,8 +13,8 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{flextable}{\code{\link[flextable]{as_flextable}}, \code{\link[flextable]{flextable}}}
+  \item{flextable}{\code{\link[flextable:as_flextable]{as_flextable()}}, \code{\link[flextable:flextable]{flextable()}}}
 
-  \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
+  \item{magrittr}{\code{\link[magrittr:\%>\%]{\%>\%}}}
 }}
 
