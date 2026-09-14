@@ -9,7 +9,7 @@ as_paragraph_md(
   auto_color_link = "blue",
   md_extensions = NULL,
   pandoc_args = NULL,
-  metadata = rmarkdown::metadata,
+  metadata = render_metadata(),
   replace_na = "",
   .from = "markdown+autolink_bare_uris-raw_html-raw_attribute",
   .footnote_options = NULL,
@@ -27,9 +27,15 @@ formats specified to \code{.from} can be used. See
 
 \item{pandoc_args}{Additional command line options to pass to pandoc}
 
-\item{metadata}{A list of metadata, typically the parsed result of the YAML front matter
-(default: \code{rmarkdown::metadata}). This value is used iff the \code{.from}
-argument specifies the input format that supports the YAML metadata blocks.}
+\item{metadata}{A list of metadata, typically the parsed result of the YAML front matter.
+By default, uses resolved Quarto execution metadata when
+\code{QUARTO_EXECUTE_INFO} is set (Quarto 1.8 or later), otherwise
+\code{rmarkdown::metadata}. Explicit values, including \code{NULL} or \code{list()},
+override this default. Inherited bibliography, CSL, and citation-abbreviation
+paths are resolved relative to the Quarto source document when the file
+exists there; other names retain Pandoc's resource lookup.
+This value is used iff the \code{.from} argument specifies an input format
+that supports YAML metadata blocks.}
 
 \item{replace_na}{A value to replace \code{NA} (default = \code{""}).}
 

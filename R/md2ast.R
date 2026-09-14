@@ -4,7 +4,7 @@
 #' @noRd
 md2ast <- function(x,
                    pandoc_args = NULL,
-                   metadata = rmarkdown::metadata,
+                   metadata = render_metadata(),
                    .from = "markdown") {
   tf <- tempfile()
 
@@ -20,7 +20,9 @@ md2ast <- function(x,
     to = "json",
     from = .from,
     output = tf,
-    citeproc = !is.null(metadata[["bibliography"]]) || any(grepl("^--bibliography", pandoc_args)),
+    citeproc = !is.null(metadata[["bibliography"]]) ||
+      length(metadata[["references"]]) > 0L ||
+      any(grepl("^--bibliography", pandoc_args)),
     options = pandoc_args,
     wd = getwd()
   )

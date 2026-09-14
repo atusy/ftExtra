@@ -76,9 +76,15 @@ construct_chunk <- function(x, auto_color_link = "blue") {
 #'   formats specified to `.from` can be used. See
 #'   <https://www.pandoc.org/MANUAL.html#extensions> for details.
 #' @param metadata
-#'   A list of metadata, typically the parsed result of the YAML front matter
-#'   (default: `rmarkdown::metadata`). This value is used iff the `.from`
-#'   argument specifies the input format that supports the YAML metadata blocks.
+#'   A list of metadata, typically the parsed result of the YAML front matter.
+#'   By default, uses resolved Quarto execution metadata when
+#'   `QUARTO_EXECUTE_INFO` is set (Quarto 1.8 or later), otherwise
+#'   `rmarkdown::metadata`. Explicit values, including `NULL` or `list()`,
+#'   override this default. Inherited bibliography, CSL, and citation-abbreviation
+#'   paths are resolved relative to the Quarto source document when the file
+#'   exists there; other names retain Pandoc's resource lookup.
+#'   This value is used iff the `.from` argument specifies an input format
+#'   that supports YAML metadata blocks.
 #' @param replace_na A value to replace `NA` (default = `""`).
 #' @param .from
 #'   Pandoc's `--from` argument (default: `'markdown+autolink_bare_uris'`).
@@ -106,7 +112,7 @@ as_paragraph_md <- function(
     auto_color_link = "blue",
     md_extensions = NULL,
     pandoc_args = NULL,
-    metadata = rmarkdown::metadata,
+    metadata = render_metadata(),
     replace_na = "",
     .from = "markdown+autolink_bare_uris-raw_html-raw_attribute",
     .footnote_options = NULL,
@@ -151,7 +157,7 @@ as_paragraph_md <- function(
         return(construct_chunk(list()))
       }
       y <- x %>%
-        md2df(pandoc_args = pandoc_args, .from = .from) %>%
+        md2df(pandoc_args = pandoc_args, metadata = metadata, .from = .from) %>%
         .solve_footnote() %>%
         as.list()
       construct_chunk(as.list(y), auto_color_link)

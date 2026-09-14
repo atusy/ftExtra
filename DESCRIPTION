@@ -44,7 +44,8 @@ Imports:
 Suggests: 
     testthat (>= 3.3.2),
     knitr,
-    qpdf
+    qpdf,
+    withr
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
