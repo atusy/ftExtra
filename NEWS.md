@@ -1,4 +1,4 @@
-# ftExtra 0.6.4.9999
+# ftExtra 0.6.5
 
 * Markdown images without explicit dimensions now obtain their size using
   `flextable::as_image()`, allowing `flextable::save_as_image()` to render them
